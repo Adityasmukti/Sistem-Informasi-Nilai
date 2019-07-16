@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0390F31-0BD0-44BB-9014-09A99A27AEE6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SINIS</RootNamespace>
+    <AssemblyName>SINIS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MessageBoxManager">
+      <HintPath>..\Reference\MessageBoxManager.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.16\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auth\FHakAkses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auth\FHakAkses.Designer.cs">
+      <DependentUpon>FHakAkses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\FKelolaUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auth\FKelolaUser.Designer.cs">
+      <DependentUpon>FKelolaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auth\FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\FUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auth\FUser.Designer.cs">
+      <DependentUpon>FUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxs\FDeskripsi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxs\FDeskripsi.Designer.cs">
+      <DependentUpon>FDeskripsi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxs\FHistoryUbahOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxs\FHistoryUbahOrder.Designer.cs">
+      <DependentUpon>FHistoryUbahOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxs\FListProduk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxs\FListProduk.Designer.cs">
+      <DependentUpon>FListProduk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxs\FShowData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxs\FShowData.Designer.cs">
+      <DependentUpon>FShowData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxs\FShowProduk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxs\FShowProduk.Designer.cs">
+      <DependentUpon>FShowProduk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auxs\FUpdatePackingHarian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auxs\FUpdatePackingHarian.Designer.cs">
+      <DependentUpon>FUpdatePackingHarian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ModulData.cs" />
+    <Compile Include="Class\ModulRef.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTentang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTentang.Designer.cs">
+      <DependentUpon>FTentang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Laporan\FInputNilai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Laporan\FInputNilai.Designer.cs">
+      <DependentUpon>FInputNilai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Laporan\FLaporanNilai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Laporan\FLaporanNilai.Designer.cs">
+      <DependentUpon>FLaporanNilai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Laporan\FRaport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Laporan\FRaport.Designer.cs">
+      <DependentUpon>FRaport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Master\FInputGuru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Master\FInputGuru.Designer.cs">
+      <DependentUpon>FInputGuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Master\FInputSiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Master\FInputSiswa.Designer.cs">
+      <DependentUpon>FInputSiswa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Master\FKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Master\FKelas.Designer.cs">
+      <DependentUpon>FKelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Master\FPelajaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Master\FPelajaran.Designer.cs">
+      <DependentUpon>FPelajaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Master\Master.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Master\Master.Designer.cs">
+      <DependentUpon>Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Penjadwalan\FPengajaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Penjadwalan\FPengajaran.Designer.cs">
+      <DependentUpon>FPengajaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Penjadwalan\FRuangKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Penjadwalan\FRuangKelas.Designer.cs">
+      <DependentUpon>FRuangKelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Settings\FSettingDb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Settings\FSettingDb.Designer.cs">
+      <DependentUpon>FSettingDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Old\Settings\FTentang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Old\Settings\FTentang.Designer.cs">
+      <DependentUpon>FTentang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\FMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FMainMenu.designer.cs">
+      <DependentUpon>FMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FOpenOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FOpenOrder.Designer.cs">
+      <DependentUpon>FOpenOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FSelectDefaultPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FSelectDefaultPrinter.Designer.cs">
+      <DependentUpon>FSelectDefaultPrinter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FSettingApps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FSettingApps.designer.cs">
+      <DependentUpon>FSettingApps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FSettingDb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FSettingDb.Designer.cs">
+      <DependentUpon>FSettingDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FSettingLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FSettingLabel.Designer.cs">
+      <DependentUpon>FSettingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FSettings.Designer.cs">
+      <DependentUpon>FSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FSettingStiker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FSettingStiker.Designer.cs">
+      <DependentUpon>FSettingStiker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FTentang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FTentang.Designer.cs">
+      <DependentUpon>FTentang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\FTes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\FTes.Designer.cs">
+      <DependentUpon>FTes.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Auth\FHakAkses.resx">
+      <DependentUpon>FHakAkses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auth\FKelolaUser.resx">
+      <DependentUpon>FKelolaUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auth\FLogin.resx">
+      <DependentUpon>FLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auth\FUser.resx">
+      <DependentUpon>FUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auxs\FDeskripsi.resx">
+      <DependentUpon>FDeskripsi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auxs\FHistoryUbahOrder.resx">
+      <DependentUpon>FHistoryUbahOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auxs\FListProduk.resx">
+      <DependentUpon>FListProduk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auxs\FShowData.resx">
+      <DependentUpon>FShowData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auxs\FShowProduk.resx">
+      <DependentUpon>FShowProduk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Auxs\FUpdatePackingHarian.resx">
+      <DependentUpon>FUpdatePackingHarian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTentang.resx">
+      <DependentUpon>FTentang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Laporan\FInputNilai.resx">
+      <DependentUpon>FInputNilai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Laporan\FLaporanNilai.resx">
+      <DependentUpon>FLaporanNilai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Laporan\FRaport.resx">
+      <DependentUpon>FRaport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Master\FInputGuru.resx">
+      <DependentUpon>FInputGuru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Master\FInputSiswa.resx">
+      <DependentUpon>FInputSiswa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Master\FKelas.resx">
+      <DependentUpon>FKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Master\FPelajaran.resx">
+      <DependentUpon>FPelajaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Master\Master.resx">
+      <DependentUpon>Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Penjadwalan\FPengajaran.resx">
+      <DependentUpon>FPengajaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Penjadwalan\FRuangKelas.resx">
+      <DependentUpon>FRuangKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Settings\FSettingDb.resx">
+      <DependentUpon>FSettingDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Old\Settings\FTentang.resx">
+      <DependentUpon>FTentang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Settings\FMainMenu.resx">
+      <DependentUpon>FMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FOpenOrder.resx">
+      <DependentUpon>FOpenOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FSelectDefaultPrinter.resx">
+      <DependentUpon>FSelectDefaultPrinter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FSettingApps.resx">
+      <DependentUpon>FSettingApps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FSettingDb.resx">
+      <DependentUpon>FSettingDb.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FSettingLabel.resx">
+      <DependentUpon>FSettingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FSettings.resx">
+      <DependentUpon>FSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FSettingStiker.resx">
+      <DependentUpon>FSettingStiker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FTentang.resx">
+      <DependentUpon>FTentang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\FTes.resx">
+      <DependentUpon>FTes.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pengajar\" />
+    <Folder Include="Siswa\" />
+    <Folder Include="TU\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Old\Resources\modern-technological-elements-with-transparent-background_1035-7108.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
