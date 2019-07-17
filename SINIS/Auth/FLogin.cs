@@ -84,8 +84,8 @@ namespace SINIS.Auth
                 MessageBox.Show("User dan Password harus di isi!!", "PERINGATAN", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                A.SetQueri("SELECT `id_user`, `id_akses`, `username`, `noadmin`, `nama` " +
-                    "FROM `m_user` WHERE `userdelete`='N' AND `username`='" + tbusername.Text +
+                A.SetQueri("SELECT `id_user`, `id_akses`, `username`, `nama` " +
+                    "FROM `m_user` WHERE `hapus`='N' AND `username`='" + tbusername.Text +
                     "' AND `password`=MD5('" + tbpassword.Text + "') LIMIT 1");
                 bool ada = false;
 
@@ -94,7 +94,6 @@ namespace SINIS.Auth
                     S.SetUsername(baris["username"].ToString().EncodeUtf8());
                     S.SetUseracces(baris["id_akses"].ToString());
                     S.SetUserid(baris["id_user"].ToString());
-                    S.SetNoadmin(baris["noadmin"].ToString());
                     S.SetUsernama(baris["nama"].ToString());
                     ada = true;
                 }
@@ -156,42 +155,6 @@ namespace SINIS.Auth
                 tbusername.ForeColor = Color.Black;
             }
         }
-        //private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    ModulData DM = new ModulData();
-        //    DateTime hariawalbulan = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-        //    DateTime hariakhirbulan = hariawalbulan.AddMonths(1).AddDays(-1);
-        //    DateTime sekarang = DateTime.Now;
-        //    if ((hariakhirbulan.DayOfWeek.ToString().ToUpper() == "SUNDAY") ||
-        //        (hariakhirbulan.DayOfWeek.ToString().ToUpper() == "MINGGU"))
-        //    {
-        //        hariakhirbulan = hariawalbulan.AddMonths(1).AddDays(-2);
-        //    }
-
-        //    if (sekarang.Day == hariakhirbulan.Day)
-        //    {
-        //        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Backup");
-        //        string file = Path.Combine(path, DateTime.Now.ToString("dddd_dd-MM-yyyy") + ".sql");
-        //        Directory.CreateDirectory(path);
-        //        if (!File.Exists(file))
-        //        {
-        //            string constring = DM.koneksi.ConnectionString;
-        //            using (MySqlConnection conn = new MySqlConnection(constring))
-        //            {
-        //                using (MySqlCommand cmd = new MySqlCommand())
-        //                {
-        //                    using (MySqlBackup mb = new MySqlBackup(cmd))
-        //                    {
-        //                        cmd.Connection = conn;
-        //                        conn.Open();
-        //                        mb.ExportToFile(file);
-        //                        conn.Close();
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
         private void FLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F11)

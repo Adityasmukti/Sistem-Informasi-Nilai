@@ -30,6 +30,48 @@ namespace ExtensionMethods
         private static List<string> id;
         private static PrintDocument PDD;
         private static PrintDocument PDB;
+        private static string host = "", uid = "", pwd = "", db = "", port = "";
+        public static void SetHost(string value)
+        {
+            host = value;
+        }
+        public static string GetHost()
+        {
+            return host;
+        }
+        public static void SetUid(string value)
+        {
+            uid = value;
+        }
+        public static string GetUid()
+        {
+            return uid;
+        }
+        public static void SetPwd(string value)
+        {
+            pwd = value;
+        }
+        public static string GetPwd()
+        {
+            return pwd;
+        }
+        public static void SetDb(string value)
+        {
+            db = value;
+        }
+        public static string GetDb()
+        {
+            return db;
+        }
+        public static void SetPort(string value)
+        {
+            port = value;
+        }
+        public static string GetPort()
+        {
+            return port;
+        }
+
         private static readonly string semua = "SEMUA";
         public static string GetSemua()
         {
@@ -3562,18 +3604,7 @@ public static class Halaman
             SetForecolor(DM.GetDataSettings("forecolor").StringToColor());
             SetBackcolor(DM.GetDataSettings("backcolor").StringToColor());
             SetPrintcolor(DM.GetDataSettings("printcolor").StringToColor());
-            SetReplaymessage(DM.GetDataSettings("replaymessage"));
-            SetKodekeep(DM.GetDataSettings("kodekeep"));
-            SetDefaultkurir(DM.GetDataSettings("defaultkurir"));
-            SetDefaultservice(DM.GetDataSettings("defaultservice"));
-            SetApikeyrajaongkir(DM.GetDataSettings("apikeyrajaongkir"));
-            SetOriginsubdistrict(DM.GetDataSettings("originsubdistrict"));
-            SetOrigincity(DM.GetDataSettings("origincity"));
-            SetOrigintype(DM.GetDataSettings("origintype"));
-            SetUrlcekorder(DM.GetDataSettings("cekorder"));
-            SetNotifsound(Path.Combine(Environment.CurrentDirectory, "Resources", "definite.mp3"));
             SetEndIpAddress(A.GetEndLocalIpAddress());
-            SetStockInput(DM.GetDataSettings("getstock").ToInteger());
         }
         private static string notifsound = "";
         public static string GetNotifsound()

@@ -18,19 +18,13 @@ public class ModulData
         DI SINI TEMPAT UNTUK MENEMPATKAN PUBLIC FUNCTION
     ====================================================================================================================================================        
      */
-    private string server = "";
-    private string database = "";
-    private string uid = "";
-    private string pwd = "";
-    private string port = "";
-
     public ModulData()
     {
-        string strcon = "server = " + server + ";" +
-            "database=" + database + ";" +
-            "uid=" + uid + ";" +
-            "pwd=" + pwd + ";" +
-            "port=" + port + ";" +
+        string strcon = "server = " + A.GetHost() + ";" +
+            "database=" + A.GetDb() + ";" +
+            "uid=" + A.GetUid() + ";" +
+            "pwd=" +A.GetPwd() + ";" +
+            "port=" + A.GetPort() + ";" +
             "SslMode=none;" +
             "Pooling=true;" +
             "Min Pool Size=0;" +
