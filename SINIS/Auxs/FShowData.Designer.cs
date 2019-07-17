@@ -1,4 +1,4 @@
-﻿namespace AtelierAngelinaApps.Auxs
+﻿namespace SINIS.Auxs
 {
     partial class FShowData
     {
@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FListProduk));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbs_datang = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbshakakses = new System.Windows.Forms.ToolStripStatusLabel();
@@ -300,11 +299,10 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "FListProduk";
+            this.Name = "FShowData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LIST PRODUK";
+            this.Text = "SHOW DATA";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

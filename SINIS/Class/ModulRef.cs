@@ -3548,11 +3548,6 @@ public static class Halaman
                     ClearControl((GroupBox)a);
             }
         }
-        public static void SetPersentaseHarga(this TextBox tb)
-        {
-            string queri = "UPDATE `r_settings` SET `nilai` = '" + tb.Text + "' WHERE `pengaturan` = 'persentaseharga';";
-            DM.ManipulasiData(queri);
-        }
         public static void SetSettings()
         {
             SetDivs(DM.GetDataSettings("divs").ToInteger());

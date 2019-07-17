@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using ExtensionMethods;
 
-namespace AtelierAngelinaApps.Modul_HRD
+namespace SINIS.Auth
 {
     public partial class FHakAkses : Form
     {
@@ -29,7 +29,7 @@ namespace AtelierAngelinaApps.Modul_HRD
                     Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("ID HAK AKSES")].Value.ToString());
                 if (A.GetQueri().ManipulasiData())
                 {
-                    AutoClosingMessageBox.Show("Data berhasil di simpan!", "Informasi", 2000);
+                    //AutoClosingMessageBox.Show("Data berhasil di simpan!", "Informasi", 2000);
                     tbket.Clear();
                     tbhakakses.Clear();
                     Loaddb();

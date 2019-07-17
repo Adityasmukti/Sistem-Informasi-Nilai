@@ -1,4 +1,4 @@
-﻿namespace AtelierAngelinaApps
+﻿namespace SINIS.Settings
 {
     partial class FSettingDb
     {

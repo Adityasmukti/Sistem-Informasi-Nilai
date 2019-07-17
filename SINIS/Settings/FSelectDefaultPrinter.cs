@@ -3,7 +3,7 @@ using System.Management;
 using System.Windows.Forms;
 using ExtensionMethods;
 
-namespace AtelierAngelinaApps.Applications
+namespace SINIS.Settings
 {
     public partial class FSelectDefaultPrinter : Form
     {
@@ -20,7 +20,7 @@ namespace AtelierAngelinaApps.Applications
             else
             {
                 MyPrinters.SetDefaultPrinter(CbPrinter.Text);
-                AutoClosingMessageBox.Show("Tersimpan", "Informasi", 2000);
+                MessageBox.Show("Tersimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }

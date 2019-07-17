@@ -1,4 +1,4 @@
-﻿namespace AtelierAngelinaApps.Auxs
+﻿namespace SINIS.Auxs
 {
     partial class FDeskripsi
     {

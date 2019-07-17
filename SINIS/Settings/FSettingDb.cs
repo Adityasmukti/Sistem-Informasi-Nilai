@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using ExtensionMethods;
 
-namespace AtelierAngelinaApps
+namespace SINIS.Settings
 {
     public partial class FSettingDb : Form
     {

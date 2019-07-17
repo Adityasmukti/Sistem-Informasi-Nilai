@@ -95,141 +95,117 @@
     <Compile Include="Auxs\FDeskripsi.Designer.cs">
       <DependentUpon>FDeskripsi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Auxs\FHistoryUbahOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Auxs\FHistoryUbahOrder.Designer.cs">
-      <DependentUpon>FHistoryUbahOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Auxs\FListProduk.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Auxs\FListProduk.Designer.cs">
-      <DependentUpon>FListProduk.cs</DependentUpon>
-    </Compile>
     <Compile Include="Auxs\FShowData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Auxs\FShowData.Designer.cs">
       <DependentUpon>FShowData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Auxs\FShowProduk.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Auxs\FShowProduk.Designer.cs">
-      <DependentUpon>FShowProduk.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Auxs\FUpdatePackingHarian.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Auxs\FUpdatePackingHarian.Designer.cs">
-      <DependentUpon>FUpdatePackingHarian.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class\ModulData.cs" />
     <Compile Include="Class\ModulRef.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FTentang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FTentang.Designer.cs">
       <DependentUpon>FTentang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Laporan\FInputNilai.cs">
+    <Compile Include="Pengajar\FInputNilai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Laporan\FInputNilai.Designer.cs">
+    <Compile Include="Pengajar\FInputNilai.Designer.cs">
       <DependentUpon>FInputNilai.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Laporan\FLaporanNilai.cs">
+    <Compile Include="Pengajar\FLaporanNilai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Laporan\FLaporanNilai.Designer.cs">
+    <Compile Include="Pengajar\FLaporanNilai.Designer.cs">
       <DependentUpon>FLaporanNilai.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Laporan\FRaport.cs">
+    <Compile Include="Pengajar\FRaport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Laporan\FRaport.Designer.cs">
+    <Compile Include="Pengajar\FRaport.Designer.cs">
       <DependentUpon>FRaport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Master\FInputGuru.cs">
+    <Compile Include="TU\FInputGuru.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Master\FInputGuru.Designer.cs">
+    <Compile Include="TU\FInputGuru.Designer.cs">
       <DependentUpon>FInputGuru.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Master\FInputSiswa.cs">
+    <Compile Include="TU\FInputSiswa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Master\FInputSiswa.Designer.cs">
+    <Compile Include="TU\FInputSiswa.Designer.cs">
       <DependentUpon>FInputSiswa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Master\FKelas.cs">
+    <Compile Include="Pengajar\FKelas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Master\FKelas.Designer.cs">
+    <Compile Include="Pengajar\FKelas.Designer.cs">
       <DependentUpon>FKelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Master\FPelajaran.cs">
+    <Compile Include="Pengajar\FPelajaran.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Master\FPelajaran.Designer.cs">
+    <Compile Include="Pengajar\FPelajaran.Designer.cs">
       <DependentUpon>FPelajaran.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Master\Master.cs">
+    <Compile Include="TU\FJenisNilai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Master\Master.Designer.cs">
+    <Compile Include="TU\FJenisNilai.Designer.cs">
+      <DependentUpon>FJenisNilai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TU\FMasterGuru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TU\FMasterGuru.Designer.cs">
+      <DependentUpon>FMasterGuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TU\FMasterKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TU\FMasterKelas.Designer.cs">
+      <DependentUpon>FMasterKelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TU\FMasterPelajaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TU\FMasterPelajaran.Designer.cs">
+      <DependentUpon>FMasterPelajaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TU\FMasterSiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TU\FMasterSiswa.Designer.cs">
+      <DependentUpon>FMasterSiswa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TU\Master.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TU\Master.Designer.cs">
       <DependentUpon>Master.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Menu.cs">
+    <Compile Include="TU\FPengajaran.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Penjadwalan\FPengajaran.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Old\Penjadwalan\FPengajaran.Designer.cs">
+    <Compile Include="TU\FPengajaran.Designer.cs">
       <DependentUpon>FPengajaran.cs</DependentUpon>
     </Compile>
-    <Compile Include="Old\Penjadwalan\FRuangKelas.cs">
+    <Compile Include="TU\FRuangKelas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Old\Penjadwalan\FRuangKelas.Designer.cs">
+    <Compile Include="TU\FRuangKelas.Designer.cs">
       <DependentUpon>FRuangKelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Settings\FSettingDb.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Old\Settings\FSettingDb.Designer.cs">
-      <DependentUpon>FSettingDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Settings\FTentang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Old\Settings\FTentang.Designer.cs">
-      <DependentUpon>FTentang.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\FMainMenu.cs">
+    <Compile Include="FMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\FMainMenu.designer.cs">
+    <Compile Include="FMainMenu.designer.cs">
       <DependentUpon>FMainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\FOpenOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\FOpenOrder.Designer.cs">
-      <DependentUpon>FOpenOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\FSelectDefaultPrinter.cs">
       <SubType>Form</SubType>
@@ -248,36 +224,6 @@
     </Compile>
     <Compile Include="Settings\FSettingDb.Designer.cs">
       <DependentUpon>FSettingDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\FSettingLabel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\FSettingLabel.Designer.cs">
-      <DependentUpon>FSettingLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\FSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\FSettings.Designer.cs">
-      <DependentUpon>FSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\FSettingStiker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\FSettingStiker.Designer.cs">
-      <DependentUpon>FSettingStiker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\FTentang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\FTentang.Designer.cs">
-      <DependentUpon>FTentang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\FTes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\FTes.Designer.cs">
-      <DependentUpon>FTes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Auth\FHakAkses.resx">
       <DependentUpon>FHakAkses.cs</DependentUpon>
@@ -298,62 +244,41 @@
     <EmbeddedResource Include="Auxs\FDeskripsi.resx">
       <DependentUpon>FDeskripsi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Auxs\FHistoryUbahOrder.resx">
-      <DependentUpon>FHistoryUbahOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Auxs\FListProduk.resx">
-      <DependentUpon>FListProduk.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Auxs\FShowData.resx">
       <DependentUpon>FShowData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Auxs\FShowProduk.resx">
-      <DependentUpon>FShowProduk.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Auxs\FUpdatePackingHarian.resx">
-      <DependentUpon>FUpdatePackingHarian.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FTentang.resx">
       <DependentUpon>FTentang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Laporan\FInputNilai.resx">
+    <EmbeddedResource Include="Pengajar\FInputNilai.resx">
       <DependentUpon>FInputNilai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Laporan\FLaporanNilai.resx">
+    <EmbeddedResource Include="Pengajar\FLaporanNilai.resx">
       <DependentUpon>FLaporanNilai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Laporan\FRaport.resx">
+    <EmbeddedResource Include="Pengajar\FRaport.resx">
       <DependentUpon>FRaport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Master\FInputGuru.resx">
+    <EmbeddedResource Include="TU\FInputGuru.resx">
       <DependentUpon>FInputGuru.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Master\FInputSiswa.resx">
+    <EmbeddedResource Include="TU\FInputSiswa.resx">
       <DependentUpon>FInputSiswa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Master\FKelas.resx">
+    <EmbeddedResource Include="Pengajar\FKelas.resx">
       <DependentUpon>FKelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Master\FPelajaran.resx">
+    <EmbeddedResource Include="Pengajar\FPelajaran.resx">
       <DependentUpon>FPelajaran.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Master\Master.resx">
+    <EmbeddedResource Include="TU\Master.resx">
       <DependentUpon>Master.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Old\Penjadwalan\FPengajaran.resx">
+    <EmbeddedResource Include="TU\FPengajaran.resx">
       <DependentUpon>FPengajaran.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Old\Penjadwalan\FRuangKelas.resx">
+    <EmbeddedResource Include="TU\FRuangKelas.resx">
       <DependentUpon>FRuangKelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Old\Settings\FSettingDb.resx">
-      <DependentUpon>FSettingDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Old\Settings\FTentang.resx">
-      <DependentUpon>FTentang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -364,11 +289,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Settings\FMainMenu.resx">
+    <EmbeddedResource Include="FMainMenu.resx">
       <DependentUpon>FMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\FOpenOrder.resx">
-      <DependentUpon>FOpenOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\FSelectDefaultPrinter.resx">
       <DependentUpon>FSelectDefaultPrinter.cs</DependentUpon>
@@ -379,22 +301,6 @@
     <EmbeddedResource Include="Settings\FSettingDb.resx">
       <DependentUpon>FSettingDb.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\FSettingLabel.resx">
-      <DependentUpon>FSettingLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\FSettings.resx">
-      <DependentUpon>FSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\FSettingStiker.resx">
-      <DependentUpon>FSettingStiker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\FTentang.resx">
-      <DependentUpon>FTentang.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\FTes.resx">
-      <DependentUpon>FTes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -411,12 +317,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pengajar\" />
     <Folder Include="Siswa\" />
-    <Folder Include="TU\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Old\Resources\modern-technological-elements-with-transparent-background_1035-7108.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

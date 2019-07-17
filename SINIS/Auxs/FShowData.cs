@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace AtelierAngelinaApps.Auxs
+namespace SINIS.Auxs
 {
     public partial class FShowData : Form
     {

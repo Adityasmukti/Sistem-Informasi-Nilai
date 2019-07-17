@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AtelierAngelinaApps.Applications
+namespace SINIS.Settings
 {
     public partial class FSettingApps : Form
     {
@@ -23,10 +23,7 @@ namespace AtelierAngelinaApps.Applications
         {
             InitializeComponent();
             this.SetControlFrom();
-            TbBatasExpire.KeyPress += A.NumberOnly_KeyPress;
-            TbBatasCancel.KeyPress += A.NumberOnly_KeyPress;
             TbJumlahBaris.KeyPress += A.NumberOnly_KeyPress;
-            TbWaktuSelesai.KeyPress += A.NumberOnly_KeyPress;
         }
         private bool CekControl(Control C, bool result = false)
         {
@@ -64,18 +61,8 @@ namespace AtelierAngelinaApps.Applications
                 MessageBox.Show("Ada field yang kosong!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                A.SetQueri("UPDATE `r_settings` SET `nilai` = '" + TbOrderMessage.Text.EncodeUtf8() + "' WHERE `pengaturan` = 'replaymessage';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbPesanStatus.Text.EncodeUtf8() + "' WHERE `pengaturan` = 'statusstripmessage';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbBatasCancel.Text + "' WHERE `pengaturan` = 'canceltime';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbBatasExpire.Text + "' WHERE `pengaturan` = 'expiretime';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbWaktuSelesai.Text + "' WHERE `pengaturan` = 'selesaitime';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + CbDefaultKurir.Text + "' WHERE `pengaturan` = 'defaultkurir';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + CbDefaultService.Text + "' WHERE `pengaturan` = 'defaultservice';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + idsubdistrict[CbKecamatanAsal.SelectedIndex] + "' WHERE `pengaturan` = 'originsubdistrict';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + idcity[CbKotaAsal.SelectedIndex] + "' WHERE `pengaturan` = 'origincity';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbJumlahBaris.Text + "' WHERE `pengaturan` = 'divs';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbLinkCekingOrder.Text.EncodeUtf8() + "' WHERE `pengaturan` = 'cekorder';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbKetKodeKeep.Text.EncodeUtf8() + "' WHERE `pengaturan` = 'kodekeep';");
 
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbPanelJuduBg.Text + "' WHERE `pengaturan` = 'colorpaneljudul';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbStatusbarBg.Text + "' WHERE `pengaturan` = 'statusstripmaincolor';");
@@ -86,16 +73,7 @@ namespace AtelierAngelinaApps.Applications
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbTombolFg.Text + "' WHERE `pengaturan` = 'buttonaksencolor';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbFg.Text + "' WHERE `pengaturan` = 'forecolor';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbBg.Text + "' WHERE `pengaturan` = 'backcolor';");
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + CbStatusStock.SelectedIndex + "' WHERE `pengaturan` = 'getstock';");
 
-                if (CbTypeAsal.SelectedIndex == 0)
-                    A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = 'subdistrict' WHERE `pengaturan` = 'origintype';");
-                else
-                    A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = 'city' WHERE `pengaturan` = 'origintype';");
-                if (CbCoceng.SelectedIndex == 0)
-                    A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '1' WHERE `pengaturan` = 'switchproduk';");//switchproduk
-                else if (CbCoceng.SelectedIndex == 1)
-                    A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '0' WHERE `pengaturan` = 'switchproduk';");//switchproduk
                 if (A.GetQueri().DBUpdate())
                 {
                     S.SetSettings();
@@ -106,25 +84,8 @@ namespace AtelierAngelinaApps.Applications
         {
             Close();
         }
-        private void BPengaturanAhli_Click(object sender, EventArgs e)
-        {
-            FSettings f = new FSettings();
-            f.ShowDialog();
-        }
-        private void CbKecamatanAsal_DropDown(object sender, EventArgs e)
-        {
-            if(CbKotaAsal.SelectedIndex>=0)
-            {
-                idsubdistrict = CbKecamatanAsal.LoadSubdistrict(out List<string> kodepos, idcity[CbKotaAsal.SelectedIndex], false);
-            }
-        }
         private void FSettingApps_Load(object sender, EventArgs e)
         {
-            idcity = CbKotaAsal.LoadCity(out List<string> kodepos);
-            string kecamatan = "";
-            CbDefaultKurir.LoadKurir("1", false);
-            CbDefaultService.LoadLayanan("", false);
-
             A.SetQueri("SELECT `pengaturan`, `nilai` FROM `r_settings`");
             foreach (DataRow b in A.GetQueri().GetData().Rows)
             {
@@ -132,60 +93,11 @@ namespace AtelierAngelinaApps.Applications
                 string pengaturan = b["pengaturan"].ToString();
                 switch (pengaturan)
                 {
-                    case "replaymessage":
-                        TbOrderMessage.Text = nilai.DecodeUtf8();
-                        break;
                     case "statusstripmessage":
                         TbPesanStatus.Text = nilai.DecodeUtf8();
                         break;
-                    case "getstock":
-                        CbStatusStock.SelectedIndex = nilai.ToInteger();
-                        break;
-                    case "canceltime":
-                        TbBatasCancel.Text = nilai;
-                        break;
-                    case "expiretime":
-                        TbBatasExpire.Text = nilai;
-                        break;
-                    case "selesaitime":
-                        TbWaktuSelesai.Text = nilai;
-                        break;
-                    case "defaultkurir":
-                        CbDefaultKurir.Text = nilai;
-                        break;
-                    case "defaultservice":
-                        CbDefaultService.Text = nilai;
-                        break;
-                    case "originsubdistrict":
-                        kecamatan = nilai;
-                        break;
-                    case "origincity":
-                        CbKotaAsal.SelectedIndex = idcity.FindIndex(x => x.Equals(nilai));
-                        break;
                     case "divs":
                         TbJumlahBaris.Text = nilai;
-                        break;
-                    case "cekorder":
-                        TbLinkCekingOrder.Text = nilai.DecodeUtf8();
-                        break;
-                    case "kodekeep":
-                        TbKetKodeKeep.Text = nilai.DecodeUtf8();
-                        break;
-                    case "origintype":
-                        {
-                            if (nilai == "city")
-                                CbTypeAsal.SelectedIndex = 1;
-                            else
-                                CbTypeAsal.SelectedIndex = 0;
-                        }
-                        break;
-                    case "switchproduk":
-                        {
-                            if (nilai == "1")
-                                CbCoceng.SelectedIndex = 0;
-                            else
-                                CbCoceng.SelectedIndex = 1;
-                        }
                         break;
                     case "colorpaneljudul":
                         {
@@ -241,11 +153,6 @@ namespace AtelierAngelinaApps.Applications
                             TbBg.Text = nilai;
                         }
                         break;
-                }
-                if (CbKotaAsal.SelectedIndex >= 0)
-                {
-                    idsubdistrict = CbKecamatanAsal.LoadSubdistrict(out kodepos, idcity[CbKotaAsal.SelectedIndex], false);
-                    CbKecamatanAsal.SelectedIndex = idsubdistrict.FindIndex(x => x.Equals(kecamatan));
                 }
             }
         }

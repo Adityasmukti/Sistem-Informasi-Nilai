@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using ExtensionMethods;
 using System.Collections.Generic;
 
-namespace AtelierAngelinaApps.Modul_HRD
+namespace SINIS.Auth
 {
     public partial class FLogin : Form
     {
@@ -111,7 +111,7 @@ namespace AtelierAngelinaApps.Modul_HRD
                     Properties.Settings.Default.loginsaveusername = cbsaveusername.Checked;
                     Properties.Settings.Default.username = S.GetUsername();
                     Properties.Settings.Default.Save();
-                    Applications.FMainMenu f = new Applications.FMainMenu();
+                    FMainMenu f = new FMainMenu();
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         List<Form> openForms = new List<Form>();
@@ -194,9 +194,9 @@ namespace AtelierAngelinaApps.Modul_HRD
         //}
         private void FLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.F11)
+            if (e.KeyCode == Keys.F11)
             {
-                FSettingDb f = new FSettingDb();
+                Settings.FSettingDb f = new Settings.FSettingDb();
                 f.Show();
             }
         }

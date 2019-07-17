@@ -1,4 +1,4 @@
-﻿namespace AtelierAngelinaApps.Applications
+﻿namespace SINIS.Settings
 {
     partial class FSelectDefaultPrinter
     {

@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using ExtensionMethods;
 
-namespace AtelierAngelinaApps.Modul_HRD
+namespace SINIS.Auth
 {
     public partial class FKelolaUser : Form
     {

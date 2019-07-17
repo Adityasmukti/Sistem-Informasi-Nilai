@@ -1,4 +1,4 @@
-﻿namespace AtelierAngelinaApps.Modul_HRD
+﻿namespace SINIS.Auth
 {
     partial class FKelolaUser
     {
