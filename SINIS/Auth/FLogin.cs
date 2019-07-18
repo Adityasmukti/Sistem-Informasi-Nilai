@@ -15,6 +15,7 @@ namespace SINIS.Auth
         public FLogin()
         {
             InitializeComponent();
+
             S.SetSettings();
             this.SetControlFrom();
             tbusername.KeyDown += Tbusername_KeyDown;
@@ -22,6 +23,7 @@ namespace SINIS.Auth
             this.Activated += FLogin_Activated;
             tbusername.ForeColor = Color.DimGray;
             tbpassword.ForeColor = Color.DimGray;
+
         }
         private void FLogin_Activated(object sender, EventArgs e)
         {

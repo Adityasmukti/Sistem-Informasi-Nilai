@@ -19,7 +19,6 @@ namespace SINIS.Pengajar
         }
 
         private DataTable datatabel;
-        private ModulData DM = new ModulData();
         private string query = "";
         private List<string> listidkelas, listidsiswa, listidjenisnilai;
         private string namaguru, nip, kelamin, idguru;
@@ -32,11 +31,11 @@ namespace SINIS.Pengajar
                 "WHERE tahunajaran='" + cbtahunajaran.Text + "' AND id_kelas=" + listidkelas[cbkelas.SelectedIndex] + " ORDER BY siswa_nama ASC";
             cbsiswa.Items.Clear();
             listidsiswa.Clear();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                listidsiswa.Add(br["id"].ToString());
-                cbsiswa.Items.Add(br["siswa_nama"].ToString() + " [" + br["siswa_nis"].ToString() + "]");
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    listidsiswa.Add(br["id"].ToString());
+            //    cbsiswa.Items.Add(br["siswa_nama"].ToString() + " [" + br["siswa_nis"].ToString() + "]");
+            //}
             #endregion
             loaddb();
         }
@@ -77,11 +76,11 @@ namespace SINIS.Pengajar
                 " AND tahunajaran='" + cbtahunajaran.Text + "' ORDER BY kelas_nama ASC";
             cbkelas.Items.Clear();
             listidkelas.Clear();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                listidkelas.Add(br["id"].ToString());
-                cbkelas.Items.Add(br["kelas_nama"].ToString());
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    listidkelas.Add(br["id"].ToString());
+            //    cbkelas.Items.Add(br["kelas_nama"].ToString());
+            //}
             #endregion
         }
 
@@ -126,12 +125,12 @@ namespace SINIS.Pengajar
             {
                 query = "SELECT * FROM tm_pelajaran ORDER BY pelajaran_nama ASC";
                 string pivot = "";
-                foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-                {
-                    string hilangkantanda = Regex.Replace(br["pelajaran_nama"].ToString().ToUpper(), " ", "_");
-                    hilangkantanda = hilangkantanda.Replace('.', '_');
-                    pivot += ", SUM(IF(id_pelajaran=" + br["id"].ToString() + ", nilai, 0)) " + hilangkantanda;
-                }
+                //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+                //{
+                //    string hilangkantanda = Regex.Replace(br["pelajaran_nama"].ToString().ToUpper(), " ", "_");
+                //    hilangkantanda = hilangkantanda.Replace('.', '_');
+                //    pivot += ", SUM(IF(id_pelajaran=" + br["id"].ToString() + ", nilai, 0)) " + hilangkantanda;
+                //}
 
                 if (cblaporan.SelectedIndex == 0)
                 {
@@ -145,7 +144,7 @@ namespace SINIS.Pengajar
                             "WHERE tbl_ruangan.id_kelas = " + listidkelas[cbkelas.SelectedIndex] + 
                             " AND tbl_ruangan.tahunajaran = '" + cbtahunajaran.Text +
                             "' AND id_jenisnilai = " + listidjenisnilai[cbjenisnilai.SelectedIndex] + " GROUP BY id_siswa";
-                        db = DM.GetData(query).Tables[0];
+                        //db = DM.GetData(query).Tables[0];
                     }
                 }
                 else if (cblaporan.SelectedIndex == 1)
@@ -159,7 +158,7 @@ namespace SINIS.Pengajar
                             "AND tbl_nilai.id_ruangan = tbl_ruangan.id_ruangan " +
                             "WHERE tbl_ruangan.tahunajaran = '" + cbtahunajaran.Text +
                             "' AND id_siswa = "+listidsiswa[cbsiswa.SelectedIndex]+" GROUP BY id_jenisnilai ";
-                        db = DM.GetData(query).Tables[0];
+                        //db = DM.GetData(query).Tables[0];
                     }
                 }
             }
@@ -188,13 +187,13 @@ namespace SINIS.Pengajar
 
             #region Isi data informasi pengajar
             query = "SELECT * FROM tm_guru WHERE id=" + S.GetUserid();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                idguru = br["id"].ToString();
-                namaguru = br["guru_nama"].ToString();
-                nip = br["guru_nip"].ToString();
-                kelamin = br["guru_jk"].ToString();
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    idguru = br["id"].ToString();
+            //    namaguru = br["guru_nama"].ToString();
+            //    nip = br["guru_nip"].ToString();
+            //    kelamin = br["guru_jk"].ToString();
+            //}
             if (kelamin == "L")
                 linformasi.Text = "BAPAK " + namaguru.ToUpper() + " NIP " + nip;
             else
@@ -217,11 +216,11 @@ namespace SINIS.Pengajar
             listidjenisnilai.Clear();
             cbjenisnilai.Items.Clear();
             query = "SELECT * FROM tm_jenisnilai ORDER BY jenisnilai_nama ASC";
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                listidjenisnilai.Add(br["id"].ToString());
-                cbjenisnilai.Items.Add(br["jenisnilai_nama"].ToString());
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    listidjenisnilai.Add(br["id"].ToString());
+            //    cbjenisnilai.Items.Add(br["jenisnilai_nama"].ToString());
+            //}
             #endregion
         }
     }

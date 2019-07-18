@@ -101,7 +101,6 @@
     <Compile Include="Auxs\FShowData.Designer.cs">
       <DependentUpon>FShowData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\ModulData.cs" />
     <Compile Include="Class\ModulRef.cs" />
     <Compile Include="FTentang.cs">
       <SubType>Form</SubType>
@@ -303,6 +302,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FMainMenu.resx">
       <DependentUpon>FMainMenu.cs</DependentUpon>
@@ -335,7 +335,7 @@
     <Folder Include="Siswa\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resource\default.ico" />
+    <None Include="Resource\default.ico" />
     <Content Include="Resource\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

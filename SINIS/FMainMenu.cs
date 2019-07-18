@@ -23,8 +23,6 @@ namespace SINIS
         private void ActivatedForm(object sender, EventArgs e)
         {
             //code
-            TbInfo.LoadNote(false);
-            TbCatatan.LoadNote();
         }
         private void LoadForm(object sender, EventArgs e)
         {

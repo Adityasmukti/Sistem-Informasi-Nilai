@@ -7,7 +7,6 @@ namespace SINIS.Pengajar
 {
     public partial class FPelajaran : Form
     {
-        private ModulData DM = new ModulData();
         private string query = "";
         private string namaguru, nip, kelamin, idguru;
         public FPelajaran()
@@ -19,13 +18,13 @@ namespace SINIS.Pengajar
         {
             #region Isi data informasi pengajar
             query = "SELECT * FROM tm_guru WHERE id=" + S.GetUserid();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                idguru = br["id"].ToString();
-                namaguru = br["guru_nama"].ToString();
-                nip = br["guru_nip"].ToString();
-                kelamin = br["guru_jk"].ToString();
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    idguru = br["id"].ToString();
+            //    namaguru = br["guru_nama"].ToString();
+            //    nip = br["guru_nip"].ToString();
+            //    kelamin = br["guru_jk"].ToString();
+            //}
             if (kelamin == "L")
                 linformasi.Text = "BAPAK " + namaguru.ToUpper() + " NIP " + nip;
             else
@@ -57,10 +56,10 @@ namespace SINIS.Pengajar
                 "FROM tbl_jadwal LEFT JOIN tm_pelajaran ON id_pelajaran=id WHERE id_guru="+idguru+
                 " AND tahunajaran='"+cbtahunajaran.Text+"' ORDER BY pelajaran_nama ASC";
             dgpelajaran.Rows.Clear();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                dgpelajaran.Rows.Add( br["id_pelajaran"], br["pelajaran_nama"], br["kelas_nama"]);
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    dgpelajaran.Rows.Add( br["id_pelajaran"], br["pelajaran_nama"], br["kelas_nama"]);
+            //}
         }
     }
 }

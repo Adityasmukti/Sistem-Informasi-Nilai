@@ -15,7 +15,6 @@ namespace SINIS.TU
         private string IdGuru = "0";
         private string idakses = "";
         private string query = "";
-        private ModulData DM = new ModulData();
         public FInputGuru()
         {
             InitializeComponent();
@@ -37,26 +36,26 @@ namespace SINIS.TU
             if (IdGuru != "0")
             {
                 query = "SELECT id, user_akses FROM tm_user WHERE (user_akses='ADMIN' OR user_akses='GURU') AND user_idacc=" + IdGuru;
-                foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-                {
-                    idakses = br[0].ToString();
-                    cbhakakses.SelectedIndex = cbhakakses.FindStringExact(br[1].ToString());
-                }
+                //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+                //{
+                //    idakses = br[0].ToString();
+                //    cbhakakses.SelectedIndex = cbhakakses.FindStringExact(br[1].ToString());
+                //}
 
                 query = "SELECT * FROM tm_guru WHERE id=" + IdGuru;
-                foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-                {
-                    tbnama.Text = br["guru_nama"].ToString();
-                    tbnuptk.Text = br["guru_nuptk"].ToString();
-                    tbnip.Text = br["guru_nip"].ToString();
-                    cbjk.SelectedIndex = cbjk.FindStringExact(br["guru_jk"].ToString());
-                    tbalamat.Text = br["guru_alamat"].ToString();
-                    tbkontak.Text = br["guru_kontak"].ToString();
-                    tbtempatlahir.Text = br["guru_tempatlahir"].ToString();
-                    dtptgllahir.Value = DateTime.Parse(br["guru_tanggallahir"].ToString());
-                    cbkepegawaian.SelectedIndex = cbkepegawaian.FindStringExact(br["guru_statuspegawai"].ToString());
-                    cbsptk.SelectedIndex = cbsptk.FindStringExact(br["guru_jenisptk"].ToString());
-                }
+                //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+                //{
+                //    tbnama.Text = br["guru_nama"].ToString();
+                //    tbnuptk.Text = br["guru_nuptk"].ToString();
+                //    tbnip.Text = br["guru_nip"].ToString();
+                //    cbjk.SelectedIndex = cbjk.FindStringExact(br["guru_jk"].ToString());
+                //    tbalamat.Text = br["guru_alamat"].ToString();
+                //    tbkontak.Text = br["guru_kontak"].ToString();
+                //    tbtempatlahir.Text = br["guru_tempatlahir"].ToString();
+                //    dtptgllahir.Value = DateTime.Parse(br["guru_tanggallahir"].ToString());
+                //    cbkepegawaian.SelectedIndex = cbkepegawaian.FindStringExact(br["guru_statuspegawai"].ToString());
+                //    cbsptk.SelectedIndex = cbsptk.FindStringExact(br["guru_jenisptk"].ToString());
+                //}
             }
         }
 
@@ -64,20 +63,20 @@ namespace SINIS.TU
         {
             query = "SELECT DISTINCT(guru_statuspegawai) FROM tm_guru WHERE deleted=0";
             cbkepegawaian.Items.Clear();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                if (br[0].ToString() != "")
-                    cbkepegawaian.Items.Add(br[0].ToString());
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    if (br[0].ToString() != "")
+            //        cbkepegawaian.Items.Add(br[0].ToString());
+            //}
             cbkepegawaian.SelectedIndex = -1;
 
             query = "SELECT DISTINCT(guru_jenisptk) FROM tm_guru WHERE deleted=0";
             cbsptk.Items.Clear();
-            foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            {
-                if (br[0].ToString() != "")
-                    cbsptk.Items.Add(br[0].ToString());
-            }
+            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
+            //{
+            //    if (br[0].ToString() != "")
+            //        cbsptk.Items.Add(br[0].ToString());
+            //}
             cbsptk.SelectedIndex = -1;
 
             cbhakakses.SelectedIndex = 0;
@@ -103,7 +102,7 @@ namespace SINIS.TU
                         cbkepegawaian.Text + "', '" + cbsptk.Text + "');" +
                         "INSERT INTO tm_user (user_akses, user_name, user_idacc, user_pwd) VALUES ('" + cbhakakses.Text +
                         "', '" + tbnip.Text + "'," + IdGuru + ", MD5('123456'))";
-                    DM.ManipulasiData(query);
+                    //DM.ManipulasiData(query);
                     MessageBox.Show("Data Tersimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     IdGuru = "0";
                     isicombobox();
@@ -124,7 +123,7 @@ namespace SINIS.TU
                         "guru_statuspegawai='" + cbkepegawaian.Text + "', " +
                         "guru_jenisptk='" + cbsptk.Text + "' WHERE id=" + IdGuru + ";" +
                         "UPDATE tm_user SET user_akses='" + cbhakakses.Text + "' WHERE id=" + idakses;
-                    DM.ManipulasiData(query);
+                    //DM.ManipulasiData(query);
                     Close();
                 }
             }

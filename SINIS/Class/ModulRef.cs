@@ -17,67 +17,31 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ExtensionMethods
 {
     public static class A
     {
         #region Variabel
-        private static string select2, from2, where2, queri2, set2, update2, insert2, values2;
-        private static readonly ModulData DM = new ModulData();
+        private static string strcon = "";
+        private static MySqlConnection koneksi;
+        private static MySqlConnection koneksi2;
+        private static MySqlCommand perintah;
+        private static MySqlDataAdapter adapter;
+        private static MySqlDataReader reader;
+
         private static readonly Random random = new Random();
         private static string bar, bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, bar10, prefix, postfix;
+        private static string Queri = "", queri = "", select = "", from = "", values = "", where = "", groupby = "", orderby = "", set = "", insert = "", update = "", lQueri = "";
         private static List<string> id;
-        private static PrintDocument PDD;
-        private static PrintDocument PDB;
-        private static string host = "", uid = "", pwd = "", db = "", port = "";
-        public static void SetHost(string value)
-        {
-            host = value;
-        }
-        public static string GetHost()
-        {
-            return host;
-        }
-        public static void SetUid(string value)
-        {
-            uid = value;
-        }
-        public static string GetUid()
-        {
-            return uid;
-        }
-        public static void SetPwd(string value)
-        {
-            pwd = value;
-        }
-        public static string GetPwd()
-        {
-            return pwd;
-        }
-        public static void SetDb(string value)
-        {
-            db = value;
-        }
-        public static string GetDb()
-        {
-            return db;
-        }
-        public static void SetPort(string value)
-        {
-            port = value;
-        }
-        public static string GetPort()
-        {
-            return port;
-        }
+        private static PrintDocument PDD, PDB;
 
         private static readonly string semua = "SEMUA";
         public static string GetSemua()
         {
             return semua;
         }
-        private static string queri = "";
         public static string GetQueri()
         {
             return queri;
@@ -86,7 +50,6 @@ namespace ExtensionMethods
         {
             queri = value;
         }
-        private static string select = "";
         public static string GetSelect()
         {
             return select;
@@ -95,7 +58,6 @@ namespace ExtensionMethods
         {
             select = value;
         }
-        private static string from = "";
         public static string GetFrom()
         {
             return from;
@@ -104,7 +66,6 @@ namespace ExtensionMethods
         {
             from = value;
         }
-        private static string values = "";
         public static string GetValues()
         {
             return values;
@@ -113,7 +74,6 @@ namespace ExtensionMethods
         {
             values = value;
         }
-        private static string where = "";
         public static string GetWhere()
         {
             return where;
@@ -122,7 +82,6 @@ namespace ExtensionMethods
         {
             where = value;
         }
-        private static string groupby = "";
         public static string GetGroupby()
         {
             return groupby;
@@ -131,7 +90,6 @@ namespace ExtensionMethods
         {
             groupby = value;
         }
-        private static string orderby = "";
         public static string GetOrderby()
         {
             return orderby;
@@ -140,7 +98,6 @@ namespace ExtensionMethods
         {
             orderby = value;
         }
-        private static string set = "";
         public static string GetSet()
         {
             return set;
@@ -149,7 +106,6 @@ namespace ExtensionMethods
         {
             set = value;
         }
-        private static string insert = "";
         public static string GetInsert()
         {
             return insert;
@@ -158,7 +114,6 @@ namespace ExtensionMethods
         {
             insert = value;
         }
-        private static string update = "";
         public static string GetUpdate()
         {
             return update;
@@ -167,7 +122,6 @@ namespace ExtensionMethods
         {
             update = value;
         }
-        private static string lQueri = "";
         public static string GetLQueri()
         {
             return lQueri;
@@ -175,6 +129,169 @@ namespace ExtensionMethods
         public static void SetLQueri(string value)
         {
             lQueri = value;
+        }
+        #endregion
+
+        #region Koneksi Database
+        public static void SetKoneksiString(string host, string uid, string pwd, string db, string port)
+        {
+            strcon = "server=" + host + ";database=" + db + ";uid=" + uid + ";pwd=" + pwd + ";port=" + port + ";SslMode=none;Pooling=true;Min Pool Size=0;" +
+                "Max Pool Size=150;Persist Security Info=True;respect binary flags=false;Allow User Variables=True;";
+            koneksi = new MySqlConnection(strcon);
+            koneksi2 = new MySqlConnection(strcon);
+        }
+        public static string GetDataSettings(this string KeySetting)
+        {
+            string value = "";
+            queri = "SELECT `nilai` FROM `r_settings` WHERE `pengaturan`='" + KeySetting + "' LIMIT 1";
+            try
+            {
+                koneksi.Open();
+                perintah = new MySqlCommand(queri, koneksi);
+                reader = perintah.ExecuteReader();
+                while (reader.Read())
+                {
+                    value = reader["nilai"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(A.GetCurrentMethod(), "", queri);
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return value;
+        }
+        public static DataTable GetData(this string q)
+        {
+            DataSet ds1 = new DataSet();
+            ds1.Clear();
+            try
+            {
+                if (koneksi.State == ConnectionState.Closed)
+                    koneksi.Open();
+                perintah = new MySqlCommand(q, koneksi);
+                adapter = new MySqlDataAdapter(perintah);
+                perintah.ExecuteNonQuery();
+                adapter.Fill(ds1);
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(A.GetCurrentMethod(), "", q);
+                ds1 = null;
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return ds1.Tables[0];
+        }
+        public static string SingelData(this string q)
+        {
+            string output = "";
+            try
+            {
+                foreach (DataRow baris in GetData(q).Rows)
+                {
+                    output = baris[0].ToString();
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(A.GetCurrentMethod(), "", q);
+            }
+            return output;
+        }
+        public static bool CekstatusMysql()
+        {
+            try
+            {
+                koneksi.Open();
+            }
+            catch { }
+
+            if (koneksi.State == ConnectionState.Open)
+            {
+                koneksi.Close();
+                return true;
+            }
+            else
+                return false;
+        }
+        public static bool ManipulasiData(this string q)
+        {
+            //sint res = 0;
+            try
+            {
+                koneksi.Open();
+                perintah = new MySqlCommand(q, koneksi);
+                perintah.ExecuteNonQuery();
+                koneksi.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(A.GetCurrentMethod(), "", q);
+            }
+            if (koneksi.State == ConnectionState.Open)
+                koneksi.Close();
+            return false;
+        }
+        public static bool ManipulasiData(this string q, out int rows)
+        {
+            int res = 0;
+            try
+            {
+                koneksi.Open();
+                perintah = new MySqlCommand(q, koneksi);
+                res = perintah.ExecuteNonQuery();
+                koneksi.Close();
+                rows = res;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                koneksi.Close();
+                ex.LogError(A.GetCurrentMethod(), "", q);
+            }
+            rows = res;
+            return false;
+        }
+        public static int JumlahData(this string q)
+        {
+            int count = 0;
+            foreach (DataRow baris in GetData(q).Rows)
+                count++;
+            return count;
+        }
+        public static bool SearchData(this string q)
+        {
+            bool ada = false;
+            foreach (DataRow baris in GetData(q).Rows)
+            {
+                ada = true;
+                break;
+            }
+            if (koneksi.State == ConnectionState.Open)
+                koneksi.Close();
+            return ada;
+        }
+        public static async Task<string> GetValue(this string q)
+        {
+            string result = "";
+            koneksi2.Open();
+            var com = new MySqlCommand(q, koneksi2);
+            var reader = await com.ExecuteReaderAsync();
+            while (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            reader.Close();
+            koneksi2.Close();
+            return result;
         }
         #endregion
 
@@ -194,7 +311,18 @@ namespace ExtensionMethods
         #endregion End Encode Decode
 
         #region Generated
-        public static string BarcodeProduk()
+        public static string Barcode(this string tabel, string key)
+        {
+            string barcode = GenerateBarcode();
+            if (barcode.CekBarcode(tabel, key))
+                tabel.Barcode(key);
+            return barcode;
+        }
+        public static bool CekBarcode(this string bar, string tabel, string key)
+        {
+            return SearchData("SELECT `" + key + "` FROM `" + tabel + "` WHERE `" + key + "`='" + bar + "';");
+        }
+        public static string GenerateBarcode()
         {
             bar1 = random.Next(6, 10).ToString();
             bar2 = random.Next(5, 10).ToString();
@@ -208,41 +336,7 @@ namespace ExtensionMethods
             bar10 = random.Next(0, 9).ToString();
 
             bar = bar1 + bar2 + bar3 + bar4 + bar5 + bar6 + bar7 + bar8 + bar9 + bar10;
-            if (bar.CekBarProduk())
-                BarcodeProduk();
-
             return bar;
-        }
-        public static bool CekBarProduk(this string bar)
-        {
-            return DM.Search("SELECT `barcode` FROM `m_produk` WHERE `barcode`='" + bar + "'");
-        }
-        public static string KodeKeuangan()
-        {
-            string tabel = "m_keuangan", field= "kode_keuangan";
-            prefix = "FK" + S.GetEndIpAddress() + DateTime.Now.ToString("yyMMdd");
-            postfix = "";
-            queri2 = "SELECT RIGHT(`" + field + "`,4) FROM `" + tabel + "` WHERE LEFT(`" + field + "`, 11) ='" + prefix + "' ORDER BY `" + field + "` DESC LIMIT 1";
-            foreach (DataRow baris in queri2.GetData().Rows)
-                postfix = (Convert.ToInt32(baris[0]) + 1).ToString();
-            return prefix + postfix.GeneratePostFix();
-        }
-        public static string KodeKeuangan(out string kodekeuangan)
-        {
-            string tabel = "m_keuangan", field = "kode_keuangan";
-            prefix = "FK" + S.GetEndIpAddress() + DateTime.Now.ToString("yyMMdd");
-            postfix = "";
-            string postfix2 = "";
-            queri2 = "SELECT RIGHT(`" + field + "`,4) FROM `" + tabel + "` WHERE LEFT(`" + field + "`, 11) ='" + prefix + "' ORDER BY `" + field + "` DESC LIMIT 1";
-            foreach (DataRow baris in queri2.GetData().Rows)
-            {
-                postfix = (Convert.ToInt32(baris[0]) + 1).ToString();
-                postfix2 = (Convert.ToInt32(baris[0]) + 2).ToString();
-            }
-            if (string.IsNullOrEmpty(postfix))
-                postfix2 = "2";
-            kodekeuangan = prefix + postfix2.GeneratePostFix();
-            return prefix + postfix.GeneratePostFix();
         }
         public static string GenerateKode(string prefix, string tabel, string field)
         {
@@ -317,13 +411,8 @@ namespace ExtensionMethods
         {
             //var grid = dgbawah;
             foreach (DataGridViewColumn col in grid.Columns)// in this line - when i debug project- i see the grid.columns is empty 
-            {
                 if (col.HeaderText.ToLower().Trim() == name.ToLower().Trim())
-
-                {
                     return grid.Columns.IndexOf(col);
-                }
-            }
             return -1;
         }
         public static string GetMACAddress()
@@ -377,17 +466,13 @@ namespace ExtensionMethods
         {
             DataTable dt = new DataTable();
             foreach (DataGridViewColumn col in dgv.Columns)
-            {
                 dt.Columns.Add(Regex.Replace(col.HeaderText, " ", ""));
-            }
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 DataRow dRow = dt.NewRow();
                 foreach (DataGridViewCell cell in row.Cells)
-                {
                     dRow[cell.ColumnIndex] = cell.Value;
-                }
                 dt.Rows.Add(dRow);
             }
             return dt;
@@ -506,35 +591,73 @@ namespace ExtensionMethods
             }
             return value;
         }
+        public static void SetHalaman(this TextBox tbhalaman, Button bprev, Label ldarihalaman, Button bnext, Func<bool> Loaddb)
+        {
+            string awal = "1";
+            bnext.Click += (sender, e) =>
+            {
+                if (tbhalaman.Text.ToInteger() < ldarihalaman.Text.ToAngka().ToInteger())
+                    tbhalaman.Text = (tbhalaman.Text.ToInteger() + 1).ToString();
+            };
+
+            bprev.Click += (sender, e) =>
+            {
+                if (tbhalaman.Text.ToInteger() > 1)
+                    tbhalaman.Text = (tbhalaman.Text.ToInteger() - 1).ToString();
+            };
+
+            tbhalaman.KeyPress += (sender, e) =>
+            {
+                awal = (sender as TextBox).Text;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    e.Handled = true;
+            };
+
+            tbhalaman.KeyUp += (sender, e) =>
+            {
+                string halaman = (sender as TextBox).Text;
+                if (!string.IsNullOrEmpty(halaman))
+                    if ((halaman.ToInteger() > ldarihalaman.Text.ToAngka().ToInteger()) || (halaman.ToInteger() < 1))
+                        (sender as TextBox).Text = awal;
+            };
+
+            tbhalaman.TextChanged += (sender, e) =>
+            {
+                if (!string.IsNullOrEmpty((sender as TextBox).Text))
+                    Loaddb();
+            };
+
+            tbhalaman.Leave += (sender, e) =>
+            {
+                if (string.IsNullOrEmpty((sender as TextBox).Text))
+                    (sender as TextBox).Text = awal;
+            };
+        }
         #endregion End Generated
 
         #region Logging
         public static void CreateLog(this string kodefaktur, string table, string form, string procedure, string keterangan = "")
         {
-            queri2 = "INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
-                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'INSERT', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');";
-            queri2.ManipulasiData();
+            ManipulasiData("INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
+                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'INSERT', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');");
         }
         public static void UpdateLog(this string kodefaktur, string table, string form, string procedure, string keterangan = "")
         {
-            queri2 = "INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
-                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'UPDATE', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');";
-            queri2.ManipulasiData();
+            ManipulasiData("INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
+                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'UPDATE', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');");
         }
         public static void DeleteLog(this string kodefaktur, string table, string form, string procedure, string keterangan = "")
         {
-            queri2 = "INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
-                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'DELETE', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');";
-            queri2.ManipulasiData();
+            ManipulasiData("INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
+                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'DELETE', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');");
             //Logging
         }
         public static void SetLogin()
         {
             try
             {
-                queri2 = "INSERT INTO `d_login` ( `id_user`, `ipaddres`, `macaddres`, `pcname`, `time` ) VALUES " +
-                    "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW());";
-                queri2.ManipulasiData();
+                ManipulasiData("INSERT INTO `d_login` ( `id_user`, `ipaddres`, `macaddres`, `pcname`, `time` ) VALUES " +
+                    "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW());");
             }
             catch (Exception) { }
         }
@@ -542,35 +665,19 @@ namespace ExtensionMethods
         {
             try
             {
-                queri2 = "INSERT INTO `d_login` ( `id_user`, `ipaddres`, `macaddres`, `pcname`, `time`, `state` ) VALUES " +
-                "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW(), 'LOGOUT' );";
-                queri2.ManipulasiData();
+                ManipulasiData("INSERT INTO `d_login` ( `id_user`, `ipaddres`, `macaddres`, `pcname`, `time`, `state` ) VALUES " +
+                "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW(), 'LOGOUT' );");
             }
             catch (Exception) { }
         }
         #endregion End Logging
 
         #region Loading static data
-        public static void LoadJenisOrder(this ComboBox cb, bool semua = true)
-        {
-            cb.Items.Clear();
-            if (semua)
-            {
-                cb.Items.Add(GetSemua());
-            }
-            cb.Items.Add("LINE");
-            cb.Items.Add("WEB");
-            cb.Items.Add("RETUR");
-            cb.Items.Add("GIVEAWAY");
-            cb.Items.Add("OTHER");
-        }
         public static void LoadYN(this ComboBox cb, bool semua = true)
         {
             cb.Items.Clear();
             if (semua)
-            {
                 cb.Items.Add(GetSemua());
-            }
             cb.Items.Add("YA");
             cb.Items.Add("TIDAK");
         }
@@ -583,35 +690,27 @@ namespace ExtensionMethods
                 cb.Items.Add(GetSemua());
                 id.Add("0");
             }
-            foreach (DataRow b in LoadData.GetUser().Rows)
-            {
-                id.Add(b["id_user"].ToString());
-                cb.Items.Add(b["nama"]);
-            }
+            //foreach (DataRow b in LoadData.GetUser().Rows)
+            //{
+            //    id.Add(b["id_user"].ToString());
+            //    cb.Items.Add(b["nama"]);
+            //}
             return id;
         }
         public static void LoadOpenOrder(this ComboBox cb, bool semua = false)
         {
-            cb.Items.Clear();
-            if (semua)
-                cb.Items.Add(GetSemua());
-            foreach (DataRow b in LoadData.GetOpenorder().Rows)
-                cb.Items.Add(b[0].ToString());
+            //cb.Items.Clear();
+            //if (semua)
+            //    cb.Items.Add(GetSemua());
+            //foreach (DataRow b in LoadData.GetOpenorder().Rows)
+            //    cb.Items.Add(b[0].ToString());
         }
         #endregion End Loading static data
 
         #region Queri Execution
-        public static bool ManipulasiData(this string queri)
-        {
-            return DM.ManipulasiData(queri);
-        }
-        public static bool ManipulasiData(this string queri, out int rows)
-        {
-            return DM.ManipulasiData(queri, out rows);
-        }
         public static bool DBCreate(this string queri)
         {
-            if (DM.ManipulasiData(queri))
+            if (ManipulasiData(queri))
             {
                 MessageBox.Show("Disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -621,7 +720,7 @@ namespace ExtensionMethods
         }
         public static bool DBUpdate(this string queri)
         {
-            if (DM.ManipulasiData(queri))
+            if (ManipulasiData(queri))
             {
                 MessageBox.Show("Diubah", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -631,7 +730,7 @@ namespace ExtensionMethods
         }
         public static bool DBHapus(this string queri)
         {
-            if (DM.ManipulasiData(queri))
+            if (ManipulasiData(queri))
             {
                 MessageBox.Show("Dihapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -639,35 +738,10 @@ namespace ExtensionMethods
             else
                 return false;
         }
-        public static string SingelData(this string queri)
-        {
-            return DM.Singeldata(queri);
-        }
-        public static DataTable GetData(this string queri)
-        {
-            return DM.GetData(queri).Tables[0];
-        }
-        public static bool SearchData(this string queri)
-        {
-            return DM.Search(queri);
-        }
-        public static int JumlahData(this string queri)
-        {
-            return DM.Jumlahdata(queri);
-        }
-        public static string JumlahSiapPaket()
-        {
-            queri2 = "SELECT COUNT(*) FROM `f_order` WHERE `transfer`='Y' AND `expireorder`='N' AND `terpaketsemua`='N'";
-            string jlh = DM.Singeldata(queri2);
-            if (jlh.ToInteger() > 0)
-                return "(" + jlh + ") ";
-            else
-                return "";
-        }
         public static void QueriToDg(this DataGridView Dg)
         {
             Dg.Rows.Clear();
-            foreach (DataRow b in DM.GetData(GetQueri()).Tables[0].Rows)
+            foreach (DataRow b in GetData(GetQueri()).Rows)
             {
                 int cell = 0;
                 DataGridViewRow dr = new DataGridViewRow();
@@ -683,12 +757,6 @@ namespace ExtensionMethods
                 }
                 Dg.Rows.Add(dr);
             }
-        }
-        public static void KeepStatus(this string kodekeep, string kodeorder = "-", string pakai = "N", string xpr = "N")
-        {
-            queri2 = "UPDATE `d_keep` SET `id_use` = '" + S.GetUserid() + "', `Destination_kodeorder` = '" + kodeorder + "', " +
-                "`pakai` = '" + pakai + "', `xpr` = '" + xpr + "' WHERE `kode_keep` = '" + kodekeep + "';";
-            queri2.ManipulasiData();
         }
         public static void GenerateQueriYN(this ComboBox cb, string field, bool semua = true, bool nilai = false)
         {
@@ -787,14 +855,14 @@ namespace ExtensionMethods
         {
             if (!string.IsNullOrEmpty(tb.Text))
             {
-                queri2 = "AND (";
+                Queri = "AND (";
                 foreach (string field in fields)
                 {
-                    if (Regex.IsMatch(field, "`")) queri2 += " " + field + " LIKE '" + tb.StrEscape() + "%' OR ";
-                    else queri2 += "`" + field + "` LIKE '" + tb.StrEscape() + "%' OR ";
+                    if (Regex.IsMatch(field, "`")) Queri += " " + field + " LIKE '" + tb.StrEscape() + "%' OR ";
+                    else Queri += "`" + field + "` LIKE '" + tb.StrEscape() + "%' OR ";
                 }
-                queri2 = queri2.Substring(0, queri2.Length - 3) + ") ";
-                SetWhere(GetWhere() + queri2);
+                Queri = Queri.Substring(0, Queri.Length - 3) + ") ";
+                SetWhere(GetWhere() + Queri);
             }
         }
         public static void GenerateQueriDate(this DateTimePicker dtp1, DateTimePicker dtp2, string field, bool cb = true)
@@ -917,9 +985,8 @@ namespace ExtensionMethods
         }
         public static string GenerateQueriUpdate(this Dictionary<string, string> data)
         {
-            queri2 = "";
             string tabel = "", key = "", valuekey = "";
-            set2 = "SET ";
+            string set2 = "SET ";
             foreach (KeyValuePair<string, string> entry in data)
             {
                 if (entry.Key == "TABEL")
@@ -938,16 +1005,13 @@ namespace ExtensionMethods
                         set2 += "`" + entry.Key + "`='" + entry.Value + "',";
                 }
             }
-            update2 = "UPDATE `" + tabel + "` ";
-            where2 = " WHERE `" + key + "` = '" + valuekey + "' ;";
-            queri2 = update2 + set2.Substring(0, set2.Length - 1) + where2;
-            return queri2;
+            return "UPDATE `" + tabel + "` " + set2.Substring(0, set2.Length - 1) + " WHERE `" + key + "` = '" + valuekey + "';";
         }
         public static string GenerateQueriInsert(this Dictionary<string, string> data)
         {
-            queri2 = "";
             string tmpinsert = "", tmpvalues = "";
-            values2 = "VALUES (";
+            string values2 = "VALUES (";
+            string insert2="";
             foreach (KeyValuePair<string, string> entry in data)
             {
                 if (entry.Key == "TABEL")
@@ -973,21 +1037,14 @@ namespace ExtensionMethods
             }
             insert2 += tmpinsert.Substring(0, tmpinsert.Length - 1) + ") ";
             values2 += tmpvalues.Substring(0, tmpvalues.Length - 1) + ") ";
-            queri2 = insert2 + values2 + ";";
-            return queri2;
+            return insert2 + values2 + ";";
         }
         public static string GenerateQueriSelect(this string tabel, string where, string value, List<string> data)
         {
-            select2 = "SELECT ";
+            string select2 = "SELECT ";
             foreach (string str in data)
-            {
                 select2 += "`" + str + "`,";
-            }
-            select2 = select2.Substring(0, select2.Length - 1);
-            from2 = "FROM `" + tabel + "` ";
-            where2 = "WHERE `" + where + "`='" + value + "'";
-            queri2 = select2 + from2 + where2 + ";";
-            return queri2;
+            return select2.Substring(0, select2.Length - 1) + "FROM `" + tabel + "` WHERE `" + where + "`='" + value + "'" + ";";
         }
         #endregion End Queri Execution
 
@@ -1018,47 +1075,6 @@ namespace ExtensionMethods
                 return true;
             }
             catch (Exception) { return false; }
-        }
-        public static void LoadNote(this RichTextBox TB, bool privates = true)
-        {
-            select2 = "SELECT `catatan` ";
-            from2 = "FROM `r_note` ";
-            if (privates)
-                where2 = "WHERE `id_user`='" + S.GetUserid() + "'  AND `jenis`='PRIVATE' ";
-            else
-                where2 = "WHERE `jenis`='PUBLIC' ";
-            queri2 = select2 + from2 + where2 + ";";
-            foreach (DataRow B in queri2.GetData().Rows)
-            {
-                TB.Text = B[0].ToString();
-            }
-        }
-        public static void SaveNote(this RichTextBox TB, bool privates = true)
-        {
-            select2 = "SELECT * ";
-            from2 = "FROM `r_note` ";
-            if (privates)
-                where2 = "WHERE `id_user`='" + S.GetUserid() + "'  AND `jenis`='PRIVATE' ";
-            else
-                where2 = "WHERE `jenis`='PUBLIC' ";
-
-            queri2 = select2 + from2 + where2 + ";";
-            if (SearchData(queri2))
-            {
-                update2 = "UPDATE `r_note` ";
-                set2 = "SET `catatan` = '" + TB.Text + "' ";
-                queri2 = update2 + set2 + where2 + ";";
-            }
-            else
-            {
-                insert2 = "INSERT INTO `r_note` (`id_user`, `catatan`, `jenis`) ";
-                if (privates)
-                    values2 = "VALUES('" + S.GetUserid() + "', '" + TB.Text + "', 'PRIVATE') ";
-                else
-                    values2 = "VALUES('" + S.GetUserid() + "', '" + TB.Text + "', 'PUBLIC') ";
-                queri2 = insert2 + values2 + ";";
-            }
-            queri2.ManipulasiData();
         }
         #endregion End Note
 
@@ -1301,13 +1317,8 @@ namespace ExtensionMethods
             string barcode = "";
             string brand = "";
             string sku = "";
-            select2 = "SELECT `barcode`, `nama_brand`, `nama_produk`, `nama_size`, `nama_warna` ";
-            from2 = "FROM `m_produk` `P` LEFT JOIN `r_size` `S` ON `S`.`id_size`=`P`.`id_size` " +
-                "LEFT JOIN `r_warna` `W` ON `W`.`id_warna`=`P`.`id_warna` " +
-                "LEFT JOIN `r_brand` `B` ON `B`.`id_brand`=`P`.`id_brand` ";
-            where2 = "WHERE `P`.`kode_produk`='" + kodeproduk + "' ";
-            queri2 = select2 + from2 + where2 + ";";
-            foreach (DataRow b in queri2.GetData().Rows)
+         
+            foreach (DataRow b in GetData(Queri).Rows)
             {
                 string[] tmp = { b["nama_produk"].ToString(), b["nama_size"].ToString(), b["nama_warna"].ToString() };
                 brand = b["nama_brand"].ToString();
@@ -1401,17 +1412,6 @@ namespace ExtensionMethods
                 }
             }
         }
-        public static string GenerateListProduk(this string kodeorder)
-        {
-            queri2 = "SELECT GROUP_CONCAT('> ',`produk`,';' SEPARATOR '\n') `produk` " +
-                "FROM (SELECT CONCAT(SUM(`qty`),', ',`nama_produk`,', ', `nama_size`,', ', " +
-                "GROUP_CONCAT(IF(`qty`>1, CONCAT(`qty`,' '), ''),'', `nama_warna` SEPARATOR '/')) `produk` " +
-                "FROM `t_orderitems` `OI` LEFT JOIN `m_produk` `P` ON `P`.`kode_produk`=`OI`.`kode_produk` " +
-                "LEFT JOIN `r_size` `S` ON `S`.`id_size`=`P`.`id_size` LEFT JOIN `r_warna` `W` " +
-                "ON `W`.`id_warna`=`P`.`id_warna` LEFT JOIN `r_series` `SR` ON `SR`.`id_series`=`OI`.`id_series` " +
-                "WHERE `kode_fakturorder`='" + kodeorder + "' GROUP BY `nama_produk`, `nama_size`) A ";
-            return queri2.SingelData();
-        }
         public static bool CetakStikerDepan(this object kodefaktur)
         {
             return kodefaktur.ToString().CetakStikerDepan();
@@ -1427,22 +1427,8 @@ namespace ExtensionMethods
                 string nama = "";
                 string alamat = "";
                 string kontak = "";
-                string produklist = kodefaktur.GenerateListProduk();
-
-                select2 = "SELECT `kode_barcode`, `nomororder`, CONCAT( `pengiriman`, '/', `kurir`, '/', `layanan` ) `pengiriman`, " +
-                    "`tglorder`, `namapembeli`, `kontak`, `slip`, `total`, CONCAT(`alamat`, ', ',IF(`O`.`id_country`='0', " +
-                    "CONCAT(IF(`id_subdistrict`='0','',CONCAT('Kec. ', `subdistrict_name`)), ', ', `CT`.`type`,' ', " +
-                    "`city_name`, '-', `PV`.`province`), `country`), CONCAT(' ', `kodepos`)) `alamat` ";
-                from2 = "FROM `f_order` `O` LEFT JOIN `m_country` `C` ON `C`.`id_country` = `O`.`id_country` " +
-                    "LEFT JOIN `m_province` `PV` ON `PV`.`province_id` = `O`.`id_province` " +
-                    "LEFT JOIN `m_city` `CT` ON `CT`.`city_id` = `O`.`id_city` " +
-                    "LEFT JOIN `m_subdistrict` `SD` ON `SD`.`subdistrict_id` = `O`.`id_subdistrict` " +
-                    "LEFT JOIN `r_pengiriman` `PG` ON `PG`.`id_pengiriman` = `O`.`id_pengiriman` " +
-                    "LEFT JOIN `r_kurir` `KR` ON `KR`.`id_kurir` = `O`.`id_kurir` " +
-                    "LEFT JOIN `r_layanan` `LY` ON `LY`.`id_layanan` = `O`.`id_layanan` ";
-                where2 = "WHERE `O`.`kode_fakturorder`='" + kodefaktur + "'";
-                queri2 = select2 + from2 + where2 + ";";
-                foreach (DataRow item in queri2.GetData().Rows)
+                string produklist = "";
+                foreach (DataRow item in GetData(Queri).Rows)
                 {
                     string slip = "";
                     if (item["slip"].ToInteger() > 0)
@@ -1526,15 +1512,10 @@ namespace ExtensionMethods
             if (CekStatusPrinter())
             {
                 PDB = new PrintDocument();
-                string produklist = kodefaktur.GenerateListProduk();
-                string barcode = "";
+                string produklist = "";
                 string isibelakang = "";
 
-                select2 = "SELECT `kode_barcode`, `tglorder`, `keterangan`, `ketdiskon`, `slip`, `total`, `jlhvoucher`, `jlhkeep`, CONCAT(`nama`, ' (', `jabatan`, ' ', `noadmin`, ')') `user` ";
-                from2 = "FROM `f_order` `O` LEFT JOIN `m_user` `U` ON `U`.`id_user` = `O`.`id_input` ";
-                where2 = "WHERE `O`.`kode_fakturorder`='" + kodefaktur + "'";
-                queri2 = select2 + from2 + where2 + ";";
-                foreach (DataRow item in queri2.GetData().Rows)
+                foreach (DataRow item in GetData(Queri).Rows)
                 {
                     string voucher = "";
                     string keep = "";
@@ -1589,36 +1570,6 @@ namespace ExtensionMethods
                     return false;
             }
         }
-        public static bool SetKertasStiker(string stiker)
-        {
-            SettingStiker = new Dictionary<string, string>();
-            select2 = "SELECT `namapengaturan`, `values` ";
-            from2 = "FROM `r_pengaturankertas` ";
-            where2 = "WHERE `kertas`='STIKER' AND `pengaturan`= '" + stiker + "' ";
-            queri2 = select2 + from2 + where2 + ";";
-            if (queri2.SearchData())
-            {
-                foreach (DataRow b in DM.GetData(queri2).Tables[0].Rows)
-                {
-                    SettingStiker.Add(b["namapengaturan"].ToString(), b["values"].ToString());
-                }
-                return true;
-            }
-            return false;
-        }
-        public static void SetKertasLabel(this string pengaturan)
-        {
-
-            SettingLabel = new Dictionary<string, string>();
-            select2 = "SELECT `namapengaturan`, `values` ";
-            from2 = "FROM `r_pengaturankertas` ";
-            where2 = "WHERE `kertas`='LABEL' AND `pengaturan`= '" + pengaturan + "' ";
-            queri2 = select2 + from2 + where2 + ";";
-            foreach (DataRow b in DM.GetData(queri2).Tables[0].Rows)
-            {
-                SettingLabel.Add(b["namapengaturan"].ToString(), b["values"].ToString());
-            }
-        }
         public static Dictionary<string, string> SettingStiker;
         public static Dictionary<string, string> SettingLabel;
         #endregion End Pencetakan 
@@ -1631,7 +1582,11 @@ namespace ExtensionMethods
             Label label = new Label();
             Button buttonOk = new Button();
             Button buttonCancel = new Button();
-            textBox.KeyPress += TextBoxInputBox_KeyPress;
+            textBox.KeyPress += (sender, e) =>
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    e.Handled = true;
+            };
             form.Text = title;
             label.Text = promptText;
             textBox.Text = value.ToAngka();
@@ -1917,11 +1872,6 @@ namespace ExtensionMethods
             DialogResult dialogResult = form.ShowDialog();
             value = dateTimePicker.Value;
             return dialogResult;
-        }
-        private static void TextBoxInputBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
         }
         #endregion End Input box
 
@@ -2312,13 +2262,13 @@ namespace ExtensionMethods
 
             if (A.GetGroupby() == "")
             {
-                int.TryParse(DM.Singeldata("SELECT (COUNT(*) DIV " + divs + ") divs " + from + where), out int jlhhal);
+                int.TryParse(SingelData("SELECT (COUNT(*) DIV " + divs + ") divs " + from + where), out int jlhhal);
                 ldarihalaman.Text = "/ " + (jlhhal + 1).ToString();
                 return " LIMIT " + ((tbhalaman.Text.ToInteger() - 1) * divs).ToString() + "," + divs;
             }
             else
             {
-                ldarihalaman.Text = "/ " + ((DM.Jumlahdata("SELECT * " + from + where + groupby) / divs) + 1).ToString();
+                ldarihalaman.Text = "/ " + ((JumlahData("SELECT * " + from + where + groupby) / divs) + 1).ToString();
                 return " LIMIT " + ((tbhalaman.Text.ToInteger() - 1) * divs).ToString() + "," + divs;
             }
         }
@@ -2332,7 +2282,7 @@ namespace ExtensionMethods
             {
                 jumlahdata.Text = "JUMLAH : " + SingelData("SELECT COUNT(*) " + from + where);
 
-                int.TryParse(DM.Singeldata("SELECT (COUNT(*) DIV " + divs + ") divs " + from + where), out int jlhhal);
+                int.TryParse(SingelData("SELECT (COUNT(*) DIV " + divs + ") divs " + from + where), out int jlhhal);
                 ldarihalaman.Text = "/ " + (jlhhal + 1).ToString();
                 return " LIMIT " + ((tbhalaman.Text.ToInteger() - 1) * divs).ToString() + "," + divs;
             }
@@ -2363,7 +2313,7 @@ namespace ExtensionMethods
                     totaldata.Text = "TOTAL : " + b["total"].ToString();
                 }
 
-                int.TryParse(DM.Singeldata("SELECT (COUNT(*) DIV " + divs + ") divs " + from + where), out int jlhhal);
+                int.TryParse(SingelData("SELECT (COUNT(*) DIV " + divs + ") divs " + from + where), out int jlhhal);
                 ldarihalaman.Text = "/ " + (jlhhal + 1).ToString();
                 return " LIMIT " + ((tbhalaman.Text.ToInteger() - 1) * divs).ToString() + "," + divs;
             }
@@ -2913,301 +2863,13 @@ namespace ExtensionMethods
         }
         public static async Task<string> GetStringValues(this string queri)
         {
-            return await DM.GetValue(queri);
+            return await GetValue(queri);
         }
         #endregion
     }
-
-public static class Halaman
-    {
-        private static string awal = "1";
-        private static TextBox TbHalaman;
-        private static Label LDariHalaman;
-        private static Func<bool> LoadDb;
-        public static void SetHalaman(this TextBox tbhalaman, Button bprev, Label ldarihalaman, Button bnext, Func<bool> Loaddb)
-        {
-            TbHalaman = tbhalaman;
-            LoadDb = Loaddb;
-            LDariHalaman = ldarihalaman;
-
-            bnext.Click += Bnext_Click;
-            bprev.Click += Bprev_Click;
-            TbHalaman.KeyPress += Tbhalaman_KeyPress;
-            TbHalaman.KeyUp += Tbhalaman_KeyUp;
-            TbHalaman.TextChanged += Tbhalaman_TextChanged;
-            TbHalaman.Leave += Tbhalaman_Leave;
-        }
-        private static void Bnext_Click(object sender, EventArgs e)
-        {
-            if (TbHalaman.Text.ToInteger() < LDariHalaman.Text.ToAngka().ToInteger())
-                TbHalaman.Text = (TbHalaman.Text.ToInteger() + 1).ToString();
-        }
-        private static void Bprev_Click(object sender, EventArgs e)
-        {
-            if (TbHalaman.Text.ToInteger() > 1)
-                TbHalaman.Text = (TbHalaman.Text.ToInteger() - 1).ToString();
-        }
-        private static void Tbhalaman_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            awal = (sender as TextBox).Text;
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
-        }
-        private static void Tbhalaman_KeyUp(object sender, KeyEventArgs e)
-        {
-            string halaman = (sender as TextBox).Text;
-            if (!string.IsNullOrEmpty(halaman))
-                if ((halaman.ToInteger() > LDariHalaman.Text.ToAngka().ToInteger()) || (halaman.ToInteger() < 1))
-                    (sender as TextBox).Text = awal;
-        }
-        private static void Tbhalaman_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty((sender as TextBox).Text))
-                LoadDb();
-        }
-        private static void Tbhalaman_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty((sender as TextBox).Text))
-                (sender as TextBox).Text = awal;
-        }        
-    }
-    #region Load data
-    public static class LoadData
-    {
-        public static bool InitializeAll()
-        {
-            try
-            {
-                SetUser(A.GetData("SELECT `id_user`, CONCAT(`nama`,' (', `jabatan`,')') `nama` FROM `m_user` WHERE `userdelete`='N' ORDER BY `id_akses` DESC;"));
-                SetOpenorder(A.GetData("SELECT `openorder` FROM `f_order` WHERE `openorder` <> '' AND `expireorder`='N' GROUP BY `openorder` ORDER BY `openorder` ASC;"));
-                SetAdmin(A.GetData("SELECT CAST(`noadmin` AS INT) `noadmin` FROM `m_user` GROUP BY `noadmin` ORDER BY `noadmin` ASC;"));
-                SetWarna(A.GetData("SELECT `id_warna`, `nama_warna` FROM `r_warna` WHERE `hapus`='N' ORDER BY `nama_warna` ASC;"));
-                SetSize(A.GetData("SELECT `id_size`, `nama_size` FROM `r_size` WHERE `hapus`='N' ORDER BY `urutan` ASC;"));
-                SetProduk(A.GetData("SELECT `nama_produk` FROM `m_produk` WHERE `produkdelete`='N' GROUP BY nama_produk ORDER BY `nama_produk` ASC;"));
-                SetKategori(A.GetData("SELECT `id_kategori`, `nama_kategori` FROM `r_kategori` WHERE `hapus`='N' ORDER BY `nama_kategori` ASC;"));
-                SetBrand(A.GetData("SELECT `id_brand`, `nama_brand` FROM `r_brand` WHERE `hapus`='N' ORDER BY `nama_brand` ASC;"));
-                SetSeries(A.GetData("SELECT `id_series`, `nama_series`, `uri` FROM `r_series` WHERE `aktif`='Y' AND `hapus`='N' ORDER BY `tgl_series` DESC;"));
-                SetSupplier(A.GetData("SELECT `id_supplier`, CONCAT(`namasupplier`,' (', `subdistrict_name`,')') `namasupplier` FROM `m_supplier` `M` " +
-                    "LEFT JOIN `m_subdistrict` `SD` ON `SD`.`subdistrict_id`=`M`.`id_subdistrict` WHERE `supplierdetele`='N'  ORDER BY `namasupplier` ASC;"));
-                SetPengiriman(A.GetData("SELECT `id_pengiriman`, `pengiriman` FROM `r_pengiriman` ORDER BY `pengiriman` ASC;"));
-                SetKurir(A.GetData("SELECT `id_kurir`, `id_pengiriman`, `kurir` FROM `r_kurir` ORDER BY `kurir` ASC;"));
-                SetLayanan(A.GetData("SELECT `id_layanan`, `id_kurir`, `layanan`, `ref` FROM `r_layanan` ORDER BY `layanan` ASC;"));
-                SetCs(A.GetData("SELECT  `noadmin`, CONCAT('CS ',`noadmin`) `admin` FROM `m_user` WHERE id_akses = '5' AND `userdelete`='N' GROUP BY `noadmin` ORDER BY `noadmin` ASC;"));
-                SetKertaslabel(A.GetData("SELECT `pengaturan`, `values` FROM `r_pengaturankertas` WHERE `kertas` = 'LABEL' AND `namapengaturan` = 'namakertas' ORDER BY `namapengaturan` ASC;"));
-                SetCountry(A.GetData("SELECT `id_country`, `country` FROM `m_country` ORDER BY `country` ASC;"));
-                SetProvinsi(A.GetData("SELECT `province_id`, `province` FROM `m_province` ORDER BY `province` ASC;"));
-                SetCity(A.GetData("SELECT `city_id`, `province_id`, CONCAT(`type`,' ',`city_name`) `city_name`, `postal_code` FROM `m_city` ORDER BY `city_name` ASC;"));
-                SetSubdistrict(A.GetData("SELECT `subdistrict_id`, `province_id`, `city_id`, `subdistrict_name`, `postal_code` FROM `m_subdistrict` ORDER BY `subdistrict_name` ASC;"));
-                SetMasterProduk(A.GetData("SELECT `kode_produk`, `barcode`, CONCAT(`nama_brand`,' / ',`nama_produk`,' ', `nama_kategori`) `produk`, " +
-                    "`nama_size`, `nama_warna`, `tahun`, `berat`,`nama_brand`, `nama_kategori`, `urutan`, `nama_produk` " +
-                    "FROM `m_produk` `P` LEFT JOIN `r_brand` `B` ON `B`.`id_brand`=`P`.`id_brand` LEFT JOIN `r_kategori` `K` ON `K`.`id_kategori`=`P`.`id_kategori` " +
-                    "LEFT JOIN `r_size` `S` ON `S`.`id_size`=`P`.`id_size` LEFT JOIN `r_warna` `W` ON `W`.`id_warna`=`P`.`id_warna` " +
-                    "WHERE `produkdelete`='N' AND `status_produk`='AKTIF' ORDER BY `nama_produk` ASC, `urutan` ASC, `nama_warna` ASC;"));
-                SetBukuKas(A.GetData("SELECT `id_buku`, `namakas`, `deskripsikas` FROM `r_bukukas` WHERE `hapus`='N'; "));
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ex.LogError(A.GetCurrentMethod());
-                return false;
-            }
-        }
-
-        private static DataTable openorder = new DataTable();
-        public static DataTable GetOpenorder()
-        {
-            return openorder;
-        }
-        public static void SetOpenorder(DataTable value)
-        {
-            openorder = value;
-        }
-        private static DataTable user = new DataTable();
-        public static DataTable GetUser()
-        {
-            return user;
-        }
-        public static void SetUser(DataTable value)
-        {
-            user = value;
-        }
-        private static DataTable admin = new DataTable();
-        public static DataTable GetAdmin()
-        {
-            return admin;
-        }
-        public static void SetAdmin(DataTable value)
-        {
-            admin = value;
-        }
-        private static DataTable warna = new DataTable();
-        public static DataTable GetWarna()
-        {
-            return warna;
-        }
-        public static void SetWarna(DataTable value)
-        {
-            warna = value;
-        }
-        private static DataTable size = new DataTable();
-        public static DataTable GetSize()
-        {
-            return size;
-        }
-        public static void SetSize(DataTable value)
-        {
-            size = value;
-        }
-        private static DataTable produk = new DataTable();
-        public static DataTable GetProduk()
-        {
-            return produk;
-        }
-        public static void SetProduk(DataTable value)
-        {
-            produk = value;
-        }
-        private static DataTable series = new DataTable();
-        public static DataTable GetSeries()
-        {
-            return series;
-        }
-        public static void SetSeries(DataTable value)
-        {
-            series = value;
-        }
-        private static DataTable supplier = new DataTable();
-        public static DataTable GetSupplier()
-        {
-            return supplier;
-        }
-        public static void SetSupplier(DataTable value)
-        {
-            supplier = value;
-        }
-        private static DataTable pengiriman = new DataTable();
-        public static DataTable GetPengiriman()
-        {
-            return pengiriman;
-        }
-        public static void SetPengiriman(DataTable value)
-        {
-            pengiriman = value;
-        }
-        private static DataTable kurir = new DataTable();
-        public static DataTable GetKurir()
-        {
-            return kurir;
-        }
-        public static void SetKurir(DataTable value)
-        {
-            kurir = value;
-        }
-        private static DataTable layanan = new DataTable();
-        public static DataTable GetLayanan()
-        {
-            return layanan;
-        }
-        public static void SetLayanan(DataTable value)
-        {
-            layanan = value;
-        }
-        private static DataTable cs = new DataTable();
-        public static DataTable GetCs()
-        {
-            return cs;
-        }
-        public static void SetCs(DataTable value)
-        {
-            cs = value;
-        }
-        private static DataTable kertaslabel = new DataTable();
-        public static DataTable GetKertaslabel()
-        {
-            return kertaslabel;
-        }
-        public static void SetKertaslabel(DataTable value)
-        {
-            kertaslabel = value;
-        }
-        private static DataTable country = new DataTable();
-        public static DataTable GetCountry()
-        {
-            return country;
-        }
-        public static void SetCountry(DataTable value)
-        {
-            country = value;
-        }
-        private static DataTable provinsi = new DataTable();
-        public static DataTable GetProvinsi()
-        {
-            return provinsi;
-        }
-        public static void SetProvinsi(DataTable value)
-        {
-            provinsi = value;
-        }
-        private static DataTable city = new DataTable();
-        public static DataTable GetCity()
-        {
-            return city;
-        }
-        public static void SetCity(DataTable value)
-        {
-            city = value;
-        }
-        private static DataTable subdistrict = new DataTable();
-        private static DataTable brand = new DataTable();
-        public static DataTable GetBrand()
-        {
-            return brand;
-        }
-        public static void SetBrand(DataTable value)
-        {
-            brand = value;
-        }
-        private static DataTable kategori = new DataTable();
-        public static DataTable GetKategori()
-        {
-            return kategori;
-        }
-        public static void SetKategori(DataTable value)
-        {
-            kategori = value;
-        }
-        public static DataTable GetSubdistrict()
-        {
-            return subdistrict;
-        }
-        public static void SetSubdistrict(DataTable value)
-        {
-            subdistrict = value;
-        }
-        private static DataTable masterProduk = new DataTable();
-        public static DataTable GetMasterProduk()
-        {
-            return masterProduk;
-        }
-        public static void SetMasterProduk(DataTable value)
-        {
-            masterProduk = value;
-        }
-        private static DataTable bukuKas = new DataTable();
-        public static DataTable GetBukuKas()
-        {
-            return bukuKas;
-        }
-        public static void SetBukuKas(DataTable value)
-        {
-            bukuKas = value;
-        }
-    }
-    #endregion
     #region Setting
     public static class S
     {
-        private static readonly ModulData DM = new ModulData();
         private static string persentaseHarga = "";
         public static string GetPersentaseHarga()
         {
@@ -3467,8 +3129,8 @@ public static class Halaman
             string path = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "apps.ico");
             if (File.Exists(path))
                 f.Icon = Icon.ExtractAssociatedIcon(path);
-            //else
-              //  f.Icon = AtelierAngelinaApps.Properties.Resources._default;
+            else
+                f.Icon = SINIS.Properties.Resources._default;
             f.SetControl(f.Text);
         }
         private static void SetControl(this Control control, string text)
@@ -3592,18 +3254,18 @@ public static class Halaman
         }
         public static void SetSettings()
         {
-            SetDivs(DM.GetDataSettings("divs").ToInteger());
-            SetColorpaneljudul(DM.GetDataSettings("colorpaneljudul").StringToColor());
-            SetStatusstripmessage(DM.GetDataSettings("statusstripmessage"));
-            SetStatusstripmaincolor(DM.GetDataSettings("statusstripmaincolor").StringToColor());
-            SetStatusstripaksencolor(DM.GetDataSettings("statusstripaksencolor").StringToColor());
-            SetColorlabeljudul(DM.GetDataSettings("colorlabeljudul").StringToColor()); ;
-            SetDatagridviewaksencolor(DM.GetDataSettings("datagridviewaksencolor").StringToColor());
-            SetButtonmaincolor(DM.GetDataSettings("buttonmaincolor").StringToColor());
-            SetButtonaksencolor(DM.GetDataSettings("buttonaksencolor").StringToColor());
-            SetForecolor(DM.GetDataSettings("forecolor").StringToColor());
-            SetBackcolor(DM.GetDataSettings("backcolor").StringToColor());
-            SetPrintcolor(DM.GetDataSettings("printcolor").StringToColor());
+            SetDivs(A.GetDataSettings("divs").ToInteger());
+            SetColorpaneljudul(A.GetDataSettings("colorpaneljudul").StringToColor());
+            SetStatusstripmessage(A.GetDataSettings("statusstripmessage"));
+            SetStatusstripmaincolor(A.GetDataSettings("statusstripmaincolor").StringToColor());
+            SetStatusstripaksencolor(A.GetDataSettings("statusstripaksencolor").StringToColor());
+            SetColorlabeljudul(A.GetDataSettings("colorlabeljudul").StringToColor()); ;
+            SetDatagridviewaksencolor(A.GetDataSettings("datagridviewaksencolor").StringToColor());
+            SetButtonmaincolor(A.GetDataSettings("buttonmaincolor").StringToColor());
+            SetButtonaksencolor(A.GetDataSettings("buttonaksencolor").StringToColor());
+            SetForecolor(A.GetDataSettings("forecolor").StringToColor());
+            SetBackcolor(A.GetDataSettings("backcolor").StringToColor());
+            SetPrintcolor(A.GetDataSettings("printcolor").StringToColor());
             SetEndIpAddress(A.GetEndLocalIpAddress());
         }
         private static string notifsound = "";

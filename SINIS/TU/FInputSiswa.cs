@@ -15,7 +15,6 @@ namespace SINIS.TU
 
         private string query = "";
         private string IdSiswa = "";
-        ModulData DM = new ModulData();
         public FInputSiswa(string idsiswa)
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace SINIS.TU
                         tbtempatlahir.Text + "', '" +
                         dtptgllahir.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
                         dtptglmasuk.Value.ToString("yyyy-MM-dd HH:mm:ss") + "');";
-                    DM.ManipulasiData(query);
+                    //DM.ManipulasiData(query);
                     MessageBox.Show("Data Tersimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -54,7 +53,7 @@ namespace SINIS.TU
                         "', siswa_jk='"+cbjk.Text+"', siswa_alamat='"+tbalamat.Text+"', siswa_tempatlahir='"+tbtempatlahir+"', " +
                         "siswa_tanggallahir='"+dtptgllahir.Value.ToString("yyyy-MM-dd HH:mm:ss")+
                         "', siswa_tanggalmasuk='"+dtptglmasuk.Value.ToString("yyyy-MM-dd HH:mm:ss") +"' WHERE id=" + IdSiswa;
-                    DM.ManipulasiData(query);
+                    //DM.ManipulasiData(query);
                     Close();
                 }
             }
@@ -70,16 +69,16 @@ namespace SINIS.TU
             if(IdSiswa!="0")
             {
                 query = "SELECT * FROM tm_siswa WHERE id="+IdSiswa;
-                foreach(DataRow br in DM.GetData(query).Tables[0].Rows)
-                {
-                    tbanama.Text = br["siswa_nama"].ToString();
-                    tbnis.Text = br["siswa_nis"].ToString();
-                    tbalamat.Text = br["siswa_alamat"].ToString();
-                    cbjk.SelectedIndex = cbjk.FindStringExact(br["siswa_jk"].ToString());
-                    tbtempatlahir.Text = br["siswa_tempatlahir"].ToString();
-                    dtptgllahir.Value = DateTime.Parse(br["siswa_tanggallahir"].ToString());
-                    dtptglmasuk.Value = DateTime.Parse(br["siswa_tanggalmasuk"].ToString());
-                }
+                //foreach(DataRow br in DM.GetData(query).Tables[0].Rows)
+                //{
+                //    tbanama.Text = br["siswa_nama"].ToString();
+                //    tbnis.Text = br["siswa_nis"].ToString();
+                //    tbalamat.Text = br["siswa_alamat"].ToString();
+                //    cbjk.SelectedIndex = cbjk.FindStringExact(br["siswa_jk"].ToString());
+                //    tbtempatlahir.Text = br["siswa_tempatlahir"].ToString();
+                //    dtptgllahir.Value = DateTime.Parse(br["siswa_tanggallahir"].ToString());
+                //    dtptglmasuk.Value = DateTime.Parse(br["siswa_tanggalmasuk"].ToString());
+                //}
             }
         }
     }
