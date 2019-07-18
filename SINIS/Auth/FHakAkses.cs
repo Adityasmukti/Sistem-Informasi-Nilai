@@ -23,14 +23,17 @@ namespace SINIS.Auth
         {
             if (Dg.SelectedRows.Count > 0)
             {
-                A.SetQueri("UPDATE `m_akses` SET `nama_akses`='" +tbhakakses.Text+"', `ket_akses`='"+tbket.Text+"' WHERE `id_akses`="+
-                    Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("ID HAK AKSES")].Value.ToString());
-                if (A.GetQueri().ManipulasiData())
+                if (MessageBox.Show("Simpan?","Pertanyaan", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Data berhasil di simpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tbket.Clear();
-                    tbhakakses.Clear();
-                    Loaddb();
+                    A.SetQueri("UPDATE `m_akses` SET `nama_akses`='" + tbhakakses.Text + "', `ket_akses`='" + tbket.Text + "' WHERE `id_akses`=" +
+                        Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("ID HAK AKSES")].Value.ToString());
+                    if (A.GetQueri().ManipulasiData())
+                    {
+                        MessageBox.Show("Data berhasil di simpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tbket.Clear();
+                        tbhakakses.Clear();
+                        Loaddb();
+                    }
                 }
             }
         }

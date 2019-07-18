@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FHakAkses));
             this.bhakakses = new System.Windows.Forms.Button();
             this.bsimpan = new System.Windows.Forms.Button();
@@ -39,6 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbhakakses = new System.Windows.Forms.TextBox();
             this.Dg = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -47,9 +51,6 @@
             this.lusernama = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbs_nama = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbs_waktu = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // bsimpan
             // 
+            this.bsimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bsimpan.BackColor = System.Drawing.Color.Crimson;
             this.bsimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bsimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +103,7 @@
             // 
             // bkeluar
             // 
+            this.bkeluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bkeluar.BackColor = System.Drawing.Color.Crimson;
             this.bkeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,6 +127,8 @@
             // 
             // tbket
             // 
+            this.tbket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbket.Location = new System.Drawing.Point(102, 33);
             this.tbket.Name = "tbket";
             this.tbket.Size = new System.Drawing.Size(404, 20);
@@ -140,6 +145,8 @@
             // 
             // tbhakakses
             // 
+            this.tbhakakses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbhakakses.Location = new System.Drawing.Point(102, 7);
             this.tbhakakses.Name = "tbhakakses";
             this.tbhakakses.Size = new System.Drawing.Size(404, 20);
@@ -166,6 +173,14 @@
             this.Column2,
             this.Column4,
             this.Column1});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dg.DefaultCellStyle = dataGridViewCellStyle2;
             this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Dg.Location = new System.Drawing.Point(0, 117);
             this.Dg.Margin = new System.Windows.Forms.Padding(4);
@@ -175,6 +190,26 @@
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dg.Size = new System.Drawing.Size(784, 422);
             this.Dg.TabIndex = 67;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column2.HeaderText = "ID HAK AKSES";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "HAK AKSES";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "KETERANGAN";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // flowLayoutPanel1
             // 
@@ -189,12 +224,14 @@
             // linkLabel1
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.DisabledLinkColor = System.Drawing.Color.DarkGray;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(3, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(529, 57);
+            this.linkLabel1.Size = new System.Drawing.Size(769, 57);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "[form name]";
@@ -249,27 +286,6 @@
             this.lbs_waktu.LinkColor = System.Drawing.Color.White;
             this.lbs_waktu.Name = "lbs_waktu";
             this.lbs_waktu.Size = new System.Drawing.Size(0, 17);
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column2.HeaderText = "ID HAK AKSES";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            this.Column2.Width = 87;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "HAK AKSES";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "KETERANGAN";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // FHakAkses
             // 

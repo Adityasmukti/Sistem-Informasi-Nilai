@@ -8,144 +8,67 @@ namespace SINIS.Auth
 {
     public partial class FKelolaUser : Form
     {
-        private List<string> idakses;
-        public FKelolaUser()
-        {
-            InitializeComponent();
-            this.SetControlFrom();
-            Text = "Tambah";
-            bsimpan.Click += Bsimpan_ClickTambah;
-            bbatal.Click += Bbatal_Click;
-        }
-        private void Bbatal_Click(object sender, EventArgs e) => Close();
-        private string oldpass, IdUser;
+        private List<string> idakses;      
         public FKelolaUser(string iduser)
         {
             InitializeComponent();
             this.SetControlFrom();
-            Text = "Ubah";
-            IdUser = iduser;
-            bsimpan.Click += Bsimpan_ClickUbah;
-        }
-        private void Bsimpan_ClickTambah(object sender, EventArgs e)
-        {
-            A.SetQueri("SELECT COUNT(*) FROM `m_user` WHERE `userdelete`='N' AND `username`='" + tbusername.Text + "'");
-            if (A.GetQueri().SingelData().ToInteger() > 0)
-                MessageBox.Show("Nama Username telah digunakan!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbusername.Text == string.Empty)
-                MessageBox.Show("Username Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbpassword.Text == string.Empty)
-                MessageBox.Show("Password Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (cbhakakses.Text == string.Empty)
-                MessageBox.Show("Hak Akses Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbnama.Text == string.Empty)
-                MessageBox.Show("Nama Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbjabatan.Text == string.Empty)
-                MessageBox.Show("Jabatan Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbpassword.Text != tbpass2.Text)
-                MessageBox.Show("Password Tidak sesuai!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbpassword.Text.Length <= 3)
-                MessageBox.Show("Password Harus Lebih dari 3 Karakter", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
+            this.Load += (sender, e) =>
             {
-                if (MessageBox.Show("Simpan data ini?", "Pertanyaan?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                idakses = CbHakAkses.LoadAkses();
+                CbHakAkses.SelectedIndex = 0;
+
+                foreach (DataRow b in A.GetData("SELECT `username`,`password`,`id_akses` FROM `m_user` WHERE `id_user`=" + iduser).Rows)
                 {
-                    A.SetQueri("INSERT INTO `m_user` (`id_akses`,`username`,`password`,`nama`,`jabatan`,`noadmin`,`device`, `ppic`) VALUES" +
-                    "( " + idakses[cbhakakses.SelectedIndex] + ", '" + tbusername.Text + "', MD5('" + tbpassword.Text +
-                    "'), '" + tbnama.Text + "', '" + tbjabatan.Text + "', '" + tbnoadmin.Text + "', '" + A.GetMACAddress() + "', " + S.GetUserid() + ")");
-                    if (A.GetQueri().ManipulasiData())
-                    {
-                        MessageBox.Show("Berhasil Di Simpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.ClearControl();
-                    }
-                    else
-                        MessageBox.Show("Gagal Menyimpan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TbUsername.Text = b["username"].ToString();
+                    TbPassword.Text = b["password"].ToString();
+                    CbHakAkses.SelectedIndex = idakses.FindIndex(x => x.Equals(b["id_akses"].ToString()));
                 }
-            }
-        }
-        private void Bsimpan_ClickUbah(object sender, EventArgs e)
-        {
-            A.SetQueri("SELECT COUNT(*) FROM `m_user` WHERE `userdelete`='N' AND `username`='" + tbusername.Text + "' AND `id_user`<>'" + IdUser + "'");
-            if (A.GetQueri().SingelData().ToInteger() > 1)
-                MessageBox.Show("Nama Username telah digunakan Orang lain!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbusername.Text == string.Empty)
-                MessageBox.Show("Username Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbpassword.Text == string.Empty)
-                MessageBox.Show("Password Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (cbhakakses.Text == string.Empty)
-                MessageBox.Show("Hak Akses Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbnama.Text == string.Empty)
-                MessageBox.Show("Nama Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbjabatan.Text == string.Empty)
-                MessageBox.Show("Jabatan Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbpassword.Text.Length <= 3)
-                MessageBox.Show("Password Harus Lebih dari 3 Karakter", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (tbpassword.Text != oldpass && tbpassword.Text != tbpass2.Text)
-                MessageBox.Show("Password Tidak Sesuai!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else
-            {
-                if (MessageBox.Show("Simpan data ini?", "Pertanyaan?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                CbHakAkses.Enabled = false;
+                if (S.GetUseracces() == "1")
+                    CbHakAkses.Enabled = true;
+            };
+
+            BSimpan.Click += (sender,e)=> {
+                A.SetQueri("SELECT COUNT(*) FROM `m_user` WHERE `userdelete`='N' AND `username`='" + TbUsername.Text + "' AND `id_user`<>'" + iduser + "'");
+                if (A.GetQueri().SingelData().ToInteger() > 1)
+                    MessageBox.Show("Nama Username telah digunakan Orang lain!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (TbUsername.Text == string.Empty)
+                    MessageBox.Show("Username Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (TbPassword.Text == string.Empty)
+                    MessageBox.Show("Password Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (CbHakAkses.Text == string.Empty)
+                    MessageBox.Show("Hak Akses Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (TbPassword.Text.Length <= 3)
+                    MessageBox.Show("Password Harus Lebih dari 3 Karakter", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (TbPassword.Text != TbUlangPassword.Text)
+                    MessageBox.Show("Password Tidak Sesuai!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    string pass = "";
-                    if (tbpass2.TextLength > 0)
-                        if (tbpassword.Text == tbpass2.Text)
-                            pass = ", `password` = MD5('" + tbpassword.Text + "')";
-                    A.SetQueri("UPDATE `m_user` SET `id_akses` = " + idakses[cbhakakses.SelectedIndex] +
-                        ", `username` = '" + tbusername.Text + "' " + pass + ", `nama` = '" + tbnama.Text + "', `jabatan` = '" + tbjabatan.Text +
-                        "', `noadmin` = '" + tbnoadmin.Text + "' WHERE `id_user` =" + IdUser + ";");
-                    if (A.GetQueri().ManipulasiData())
+                    if (MessageBox.Show("Simpan data ini?", "Pertanyaan?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Berhasil Di Simpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (IdUser == S.GetUserid())
+                        string pass = "";
+                        if (TbUlangPassword.TextLength > 0)
+                            if (TbPassword.Text == TbUlangPassword.Text)
+                                pass = ", `password` = MD5('" + TbPassword.Text + "')";
+                        A.SetQueri("UPDATE `m_user` SET `id_akses` = '" + idakses[CbHakAkses.SelectedIndex] + "', `username` = '" + TbUsername.Text + "' " + pass + " WHERE `id_user` =" + iduser + ";");
+                        if (A.GetQueri().ManipulasiData())
                         {
-                            Application.Restart();
-                            Environment.Exit(0);
+                            MessageBox.Show("Berhasil Di Simpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (iduser == S.GetUserid())
+                            {
+                                Application.Restart();
+                                Environment.Exit(0);
+                            }
+                            else
+                                Close();
                         }
                         else
-                            Close();
+                            MessageBox.Show("Gagal Menyimpan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("Gagal Menyimpan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-        private void Bbatal_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
-        private void FKelolaUser_Load(object sender, EventArgs e)
-        {
-            cbhakakses.Items.Clear();
-            idakses = new List<string>();
-            A.SetQueri("SELECT * FROM `m_akses` ORDER BY `nama_akses` DESC");
-            foreach (DataRow b in A.GetQueri().GetData().Rows)
-            {
-                idakses.Add(b["id_akses"].ToString());
-                cbhakakses.Items.Add(b["nama_akses"].ToString());
-            }
-            cbhakakses.SelectedIndex = 0;
-
-            if (Text == "UBAH")
-            {
-                A.SetSelect("SELECT * ");
-                A.SetFrom(" FROM `m_user` U ");
-                A.SetWhere(" WHERE `U`.`userdelete`='N' AND `U`.`id_user`=" + IdUser);
-                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere());
-                foreach (DataRow b in A.GetQueri().GetData().Rows)
-                {
-                    tbusername.Text = b["username"].ToString();
-                    tbpassword.Text = b["password"].ToString();
-                    oldpass = b["password"].ToString();
-                    cbhakakses.SelectedIndex = idakses.FindIndex(x => x.Equals(b["id_akses"].ToString()));
-                    tbnama.Text = b["nama"].ToString();
-                    tbjabatan.Text = b["jabatan"].ToString();
-                    tbnoadmin.Text = b["noadmin"].ToString();
-                }
-            }
-
-            cbhakakses.Enabled = false;
-            if (S.GetUseracces() == "1")
-                cbhakakses.Enabled = true;
+            };
         }
     }
 }

@@ -57,6 +57,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.bbatal = new System.Windows.Forms.Button();
             this.bsimpan = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.BOk = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -69,6 +74,8 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -372,11 +379,73 @@
             this.bsimpan.UseVisualStyleBackColor = false;
             this.bsimpan.Click += new System.EventHandler(this.bsimpan_Click);
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.BOk);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel12.Location = new System.Drawing.Point(0, 440);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(784, 49);
+            this.panel12.TabIndex = 107;
+            // 
+            // BOk
+            // 
+            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BOk.BackColor = System.Drawing.Color.Crimson;
+            this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BOk.ForeColor = System.Drawing.Color.White;
+            this.BOk.Location = new System.Drawing.Point(672, 8);
+            this.BOk.Margin = new System.Windows.Forms.Padding(4);
+            this.BOk.Name = "BOk";
+            this.BOk.Size = new System.Drawing.Size(108, 35);
+            this.BOk.TabIndex = 44;
+            this.BOk.Text = "OK";
+            this.BOk.UseVisualStyleBackColor = false;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
+            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 108;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
+            this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 52);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
+            this.flowLayoutPanel1.TabIndex = 106;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
+            this.linkLabel1.DisabledLinkColor = System.Drawing.Color.DarkGray;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(3, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(755, 57);
+            this.linkLabel1.TabIndex = 1;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "[form]";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
+            // 
             // FInputSiswa
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -403,7 +472,10 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -438,5 +510,10 @@
         private System.Windows.Forms.TextBox tbanama;
         private System.Windows.Forms.Button bbatal;
         private System.Windows.Forms.ComboBox cbjk;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button BOk;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

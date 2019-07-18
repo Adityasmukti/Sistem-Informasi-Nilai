@@ -86,7 +86,7 @@ namespace SINIS.Auth
                 MessageBox.Show("User dan Password harus di isi!!", "PERINGATAN", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                A.SetQueri("SELECT `id_user`, `id_akses`, `username`, `nama` " +
+                A.SetQueri("SELECT `id_user`, `id_akses`, `username`, `kode_ref` " +
                     "FROM `m_user` WHERE `hapus`='N' AND `username`='" + tbusername.Text +
                     "' AND `password`=MD5('" + tbpassword.Text + "') LIMIT 1");
                 bool ada = false;
@@ -96,12 +96,17 @@ namespace SINIS.Auth
                     S.SetUsername(baris["username"].ToString().EncodeUtf8());
                     S.SetUseracces(baris["id_akses"].ToString());
                     S.SetUserid(baris["id_user"].ToString());
-                    S.SetUsernama(baris["nama"].ToString());
+                    S.SetKoderef(baris["kode_ref"].ToString());
                     ada = true;
                 }
 
                 if (ada)
                 {
+                    if (S.GetUseracces() == "1" || S.GetUseracces() == "2")
+                        S.SetUsernama(A.SingelData("SELECT `namaguru` FROM `m_guru` WHERE `kode_guru`='" + S.GetKoderef() + "';"));
+                    else if (S.GetUseracces() == "3")
+                        S.SetUsernama(A.SingelData("SELECT `namasiswa` FROM `m_siswa` WHERE  `kode_siswa`='" + S.GetKoderef() + "';"));
+
                     tbpassword.Clear();
                     tbusername.Clear();
                     Tbusername_Leave(sender, e);

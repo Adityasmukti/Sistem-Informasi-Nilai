@@ -2857,6 +2857,20 @@ namespace ExtensionMethods
             return await GetValue(queri);
         }
         #endregion
+
+        #region LoadData
+        public static List<string> LoadAkses(this ComboBox cb)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow b in GetData("SELECT `id_akses`, `nama_akses` FROM `m_akses` ORDER BY `id_akses`;").Rows)
+            {
+                id.Add(b[0].ToString());
+                cb.Items.Add(b[1].ToString());
+            }
+            return id;
+        }
+        #endregion
     }
     #region Setting
     public static class S
@@ -2864,7 +2878,16 @@ namespace ExtensionMethods
         private static int divs = 1;
         private static Color colorpaneljudul = Color.White, statusstripmaincolor = Color.White, colorlabeljudul = Color.White, datagridviewaksencolor = Color.White,
             buttonmaincolor = Color.White, buttonaksencolor = Color.White, statusstripaksencolor = Color.White, forecolor = Color.White, backcolor = Color.White;
-        private static string username = "", usernama = "", userid = "", useracces = "", endIpAddress = "000", statusstripmessage = "", notifsound = "";
+        private static string username = "", usernama = "", userid = "", useracces = "", endIpAddress = "000", statusstripmessage = "", notifsound = "",
+            koderef="";
+        public static string GetKoderef()
+        {
+            return koderef;
+        }
+        public static void SetKoderef(string value)
+        {
+            koderef = value;
+        }
         public static int GetDivs()
         {
             return divs;

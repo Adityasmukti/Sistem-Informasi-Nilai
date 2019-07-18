@@ -32,15 +32,10 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.BOk = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbs_waktu = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbs_nama = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbshakakses = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbs_datang = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TbText = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -61,10 +56,10 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(3, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(819, 57);
+            this.linkLabel1.Size = new System.Drawing.Size(723, 57);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "CARI DATA ORDER";
+            this.linkLabel1.Text = "[form]";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
@@ -93,46 +88,9 @@
             this.panel1.Size = new System.Drawing.Size(784, 49);
             this.panel1.TabIndex = 104;
             // 
-            // lbs_waktu
-            // 
-            this.lbs_waktu.ActiveLinkColor = System.Drawing.Color.Red;
-            this.lbs_waktu.ForeColor = System.Drawing.Color.White;
-            this.lbs_waktu.LinkColor = System.Drawing.Color.White;
-            this.lbs_waktu.Name = "lbs_waktu";
-            this.lbs_waktu.Size = new System.Drawing.Size(178, 17);
-            this.lbs_waktu.Text = "Semoga Harimu Menyenangkan";
-            // 
-            // lbs_nama
-            // 
-            this.lbs_nama.ForeColor = System.Drawing.Color.White;
-            this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(301, 17);
-            this.lbs_nama.Spring = true;
-            this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
-            // 
-            // lbshakakses
-            // 
-            this.lbshakakses.AutoSize = false;
-            this.lbshakakses.ForeColor = System.Drawing.Color.White;
-            this.lbshakakses.Name = "lbshakakses";
-            this.lbshakakses.Size = new System.Drawing.Size(200, 17);
-            this.lbshakakses.Text = "toolStripStatusLabel1";
-            // 
-            // lbs_datang
-            // 
-            this.lbs_datang.ForeColor = System.Drawing.Color.White;
-            this.lbs_datang.Name = "lbs_datang";
-            this.lbs_datang.Size = new System.Drawing.Size(90, 17);
-            this.lbs_datang.Text = "Selamat Datang";
-            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbs_datang,
-            this.lbshakakses,
-            this.lbs_nama,
-            this.lbs_waktu});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
@@ -164,8 +122,6 @@
             this.Text = "DESKRIPSI";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,10 +132,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button BOk;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_waktu;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_nama;
-        private System.Windows.Forms.ToolStripStatusLabel lbshakakses;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_datang;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.RichTextBox TbText;
     }

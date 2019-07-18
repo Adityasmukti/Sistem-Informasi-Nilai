@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSettingApps));
-            this.lbs_waktu = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbs_nama = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbshakakses = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbs_datang = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -75,7 +71,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.statusStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -84,46 +79,9 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbs_waktu
-            // 
-            this.lbs_waktu.ActiveLinkColor = System.Drawing.Color.Red;
-            this.lbs_waktu.ForeColor = System.Drawing.Color.White;
-            this.lbs_waktu.LinkColor = System.Drawing.Color.White;
-            this.lbs_waktu.Name = "lbs_waktu";
-            this.lbs_waktu.Size = new System.Drawing.Size(178, 17);
-            this.lbs_waktu.Text = "Semoga Harimu Menyenangkan";
-            // 
-            // lbs_nama
-            // 
-            this.lbs_nama.ForeColor = System.Drawing.Color.White;
-            this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(301, 17);
-            this.lbs_nama.Spring = true;
-            this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
-            // 
-            // lbshakakses
-            // 
-            this.lbshakakses.AutoSize = false;
-            this.lbshakakses.ForeColor = System.Drawing.Color.White;
-            this.lbshakakses.Name = "lbshakakses";
-            this.lbshakakses.Size = new System.Drawing.Size(200, 17);
-            this.lbshakakses.Text = "toolStripStatusLabel1";
-            // 
-            // lbs_datang
-            // 
-            this.lbs_datang.ForeColor = System.Drawing.Color.White;
-            this.lbs_datang.Name = "lbs_datang";
-            this.lbs_datang.Size = new System.Drawing.Size(90, 17);
-            this.lbs_datang.Text = "Selamat Datang";
-            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbs_datang,
-            this.lbshakakses,
-            this.lbs_nama,
-            this.lbs_waktu});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
@@ -242,7 +200,7 @@
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1276, 486);
+            this.tabPage3.Size = new System.Drawing.Size(776, 386);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "WARNA";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -279,7 +237,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1276, 486);
+            this.groupBox4.Size = new System.Drawing.Size(776, 386);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "WARNA";
@@ -523,7 +481,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1276, 486);
+            this.tabPage1.Size = new System.Drawing.Size(776, 386);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PESAN";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -553,8 +511,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PENGATURAN";
             this.Load += new System.EventHandler(this.FSettingApps_Load);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -569,11 +525,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStripStatusLabel lbs_waktu;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_nama;
-        private System.Windows.Forms.ToolStripStatusLabel lbshakakses;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_datang;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
