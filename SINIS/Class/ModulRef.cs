@@ -25,19 +25,17 @@ namespace ExtensionMethods
     {
         #region Variabel
         private static string strcon = "";
-        private static MySqlConnection koneksi;
-        private static MySqlConnection koneksi2;
+        private static MySqlConnection koneksi, koneksi2;
         private static MySqlCommand perintah;
         private static MySqlDataAdapter adapter;
         private static MySqlDataReader reader;
-
         private static readonly Random random = new Random();
-        private static string bar, bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, bar10, prefix, postfix;
-        private static string Queri = "", queri = "", select = "", from = "", values = "", where = "", groupby = "", orderby = "", set = "", insert = "", update = "", lQueri = "";
+        private static string Queri = "", queri = "", select = "", from = "", values = "", where = "", 
+            groupby = "", orderby = "", set = "", insert = "", update = "", lQueri = "";
         private static List<string> id;
         private static PrintDocument PDD, PDB;
-
         private static readonly string semua = "SEMUA";
+
         public static string GetSemua()
         {
             return semua;
@@ -324,24 +322,16 @@ namespace ExtensionMethods
         }
         public static string GenerateBarcode()
         {
-            bar1 = random.Next(6, 10).ToString();
-            bar2 = random.Next(5, 10).ToString();
-            bar3 = random.Next(4, 10).ToString();
-            bar4 = random.Next(0, 6).ToString();
-            bar5 = random.Next(2, 10).ToString();
-            bar6 = random.Next(0, 6).ToString();
-            bar7 = random.Next(3, 10).ToString();
-            bar8 = random.Next(0, 10).ToString();
-            bar9 = random.Next(5, 10).ToString();
-            bar10 = random.Next(0, 9).ToString();
-
-            bar = bar1 + bar2 + bar3 + bar4 + bar5 + bar6 + bar7 + bar8 + bar9 + bar10;
-            return bar;
+            return random.Next(6, 10).ToString() + random.Next(5, 10).ToString() + 
+                random.Next(4, 10).ToString() + random.Next(0, 6).ToString() + 
+                random.Next(2, 10).ToString() + random.Next(0, 6).ToString() + 
+                random.Next(3, 10).ToString() + random.Next(0, 10).ToString() + 
+                random.Next(5, 10).ToString() + random.Next(0, 9).ToString();
         }
         public static string GenerateKode(string prefix, string tabel, string field)
         {
             string temprefix = prefix + S.GetEndIpAddress() + DateTime.Now.ToString("yyMMdd");
-            postfix = "";
+            string postfix = "";
             foreach (DataRow baris in GetData("SELECT RIGHT(`" + field + "`,4) FROM `" + tabel + "` WHERE LEFT(`" + field + "`, 11) ='" + temprefix + "' ORDER BY `" + field + "` DESC LIMIT 1").Rows)
                 postfix = (Convert.ToInt32(baris[0]) + 1).ToString();
             return temprefix + postfix.GeneratePostFix();
@@ -2346,392 +2336,393 @@ namespace ExtensionMethods
         #endregion
 
         #region Export / Import
-        //public static void ImportExcelDataJne(this DataGridView dg)
-        //{
-        //    OpenFileDialog f = new OpenFileDialog()
-        //    {
-        //        Filter = "Excel Workbook (*.xlsx; *.xls)|*.xlsx;*.xls|Excel Workbook (*.xlsx)|*.xlsx|Excel 97-2013 Workbook (*.xls)|*.xls",
-        //        InitialDirectory = GetDownloadsPath(),
-        //        RestoreDirectory = true,
-        //        FilterIndex = 1,
-        //        Title = "Cari File"
-        //    };
-        //    if (f.ShowDialog() != DialogResult.Cancel)
-        //    {
-        //        NetOffice.ExcelApi.Application app = new NetOffice.ExcelApi.Application();
-        //        NetOffice.ExcelApi.Workbook book = null;
-        //        app.Visible = false;
-        //        app.ScreenUpdating = false;
-        //        app.DisplayAlerts = false;
-        //        NetOffice.ExcelApi.Range range;
-        //        //string execPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-        //        try
-        //        {
-        //            book = app.Workbooks.Open(f.FileName, Missing.Value, Missing.Value, Missing.Value,
-        //                Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
-        //            //NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(book.Sheets["Sheet1"]);
-        //            var xlWorkSheet = (NetOffice.ExcelApi.Worksheet)book.Worksheets[1];
-        //            // get a range to work with
-        //            range = xlWorkSheet.get_Range("B3", Type.Missing);
-        //            range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlToRight);
-        //            // get the end of values toward the bottom, looking in the last column (will stop at first empty cell)
-        //            range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlDown);
-        //            // get the address of the bottom, right cell
-        //            string downAddress = range.get_Address(false, false, NetOffice.ExcelApi.Enums.XlReferenceStyle.xlA1, Type.Missing, Type.Missing);
-        //            // Get the range, then values from a1
-        //            range = xlWorkSheet.get_Range("B4", downAddress);
-        //            object[,] values = (object[,])range.Value2;
-        //            dg.Rows.Clear();
-        //            // View the values
-        //            for (int i = 1; i <= values.GetLength(0); i++)
-        //            {
-        //                DataGridViewRow dr = new DataGridViewRow();
-        //                for (int j = 1; j <= values.GetLength(1); j++)
-        //                {
-        //                    dr.Cells.Add(new DataGridViewTextBoxCell { Value = values[i, j] });
-        //                }
-        //                dg.Rows.Add(dr);
-        //            }
-        //            MessageBox.Show("Import berhasil!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Kesalahan dalam membaca file, Pastikan Format form sama!!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            ex.LogError(A.GetCurrentMethod());
-        //        }
-        //        finally
-        //        {
-        //            if (book != null)
-        //                book.Close(false, Missing.Value, Missing.Value);
-        //            if (app != null)
-        //                app.Quit();
-        //        }
-        //    }
-        //}
-        //public static void ImportExcel()
-        //{
-        //    OpenFileDialog f = new OpenFileDialog() {
-        //        Filter = "Excel Workbook (*.xlsx)|*.xlsx|Excel 97-2013 Workbook (*.xls)|*.xls",
-        //        InitialDirectory = GetDownloadsPath(),
-        //        RestoreDirectory = true,
-        //        FilterIndex = 1,
-        //        Title = "Cari File"
-        //    };
-        //    if (f.ShowDialog() != DialogResult.Cancel)
-        //    {
-        //        NetOffice.ExcelApi.Application app = new NetOffice.ExcelApi.Application();
-        //        NetOffice.ExcelApi.Workbook book = null;
-        //        NetOffice.ExcelApi.Range range;
-        //        try
-        //        {
-        //            app.Visible = false;
-        //            app.ScreenUpdating = false;
-        //            app.DisplayAlerts = false;
+        public static void ImportExcelDataJne(this DataGridView dg)
+        {
+            OpenFileDialog f = new OpenFileDialog()
+            {
+                Filter = "Excel Workbook (*.xlsx; *.xls)|*.xlsx;*.xls|Excel Workbook (*.xlsx)|*.xlsx|Excel 97-2013 Workbook (*.xls)|*.xls",
+                InitialDirectory = GetDownloadsPath(),
+                RestoreDirectory = true,
+                FilterIndex = 1,
+                Title = "Cari File"
+            };
+            if (f.ShowDialog() != DialogResult.Cancel)
+            {
+                NetOffice.ExcelApi.Application app = new NetOffice.ExcelApi.Application();
+                NetOffice.ExcelApi.Workbook book = null;
+                app.Visible = false;
+                app.ScreenUpdating = false;
+                app.DisplayAlerts = false;
+                NetOffice.ExcelApi.Range range;
+                //string execPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+                try
+                {
+                    book = app.Workbooks.Open(f.FileName, Missing.Value, Missing.Value, Missing.Value,
+                        Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                    //NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(book.Sheets["Sheet1"]);
+                    var xlWorkSheet = (NetOffice.ExcelApi.Worksheet)book.Worksheets[1];
+                    // get a range to work with
+                    range = xlWorkSheet.get_Range("B3", Type.Missing);
+                    range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlToRight);
+                    // get the end of values toward the bottom, looking in the last column (will stop at first empty cell)
+                    range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlDown);
+                    // get the address of the bottom, right cell
+                    string downAddress = range.get_Address(false, false, NetOffice.ExcelApi.Enums.XlReferenceStyle.xlA1, Type.Missing, Type.Missing);
+                    // Get the range, then values from a1
+                    range = xlWorkSheet.get_Range("B4", downAddress);
+                    object[,] values = (object[,])range.Value2;
+                    dg.Rows.Clear();
+                    // View the values
+                    for (int i = 1; i <= values.GetLength(0); i++)
+                    {
+                        DataGridViewRow dr = new DataGridViewRow();
+                        for (int j = 1; j <= values.GetLength(1); j++)
+                        {
+                            dr.Cells.Add(new DataGridViewTextBoxCell { Value = values[i, j] });
+                        }
+                        dg.Rows.Add(dr);
+                    }
+                    MessageBox.Show("Import berhasil!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kesalahan dalam membaca file, Pastikan Format form sama!!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ex.LogError(A.GetCurrentMethod());
+                }
+                finally
+                {
+                    if (book != null)
+                        book.Close(false, Missing.Value, Missing.Value);
+                    if (app != null)
+                        app.Quit();
+                }
+            }
+        }
+        public static void ImportExcel()
+        {
+            OpenFileDialog f = new OpenFileDialog()
+            {
+                Filter = "Excel Workbook (*.xlsx)|*.xlsx|Excel 97-2013 Workbook (*.xls)|*.xls",
+                InitialDirectory = GetDownloadsPath(),
+                RestoreDirectory = true,
+                FilterIndex = 1,
+                Title = "Cari File"
+            };
+            if (f.ShowDialog() != DialogResult.Cancel)
+            {
+                NetOffice.ExcelApi.Application app = new NetOffice.ExcelApi.Application();
+                NetOffice.ExcelApi.Workbook book = null;
+                NetOffice.ExcelApi.Range range;
+                try
+                {
+                    app.Visible = false;
+                    app.ScreenUpdating = false;
+                    app.DisplayAlerts = false;
 
-        //            string execPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+                    string execPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
 
-        //            book = app.Workbooks.Open(f.FileName, Missing.Value, Missing.Value, Missing.Value,
-        //                Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
-        //            //NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(book.Sheets["Sheet1"]);
-        //            var xlWorkSheet = (NetOffice.ExcelApi.Worksheet)book.Worksheets[1];
-        //            // get a range to work with
-        //            range = xlWorkSheet.get_Range("A2", Missing.Value);
-        //            // get the end of values to the right (will stop at the first empty cell)
-        //            range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlToRight);
-        //            // get the end of values toward the bottom, looking in the last column (will stop at first empty cell)
-        //            range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlDown);
-        //            // get the address of the bottom, right cell
-        //            string downAddress = range.get_Address(false, false, NetOffice.ExcelApi.Enums.XlReferenceStyle.xlA1, Type.Missing, Type.Missing);
-        //            // Get the range, then values from a1
-        //            range = xlWorkSheet.get_Range("A2", downAddress);
-        //            object[,] values = (object[,])range.Value2;
+                    book = app.Workbooks.Open(f.FileName, Missing.Value, Missing.Value, Missing.Value,
+                        Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                    //NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(book.Sheets["Sheet1"]);
+                    var xlWorkSheet = (NetOffice.ExcelApi.Worksheet)book.Worksheets[1];
+                    // get a range to work with
+                    range = xlWorkSheet.get_Range("A2", Missing.Value);
+                    // get the end of values to the right (will stop at the first empty cell)
+                    range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlToRight);
+                    // get the end of values toward the bottom, looking in the last column (will stop at first empty cell)
+                    range = range.get_End(NetOffice.ExcelApi.Enums.XlDirection.xlDown);
+                    // get the address of the bottom, right cell
+                    string downAddress = range.get_Address(false, false, NetOffice.ExcelApi.Enums.XlReferenceStyle.xlA1, Type.Missing, Type.Missing);
+                    // Get the range, then values from a1
+                    range = xlWorkSheet.get_Range("A2", downAddress);
+                    object[,] values = (object[,])range.Value2;
 
-        //            string sql = "";
-        //            // View the values
-        //            for (int i = 1; i <= values.GetLength(0); i++)
-        //            {
-        //                //barcode//resi//date//reciever//status
-        //                string datestr = "";
-        //                string resi = "";
-        //                if (values[i, 2] != null)
-        //                    resi = Regex.Replace((string)values[i, 2], "#", "");
-        //                if (values[i, 3] != null)
-        //                    datestr = DateTime.FromOADate((double)values[i, 3]).ToString("yyyy-MM-dd HH:mm:ss");
+                    string sql = "";
+                    // View the values
+                    for (int i = 1; i <= values.GetLength(0); i++)
+                    {
+                        //barcode//resi//date//reciever//status
+                        string datestr = "";
+                        string resi = "";
+                        if (values[i, 2] != null)
+                            resi = Regex.Replace((string)values[i, 2], "#", "");
+                        if (values[i, 3] != null)
+                            datestr = DateTime.FromOADate((double)values[i, 3]).ToString("yyyy-MM-dd HH:mm:ss");
 
-        //                if (values[i, 5].ToString().Equals("DELIVERED"))
-        //                    sql += "UPDATE `f_order` SET `id_resi` = CASE WHEN `id_resi` = '0' THEN '" + S.GetUserid() + "' ELSE `id_resi` END, " +
-        //                        "`resi` = '" + resi + "', `id_terima` = '" + S.GetUserid() + "', `sampai` = 'Y', `tglsampai` = '" + datestr + "', " +
-        //                        "`penerimapaket`='" + values[i, 4] + "' WHERE `kode_barcode` = '" + values[i, 1] + "';";
-        //                else
-        //                    sql += "UPDATE `f_order` SET `id_resi` = '" + S.GetUserid() + "', `resi` = '" + resi + "' WHERE `kode_barcode` = '" + values[i, 1] + "';";
-        //            }
-        //            if (sql.ManipulasiData())
-        //                MessageBox.Show("Data Pengiriman telah berhasil dirubah!!","Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            else
-        //                MessageBox.Show("Gagal mengubah data pengiriman!!","Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Kesalahan dalam membaca file, Pastikan Format form sama!!","Kesalahan",MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            ex.LogError(A.GetCurrentMethod());
-        //        }
-        //        finally
-        //        {
-        //            if (book != null)
-        //                book.Close(false, Missing.Value, Missing.Value);
-        //            if (app != null)
-        //                app.Quit();
-        //        }
-        //    }
-        //}
-        //public static void ExportExcel(this DataGridView Dg, string queri, string judul = "")
-        //{
-        //    Cursor.Current = Cursors.WaitCursor;
-        //    NetOffice.ExcelApi.Application xlApp = new NetOffice.ExcelApi.Application();
-        //    Object misValue = System.Reflection.Missing.Value;
-        //    _ = new NetOffice.ExcelApi.Range();
-        //    NetOffice.ExcelApi.Workbook xlWorkbook = xlApp.Workbooks.Add(misValue);
-        //    NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(xlWorkbook.Sheets["Sheet1"]);
-        //    CultureInfo oldCI = System.Threading.Thread.CurrentThread.CurrentCulture;
-        //    System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-        //    xlWorksheet.PageSetup.Orientation = NetOffice.ExcelApi.Enums.XlPageOrientation.xlLandscape;
-        //    xlWorksheet.PageSetup.PaperSize = NetOffice.ExcelApi.Enums.XlPaperSize.xlPaperA4;
-        //    xlWorksheet.PageSetup.BottomMargin = 0.5;
-        //    xlWorksheet.PageSetup.TopMargin = 0.5;
-        //    xlWorksheet.PageSetup.LeftMargin = 0.5;
-        //    xlWorksheet.PageSetup.RightMargin = 0.5;
-        //    SaveFileDialog sf = new SaveFileDialog
-        //    {
-        //        Filter = "Excel Document (.xlsx)|*.xlsx",
-        //        FilterIndex = 0,
-        //        RestoreDirectory = true,
-        //        FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx",
-        //        Title = "Simpan File SpreadSheet"
-        //    };
-        //    if (sf.ShowDialog() == DialogResult.OK)
-        //    {
-        //        #region Memberi nama Header tabel
-        //        int hasilbagi = Dg.ColumnCount / 26;
-        //        int sisabagi = Dg.ColumnCount % 26;
-        //        if (sisabagi > 0)
-        //            hasilbagi++;
-        //        int colindex = 0;
-        //        NetOffice.ExcelApi.Range range;
-        //        for (int a = 0; a < hasilbagi; a++)
-        //        {
-        //            string pre = ((char)(a + 64)).ToString();
-        //            if (a == 0)
-        //                pre = "";
-        //            int huruf = 26;
-        //            if (a == hasilbagi - 1)
-        //                if (sisabagi > 0)
-        //                    huruf = sisabagi;
-        //            for (int b = 0; b < huruf; b++)
-        //            {
-        //                range = xlWorksheet.get_Range(pre + ((char)(b + 65)).ToString() + "3", pre + ((char)(b + 65)).ToString() + "3");
-        //                range.FormulaR1C1 = Dg.Columns[colindex].HeaderText;
-        //                range.Font.Bold = FontStyle.Bold;
-        //                range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
-        //                range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
-        //                colindex++;
-        //            }
-        //        }
-        //        #endregion
+                        if (values[i, 5].ToString().Equals("DELIVERED"))
+                            sql += "UPDATE `f_order` SET `id_resi` = CASE WHEN `id_resi` = '0' THEN '" + S.GetUserid() + "' ELSE `id_resi` END, " +
+                                "`resi` = '" + resi + "', `id_terima` = '" + S.GetUserid() + "', `sampai` = 'Y', `tglsampai` = '" + datestr + "', " +
+                                "`penerimapaket`='" + values[i, 4] + "' WHERE `kode_barcode` = '" + values[i, 1] + "';";
+                        else
+                            sql += "UPDATE `f_order` SET `id_resi` = '" + S.GetUserid() + "', `resi` = '" + resi + "' WHERE `kode_barcode` = '" + values[i, 1] + "';";
+                    }
+                    if (sql.ManipulasiData())
+                        MessageBox.Show("Data Pengiriman telah berhasil dirubah!!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Gagal mengubah data pengiriman!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kesalahan dalam membaca file, Pastikan Format form sama!!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ex.LogError(GetCurrentMethod());
+                }
+                finally
+                {
+                    if (book != null)
+                        book.Close(false, Missing.Value, Missing.Value);
+                    if (app != null)
+                        app.Quit();
+                }
+            }
+        }
+        public static void ExportExcel(this DataGridView Dg, string queri, string judul = "")
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            NetOffice.ExcelApi.Application xlApp = new NetOffice.ExcelApi.Application();
+            Object misValue = System.Reflection.Missing.Value;
+            _ = new NetOffice.ExcelApi.Range();
+            NetOffice.ExcelApi.Workbook xlWorkbook = xlApp.Workbooks.Add(misValue);
+            NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(xlWorkbook.Sheets["Sheet1"]);
+            CultureInfo oldCI = System.Threading.Thread.CurrentThread.CurrentCulture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            xlWorksheet.PageSetup.Orientation = NetOffice.ExcelApi.Enums.XlPageOrientation.xlLandscape;
+            xlWorksheet.PageSetup.PaperSize = NetOffice.ExcelApi.Enums.XlPaperSize.xlPaperA4;
+            xlWorksheet.PageSetup.BottomMargin = 0.5;
+            xlWorksheet.PageSetup.TopMargin = 0.5;
+            xlWorksheet.PageSetup.LeftMargin = 0.5;
+            xlWorksheet.PageSetup.RightMargin = 0.5;
+            SaveFileDialog sf = new SaveFileDialog
+            {
+                Filter = "Excel Document (.xlsx)|*.xlsx",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx",
+                Title = "Simpan File SpreadSheet"
+            };
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                #region Memberi nama Header tabel
+                int hasilbagi = Dg.ColumnCount / 26;
+                int sisabagi = Dg.ColumnCount % 26;
+                if (sisabagi > 0)
+                    hasilbagi++;
+                int colindex = 0;
+                NetOffice.ExcelApi.Range range;
+                for (int a = 0; a < hasilbagi; a++)
+                {
+                    string pre = ((char)(a + 64)).ToString();
+                    if (a == 0)
+                        pre = "";
+                    int huruf = 26;
+                    if (a == hasilbagi - 1)
+                        if (sisabagi > 0)
+                            huruf = sisabagi;
+                    for (int b = 0; b < huruf; b++)
+                    {
+                        range = xlWorksheet.get_Range(pre + ((char)(b + 65)).ToString() + "3", pre + ((char)(b + 65)).ToString() + "3");
+                        range.FormulaR1C1 = Dg.Columns[colindex].HeaderText;
+                        range.Font.Bold = FontStyle.Bold;
+                        range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
+                        range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
+                        colindex++;
+                    }
+                }
+                #endregion
 
-        //        #region Mengisi Cell yang ada
-        //        int baris = 0;
-        //        foreach (DataRow br in queri.GetData().Rows)
-        //        {
-        //            colindex = 0;
-        //            for (int a = 0; a < hasilbagi; a++)
-        //            {
-        //                string pre = ((char)(a + 64)).ToString();
-        //                if (a == 0)
-        //                    pre = "";
-        //                int huruf = 26;
-        //                if (a == hasilbagi - 1)
-        //                    if (sisabagi > 0)
-        //                        huruf = sisabagi;
-        //                for (int b = 0; b < huruf; b++)
-        //                {
-        //                    xlWorksheet.get_Range(pre + ((char)(b + 65)).ToString() + (baris + 4).ToString(), pre + ((char)(b + 65)).ToString() + (baris + 4).ToString()).FormulaR1C1 = br[colindex];
-        //                    colindex++;
-        //                }
-        //            }
-        //            baris++;
-        //        }
-        //        #endregion
-        //        Cursor.Current = Cursors.Default;
+                #region Mengisi Cell yang ada
+                int baris = 0;
+                foreach (DataRow br in queri.GetData().Rows)
+                {
+                    colindex = 0;
+                    for (int a = 0; a < hasilbagi; a++)
+                    {
+                        string pre = ((char)(a + 64)).ToString();
+                        if (a == 0)
+                            pre = "";
+                        int huruf = 26;
+                        if (a == hasilbagi - 1)
+                            if (sisabagi > 0)
+                                huruf = sisabagi;
+                        for (int b = 0; b < huruf; b++)
+                        {
+                            xlWorksheet.get_Range(pre + ((char)(b + 65)).ToString() + (baris + 4).ToString(), pre + ((char)(b + 65)).ToString() + (baris + 4).ToString()).FormulaR1C1 = br[colindex];
+                            colindex++;
+                        }
+                    }
+                    baris++;
+                }
+                #endregion
+                Cursor.Current = Cursors.Default;
 
-        //        try
-        //        {
-        //            range = xlWorksheet.get_Range("A1", "A1");
-        //            range.FormulaR1C1 = judul.ToUpper();
-        //            range.Font.Size = 14;
-        //            range.Font.Bold = FontStyle.Bold;
+                try
+                {
+                    range = xlWorksheet.get_Range("A1", "A1");
+                    range.FormulaR1C1 = judul.ToUpper();
+                    range.Font.Size = 14;
+                    range.Font.Bold = FontStyle.Bold;
 
-        //            xlWorksheet.get_Range("A2", "A2").RowHeight = 5;
-        //            xlWorksheet.UsedRange.WrapText = false;
-        //            xlApp.Visible = true;
-        //            xlWorksheet.SaveAs(sf.FileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
-        //            MessageBox.Show("Export Selesai!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            ex.LogError(A.GetCurrentMethod());
-        //        }
-        //        finally
-        //        {
-        //            xlApp.Dispose();
-        //            System.Threading.Thread.CurrentThread.CurrentCulture = oldCI;
-        //        }
-        //    }
-        //}
-        //public static void ExportPerWaktu(this DataGridView Dg, DataTable Size, List<string> Tanggal, string queri, string judul = "")
-        //{
-        //    Cursor.Current = Cursors.WaitCursor;
-        //    NetOffice.ExcelApi.Application xlApp = new NetOffice.ExcelApi.Application();
-        //    Object misValue = System.Reflection.Missing.Value;
-        //    _ = new NetOffice.ExcelApi.Range();
-        //    NetOffice.ExcelApi.Workbook xlWorkbook = xlApp.Workbooks.Add(misValue);
-        //    NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(xlWorkbook.Sheets["Sheet1"]);
-        //    CultureInfo oldCI = System.Threading.Thread.CurrentThread.CurrentCulture;
-        //    System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-        //    xlWorksheet.PageSetup.Orientation = NetOffice.ExcelApi.Enums.XlPageOrientation.xlLandscape;
-        //    xlWorksheet.PageSetup.PaperSize = NetOffice.ExcelApi.Enums.XlPaperSize.xlPaperA4;
-        //    xlWorksheet.PageSetup.BottomMargin = 0.5;
-        //    xlWorksheet.PageSetup.TopMargin = 0.5;
-        //    xlWorksheet.PageSetup.LeftMargin = 0.5;
-        //    xlWorksheet.PageSetup.RightMargin = 0.5;
-        //    SaveFileDialog sf = new SaveFileDialog
-        //    {
-        //        Filter = "Excel Document (.xlsx)|*.xlsx",
-        //        FilterIndex = 0,
-        //        RestoreDirectory = true,
-        //        FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx",
-        //        Title = "Simpan File SpreadSheet"
-        //    };
-        //    if (sf.ShowDialog() == DialogResult.OK)
-        //    {
-        //        //mengisi Header No
-        //        NetOffice.ExcelApi.Range range = xlWorksheet.get_Range("A3", "A5");
-        //        range.Merge(misValue);
-        //        range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
-        //        range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
-        //        range.FormulaR1C1 = "NO";
-        //        range.Font.Bold = FontStyle.Bold;
+                    xlWorksheet.get_Range("A2", "A2").RowHeight = 5;
+                    xlWorksheet.UsedRange.WrapText = false;
+                    xlApp.Visible = true;
+                    xlWorksheet.SaveAs(sf.FileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
+                    MessageBox.Show("Export Selesai!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    ex.LogError(A.GetCurrentMethod());
+                }
+                finally
+                {
+                    xlApp.Dispose();
+                    System.Threading.Thread.CurrentThread.CurrentCulture = oldCI;
+                }
+            }
+        }
+        public static void ExportPerWaktu(this DataGridView Dg, DataTable Size, List<string> Tanggal, string queri, string judul = "")
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            NetOffice.ExcelApi.Application xlApp = new NetOffice.ExcelApi.Application();
+            Object misValue = Missing.Value;
+            _ = new NetOffice.ExcelApi.Range();
+            NetOffice.ExcelApi.Workbook xlWorkbook = xlApp.Workbooks.Add(misValue);
+            NetOffice.ExcelApi.Worksheet xlWorksheet = (NetOffice.ExcelApi.Worksheet)(xlWorkbook.Sheets["Sheet1"]);
+            CultureInfo oldCI = System.Threading.Thread.CurrentThread.CurrentCulture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            xlWorksheet.PageSetup.Orientation = NetOffice.ExcelApi.Enums.XlPageOrientation.xlLandscape;
+            xlWorksheet.PageSetup.PaperSize = NetOffice.ExcelApi.Enums.XlPaperSize.xlPaperA4;
+            xlWorksheet.PageSetup.BottomMargin = 0.5;
+            xlWorksheet.PageSetup.TopMargin = 0.5;
+            xlWorksheet.PageSetup.LeftMargin = 0.5;
+            xlWorksheet.PageSetup.RightMargin = 0.5;
+            SaveFileDialog sf = new SaveFileDialog
+            {
+                Filter = "Excel Document (.xlsx)|*.xlsx",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx",
+                Title = "Simpan File SpreadSheet"
+            };
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                //mengisi Header No
+                NetOffice.ExcelApi.Range range = xlWorksheet.get_Range("A3", "A5");
+                range.Merge(misValue);
+                range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
+                range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
+                range.FormulaR1C1 = "NO";
+                range.Font.Bold = FontStyle.Bold;
 
-        //        //mengisi WARNA
-        //        range = xlWorksheet.get_Range("B3", "B5");
-        //        range.Merge(misValue);
-        //        range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
-        //        range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
-        //        range.FormulaR1C1 = "WARNA";
-        //        range.Font.Bold = FontStyle.Bold;
+                //mengisi WARNA
+                range = xlWorksheet.get_Range("B3", "B5");
+                range.Merge(misValue);
+                range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
+                range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
+                range.FormulaR1C1 = "WARNA";
+                range.Font.Bold = FontStyle.Bold;
 
-        //        #region Memberi nama Header tabel
-        //        int hasilbagi = Dg.ColumnCount / 26;
-        //        int sisabagi = Dg.ColumnCount % 26;
-        //        if (sisabagi > 0)
-        //            hasilbagi++;
-        //        int colindex = 1;
-        //        int tanggalidx = 0;
-        //        int size = 0;
-        //        for (int a = 0; a < hasilbagi; a++)
-        //        {
-        //            string pre = ((char)(a + 64)).ToString();
-        //            if (a == 0)
-        //                pre = "";
-        //            int huruf = 26;
-        //            if (a == hasilbagi - 1)
-        //                if (sisabagi > 0)
-        //                    huruf = sisabagi;
-        //            for (int b = 1; b < huruf; b++)
-        //            {
-        //                //Isi Header baris ke tiga dari header tabel
-        //                range = xlWorksheet.get_Range(pre + ((char)(b + 1 + 65)).ToString() + "5", pre + ((char)(b + 1 + 65)).ToString() + "5");
-        //                range.FormulaR1C1 = Dg.Columns[colindex].HeaderText;
-        //                range.Font.Bold = FontStyle.Bold;
-        //                range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
-        //                range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
-        //                //End Isi Header baris ke tiga dari header tabel
-        //                size++;
-        //                if (size == Size.Rows.Count)
-        //                {
-        //                    //Isi Header Tanggal dan Jam
-        //                    range = xlWorksheet.get_Range(pre + ((char)(b + 2 + 65 - Size.Rows.Count)).ToString() + "4", pre + ((char)(b + 1 + 65)).ToString() + "4");
-        //                    range.Merge(misValue);
-        //                    range.FormulaR1C1 = Tanggal[tanggalidx].ToString().Substring(0, 10);
-        //                    range.Font.Bold = FontStyle.Bold;
-        //                    range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
-        //                    range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
+                #region Memberi nama Header tabel
+                int hasilbagi = Dg.ColumnCount / 26;
+                int sisabagi = Dg.ColumnCount % 26;
+                if (sisabagi > 0)
+                    hasilbagi++;
+                int colindex = 1;
+                int tanggalidx = 0;
+                int size = 0;
+                for (int a = 0; a < hasilbagi; a++)
+                {
+                    string pre = ((char)(a + 64)).ToString();
+                    if (a == 0)
+                        pre = "";
+                    int huruf = 26;
+                    if (a == hasilbagi - 1)
+                        if (sisabagi > 0)
+                            huruf = sisabagi;
+                    for (int b = 1; b < huruf; b++)
+                    {
+                        //Isi Header baris ke tiga dari header tabel
+                        range = xlWorksheet.get_Range(pre + ((char)(b + 1 + 65)).ToString() + "5", pre + ((char)(b + 1 + 65)).ToString() + "5");
+                        range.FormulaR1C1 = Dg.Columns[colindex].HeaderText;
+                        range.Font.Bold = FontStyle.Bold;
+                        range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
+                        range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
+                        //End Isi Header baris ke tiga dari header tabel
+                        size++;
+                        if (size == Size.Rows.Count)
+                        {
+                            //Isi Header Tanggal dan Jam
+                            range = xlWorksheet.get_Range(pre + ((char)(b + 2 + 65 - Size.Rows.Count)).ToString() + "4", pre + ((char)(b + 1 + 65)).ToString() + "4");
+                            range.Merge(misValue);
+                            range.FormulaR1C1 = Tanggal[tanggalidx].ToString().Substring(0, 10);
+                            range.Font.Bold = FontStyle.Bold;
+                            range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
+                            range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
 
-        //                    range = xlWorksheet.get_Range(pre + ((char)(b + 2 + 65 - Size.Rows.Count)).ToString() + "3", pre + ((char)(b + 1 + 65)).ToString() + "3");
-        //                    range.Merge(misValue);
-        //                    range.FormulaR1C1 = Tanggal[tanggalidx].ToString().Substring(11);
-        //                    range.Font.Bold = FontStyle.Bold;
-        //                    range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
-        //                    range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
-        //                    //End Isi Header Tanggal dan jam
-        //                    size = 0;
-        //                    tanggalidx++;
-        //                }
-        //                colindex++;
-        //            }
-        //        }
-        //        #endregion
+                            range = xlWorksheet.get_Range(pre + ((char)(b + 2 + 65 - Size.Rows.Count)).ToString() + "3", pre + ((char)(b + 1 + 65)).ToString() + "3");
+                            range.Merge(misValue);
+                            range.FormulaR1C1 = Tanggal[tanggalidx].ToString().Substring(11);
+                            range.Font.Bold = FontStyle.Bold;
+                            range.HorizontalAlignment = NetOffice.ExcelApi.Enums.XlHAlign.xlHAlignCenter;
+                            range.VerticalAlignment = NetOffice.ExcelApi.Enums.XlVAlign.xlVAlignCenter;
+                            //End Isi Header Tanggal dan jam
+                            size = 0;
+                            tanggalidx++;
+                        }
+                        colindex++;
+                    }
+                }
+                #endregion
 
-        //        #region Mengisi Cell yang ada
-        //        int baris = 6;
-        //        foreach (DataRow br in queri.GetData().Rows)
-        //        {
-        //            colindex = 0;
-        //            for (int a = 0; a < hasilbagi; a++)
-        //            {
-        //                string pre = ((char)(a + 64)).ToString();
-        //                if (a == 0)
-        //                    pre = "";
-        //                int huruf = 26;
-        //                if (a == hasilbagi - 1)
-        //                    if (sisabagi > 0)
-        //                        huruf = sisabagi;
-        //                xlWorksheet.get_Range(pre + ((char)(65)).ToString() + (baris).ToString(), pre + ((char)(65)).ToString() + (baris).ToString()).FormulaR1C1 = baris - 5;
-        //                for (int b = 0; b < huruf; b++)
-        //                {
-        //                    xlWorksheet.get_Range(pre + ((char)(b + 1 + 65)).ToString() + (baris).ToString(), pre + ((char)(b + 1 + 65)).ToString() + (baris).ToString()).FormulaR1C1 = br[colindex];
-        //                    colindex++;
-        //                }
-        //            }
-        //            baris++;
-        //        }
-        //        #endregion
-        //        Cursor.Current = Cursors.Default;
+                #region Mengisi Cell yang ada
+                int baris = 6;
+                foreach (DataRow br in queri.GetData().Rows)
+                {
+                    colindex = 0;
+                    for (int a = 0; a < hasilbagi; a++)
+                    {
+                        string pre = ((char)(a + 64)).ToString();
+                        if (a == 0)
+                            pre = "";
+                        int huruf = 26;
+                        if (a == hasilbagi - 1)
+                            if (sisabagi > 0)
+                                huruf = sisabagi;
+                        xlWorksheet.get_Range(pre + ((char)(65)).ToString() + (baris).ToString(), pre + ((char)(65)).ToString() + (baris).ToString()).FormulaR1C1 = baris - 5;
+                        for (int b = 0; b < huruf; b++)
+                        {
+                            xlWorksheet.get_Range(pre + ((char)(b + 1 + 65)).ToString() + (baris).ToString(), pre + ((char)(b + 1 + 65)).ToString() + (baris).ToString()).FormulaR1C1 = br[colindex];
+                            colindex++;
+                        }
+                    }
+                    baris++;
+                }
+                #endregion
+                Cursor.Current = Cursors.Default;
 
-        //        try
-        //        {
-        //            range = xlWorksheet.get_Range("A1", "A1");
-        //            range.FormulaR1C1 = judul.ToUpper();
-        //            range.Font.Size = 14;
-        //            range.Font.Bold = FontStyle.Bold;
+                try
+                {
+                    range = xlWorksheet.get_Range("A1", "A1");
+                    range.FormulaR1C1 = judul.ToUpper();
+                    range.Font.Size = 14;
+                    range.Font.Bold = FontStyle.Bold;
 
-        //            xlWorksheet.get_Range("A2", "A2").RowHeight = 5;
-        //            xlWorksheet.UsedRange.WrapText = false;
-        //            xlApp.Visible = true;
-        //            xlWorksheet.SaveAs(sf.FileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
-        //            MessageBox.Show("Export Selesai!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            ex.LogError(A.GetCurrentMethod());
-        //        }
-        //        finally
-        //        {
-        //            xlApp.Dispose();
-        //            System.Threading.Thread.CurrentThread.CurrentCulture = oldCI;
-        //        }
-        //    }
+                    xlWorksheet.get_Range("A2", "A2").RowHeight = 5;
+                    xlWorksheet.UsedRange.WrapText = false;
+                    xlApp.Visible = true;
+                    xlWorksheet.SaveAs(sf.FileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
+                    MessageBox.Show("Export Selesai!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    ex.LogError(A.GetCurrentMethod());
+                }
+                finally
+                {
+                    xlApp.Dispose();
+                    System.Threading.Thread.CurrentThread.CurrentCulture = oldCI;
+                }
+            }
 
-        //}
+        }
         public static string ImageToBase64(Image image, ImageFormat format)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -2870,16 +2861,10 @@ namespace ExtensionMethods
     #region Setting
     public static class S
     {
-        private static string persentaseHarga = "";
-        public static string GetPersentaseHarga()
-        {
-            return persentaseHarga;
-        }
-        public static void SetPersentaseHarga(string value)
-        {
-            persentaseHarga = value;
-        }
         private static int divs = 1;
+        private static Color colorpaneljudul = Color.White, statusstripmaincolor = Color.White, colorlabeljudul = Color.White, datagridviewaksencolor = Color.White,
+            buttonmaincolor = Color.White, buttonaksencolor = Color.White, statusstripaksencolor = Color.White, forecolor = Color.White, backcolor = Color.White;
+        private static string username = "", usernama = "", userid = "", useracces = "", endIpAddress = "000", statusstripmessage = "", notifsound = "";
         public static int GetDivs()
         {
             return divs;
@@ -2888,7 +2873,6 @@ namespace ExtensionMethods
         {
             divs = value;
         }
-        private static Color colorpaneljudul = Color.White;
         public static Color GetColorpaneljudul()
         {
             return colorpaneljudul;
@@ -2897,7 +2881,6 @@ namespace ExtensionMethods
         {
             colorpaneljudul = value;
         }
-        private static string statusstripmessage = "";
         public static string GetStatusstripmessage()
         {
             return statusstripmessage;
@@ -2906,7 +2889,6 @@ namespace ExtensionMethods
         {
             statusstripmessage = value;
         }
-        private static Color statusstripmaincolor = Color.White;
         public static Color GetStatusstripmaincolor()
         {
             return statusstripmaincolor;
@@ -2915,7 +2897,6 @@ namespace ExtensionMethods
         {
             statusstripmaincolor = value;
         }
-        private static Color statusstripaksencolor = Color.White;
         public static Color GetStatusstripaksencolor()
         {
             return statusstripaksencolor;
@@ -2924,7 +2905,6 @@ namespace ExtensionMethods
         {
             statusstripaksencolor = value;
         }
-        private static Color colorlabeljudul = Color.White;
         public static Color GetColorlabeljudul()
         {
             return colorlabeljudul;
@@ -2933,7 +2913,6 @@ namespace ExtensionMethods
         {
             colorlabeljudul = value;
         }
-        private static Color datagridviewaksencolor = Color.White;
         public static Color GetDatagridviewaksencolor()
         {
             return datagridviewaksencolor;
@@ -2942,7 +2921,6 @@ namespace ExtensionMethods
         {
             datagridviewaksencolor = value;
         }
-        private static Color buttonmaincolor = Color.White;
         public static Color GetButtonmaincolor()
         {
             return buttonmaincolor;
@@ -2951,7 +2929,6 @@ namespace ExtensionMethods
         {
             buttonmaincolor = value;
         }
-        private static Color buttonaksencolor = Color.White;
         public static Color GetButtonaksencolor()
         {
             return buttonaksencolor;
@@ -2960,7 +2937,6 @@ namespace ExtensionMethods
         {
             buttonaksencolor = value;
         }
-        private static Color forecolor = Color.White;
         public static Color GetForecolor()
         {
             return forecolor;
@@ -2969,7 +2945,6 @@ namespace ExtensionMethods
         {
             forecolor = value;
         }
-        private static Color backcolor = Color.White;
         public static Color GetBackcolor()
         {
             return backcolor;
@@ -2978,88 +2953,6 @@ namespace ExtensionMethods
         {
             backcolor = value;
         }
-        private static Color printcolor = Color.White;
-        public static Color GetPrintcolor()
-        {
-            return printcolor;
-        }
-        public static void SetPrintcolor(Color value)
-        {
-            printcolor = value;
-        }
-        private static string replaymessage = "";
-        public static string GetReplaymessage()
-        {
-            return replaymessage;
-        }
-        public static void SetReplaymessage(string value)
-        {
-            replaymessage = value;
-        }
-        private static string kodekeep = "";
-        public static string GetKodekeep()
-        {
-            return kodekeep;
-        }
-        public static void SetKodekeep(string value)
-        {
-            kodekeep = value;
-        }
-        private static string defaultkurir = "";
-        public static string GetDefaultkurir()
-        {
-            return defaultkurir;
-        }
-        public static void SetDefaultkurir(string value)
-        {
-            defaultkurir = value;
-        }
-        private static string defaultservice = "";
-        public static string GetDefaultservice()
-        {
-            return defaultservice;
-        }
-        public static void SetDefaultservice(string value)
-        {
-            defaultservice = value;
-        }
-        private static string apikeyrajaongkir = "";
-        public static string GetApikeyrajaongkir()
-        {
-            return apikeyrajaongkir;
-        }
-        public static void SetApikeyrajaongkir(string value)
-        {
-            apikeyrajaongkir = value;
-        }
-        private static string originsubdistrict = "";
-        public static string GetOriginsubdistrict()
-        {
-            return originsubdistrict;
-        }
-        public static void SetOriginsubdistrict(string value)
-        {
-            originsubdistrict = value;
-        }
-        private static string origincity = "";
-        public static string GetOrigincity()
-        {
-            return origincity;
-        }
-        public static void SetOrigincity(string value)
-        {
-            origincity = value;
-        }
-        private static string origintype = "";
-        public static string GetOrigintype()
-        {
-            return origintype;
-        }
-        public static void SetOrigintype(string value)
-        {
-            origintype = value;
-        }
-        private static string username = "";
         public static string GetUsername()
         {
             return username;
@@ -3068,7 +2961,6 @@ namespace ExtensionMethods
         {
             username = value;
         }
-        private static string usernama = "";
         public static string GetUsernama()
         {
             return usernama;
@@ -3077,7 +2969,6 @@ namespace ExtensionMethods
         {
             usernama = value;
         }
-        private static string userid = "";
         public static string GetUserid()
         {
             return userid;
@@ -3086,7 +2977,6 @@ namespace ExtensionMethods
         {
             userid = value;
         }
-        private static string useracces = "";
         public static string GetUseracces()
         {
             return useracces;
@@ -3094,33 +2984,6 @@ namespace ExtensionMethods
         public static void SetUseracces(string value)
         {
             useracces = value;
-        }
-        private static string noadmin = "";
-        public static string GetNoadmin()
-        {
-            return noadmin;
-        }
-        public static void SetNoadmin(string value)
-        {
-            noadmin = value;
-        }
-        private static string selectlabel = "";
-        public static string GetSelectlabel()
-        {
-            return selectlabel;
-        }
-        public static void SetSelectlabel(string value)
-        {
-            selectlabel = value;
-        }
-        private static int stockinput = 0;
-        public static int GetStockInput()
-        {
-            return stockinput;
-        }
-        public static void SetStockInput(int value)
-        {
-            stockinput = value; 
         }
         public static void SetControlFrom(this Form f)
         {
@@ -3194,13 +3057,8 @@ namespace ExtensionMethods
                     ss.BackColor = GetStatusstripmaincolor();
                     ss.ForeColor = GetStatusstripaksencolor();
                     ss.Items.Clear();
-                    ss.Items.Add("Username : " + GetUsername().DecodeUtf8());
                     ss.Items.Add("Halo, " + GetUsernama());
-                    ss.Items.Add("ID User : " + GetUserid());
-                    ToolStripStatusLabel status = new ToolStripStatusLabel(GetStatusstripmessage().DecodeUtf8())
-                    {
-                        Spring = true
-                    };
+                    ToolStripStatusLabel status = new ToolStripStatusLabel(GetStatusstripmessage().DecodeUtf8()) { Spring = true };
                     ss.Items.Add(status);
                     ss.Items.Add("JAM");
                     Timer timer = new Timer();
@@ -3265,10 +3123,8 @@ namespace ExtensionMethods
             SetButtonaksencolor(A.GetDataSettings("buttonaksencolor").StringToColor());
             SetForecolor(A.GetDataSettings("forecolor").StringToColor());
             SetBackcolor(A.GetDataSettings("backcolor").StringToColor());
-            SetPrintcolor(A.GetDataSettings("printcolor").StringToColor());
             SetEndIpAddress(A.GetEndLocalIpAddress());
         }
-        private static string notifsound = "";
         public static string GetNotifsound()
         {
             return notifsound;
@@ -3277,16 +3133,6 @@ namespace ExtensionMethods
         {
             notifsound = value;
         }
-        private static string urlcekorder = "";
-        public static string GetUrlcekorder()
-        {
-            return urlcekorder;
-        }
-        public static void SetUrlcekorder(string value)
-        {
-            urlcekorder = value;
-        }
-        private static string endIpAddress = "000";
         public static string GetEndIpAddress()
         {
             return endIpAddress;

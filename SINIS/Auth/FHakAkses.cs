@@ -6,12 +6,10 @@ using ExtensionMethods;
 namespace SINIS.Auth
 {
     public partial class FHakAkses : Form
-    {
-        
+    {        
         public FHakAkses()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
             this.SetControlFrom();
         }
         private void FHakAkses_Load(object sender, EventArgs e)
@@ -29,7 +27,7 @@ namespace SINIS.Auth
                     Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("ID HAK AKSES")].Value.ToString());
                 if (A.GetQueri().ManipulasiData())
                 {
-                    //AutoClosingMessageBox.Show("Data berhasil di simpan!", "Informasi", 2000);
+                    MessageBox.Show("Data berhasil di simpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tbket.Clear();
                     tbhakakses.Clear();
                     Loaddb();
@@ -47,12 +45,8 @@ namespace SINIS.Auth
         }
         private bool Loaddb()
         {
-            A.SetQueri("SELECT * FROM `m_akses` ORDER BY `id_akses` ASC");
-            Dg.Rows.Clear();
-            foreach (DataRow b in A.GetQueri().GetData().Rows)
-            {
-                Dg.Rows.Add(b["id_akses"], b["nama_akses"],b["ket_akses"].ToString());
-            }
+            A.SetQueri("SELECT `id_akses`, `nama_akses`, `ket_akses` FROM `m_akses` ORDER BY `id_akses` ASC");
+            Dg.QueriToDg();
             return true;
         }
     }

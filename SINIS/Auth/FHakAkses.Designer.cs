@@ -39,9 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbhakakses = new System.Windows.Forms.TextBox();
             this.Dg = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -50,6 +47,9 @@
             this.lusernama = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbs_nama = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbs_waktu = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -74,12 +74,12 @@
             // 
             this.bsimpan.BackColor = System.Drawing.Color.Crimson;
             this.bsimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bsimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bsimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bsimpan.ForeColor = System.Drawing.Color.White;
-            this.bsimpan.Location = new System.Drawing.Point(468, 7);
+            this.bsimpan.Location = new System.Drawing.Point(513, 7);
             this.bsimpan.Margin = new System.Windows.Forms.Padding(4);
             this.bsimpan.Name = "bsimpan";
-            this.bsimpan.Size = new System.Drawing.Size(134, 60);
+            this.bsimpan.Size = new System.Drawing.Size(125, 46);
             this.bsimpan.TabIndex = 9;
             this.bsimpan.Text = "Simpan";
             this.bsimpan.UseVisualStyleBackColor = false;
@@ -96,19 +96,19 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 82);
+            this.panel1.Size = new System.Drawing.Size(784, 60);
             this.panel1.TabIndex = 66;
             // 
             // bkeluar
             // 
             this.bkeluar.BackColor = System.Drawing.Color.Crimson;
             this.bkeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bkeluar.ForeColor = System.Drawing.Color.White;
-            this.bkeluar.Location = new System.Drawing.Point(610, 7);
+            this.bkeluar.Location = new System.Drawing.Point(646, 7);
             this.bkeluar.Margin = new System.Windows.Forms.Padding(4);
             this.bkeluar.Name = "bkeluar";
-            this.bkeluar.Size = new System.Drawing.Size(134, 60);
+            this.bkeluar.Size = new System.Drawing.Size(125, 46);
             this.bkeluar.TabIndex = 16;
             this.bkeluar.Text = "Keluar";
             this.bkeluar.UseVisualStyleBackColor = false;
@@ -116,33 +116,33 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 47);
+            this.label2.Location = new System.Drawing.Point(15, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 15;
             this.label2.Text = "KETERANGAN";
             // 
             // tbket
             // 
-            this.tbket.Location = new System.Drawing.Point(171, 44);
+            this.tbket.Location = new System.Drawing.Point(102, 33);
             this.tbket.Name = "tbket";
-            this.tbket.Size = new System.Drawing.Size(290, 26);
+            this.tbket.Size = new System.Drawing.Size(404, 20);
             this.tbket.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Location = new System.Drawing.Point(15, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 20);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "NAMA HAK AKSES";
+            this.label1.Text = "HAK AKSES";
             // 
             // tbhakakses
             // 
-            this.tbhakakses.Location = new System.Drawing.Point(171, 12);
+            this.tbhakakses.Location = new System.Drawing.Point(102, 7);
             this.tbhakakses.Name = "tbhakakses";
-            this.tbhakakses.Size = new System.Drawing.Size(290, 26);
+            this.tbhakakses.Size = new System.Drawing.Size(404, 20);
             this.tbhakakses.TabIndex = 12;
             // 
             // Dg
@@ -155,7 +155,7 @@
             this.Dg.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -167,34 +167,14 @@
             this.Column4,
             this.Column1});
             this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dg.Location = new System.Drawing.Point(0, 139);
+            this.Dg.Location = new System.Drawing.Point(0, 117);
             this.Dg.Margin = new System.Windows.Forms.Padding(4);
             this.Dg.Name = "Dg";
             this.Dg.ReadOnly = true;
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dg.Size = new System.Drawing.Size(784, 400);
+            this.Dg.Size = new System.Drawing.Size(784, 422);
             this.Dg.TabIndex = 67;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column2.HeaderText = "ID HAK AKSES";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 133;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "HAK AKSES";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "KETERANGAN";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // flowLayoutPanel1
             // 
@@ -217,7 +197,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(529, 57);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "HAK AKSES";
+            this.linkLabel1.Text = "[form name]";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
@@ -240,15 +220,13 @@
             // 
             this.luserid.ForeColor = System.Drawing.Color.White;
             this.luserid.Name = "luserid";
-            this.luserid.Size = new System.Drawing.Size(85, 17);
-            this.luserid.Text = "ljumlahproduk";
+            this.luserid.Size = new System.Drawing.Size(0, 17);
             // 
             // lusername
             // 
             this.lusername.ForeColor = System.Drawing.Color.White;
             this.lusername.Name = "lusername";
-            this.lusername.Size = new System.Drawing.Size(90, 17);
-            this.lusername.Text = "Selamat Datang";
+            this.lusername.Size = new System.Drawing.Size(0, 17);
             // 
             // lusernama
             // 
@@ -256,15 +234,13 @@
             this.lusernama.ForeColor = System.Drawing.Color.White;
             this.lusernama.Name = "lusernama";
             this.lusernama.Size = new System.Drawing.Size(350, 17);
-            this.lusernama.Text = "toolStripStatusLabel1";
             // 
             // lbs_nama
             // 
             this.lbs_nama.ForeColor = System.Drawing.Color.White;
             this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(66, 17);
+            this.lbs_nama.Size = new System.Drawing.Size(419, 17);
             this.lbs_nama.Spring = true;
-            this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
             // 
             // lbs_waktu
             // 
@@ -272,8 +248,28 @@
             this.lbs_waktu.ForeColor = System.Drawing.Color.White;
             this.lbs_waktu.LinkColor = System.Drawing.Color.White;
             this.lbs_waktu.Name = "lbs_waktu";
-            this.lbs_waktu.Size = new System.Drawing.Size(178, 17);
-            this.lbs_waktu.Text = "Semoga Harimu Menyenangkan";
+            this.lbs_waktu.Size = new System.Drawing.Size(0, 17);
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column2.HeaderText = "ID HAK AKSES";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            this.Column2.Width = 87;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "HAK AKSES";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "KETERANGAN";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // FHakAkses
             // 
@@ -284,7 +280,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -314,9 +310,6 @@
         private System.Windows.Forms.DataGridView Dg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbket;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button bkeluar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
@@ -326,5 +319,8 @@
         private System.Windows.Forms.ToolStripStatusLabel lusernama;
         private System.Windows.Forms.ToolStripStatusLabel lbs_nama;
         private System.Windows.Forms.ToolStripStatusLabel lbs_waktu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
