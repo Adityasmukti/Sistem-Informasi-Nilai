@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SINIS.TU
 {
-    public partial class FJenisNilai : Form
+    public partial class FMasterJenisNilai : Form
     {
-        public FJenisNilai()
+        public FMasterJenisNilai()
         {
             InitializeComponent();
         }

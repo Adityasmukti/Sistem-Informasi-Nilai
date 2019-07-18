@@ -1,6 +1,6 @@
 ﻿namespace SINIS.TU
 {
-    partial class FJenisNilai
+    partial class FMasterJenisNilai
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FJenisNilai";
+            this.SuspendLayout();
+            // 
+            // FMasterJenisNilai
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Name = "FMasterJenisNilai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "JENIS NILAI";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

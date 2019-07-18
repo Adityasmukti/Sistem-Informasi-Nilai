@@ -88,9 +88,9 @@
             this.groupBox1.Controls.Add(this.bsimpan);
             this.groupBox1.Controls.Add(this.bbatal);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 328);
+            this.groupBox1.Location = new System.Drawing.Point(0, 475);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 86);
+            this.groupBox1.Size = new System.Drawing.Size(784, 86);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TOOLS";
@@ -240,7 +240,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(449, 271);
+            this.panel1.Size = new System.Drawing.Size(784, 418);
             this.panel1.TabIndex = 31;
             // 
             // flowLayoutPanel1
@@ -250,7 +250,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(449, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
             this.flowLayoutPanel1.TabIndex = 88;
             // 
             // linkLabel1
@@ -273,7 +273,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(449, 414);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel1);

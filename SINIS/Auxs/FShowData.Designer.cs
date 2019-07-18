@@ -68,9 +68,9 @@
             this.lbshakakses,
             this.lbs_nama,
             this.lbs_waktu});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1284, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 101;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -93,7 +93,7 @@
             // 
             this.lbs_nama.ForeColor = System.Drawing.Color.White;
             this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(801, 17);
+            this.lbs_nama.Size = new System.Drawing.Size(301, 17);
             this.lbs_nama.Spring = true;
             this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
             // 
@@ -110,19 +110,20 @@
             // 
             this.panel1.Controls.Add(this.BOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 590);
+            this.panel1.Location = new System.Drawing.Point(0, 490);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1284, 49);
+            this.panel1.Size = new System.Drawing.Size(784, 49);
             this.panel1.TabIndex = 99;
             // 
             // BOk
             // 
+            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BOk.BackColor = System.Drawing.Color.Crimson;
             this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BOk.ForeColor = System.Drawing.Color.White;
-            this.BOk.Location = new System.Drawing.Point(1172, 8);
+            this.BOk.Location = new System.Drawing.Point(672, 8);
             this.BOk.Margin = new System.Windows.Forms.Padding(4);
             this.BOk.Name = "BOk";
             this.BOk.Size = new System.Drawing.Size(108, 35);
@@ -137,7 +138,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1284, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
             this.flowLayoutPanel1.TabIndex = 102;
             // 
             // linkLabel1
@@ -207,7 +208,7 @@
             this.Dg.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Dg.Size = new System.Drawing.Size(1284, 533);
+            this.Dg.Size = new System.Drawing.Size(784, 433);
             this.Dg.TabIndex = 103;
             // 
             // jumlah
@@ -289,11 +290,11 @@
             this.harga.ReadOnly = true;
             this.harga.Width = 93;
             // 
-            // FListProduk
+            // FShowData
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);

@@ -151,11 +151,11 @@
     <Compile Include="Pengajar\FPelajaran.Designer.cs">
       <DependentUpon>FPelajaran.cs</DependentUpon>
     </Compile>
-    <Compile Include="TU\FJenisNilai.cs">
+    <Compile Include="TU\FMasterJenisNilai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TU\FJenisNilai.Designer.cs">
-      <DependentUpon>FJenisNilai.cs</DependentUpon>
+    <Compile Include="TU\FMasterJenisNilai.Designer.cs">
+      <DependentUpon>FMasterJenisNilai.cs</DependentUpon>
     </Compile>
     <Compile Include="TU\FMasterGuru.cs">
       <SubType>Form</SubType>
@@ -271,6 +271,21 @@
     <EmbeddedResource Include="Pengajar\FPelajaran.resx">
       <DependentUpon>FPelajaran.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TU\FMasterGuru.resx">
+      <DependentUpon>FMasterGuru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TU\FMasterJenisNilai.resx">
+      <DependentUpon>FMasterJenisNilai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TU\FMasterKelas.resx">
+      <DependentUpon>FMasterKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TU\FMasterPelajaran.resx">
+      <DependentUpon>FMasterPelajaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TU\FMasterSiswa.resx">
+      <DependentUpon>FMasterSiswa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TU\Master.resx">
       <DependentUpon>Master.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +333,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Siswa\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\default.ico" />
+    <Content Include="Resource\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

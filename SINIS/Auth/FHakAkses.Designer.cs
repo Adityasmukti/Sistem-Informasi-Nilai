@@ -76,7 +76,7 @@
             this.bsimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bsimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bsimpan.ForeColor = System.Drawing.Color.White;
-            this.bsimpan.Location = new System.Drawing.Point(627, 10);
+            this.bsimpan.Location = new System.Drawing.Point(468, 7);
             this.bsimpan.Margin = new System.Windows.Forms.Padding(4);
             this.bsimpan.Name = "bsimpan";
             this.bsimpan.Size = new System.Drawing.Size(134, 60);
@@ -96,7 +96,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(916, 82);
+            this.panel1.Size = new System.Drawing.Size(784, 82);
             this.panel1.TabIndex = 66;
             // 
             // bkeluar
@@ -105,7 +105,7 @@
             this.bkeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bkeluar.ForeColor = System.Drawing.Color.White;
-            this.bkeluar.Location = new System.Drawing.Point(769, 10);
+            this.bkeluar.Location = new System.Drawing.Point(610, 7);
             this.bkeluar.Margin = new System.Windows.Forms.Padding(4);
             this.bkeluar.Name = "bkeluar";
             this.bkeluar.Size = new System.Drawing.Size(134, 60);
@@ -126,7 +126,7 @@
             // 
             this.tbket.Location = new System.Drawing.Point(171, 44);
             this.tbket.Name = "tbket";
-            this.tbket.Size = new System.Drawing.Size(449, 26);
+            this.tbket.Size = new System.Drawing.Size(290, 26);
             this.tbket.TabIndex = 14;
             // 
             // label1
@@ -142,7 +142,7 @@
             // 
             this.tbhakakses.Location = new System.Drawing.Point(171, 12);
             this.tbhakakses.Name = "tbhakakses";
-            this.tbhakakses.Size = new System.Drawing.Size(449, 26);
+            this.tbhakakses.Size = new System.Drawing.Size(290, 26);
             this.tbhakakses.TabIndex = 12;
             // 
             // Dg
@@ -173,7 +173,7 @@
             this.Dg.ReadOnly = true;
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dg.Size = new System.Drawing.Size(916, 338);
+            this.Dg.Size = new System.Drawing.Size(784, 400);
             this.Dg.TabIndex = 67;
             // 
             // Column2
@@ -203,7 +203,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(916, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
             this.flowLayoutPanel1.TabIndex = 87;
             // 
             // linkLabel1
@@ -230,9 +230,9 @@
             this.lusernama,
             this.lbs_nama,
             this.lbs_waktu});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 477);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(916, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 89;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -262,7 +262,7 @@
             // 
             this.lbs_nama.ForeColor = System.Drawing.Color.White;
             this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(198, 17);
+            this.lbs_nama.Size = new System.Drawing.Size(66, 17);
             this.lbs_nama.Spring = true;
             this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
             // 
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(916, 499);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);

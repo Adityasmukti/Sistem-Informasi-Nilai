@@ -65,7 +65,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(277, 94);
+            this.panel2.Location = new System.Drawing.Point(126, 57);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(532, 446);
             this.panel2.TabIndex = 9;
@@ -217,7 +217,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1086, 635);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

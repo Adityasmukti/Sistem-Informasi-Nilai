@@ -152,7 +152,7 @@
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label3.Location = new System.Drawing.Point(0, 14);
+            this.label3.Location = new System.Drawing.Point(0, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(395, 18);
             this.label3.TabIndex = 0;
@@ -167,9 +167,9 @@
             this.cbhakakses.Items.AddRange(new object[] {
             "GURU",
             "ADMIN"});
-            this.cbhakakses.Location = new System.Drawing.Point(0, 32);
+            this.cbhakakses.Location = new System.Drawing.Point(0, 39);
             this.cbhakakses.Name = "cbhakakses";
-            this.cbhakakses.Size = new System.Drawing.Size(395, 28);
+            this.cbhakakses.Size = new System.Drawing.Size(395, 21);
             this.cbhakakses.TabIndex = 1;
             // 
             // panel16
@@ -186,7 +186,7 @@
             // 
             this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label8.Location = new System.Drawing.Point(0, 12);
+            this.label8.Location = new System.Drawing.Point(0, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(395, 20);
             this.label8.TabIndex = 0;
@@ -200,9 +200,9 @@
             this.cbsptk.Items.AddRange(new object[] {
             "L",
             "P"});
-            this.cbsptk.Location = new System.Drawing.Point(0, 32);
+            this.cbsptk.Location = new System.Drawing.Point(0, 39);
             this.cbsptk.Name = "cbsptk";
-            this.cbsptk.Size = new System.Drawing.Size(395, 28);
+            this.cbsptk.Size = new System.Drawing.Size(395, 21);
             this.cbsptk.TabIndex = 2;
             // 
             // panel14
@@ -219,7 +219,7 @@
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label6.Location = new System.Drawing.Point(0, 12);
+            this.label6.Location = new System.Drawing.Point(0, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(395, 20);
             this.label6.TabIndex = 0;
@@ -233,9 +233,9 @@
             this.cbkepegawaian.Items.AddRange(new object[] {
             "L",
             "P"});
-            this.cbkepegawaian.Location = new System.Drawing.Point(0, 32);
+            this.cbkepegawaian.Location = new System.Drawing.Point(0, 39);
             this.cbkepegawaian.Name = "cbkepegawaian";
-            this.cbkepegawaian.Size = new System.Drawing.Size(395, 28);
+            this.cbkepegawaian.Size = new System.Drawing.Size(395, 21);
             this.cbkepegawaian.TabIndex = 2;
             // 
             // panel15
@@ -297,7 +297,7 @@
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label5.Location = new System.Drawing.Point(0, 14);
+            this.label5.Location = new System.Drawing.Point(0, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(395, 20);
             this.label5.TabIndex = 0;
@@ -307,9 +307,9 @@
             // tbkontak
             // 
             this.tbkontak.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbkontak.Location = new System.Drawing.Point(0, 34);
+            this.tbkontak.Location = new System.Drawing.Point(0, 40);
             this.tbkontak.Name = "tbkontak";
-            this.tbkontak.Size = new System.Drawing.Size(395, 26);
+            this.tbkontak.Size = new System.Drawing.Size(395, 20);
             this.tbkontak.TabIndex = 1;
             // 
             // panel9
@@ -326,7 +326,7 @@
             // 
             this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label12.Location = new System.Drawing.Point(0, 3);
+            this.label12.Location = new System.Drawing.Point(0, 9);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(395, 31);
             this.label12.TabIndex = 0;
@@ -336,9 +336,9 @@
             // dtptgllahir
             // 
             this.dtptgllahir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtptgllahir.Location = new System.Drawing.Point(0, 34);
+            this.dtptgllahir.Location = new System.Drawing.Point(0, 40);
             this.dtptgllahir.Name = "dtptgllahir";
-            this.dtptgllahir.Size = new System.Drawing.Size(395, 26);
+            this.dtptgllahir.Size = new System.Drawing.Size(395, 20);
             this.dtptgllahir.TabIndex = 1;
             // 
             // panel8
@@ -355,7 +355,7 @@
             // 
             this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label11.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label11.Location = new System.Drawing.Point(0, 3);
+            this.label11.Location = new System.Drawing.Point(0, 9);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(395, 31);
             this.label11.TabIndex = 0;
@@ -365,9 +365,9 @@
             // tbtempatlahir
             // 
             this.tbtempatlahir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbtempatlahir.Location = new System.Drawing.Point(0, 34);
+            this.tbtempatlahir.Location = new System.Drawing.Point(0, 40);
             this.tbtempatlahir.Name = "tbtempatlahir";
-            this.tbtempatlahir.Size = new System.Drawing.Size(395, 26);
+            this.tbtempatlahir.Size = new System.Drawing.Size(395, 20);
             this.tbtempatlahir.TabIndex = 1;
             // 
             // panel7
@@ -384,7 +384,7 @@
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label10.Location = new System.Drawing.Point(0, 14);
+            this.label10.Location = new System.Drawing.Point(0, 21);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(395, 18);
             this.label10.TabIndex = 0;
@@ -399,9 +399,9 @@
             this.cbjk.Items.AddRange(new object[] {
             "L",
             "P"});
-            this.cbjk.Location = new System.Drawing.Point(0, 32);
+            this.cbjk.Location = new System.Drawing.Point(0, 39);
             this.cbjk.Name = "cbjk";
-            this.cbjk.Size = new System.Drawing.Size(395, 28);
+            this.cbjk.Size = new System.Drawing.Size(395, 21);
             this.cbjk.TabIndex = 1;
             // 
             // panel12
@@ -418,7 +418,7 @@
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label4.Location = new System.Drawing.Point(0, 14);
+            this.label4.Location = new System.Drawing.Point(0, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(395, 20);
             this.label4.TabIndex = 0;
@@ -428,9 +428,9 @@
             // tbnip
             // 
             this.tbnip.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbnip.Location = new System.Drawing.Point(0, 34);
+            this.tbnip.Location = new System.Drawing.Point(0, 40);
             this.tbnip.Name = "tbnip";
-            this.tbnip.Size = new System.Drawing.Size(395, 26);
+            this.tbnip.Size = new System.Drawing.Size(395, 20);
             this.tbnip.TabIndex = 1;
             // 
             // panel6
@@ -447,7 +447,7 @@
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label9.Location = new System.Drawing.Point(0, 14);
+            this.label9.Location = new System.Drawing.Point(0, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(395, 20);
             this.label9.TabIndex = 0;
@@ -457,9 +457,9 @@
             // tbnuptk
             // 
             this.tbnuptk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbnuptk.Location = new System.Drawing.Point(0, 34);
+            this.tbnuptk.Location = new System.Drawing.Point(0, 40);
             this.tbnuptk.Name = "tbnuptk";
-            this.tbnuptk.Size = new System.Drawing.Size(395, 26);
+            this.tbnuptk.Size = new System.Drawing.Size(395, 20);
             this.tbnuptk.TabIndex = 1;
             // 
             // panel5
@@ -476,7 +476,7 @@
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(0, 13);
+            this.label2.Location = new System.Drawing.Point(0, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(395, 21);
             this.label2.TabIndex = 0;
@@ -486,9 +486,9 @@
             // tbnama
             // 
             this.tbnama.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbnama.Location = new System.Drawing.Point(0, 34);
+            this.tbnama.Location = new System.Drawing.Point(0, 40);
             this.tbnama.Name = "tbnama";
-            this.tbnama.Size = new System.Drawing.Size(395, 26);
+            this.tbnama.Size = new System.Drawing.Size(395, 20);
             this.tbnama.TabIndex = 1;
             // 
             // panel1
@@ -558,7 +558,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FInputGuru";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

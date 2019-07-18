@@ -77,7 +77,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1010, 133);
+            this.panel2.Size = new System.Drawing.Size(784, 133);
             this.panel2.TabIndex = 6;
             // 
             // lwali
@@ -85,7 +85,7 @@
             this.lwali.AutoSize = true;
             this.lwali.Location = new System.Drawing.Point(715, 93);
             this.lwali.Name = "lwali";
-            this.lwali.Size = new System.Drawing.Size(0, 20);
+            this.lwali.Size = new System.Drawing.Size(0, 13);
             this.lwali.TabIndex = 15;
             // 
             // label2
@@ -93,7 +93,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(604, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 14;
             this.label2.Text = "WALI KELAS";
             // 
@@ -102,7 +102,7 @@
             this.linformasi.AutoSize = true;
             this.linformasi.Location = new System.Drawing.Point(240, 60);
             this.linformasi.Name = "linformasi";
-            this.linformasi.Size = new System.Drawing.Size(190, 20);
+            this.linformasi.Size = new System.Drawing.Size(126, 13);
             this.linformasi.TabIndex = 13;
             this.linformasi.Text = "INFORMASI PENGAJAR";
             // 
@@ -111,7 +111,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(44, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 20);
+            this.label5.Size = new System.Drawing.Size(126, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "INFORMASI PENGAJAR";
             // 
@@ -120,7 +120,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(336, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "KELAS";
             // 
@@ -130,7 +130,7 @@
             this.cbkelas.FormattingEnabled = true;
             this.cbkelas.Location = new System.Drawing.Point(403, 90);
             this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(164, 28);
+            this.cbkelas.Size = new System.Drawing.Size(164, 21);
             this.cbkelas.TabIndex = 10;
             this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbkelas_SelectedIndexChanged);
             // 
@@ -139,7 +139,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 20);
+            this.label4.Size = new System.Drawing.Size(90, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "TAHUN AJARAN";
             // 
@@ -147,10 +147,10 @@
             // 
             this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 20;
+            this.cbtahunajaran.ItemHeight = 13;
             this.cbtahunajaran.Location = new System.Drawing.Point(150, 90);
             this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(180, 28);
+            this.cbtahunajaran.Size = new System.Drawing.Size(180, 21);
             this.cbtahunajaran.TabIndex = 6;
             this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
             // 
@@ -161,7 +161,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 52);
+            this.panel1.Size = new System.Drawing.Size(784, 52);
             this.panel1.TabIndex = 2;
             // 
             // dgsiswa
@@ -172,7 +172,7 @@
             this.dgsiswa.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -191,7 +191,7 @@
             this.dgsiswa.ReadOnly = true;
             this.dgsiswa.RowHeadersVisible = false;
             this.dgsiswa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsiswa.Size = new System.Drawing.Size(1010, 370);
+            this.dgsiswa.Size = new System.Drawing.Size(784, 428);
             this.dgsiswa.TabIndex = 7;
             // 
             // Column6
@@ -231,10 +231,10 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1010, 503);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.dgsiswa);
             this.Controls.Add(this.panel2);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FKelas";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

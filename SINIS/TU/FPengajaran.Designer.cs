@@ -38,14 +38,14 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbkelas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbguru = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbtahunajaran = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgpengajaran)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,7 +59,7 @@
             this.dgpengajaran.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -75,11 +75,11 @@
             this.Column3,
             this.Column4});
             this.dgpengajaran.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgpengajaran.Location = new System.Drawing.Point(0, 96);
+            this.dgpengajaran.Location = new System.Drawing.Point(0, 151);
             this.dgpengajaran.Name = "dgpengajaran";
             this.dgpengajaran.RowHeadersVisible = false;
             this.dgpengajaran.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgpengajaran.Size = new System.Drawing.Size(958, 408);
+            this.dgpengajaran.Size = new System.Drawing.Size(784, 410);
             this.dgpengajaran.TabIndex = 4;
             this.dgpengajaran.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgpengajaran_CellClick);
             // 
@@ -134,66 +134,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(958, 96);
+            this.panel1.Size = new System.Drawing.Size(784, 151);
             this.panel1.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(702, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "KELAS";
-            // 
-            // cbkelas
-            // 
-            this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbkelas.FormattingEnabled = true;
-            this.cbkelas.Location = new System.Drawing.Point(772, 58);
-            this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(164, 28);
-            this.cbkelas.TabIndex = 4;
-            this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(368, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "GURU";
-            // 
-            // cbguru
-            // 
-            this.cbguru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbguru.FormattingEnabled = true;
-            this.cbguru.Location = new System.Drawing.Point(432, 58);
-            this.cbguru.Name = "cbguru";
-            this.cbguru.Size = new System.Drawing.Size(230, 28);
-            this.cbguru.TabIndex = 2;
-            this.cbguru.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "TAHUN AJARAN";
-            // 
-            // cbtahunajaran
-            // 
-            this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 20;
-            this.cbtahunajaran.Location = new System.Drawing.Point(158, 58);
-            this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(180, 28);
-            this.cbtahunajaran.TabIndex = 0;
-            this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -202,7 +144,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(958, 52);
+            this.panel2.Size = new System.Drawing.Size(784, 52);
             this.panel2.TabIndex = 6;
             // 
             // label4
@@ -216,14 +158,72 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "PENGATURAN JADWAL MENGAJAR";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(201, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "KELAS";
+            // 
+            // cbkelas
+            // 
+            this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbkelas.FormattingEnabled = true;
+            this.cbkelas.Location = new System.Drawing.Point(271, 85);
+            this.cbkelas.Name = "cbkelas";
+            this.cbkelas.Size = new System.Drawing.Size(164, 21);
+            this.cbkelas.TabIndex = 4;
+            this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(368, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "GURU";
+            // 
+            // cbguru
+            // 
+            this.cbguru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbguru.FormattingEnabled = true;
+            this.cbguru.Location = new System.Drawing.Point(432, 58);
+            this.cbguru.Name = "cbguru";
+            this.cbguru.Size = new System.Drawing.Size(230, 21);
+            this.cbguru.TabIndex = 2;
+            this.cbguru.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "TAHUN AJARAN";
+            // 
+            // cbtahunajaran
+            // 
+            this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbtahunajaran.FormattingEnabled = true;
+            this.cbtahunajaran.ItemHeight = 13;
+            this.cbtahunajaran.Location = new System.Drawing.Point(158, 58);
+            this.cbtahunajaran.Name = "cbtahunajaran";
+            this.cbtahunajaran.Size = new System.Drawing.Size(180, 21);
+            this.cbtahunajaran.TabIndex = 0;
+            this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
+            // 
             // FPengajaran
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(958, 504);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.dgpengajaran);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FPengajaran";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

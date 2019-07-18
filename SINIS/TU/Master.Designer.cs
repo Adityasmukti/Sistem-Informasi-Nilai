@@ -308,9 +308,9 @@
             this.tabSiswa.BackColor = System.Drawing.Color.White;
             this.tabSiswa.Controls.Add(this.dgsiswa);
             this.tabSiswa.Controls.Add(this.pnsiswa);
-            this.tabSiswa.Location = new System.Drawing.Point(4, 22);
+            this.tabSiswa.Location = new System.Drawing.Point(4, 29);
             this.tabSiswa.Name = "tabSiswa";
-            this.tabSiswa.Size = new System.Drawing.Size(1160, 477);
+            this.tabSiswa.Size = new System.Drawing.Size(1160, 470);
             this.tabSiswa.TabIndex = 3;
             this.tabSiswa.Text = "SISWA";
             // 
@@ -346,7 +346,7 @@
             this.dgsiswa.ReadOnly = true;
             this.dgsiswa.RowHeadersVisible = false;
             this.dgsiswa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsiswa.Size = new System.Drawing.Size(1160, 407);
+            this.dgsiswa.Size = new System.Drawing.Size(1160, 400);
             this.dgsiswa.TabIndex = 4;
             this.dgsiswa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsiswa_CellClick);
             // 
@@ -515,9 +515,9 @@
             this.tabGuru.BackColor = System.Drawing.Color.White;
             this.tabGuru.Controls.Add(this.dgguru);
             this.tabGuru.Controls.Add(this.pnguru);
-            this.tabGuru.Location = new System.Drawing.Point(4, 22);
+            this.tabGuru.Location = new System.Drawing.Point(4, 29);
             this.tabGuru.Name = "tabGuru";
-            this.tabGuru.Size = new System.Drawing.Size(1160, 477);
+            this.tabGuru.Size = new System.Drawing.Size(1160, 470);
             this.tabGuru.TabIndex = 2;
             this.tabGuru.Text = "GURU";
             // 
@@ -558,7 +558,7 @@
             this.dgguru.ReadOnly = true;
             this.dgguru.RowHeadersVisible = false;
             this.dgguru.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgguru.Size = new System.Drawing.Size(1160, 407);
+            this.dgguru.Size = new System.Drawing.Size(1160, 400);
             this.dgguru.TabIndex = 4;
             this.dgguru.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguru_CellClick);
             // 
@@ -732,10 +732,10 @@
             this.tabPelajaran.BackColor = System.Drawing.Color.White;
             this.tabPelajaran.Controls.Add(this.dgpelajaran);
             this.tabPelajaran.Controls.Add(this.pnpelajaran);
-            this.tabPelajaran.Location = new System.Drawing.Point(4, 22);
+            this.tabPelajaran.Location = new System.Drawing.Point(4, 29);
             this.tabPelajaran.Name = "tabPelajaran";
             this.tabPelajaran.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPelajaran.Size = new System.Drawing.Size(1160, 477);
+            this.tabPelajaran.Size = new System.Drawing.Size(1160, 470);
             this.tabPelajaran.TabIndex = 1;
             this.tabPelajaran.Text = "PELAJARAN";
             // 
@@ -765,7 +765,7 @@
             this.dgpelajaran.ReadOnly = true;
             this.dgpelajaran.RowHeadersVisible = false;
             this.dgpelajaran.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgpelajaran.Size = new System.Drawing.Size(1154, 380);
+            this.dgpelajaran.Size = new System.Drawing.Size(1154, 373);
             this.dgpelajaran.TabIndex = 3;
             this.dgpelajaran.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgpelajaran_CellClick);
             // 

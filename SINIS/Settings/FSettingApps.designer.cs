@@ -97,7 +97,7 @@
             // 
             this.lbs_nama.ForeColor = System.Drawing.Color.White;
             this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(801, 17);
+            this.lbs_nama.Size = new System.Drawing.Size(301, 17);
             this.lbs_nama.Spring = true;
             this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
             // 
@@ -124,9 +124,9 @@
             this.lbshakakses,
             this.lbs_nama,
             this.lbs_waktu});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1284, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 96;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -152,7 +152,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1284, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
             this.flowLayoutPanel1.TabIndex = 97;
             // 
             // BBatal
@@ -169,8 +169,9 @@
             // 
             // BSimpan
             // 
+            this.BSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BSimpan.Location = new System.Drawing.Point(1084, 12);
+            this.BSimpan.Location = new System.Drawing.Point(584, 12);
             this.BSimpan.Name = "BSimpan";
             this.BSimpan.Size = new System.Drawing.Size(188, 45);
             this.BSimpan.TabIndex = 102;
@@ -219,7 +220,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 57);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1284, 512);
+            this.tabControl1.Size = new System.Drawing.Size(784, 412);
             this.tabControl1.TabIndex = 102;
             // 
             // tabPage2
@@ -231,7 +232,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1276, 479);
+            this.tabPage2.Size = new System.Drawing.Size(776, 379);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "UTAMA";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -239,9 +240,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1276, 479);
+            this.tabPage3.Size = new System.Drawing.Size(1276, 486);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "WARNA";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -278,7 +279,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1276, 479);
+            this.groupBox4.Size = new System.Drawing.Size(1276, 486);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "WARNA";
@@ -519,10 +520,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1276, 479);
+            this.tabPage1.Size = new System.Drawing.Size(1276, 486);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PESAN";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -532,16 +533,16 @@
             this.panel2.Controls.Add(this.BSimpan);
             this.panel2.Controls.Add(this.BBatal);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 569);
+            this.panel2.Location = new System.Drawing.Point(0, 469);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1284, 70);
+            this.panel2.Size = new System.Drawing.Size(784, 70);
             this.panel2.TabIndex = 103;
             // 
             // FSettingApps
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.statusStrip1);

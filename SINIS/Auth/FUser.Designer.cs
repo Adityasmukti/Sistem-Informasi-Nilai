@@ -81,7 +81,7 @@
             this.bhakakses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bhakakses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bhakakses.ForeColor = System.Drawing.Color.White;
-            this.bhakakses.Location = new System.Drawing.Point(1146, 13);
+            this.bhakakses.Location = new System.Drawing.Point(366, 17);
             this.bhakakses.Margin = new System.Windows.Forms.Padding(4);
             this.bhakakses.Name = "bhakakses";
             this.bhakakses.Size = new System.Drawing.Size(125, 30);
@@ -141,7 +141,7 @@
             this.Dg.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -171,7 +171,7 @@
             this.Column2.HeaderText = "ID USER";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 101;
+            this.Column2.Width = 76;
             // 
             // Column4
             // 
@@ -179,7 +179,7 @@
             this.Column4.HeaderText = "HAK AKSES";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
+            this.Column4.Width = 92;
             // 
             // Column1
             // 
@@ -205,7 +205,7 @@
             this.Column9.HeaderText = "NO ADMIN";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            this.Column9.Width = 113;
+            this.Column9.Width = 86;
             // 
             // panel2
             // 
@@ -232,7 +232,7 @@
             // 
             this.tbhalaman.Location = new System.Drawing.Point(58, 11);
             this.tbhalaman.Name = "tbhalaman";
-            this.tbhalaman.Size = new System.Drawing.Size(40, 26);
+            this.tbhalaman.Size = new System.Drawing.Size(40, 20);
             this.tbhalaman.TabIndex = 11;
             this.tbhalaman.Text = "1";
             // 
@@ -256,7 +256,7 @@
             this.ldarihalaman.AutoSize = true;
             this.ldarihalaman.Location = new System.Drawing.Point(102, 14);
             this.ldarihalaman.Name = "ldarihalaman";
-            this.ldarihalaman.Size = new System.Drawing.Size(26, 20);
+            this.ldarihalaman.Size = new System.Drawing.Size(21, 13);
             this.ldarihalaman.TabIndex = 10;
             this.ldarihalaman.Text = "/ 1";
             // 
@@ -356,7 +356,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FUser";

@@ -58,7 +58,7 @@
             this.bprint.BackColor = System.Drawing.Color.MidnightBlue;
             this.bprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bprint.ForeColor = System.Drawing.Color.White;
-            this.bprint.Location = new System.Drawing.Point(1122, 127);
+            this.bprint.Location = new System.Drawing.Point(1122, 165);
             this.bprint.Name = "bprint";
             this.bprint.Size = new System.Drawing.Size(94, 35);
             this.bprint.TabIndex = 21;
@@ -85,7 +85,7 @@
             this.dglaporan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -93,12 +93,12 @@
             this.dglaporan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dglaporan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dglaporan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dglaporan.Location = new System.Drawing.Point(0, 168);
+            this.dglaporan.Location = new System.Drawing.Point(0, 245);
             this.dglaporan.Name = "dglaporan";
             this.dglaporan.ReadOnly = true;
             this.dglaporan.RowHeadersVisible = false;
             this.dglaporan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dglaporan.Size = new System.Drawing.Size(1228, 396);
+            this.dglaporan.Size = new System.Drawing.Size(1228, 319);
             this.dglaporan.TabIndex = 17;
             // 
             // bexport
@@ -107,7 +107,7 @@
             this.bexport.BackColor = System.Drawing.Color.MidnightBlue;
             this.bexport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bexport.ForeColor = System.Drawing.Color.White;
-            this.bexport.Location = new System.Drawing.Point(1122, 86);
+            this.bexport.Location = new System.Drawing.Point(1122, 124);
             this.bexport.Name = "bexport";
             this.bexport.Size = new System.Drawing.Size(94, 35);
             this.bexport.TabIndex = 20;
@@ -120,7 +120,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(59, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 20);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "LAPORAN";
             // 
@@ -133,7 +133,7 @@
             "PERSISWA"});
             this.cblaporan.Location = new System.Drawing.Point(150, 124);
             this.cblaporan.Name = "cblaporan";
-            this.cblaporan.Size = new System.Drawing.Size(199, 28);
+            this.cblaporan.Size = new System.Drawing.Size(199, 21);
             this.cblaporan.TabIndex = 14;
             this.cblaporan.SelectedIndexChanged += new System.EventHandler(this.cblaporan_SelectedIndexChanged);
             // 
@@ -157,15 +157,15 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1228, 168);
+            this.panel2.Size = new System.Drawing.Size(1228, 245);
             this.panel2.TabIndex = 16;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(648, 127);
+            this.label2.Location = new System.Drawing.Point(96, 165);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 20);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "JENIS NILAI";
             // 
@@ -173,9 +173,9 @@
             // 
             this.cbjenisnilai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbjenisnilai.FormattingEnabled = true;
-            this.cbjenisnilai.Location = new System.Drawing.Point(754, 124);
+            this.cbjenisnilai.Location = new System.Drawing.Point(202, 162);
             this.cbjenisnilai.Name = "cbjenisnilai";
-            this.cbjenisnilai.Size = new System.Drawing.Size(199, 28);
+            this.cbjenisnilai.Size = new System.Drawing.Size(199, 21);
             this.cbjenisnilai.TabIndex = 22;
             this.cbjenisnilai.SelectedIndexChanged += new System.EventHandler(this.cbjenisnilai_SelectedIndexChanged);
             // 
@@ -184,7 +184,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(375, 127);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 20);
+            this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 19;
             this.label7.Text = "SISWA";
             // 
@@ -195,7 +195,7 @@
             this.cbsiswa.FormattingEnabled = true;
             this.cbsiswa.Location = new System.Drawing.Point(443, 124);
             this.cbsiswa.Name = "cbsiswa";
-            this.cbsiswa.Size = new System.Drawing.Size(199, 28);
+            this.cbsiswa.Size = new System.Drawing.Size(199, 21);
             this.cbsiswa.TabIndex = 18;
             this.cbsiswa.SelectedIndexChanged += new System.EventHandler(this.cbsiswa_SelectedIndexChanged);
             // 
@@ -204,7 +204,7 @@
             this.linformasi.AutoSize = true;
             this.linformasi.Location = new System.Drawing.Point(249, 60);
             this.linformasi.Name = "linformasi";
-            this.linformasi.Size = new System.Drawing.Size(190, 20);
+            this.linformasi.Size = new System.Drawing.Size(126, 13);
             this.linformasi.TabIndex = 13;
             this.linformasi.Text = "INFORMASI PENGAJAR";
             // 
@@ -213,7 +213,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(44, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 20);
+            this.label5.Size = new System.Drawing.Size(133, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "INFORMASI WALI KELAS";
             // 
@@ -222,7 +222,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(376, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "KELAS";
             // 
@@ -232,7 +232,7 @@
             this.cbkelas.FormattingEnabled = true;
             this.cbkelas.Location = new System.Drawing.Point(443, 90);
             this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(199, 28);
+            this.cbkelas.Size = new System.Drawing.Size(199, 21);
             this.cbkelas.TabIndex = 10;
             this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbkelas_SelectedIndexChanged);
             // 
@@ -241,7 +241,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(14, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 20);
+            this.label4.Size = new System.Drawing.Size(90, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "TAHUN AJARAN";
             // 
@@ -249,10 +249,10 @@
             // 
             this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 20;
+            this.cbtahunajaran.ItemHeight = 13;
             this.cbtahunajaran.Location = new System.Drawing.Point(150, 90);
             this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(199, 28);
+            this.cbtahunajaran.Size = new System.Drawing.Size(199, 21);
             this.cbtahunajaran.TabIndex = 6;
             this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
             // 
@@ -273,7 +273,7 @@
             this.ClientSize = new System.Drawing.Size(1228, 564);
             this.Controls.Add(this.dglaporan);
             this.Controls.Add(this.panel2);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FRaport";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
