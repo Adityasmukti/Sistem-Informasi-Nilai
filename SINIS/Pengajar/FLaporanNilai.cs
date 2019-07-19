@@ -70,6 +70,11 @@ namespace SINIS.Pengajar
             //    MessageBox.Show("Tidak Ada Data!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cbsiswa_SelectedIndexChanged(object sender, EventArgs e)
         {
             loaddb();

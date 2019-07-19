@@ -66,9 +66,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tbnama = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.bbatal = new System.Windows.Forms.Button();
             this.bsimpan = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -90,8 +87,6 @@
             this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel17.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -101,9 +96,9 @@
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 52);
+            this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(884, 429);
+            this.panel2.Size = new System.Drawing.Size(884, 403);
             this.panel2.TabIndex = 4;
             // 
             // panel10
@@ -117,7 +112,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel10.Location = new System.Drawing.Point(489, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(395, 429);
+            this.panel10.Size = new System.Drawing.Size(395, 403);
             this.panel10.TabIndex = 14;
             // 
             // label14
@@ -125,7 +120,7 @@
             this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label14.Location = new System.Drawing.Point(0, 374);
+            this.label14.Location = new System.Drawing.Point(0, 348);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(395, 37);
             this.label14.TabIndex = 11;
@@ -138,7 +133,7 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label13.Location = new System.Drawing.Point(0, 411);
+            this.label13.Location = new System.Drawing.Point(0, 385);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(395, 18);
             this.label13.TabIndex = 10;
@@ -287,7 +282,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(395, 429);
+            this.panel4.Size = new System.Drawing.Size(395, 403);
             this.panel4.TabIndex = 13;
             // 
             // panel13
@@ -498,44 +493,13 @@
             this.tbnama.Size = new System.Drawing.Size(395, 20);
             this.tbnama.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(884, 52);
-            this.panel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "INPUT DATA GURU";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.bbatal);
-            this.panel3.Controls.Add(this.bsimpan);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 481);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(884, 50);
-            this.panel3.TabIndex = 5;
-            // 
             // bbatal
             // 
             this.bbatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bbatal.BackColor = System.Drawing.Color.MidnightBlue;
             this.bbatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bbatal.ForeColor = System.Drawing.Color.White;
-            this.bbatal.Location = new System.Drawing.Point(678, 8);
+            this.bbatal.Location = new System.Drawing.Point(571, 9);
             this.bbatal.Name = "bbatal";
             this.bbatal.Size = new System.Drawing.Size(94, 35);
             this.bbatal.TabIndex = 2;
@@ -549,7 +513,7 @@
             this.bsimpan.BackColor = System.Drawing.Color.MidnightBlue;
             this.bsimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bsimpan.ForeColor = System.Drawing.Color.White;
-            this.bsimpan.Location = new System.Drawing.Point(778, 8);
+            this.bsimpan.Location = new System.Drawing.Point(671, 9);
             this.bsimpan.Name = "bsimpan";
             this.bsimpan.Size = new System.Drawing.Size(94, 35);
             this.bsimpan.TabIndex = 1;
@@ -559,9 +523,11 @@
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.bbatal);
             this.panel17.Controls.Add(this.BOk);
+            this.panel17.Controls.Add(this.bsimpan);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel17.Location = new System.Drawing.Point(0, 410);
+            this.panel17.Location = new System.Drawing.Point(0, 460);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(884, 49);
             this.panel17.TabIndex = 107;
@@ -585,7 +551,7 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
-            this.statusStrip1.Location = new System.Drawing.Point(0, 459);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 509);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 108;
@@ -596,7 +562,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
             this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 52);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(884, 57);
             this.flowLayoutPanel1.TabIndex = 106;
@@ -621,12 +587,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(884, 531);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel17);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FInputGuru";
             this.ShowIcon = false;
@@ -653,9 +617,6 @@
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -666,9 +627,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button bsimpan;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel9;

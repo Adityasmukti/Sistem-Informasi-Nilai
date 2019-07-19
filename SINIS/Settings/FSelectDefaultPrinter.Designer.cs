@@ -51,7 +51,7 @@
             this.groupBox1.Size = new System.Drawing.Size(586, 89);
             this.groupBox1.TabIndex = 97;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DETAIL";
+            this.groupBox1.Text = "SELECT";
             // 
             // BSimpan
             // 
@@ -59,7 +59,7 @@
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSimpan.ForeColor = System.Drawing.Color.White;
-            this.BSimpan.Location = new System.Drawing.Point(432, 26);
+            this.BSimpan.Location = new System.Drawing.Point(432, 28);
             this.BSimpan.Margin = new System.Windows.Forms.Padding(4);
             this.BSimpan.Name = "BSimpan";
             this.BSimpan.Size = new System.Drawing.Size(124, 36);
@@ -111,10 +111,10 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(3, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(529, 57);
+            this.linkLabel1.Size = new System.Drawing.Size(571, 57);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "CETAK LABEL";
+            this.linkLabel1.Text = "[form]";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 

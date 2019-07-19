@@ -34,9 +34,9 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.tbhalaman = new System.Windows.Forms.TextBox();
-            this.bnext = new System.Windows.Forms.Button();
             this.ldarihalaman = new System.Windows.Forms.Label();
+            this.bnext = new System.Windows.Forms.Button();
+            this.tbhalaman = new System.Windows.Forms.TextBox();
             this.bprev = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -106,58 +106,64 @@
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel4.Controls.Add(this.tbhalaman);
-            this.panel4.Controls.Add(this.bnext);
             this.panel4.Controls.Add(this.ldarihalaman);
+            this.panel4.Controls.Add(this.bnext);
+            this.panel4.Controls.Add(this.tbhalaman);
             this.panel4.Controls.Add(this.bprev);
-            this.panel4.Location = new System.Drawing.Point(289, 3);
+            this.panel4.Location = new System.Drawing.Point(292, 7);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(207, 43);
-            this.panel4.TabIndex = 45;
+            this.panel4.Size = new System.Drawing.Size(200, 35);
+            this.panel4.TabIndex = 47;
             // 
-            // tbhalaman
+            // ldarihalaman
             // 
-            this.tbhalaman.Location = new System.Drawing.Point(58, 10);
-            this.tbhalaman.Name = "tbhalaman";
-            this.tbhalaman.Size = new System.Drawing.Size(40, 20);
-            this.tbhalaman.TabIndex = 11;
-            this.tbhalaman.Text = "1";
+            this.ldarihalaman.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ldarihalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ldarihalaman.Location = new System.Drawing.Point(99, 0);
+            this.ldarihalaman.Name = "ldarihalaman";
+            this.ldarihalaman.Size = new System.Drawing.Size(61, 35);
+            this.ldarihalaman.TabIndex = 10;
+            this.ldarihalaman.Text = "/ 9999";
+            this.ldarihalaman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bnext
             // 
             this.bnext.BackColor = System.Drawing.Color.Crimson;
             this.bnext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bnext.Dock = System.Windows.Forms.DockStyle.Right;
             this.bnext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnext.ForeColor = System.Drawing.Color.White;
-            this.bnext.Location = new System.Drawing.Point(156, 8);
+            this.bnext.Location = new System.Drawing.Point(160, 0);
             this.bnext.Margin = new System.Windows.Forms.Padding(4);
             this.bnext.Name = "bnext";
-            this.bnext.Size = new System.Drawing.Size(43, 28);
+            this.bnext.Size = new System.Drawing.Size(40, 35);
             this.bnext.TabIndex = 7;
             this.bnext.Text = ">";
             this.bnext.UseVisualStyleBackColor = false;
             // 
-            // ldarihalaman
+            // tbhalaman
             // 
-            this.ldarihalaman.AutoSize = true;
-            this.ldarihalaman.Location = new System.Drawing.Point(102, 14);
-            this.ldarihalaman.Name = "ldarihalaman";
-            this.ldarihalaman.Size = new System.Drawing.Size(21, 13);
-            this.ldarihalaman.TabIndex = 10;
-            this.ldarihalaman.Text = "/ 1";
+            this.tbhalaman.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbhalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbhalaman.Location = new System.Drawing.Point(47, 8);
+            this.tbhalaman.Name = "tbhalaman";
+            this.tbhalaman.Size = new System.Drawing.Size(40, 20);
+            this.tbhalaman.TabIndex = 11;
+            this.tbhalaman.Text = "1";
             // 
             // bprev
             // 
             this.bprev.BackColor = System.Drawing.Color.Crimson;
             this.bprev.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bprev.Dock = System.Windows.Forms.DockStyle.Left;
             this.bprev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bprev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bprev.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bprev.ForeColor = System.Drawing.Color.White;
-            this.bprev.Location = new System.Drawing.Point(8, 8);
+            this.bprev.Location = new System.Drawing.Point(0, 0);
             this.bprev.Margin = new System.Windows.Forms.Padding(4);
             this.bprev.Name = "bprev";
-            this.bprev.Size = new System.Drawing.Size(43, 28);
+            this.bprev.Size = new System.Drawing.Size(40, 35);
             this.bprev.TabIndex = 6;
             this.bprev.Text = "<";
             this.bprev.UseVisualStyleBackColor = false;
@@ -189,9 +195,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox tbhalaman;
-        private System.Windows.Forms.Button bnext;
         private System.Windows.Forms.Label ldarihalaman;
+        private System.Windows.Forms.Button bnext;
+        private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgpengajaran = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,20 +46,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbtahunajaran = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ldarihalaman = new System.Windows.Forms.Label();
+            this.bnext = new System.Windows.Forms.Button();
+            this.tbhalaman = new System.Windows.Forms.TextBox();
+            this.bprev = new System.Windows.Forms.Button();
             this.BOk = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tbhalaman = new System.Windows.Forms.TextBox();
-            this.bnext = new System.Windows.Forms.Button();
-            this.ldarihalaman = new System.Windows.Forms.Label();
-            this.bprev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgpengajaran)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgpengajaran
@@ -68,14 +68,14 @@
             this.dgpengajaran.AllowUserToDeleteRows = false;
             this.dgpengajaran.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgpengajaran.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgpengajaran.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgpengajaran.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgpengajaran.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgpengajaran.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -85,14 +85,14 @@
             this.Column7,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgpengajaran.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgpengajaran.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgpengajaran.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgpengajaran.Location = new System.Drawing.Point(0, 208);
             this.dgpengajaran.Name = "dgpengajaran";
@@ -223,6 +223,71 @@
             this.panel3.Size = new System.Drawing.Size(784, 49);
             this.panel3.TabIndex = 107;
             // 
+            // panel4
+            // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel4.Controls.Add(this.ldarihalaman);
+            this.panel4.Controls.Add(this.bnext);
+            this.panel4.Controls.Add(this.tbhalaman);
+            this.panel4.Controls.Add(this.bprev);
+            this.panel4.Location = new System.Drawing.Point(292, 7);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 35);
+            this.panel4.TabIndex = 47;
+            // 
+            // ldarihalaman
+            // 
+            this.ldarihalaman.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ldarihalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ldarihalaman.Location = new System.Drawing.Point(99, 0);
+            this.ldarihalaman.Name = "ldarihalaman";
+            this.ldarihalaman.Size = new System.Drawing.Size(61, 35);
+            this.ldarihalaman.TabIndex = 10;
+            this.ldarihalaman.Text = "/ 9999";
+            this.ldarihalaman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bnext
+            // 
+            this.bnext.BackColor = System.Drawing.Color.Crimson;
+            this.bnext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bnext.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bnext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnext.ForeColor = System.Drawing.Color.White;
+            this.bnext.Location = new System.Drawing.Point(160, 0);
+            this.bnext.Margin = new System.Windows.Forms.Padding(4);
+            this.bnext.Name = "bnext";
+            this.bnext.Size = new System.Drawing.Size(40, 35);
+            this.bnext.TabIndex = 7;
+            this.bnext.Text = ">";
+            this.bnext.UseVisualStyleBackColor = false;
+            // 
+            // tbhalaman
+            // 
+            this.tbhalaman.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbhalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbhalaman.Location = new System.Drawing.Point(47, 8);
+            this.tbhalaman.Name = "tbhalaman";
+            this.tbhalaman.Size = new System.Drawing.Size(40, 20);
+            this.tbhalaman.TabIndex = 11;
+            this.tbhalaman.Text = "1";
+            // 
+            // bprev
+            // 
+            this.bprev.BackColor = System.Drawing.Color.Crimson;
+            this.bprev.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bprev.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bprev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bprev.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bprev.ForeColor = System.Drawing.Color.White;
+            this.bprev.Location = new System.Drawing.Point(0, 0);
+            this.bprev.Margin = new System.Windows.Forms.Padding(4);
+            this.bprev.Name = "bprev";
+            this.bprev.Size = new System.Drawing.Size(40, 35);
+            this.bprev.TabIndex = 6;
+            this.bprev.Text = "<";
+            this.bprev.UseVisualStyleBackColor = false;
+            // 
             // BOk
             // 
             this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -273,65 +338,6 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
-            // panel4
-            // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel4.Controls.Add(this.tbhalaman);
-            this.panel4.Controls.Add(this.bnext);
-            this.panel4.Controls.Add(this.ldarihalaman);
-            this.panel4.Controls.Add(this.bprev);
-            this.panel4.Location = new System.Drawing.Point(289, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(207, 43);
-            this.panel4.TabIndex = 45;
-            // 
-            // tbhalaman
-            // 
-            this.tbhalaman.Location = new System.Drawing.Point(58, 10);
-            this.tbhalaman.Name = "tbhalaman";
-            this.tbhalaman.Size = new System.Drawing.Size(40, 20);
-            this.tbhalaman.TabIndex = 11;
-            this.tbhalaman.Text = "1";
-            // 
-            // bnext
-            // 
-            this.bnext.BackColor = System.Drawing.Color.Crimson;
-            this.bnext.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bnext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnext.ForeColor = System.Drawing.Color.White;
-            this.bnext.Location = new System.Drawing.Point(156, 8);
-            this.bnext.Margin = new System.Windows.Forms.Padding(4);
-            this.bnext.Name = "bnext";
-            this.bnext.Size = new System.Drawing.Size(43, 28);
-            this.bnext.TabIndex = 7;
-            this.bnext.Text = ">";
-            this.bnext.UseVisualStyleBackColor = false;
-            // 
-            // ldarihalaman
-            // 
-            this.ldarihalaman.AutoSize = true;
-            this.ldarihalaman.Location = new System.Drawing.Point(102, 14);
-            this.ldarihalaman.Name = "ldarihalaman";
-            this.ldarihalaman.Size = new System.Drawing.Size(21, 13);
-            this.ldarihalaman.TabIndex = 10;
-            this.ldarihalaman.Text = "/ 1";
-            // 
-            // bprev
-            // 
-            this.bprev.BackColor = System.Drawing.Color.Crimson;
-            this.bprev.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bprev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bprev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bprev.ForeColor = System.Drawing.Color.White;
-            this.bprev.Location = new System.Drawing.Point(8, 8);
-            this.bprev.Margin = new System.Windows.Forms.Padding(4);
-            this.bprev.Name = "bprev";
-            this.bprev.Size = new System.Drawing.Size(43, 28);
-            this.bprev.TabIndex = 6;
-            this.bprev.Text = "<";
-            this.bprev.UseVisualStyleBackColor = false;
-            // 
             // FPengajaran
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -346,15 +352,15 @@
             this.Name = "FPengajaran";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Jadwal Mengajar";
+            this.Text = "JADWAL MENGAJAR";
             this.Load += new System.EventHandler(this.FPengajaran_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgpengajaran)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,9 +389,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox tbhalaman;
-        private System.Windows.Forms.Button bnext;
         private System.Windows.Forms.Label ldarihalaman;
+        private System.Windows.Forms.Button bnext;
+        private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
     }
 }

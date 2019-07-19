@@ -18,24 +18,24 @@ namespace SINIS.Auth
 
             S.SetSettings();
             this.SetControlFrom();
-            tbusername.KeyDown += Tbusername_KeyDown;
-            bclose.Click += Bclose_Click;
+            TbUsername.KeyDown += Tbusername_KeyDown;
+            BKeluar.Click += Bclose_Click;
             this.Activated += FLogin_Activated;
-            tbusername.ForeColor = Color.DimGray;
-            tbpassword.ForeColor = Color.DimGray;
+            TbUsername.ForeColor = Color.DimGray;
+            TbPassword.ForeColor = Color.DimGray;
 
         }
         private void FLogin_Activated(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.loginsaveusername)
             {
-                tbpassword.Focus();
-                tbpassword.ForeColor = Color.Black;
-                tbpassword.Text = string.Empty;
-                tbpassword.PasswordChar = '*';
+                TbPassword.Focus();
+                TbPassword.ForeColor = Color.Black;
+                TbPassword.Text = string.Empty;
+                TbPassword.PasswordChar = '*';
             }
             else
-                tbusername.Focus();
+                TbUsername.Focus();
         }
         private void Bclose_Click(object sender, EventArgs e)
         {
@@ -44,51 +44,51 @@ namespace SINIS.Auth
         private void Tbusername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                tbpassword.Focus();
+                TbPassword.Focus();
         }
         private void Tbusername_Enter(object sender, EventArgs e)
         {
-            if (tbusername.Text == "Username" && tbusername.ForeColor == Color.DimGray)
+            if (TbUsername.Text == "Username" && TbUsername.ForeColor == Color.DimGray)
             {
-                tbusername.Text = string.Empty;
-                tbusername.ForeColor = Color.Black;
+                TbUsername.Text = string.Empty;
+                TbUsername.ForeColor = Color.Black;
             }
         }
         private void Tbusername_Leave(object sender, EventArgs e)
         {
-            if (tbusername.Text == string.Empty)
+            if (TbUsername.Text == string.Empty)
             {
-                tbusername.ForeColor = Color.DimGray;
-                tbusername.Text = "Username";
+                TbUsername.ForeColor = Color.DimGray;
+                TbUsername.Text = "Username";
             }
         }
         private void Tbpassword_Leave(object sender, EventArgs e)
         {
-            if (tbpassword.Text == string.Empty)
+            if (TbPassword.Text == string.Empty)
             {
-                tbpassword.ForeColor = Color.DimGray;
-                tbpassword.Text = "Password";
-                tbpassword.PasswordChar = '\0';
+                TbPassword.ForeColor = Color.DimGray;
+                TbPassword.Text = "Password";
+                TbPassword.PasswordChar = '\0';
             }
         }
         private void Tbpassword_Enter(object sender, EventArgs e)
         {
-            if (tbpassword.Text == "Password" && tbpassword.ForeColor == Color.DimGray)
+            if (TbPassword.Text == "Password" && TbPassword.ForeColor == Color.DimGray)
             {
-                tbpassword.ForeColor = Color.Black;
-                tbpassword.Text = string.Empty;
-                tbpassword.PasswordChar = '*';
+                TbPassword.ForeColor = Color.Black;
+                TbPassword.Text = string.Empty;
+                TbPassword.PasswordChar = '*';
             }
         }
         private void Blogin_Click(object sender, EventArgs e)
         {
-            if (tbpassword.ForeColor == Color.DimGray || tbusername.ForeColor == Color.DimGray)
+            if (TbPassword.ForeColor == Color.DimGray || TbUsername.ForeColor == Color.DimGray)
                 MessageBox.Show("User dan Password harus di isi!!", "PERINGATAN", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 A.SetQueri("SELECT `id_user`, `id_akses`, `username`, `kode_ref` " +
-                    "FROM `m_user` WHERE `hapus`='N' AND `username`='" + tbusername.Text +
-                    "' AND `password`=MD5('" + tbpassword.Text + "') LIMIT 1");
+                    "FROM `m_user` WHERE `hapus`='N' AND `username`='" + TbUsername.Text +
+                    "' AND `password`=MD5('" + TbPassword.Text + "') LIMIT 1");
                 bool ada = false;
 
                 foreach (DataRow baris in A.GetQueri().GetData().Rows)
@@ -108,14 +108,14 @@ namespace SINIS.Auth
                     else if (S.GetUseracces() == "3")
                         S.SetUsernama(A.SingelData("SELECT `namasiswa` FROM `m_siswa` WHERE  `kode_siswa`='" + S.GetKodesiswa() + "';"));
 
-                    tbpassword.Clear();
-                    tbusername.Clear();
+                    TbPassword.Clear();
+                    TbUsername.Clear();
                     Tbusername_Leave(sender, e);
                     Tbpassword_Leave(sender, e);
                     this.ShowInTaskbar = false;
                     this.Hide();
                     A.SetLogin();
-                    Properties.Settings.Default.loginsaveusername = cbsaveusername.Checked;
+                    Properties.Settings.Default.loginsaveusername = CbSaveUsername.Checked;
                     Properties.Settings.Default.username = S.GetUsername();
                     Properties.Settings.Default.Save();
                     FMainMenu f = new FMainMenu();
@@ -135,8 +135,8 @@ namespace SINIS.Auth
                         this.ShowInTaskbar = true;
                         if (Properties.Settings.Default.loginsaveusername)
                         {
-                            tbusername.Text = S.GetUsername().DecodeUtf8();
-                            tbusername.ForeColor = Color.Black;
+                            TbUsername.Text = S.GetUsername().DecodeUtf8();
+                            TbUsername.ForeColor = Color.Black;
                         }
                     }
                     else
@@ -158,9 +158,9 @@ namespace SINIS.Auth
         {
             if (Properties.Settings.Default.loginsaveusername)
             {
-                cbsaveusername.Checked = true;
-                tbusername.Text = Properties.Settings.Default.username.DecodeUtf8();
-                tbusername.ForeColor = Color.Black;
+                CbSaveUsername.Checked = true;
+                TbUsername.Text = Properties.Settings.Default.username.DecodeUtf8();
+                TbUsername.ForeColor = Color.Black;
             }
         }
         private void FLogin_KeyDown(object sender, KeyEventArgs e)

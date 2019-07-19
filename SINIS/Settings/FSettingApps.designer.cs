@@ -99,7 +99,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(714, 57);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "PENGATURAN APLIKASI";
+            this.linkLabel1.Text = "[form]";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 

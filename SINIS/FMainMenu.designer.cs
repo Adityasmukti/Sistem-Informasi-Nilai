@@ -30,11 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMainMenu));
             this.menu = new System.Windows.Forms.ToolStrip();
-            this.BGuru = new System.Windows.Forms.ToolStripDropDownButton();
-            this.BTataUsaha = new System.Windows.Forms.ToolStripDropDownButton();
             this.BSiswa = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BSNilai = new System.Windows.Forms.ToolStripMenuItem();
+            this.BGuru = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BGKelas = new System.Windows.Forms.ToolStripMenuItem();
+            this.BGNilai = new System.Windows.Forms.ToolStripMenuItem();
+            this.BGPelajaran = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTataUsaha = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BTURuangKelas = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTUPengajaran = new System.Windows.Forms.ToolStripMenuItem();
             this.BLaporan = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BLRaport = new System.Windows.Forms.ToolStripMenuItem();
             this.BMaster = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BMSiswa = new System.Windows.Forms.ToolStripMenuItem();
+            this.BMGuru = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BMPelajaran = new System.Windows.Forms.ToolStripMenuItem();
+            this.BMKelas = new System.Windows.Forms.ToolStripMenuItem();
+            this.BMJenisNilai = new System.Windows.Forms.ToolStripMenuItem();
             this.BSettings = new System.Windows.Forms.ToolStripDropDownButton();
             this.BSTAplikasi = new System.Windows.Forms.ToolStripMenuItem();
             this.BSTDatabase = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,31 +64,13 @@
             this.TbInfo = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lbs_datang = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbshakakses = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbs_nama = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbs_waktu = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TbAktivitas = new System.Windows.Forms.RichTextBox();
-            this.BMSiswa = new System.Windows.Forms.ToolStripMenuItem();
-            this.BMGuru = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.BMPelajaran = new System.Windows.Forms.ToolStripMenuItem();
-            this.BMKelas = new System.Windows.Forms.ToolStripMenuItem();
-            this.BMJenisNilai = new System.Windows.Forms.ToolStripMenuItem();
-            this.BGKelas = new System.Windows.Forms.ToolStripMenuItem();
-            this.BGNilai = new System.Windows.Forms.ToolStripMenuItem();
-            this.BGPelajaran = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTURuangKelas = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTUPengajaran = new System.Windows.Forms.ToolStripMenuItem();
-            this.BLRaport = new System.Windows.Forms.ToolStripMenuItem();
-            this.BSNilai = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +93,25 @@
             this.menu.TabIndex = 0;
             this.menu.Text = "toolStrip1";
             // 
+            // BSiswa
+            // 
+            this.BSiswa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BSiswa.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BSNilai});
+            this.BSiswa.Image = ((System.Drawing.Image)(resources.GetObject("BSiswa.Image")));
+            this.BSiswa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BSiswa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BSiswa.Name = "BSiswa";
+            this.BSiswa.Size = new System.Drawing.Size(45, 42);
+            this.BSiswa.Tag = "SISWA";
+            this.BSiswa.Text = "SISWA";
+            // 
+            // BSNilai
+            // 
+            this.BSNilai.Name = "BSNilai";
+            this.BSNilai.Size = new System.Drawing.Size(112, 26);
+            this.BSNilai.Text = "Nilai";
+            // 
             // BGuru
             // 
             this.BGuru.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -113,6 +127,27 @@
             this.BGuru.Tag = "GURU";
             this.BGuru.Text = "GURU";
             // 
+            // BGKelas
+            // 
+            this.BGKelas.Name = "BGKelas";
+            this.BGKelas.Size = new System.Drawing.Size(143, 26);
+            this.BGKelas.Text = "Kelas";
+            this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
+            // 
+            // BGNilai
+            // 
+            this.BGNilai.Name = "BGNilai";
+            this.BGNilai.Size = new System.Drawing.Size(143, 26);
+            this.BGNilai.Text = "Nilai";
+            this.BGNilai.Click += new System.EventHandler(this.BGNilai_Click);
+            // 
+            // BGPelajaran
+            // 
+            this.BGPelajaran.Name = "BGPelajaran";
+            this.BGPelajaran.Size = new System.Drawing.Size(143, 26);
+            this.BGPelajaran.Text = "Pelajaran";
+            this.BGPelajaran.Click += new System.EventHandler(this.BGPelajaran_Click);
+            // 
             // BTataUsaha
             // 
             this.BTataUsaha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -127,18 +162,19 @@
             this.BTataUsaha.Tag = "TATA USAHA";
             this.BTataUsaha.Text = "TATA USAHA";
             // 
-            // BSiswa
+            // BTURuangKelas
             // 
-            this.BSiswa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BSiswa.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BSNilai});
-            this.BSiswa.Image = ((System.Drawing.Image)(resources.GetObject("BSiswa.Image")));
-            this.BSiswa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BSiswa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BSiswa.Name = "BSiswa";
-            this.BSiswa.Size = new System.Drawing.Size(45, 42);
-            this.BSiswa.Tag = "SISWA";
-            this.BSiswa.Text = "SISWA";
+            this.BTURuangKelas.Name = "BTURuangKelas";
+            this.BTURuangKelas.Size = new System.Drawing.Size(165, 26);
+            this.BTURuangKelas.Text = "Ruang Kelas";
+            this.BTURuangKelas.Click += new System.EventHandler(this.BTURuangKelas_Click);
+            // 
+            // BTUPengajaran
+            // 
+            this.BTUPengajaran.Name = "BTUPengajaran";
+            this.BTUPengajaran.Size = new System.Drawing.Size(165, 26);
+            this.BTUPengajaran.Text = "Pengajaran";
+            this.BTUPengajaran.Click += new System.EventHandler(this.BTUPengajaran_Click);
             // 
             // BLaporan
             // 
@@ -152,6 +188,12 @@
             this.BLaporan.Size = new System.Drawing.Size(45, 42);
             this.BLaporan.Tag = "LAPORAN";
             this.BLaporan.Text = "LAPORAN";
+            // 
+            // BLRaport
+            // 
+            this.BLRaport.Name = "BLRaport";
+            this.BLRaport.Size = new System.Drawing.Size(127, 26);
+            this.BLRaport.Text = "Raport";
             // 
             // BMaster
             // 
@@ -170,6 +212,41 @@
             this.BMaster.Size = new System.Drawing.Size(45, 42);
             this.BMaster.Tag = "MASTER";
             this.BMaster.Text = "MASTER";
+            // 
+            // BMSiswa
+            // 
+            this.BMSiswa.Name = "BMSiswa";
+            this.BMSiswa.Size = new System.Drawing.Size(150, 26);
+            this.BMSiswa.Text = "Siswa";
+            // 
+            // BMGuru
+            // 
+            this.BMGuru.Name = "BMGuru";
+            this.BMGuru.Size = new System.Drawing.Size(150, 26);
+            this.BMGuru.Text = "Guru";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            // 
+            // BMPelajaran
+            // 
+            this.BMPelajaran.Name = "BMPelajaran";
+            this.BMPelajaran.Size = new System.Drawing.Size(150, 26);
+            this.BMPelajaran.Text = "Pelajaran";
+            // 
+            // BMKelas
+            // 
+            this.BMKelas.Name = "BMKelas";
+            this.BMKelas.Size = new System.Drawing.Size(150, 26);
+            this.BMKelas.Text = "Kelas";
+            // 
+            // BMJenisNilai
+            // 
+            this.BMJenisNilai.Name = "BMJenisNilai";
+            this.BMJenisNilai.Size = new System.Drawing.Size(150, 26);
+            this.BMJenisNilai.Text = "Jenis Nilai";
             // 
             // BSettings
             // 
@@ -190,26 +267,26 @@
             // BSTAplikasi
             // 
             this.BSTAplikasi.Name = "BSTAplikasi";
-            this.BSTAplikasi.Size = new System.Drawing.Size(180, 26);
+            this.BSTAplikasi.Size = new System.Drawing.Size(144, 26);
             this.BSTAplikasi.Text = "Aplikasi";
             this.BSTAplikasi.Click += new System.EventHandler(this.BSTAplikasi_Click);
             // 
             // BSTDatabase
             // 
             this.BSTDatabase.Name = "BSTDatabase";
-            this.BSTDatabase.Size = new System.Drawing.Size(180, 26);
+            this.BSTDatabase.Size = new System.Drawing.Size(144, 26);
             this.BSTDatabase.Text = "Database";
             this.BSTDatabase.Click += new System.EventHandler(this.BSTDatabase_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(141, 6);
             // 
             // BSTTentang
             // 
             this.BSTTentang.Name = "BSTTentang";
-            this.BSTTentang.Size = new System.Drawing.Size(180, 26);
+            this.BSTTentang.Size = new System.Drawing.Size(144, 26);
             this.BSTTentang.Text = "Tentang";
             this.BSTTentang.Click += new System.EventHandler(this.BSTTentang_Click);
             // 
@@ -258,7 +335,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(721, 57);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "MAIN MENU";
+            this.linkLabel1.Text = "[form]";
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
@@ -276,12 +353,12 @@
             // 
             this.groupBox5.Controls.Add(this.TbCatatan);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(586, 0);
+            this.groupBox5.Location = new System.Drawing.Point(388, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(198, 146);
+            this.groupBox5.Size = new System.Drawing.Size(396, 146);
             this.groupBox5.TabIndex = 89;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Sticky Notes";
+            this.groupBox5.Text = "CATATAN";
             // 
             // TbCatatan
             // 
@@ -290,7 +367,7 @@
             this.TbCatatan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TbCatatan.Location = new System.Drawing.Point(3, 22);
             this.TbCatatan.Name = "TbCatatan";
-            this.TbCatatan.Size = new System.Drawing.Size(192, 121);
+            this.TbCatatan.Size = new System.Drawing.Size(390, 121);
             this.TbCatatan.TabIndex = 15;
             this.TbCatatan.Text = "";
             // 
@@ -301,7 +378,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(586, 146);
+            this.panel2.Size = new System.Drawing.Size(388, 146);
             this.panel2.TabIndex = 92;
             // 
             // TbInfo
@@ -312,7 +389,7 @@
             this.TbInfo.Location = new System.Drawing.Point(0, 20);
             this.TbInfo.Name = "TbInfo";
             this.TbInfo.ReadOnly = true;
-            this.TbInfo.Size = new System.Drawing.Size(586, 126);
+            this.TbInfo.Size = new System.Drawing.Size(388, 126);
             this.TbInfo.TabIndex = 91;
             this.TbInfo.Text = "";
             // 
@@ -321,56 +398,19 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Top;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(586, 20);
+            this.label7.Size = new System.Drawing.Size(388, 20);
             this.label7.TabIndex = 90;
-            this.label7.Text = "PEMBERITAHUAN";
+            this.label7.Text = "INFORMASI";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbs_datang,
-            this.lbshakakses,
-            this.lbs_nama,
-            this.lbs_waktu});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 91;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lbs_datang
-            // 
-            this.lbs_datang.ForeColor = System.Drawing.Color.White;
-            this.lbs_datang.Name = "lbs_datang";
-            this.lbs_datang.Size = new System.Drawing.Size(90, 17);
-            this.lbs_datang.Text = "Selamat Datang";
-            // 
-            // lbshakakses
-            // 
-            this.lbshakakses.AutoSize = false;
-            this.lbshakakses.ForeColor = System.Drawing.Color.White;
-            this.lbshakakses.Name = "lbshakakses";
-            this.lbshakakses.Size = new System.Drawing.Size(200, 17);
-            this.lbshakakses.Text = "toolStripStatusLabel1";
-            // 
-            // lbs_nama
-            // 
-            this.lbs_nama.ForeColor = System.Drawing.Color.White;
-            this.lbs_nama.Name = "lbs_nama";
-            this.lbs_nama.Size = new System.Drawing.Size(801, 17);
-            this.lbs_nama.Spring = true;
-            this.lbs_nama.Text = "Aplikasi Butik Atelier Angelina";
-            // 
-            // lbs_waktu
-            // 
-            this.lbs_waktu.ActiveLinkColor = System.Drawing.Color.Red;
-            this.lbs_waktu.ForeColor = System.Drawing.Color.White;
-            this.lbs_waktu.LinkColor = System.Drawing.Color.White;
-            this.lbs_waktu.Name = "lbs_waktu";
-            this.lbs_waktu.Size = new System.Drawing.Size(178, 17);
-            this.lbs_waktu.Text = "Semoga Harimu Menyenangkan";
             // 
             // groupBox4
             // 
@@ -395,88 +435,6 @@
             this.TbAktivitas.Text = "";
             this.TbAktivitas.WordWrap = false;
             // 
-            // BMSiswa
-            // 
-            this.BMSiswa.Name = "BMSiswa";
-            this.BMSiswa.Size = new System.Drawing.Size(180, 26);
-            this.BMSiswa.Text = "Siswa";
-            // 
-            // BMGuru
-            // 
-            this.BMGuru.Name = "BMGuru";
-            this.BMGuru.Size = new System.Drawing.Size(180, 26);
-            this.BMGuru.Text = "Guru";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // BMPelajaran
-            // 
-            this.BMPelajaran.Name = "BMPelajaran";
-            this.BMPelajaran.Size = new System.Drawing.Size(180, 26);
-            this.BMPelajaran.Text = "Pelajaran";
-            // 
-            // BMKelas
-            // 
-            this.BMKelas.Name = "BMKelas";
-            this.BMKelas.Size = new System.Drawing.Size(180, 26);
-            this.BMKelas.Text = "Kelas";
-            // 
-            // BMJenisNilai
-            // 
-            this.BMJenisNilai.Name = "BMJenisNilai";
-            this.BMJenisNilai.Size = new System.Drawing.Size(180, 26);
-            this.BMJenisNilai.Text = "Jenis Nilai";
-            // 
-            // BGKelas
-            // 
-            this.BGKelas.Name = "BGKelas";
-            this.BGKelas.Size = new System.Drawing.Size(180, 26);
-            this.BGKelas.Text = "Kelas";
-            this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
-            // 
-            // BGNilai
-            // 
-            this.BGNilai.Name = "BGNilai";
-            this.BGNilai.Size = new System.Drawing.Size(180, 26);
-            this.BGNilai.Text = "Nilai";
-            this.BGNilai.Click += new System.EventHandler(this.BGNilai_Click);
-            // 
-            // BGPelajaran
-            // 
-            this.BGPelajaran.Name = "BGPelajaran";
-            this.BGPelajaran.Size = new System.Drawing.Size(180, 26);
-            this.BGPelajaran.Text = "Pelajaran";
-            this.BGPelajaran.Click += new System.EventHandler(this.BGPelajaran_Click);
-            // 
-            // BTURuangKelas
-            // 
-            this.BTURuangKelas.Name = "BTURuangKelas";
-            this.BTURuangKelas.Size = new System.Drawing.Size(180, 26);
-            this.BTURuangKelas.Text = "Ruang Kelas";
-            this.BTURuangKelas.Click += new System.EventHandler(this.BTURuangKelas_Click);
-            // 
-            // BTUPengajaran
-            // 
-            this.BTUPengajaran.Name = "BTUPengajaran";
-            this.BTUPengajaran.Size = new System.Drawing.Size(180, 26);
-            this.BTUPengajaran.Text = "Pengajaran";
-            this.BTUPengajaran.Click += new System.EventHandler(this.BTUPengajaran_Click);
-            // 
-            // BLRaport
-            // 
-            this.BLRaport.Name = "BLRaport";
-            this.BLRaport.Size = new System.Drawing.Size(180, 26);
-            this.BLRaport.Text = "Raport";
-            // 
-            // BSNilai
-            // 
-            this.BSNilai.Name = "BSNilai";
-            this.BSNilai.Size = new System.Drawing.Size(180, 26);
-            this.BSNilai.Text = "Nilai";
-            // 
             // FMainMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -499,8 +457,6 @@
             this.panel1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -522,10 +478,6 @@
         private System.Windows.Forms.RichTextBox TbInfo;
         private System.Windows.Forms.ToolStripButton BLogout;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_datang;
-        private System.Windows.Forms.ToolStripStatusLabel lbshakakses;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_nama;
-        private System.Windows.Forms.ToolStripStatusLabel lbs_waktu;
         private System.Windows.Forms.ToolStripMenuItem BSTAplikasi;
         private System.Windows.Forms.ToolStripMenuItem BSTDatabase;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
