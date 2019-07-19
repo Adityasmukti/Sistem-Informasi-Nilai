@@ -124,11 +124,11 @@
     <Compile Include="FTentang.Designer.cs">
       <DependentUpon>FTentang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pengajar\FInputNilai.cs">
+    <Compile Include="Pengajar\FNilai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pengajar\FInputNilai.Designer.cs">
-      <DependentUpon>FInputNilai.cs</DependentUpon>
+    <Compile Include="Pengajar\FNilai.Designer.cs">
+      <DependentUpon>FNilai.cs</DependentUpon>
     </Compile>
     <Compile Include="Pengajar\FLaporanNilai.cs">
       <SubType>Form</SubType>
@@ -265,8 +265,8 @@
     <EmbeddedResource Include="FTentang.resx">
       <DependentUpon>FTentang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pengajar\FInputNilai.resx">
-      <DependentUpon>FInputNilai.cs</DependentUpon>
+    <EmbeddedResource Include="Pengajar\FNilai.resx">
+      <DependentUpon>FNilai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pengajar\FLaporanNilai.resx">
       <DependentUpon>FLaporanNilai.cs</DependentUpon>

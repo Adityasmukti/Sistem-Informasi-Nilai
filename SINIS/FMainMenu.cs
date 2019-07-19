@@ -103,7 +103,7 @@ namespace SINIS
 
         private void BGNilai_Click(object sender, EventArgs e)
         {
-            Pengajar.FInputNilai f = new Pengajar.FInputNilai();
+            Pengajar.FNilai f = new Pengajar.FNilai();
             f.Show();
         }
 

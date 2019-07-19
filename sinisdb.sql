@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v12.4.3 (64 bit)
-MySQL - 10.1.40-MariaDB : Database - sindb
+SQLyog Ultimate v13.1.1 (64 bit)
+MySQL - 10.3.13-MariaDB : Database - sindb
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.1.40-MariaDB : Database - sindb
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`sindb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`sindb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `sindb`;
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `m_akses`;
 CREATE TABLE `m_akses` (
   `id_akses` int(11) NOT NULL AUTO_INCREMENT,
   `nama_akses` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `ket_akses` mediumtext CHARACTER SET utf8,
+  `ket_akses` mediumtext CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id_akses`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
@@ -47,7 +47,7 @@ CREATE TABLE `m_guru` (
   `namaguru` varchar(200) DEFAULT NULL,
   `nohp` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `masuk` date DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `jeniskelamin` enum('L','P') DEFAULT NULL,
@@ -72,12 +72,12 @@ CREATE TABLE `m_siswa` (
   `kode_siswa` varchar(15) NOT NULL,
   `nis` varchar(50) DEFAULT NULL,
   `namasiswa` varchar(200) DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `ayah` varchar(200) DEFAULT NULL,
   `ibu` varchar(200) DEFAULT NULL,
   `kontak` varchar(20) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
-  `keterangan` text,
+  `keterangan` text DEFAULT NULL,
   `angkatan` varchar(5) DEFAULT NULL,
   `jeniskelamin` enum('L','P') DEFAULT NULL,
   `tempatlahir` varchar(100) DEFAULT NULL,
@@ -111,12 +111,41 @@ CREATE TABLE `m_user` (
 insert  into `m_user`(`id_user`,`id_akses`,`kode_ref`,`username`,`password`,`device`,`ppic`,`hapus`) values 
 (1,1,'1','admin','c5a4e7e6882845ea7bb4d9462868219b',NULL,1,'N');
 
+/*Table structure for table `r_jenisnilai` */
+
+DROP TABLE IF EXISTS `r_jenisnilai`;
+
+CREATE TABLE `r_jenisnilai` (
+  `kode_jenisnilai` varchar(15) NOT NULL,
+  `namajenisnilai` varchar(100) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `hapus` enum('Y','N') DEFAULT 'N',
+  PRIMARY KEY (`kode_jenisnilai`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `r_jenisnilai` */
+
+/*Table structure for table `r_kelas` */
+
+DROP TABLE IF EXISTS `r_kelas`;
+
+CREATE TABLE `r_kelas` (
+  `kode_kelas` varchar(15) NOT NULL,
+  `namakelas` varchar(200) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `hapus` enum('Y','N') NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`kode_kelas`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `r_kelas` */
+
 /*Table structure for table `r_matapelajaran` */
 
 DROP TABLE IF EXISTS `r_matapelajaran`;
 
 CREATE TABLE `r_matapelajaran` (
   `kodepelajaran` varchar(30) NOT NULL,
+  `kodemapel` varchar(50) DEFAULT NULL,
   `namapelajaran` varchar(200) DEFAULT NULL,
   `status` varchar(25) DEFAULT NULL,
   `hapus` enum('Y','N') DEFAULT 'N',
@@ -133,7 +162,7 @@ CREATE TABLE `r_settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_pangaturan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `pengaturan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `nilai` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `nilai` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `type` enum('string','int','DateTime','Color','long') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'string',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4;
@@ -170,18 +199,6 @@ insert  into `r_settings`(`id`,`nama_pangaturan`,`pengaturan`,`nilai`,`type`) va
 (38,'Batas Waktu Selesai','selesaitime','100','int'),
 (39,'Get Stock','getstock','0','int');
 
-/*Table structure for table `r_tahunajaran` */
-
-DROP TABLE IF EXISTS `r_tahunajaran`;
-
-CREATE TABLE `r_tahunajaran` (
-  `id_tahun` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_tahunajaran` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`id_tahun`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `r_tahunajaran` */
-
 /*Table structure for table `tb_jadwal` */
 
 DROP TABLE IF EXISTS `tb_jadwal`;
@@ -190,13 +207,33 @@ CREATE TABLE `tb_jadwal` (
   `kode_jadwal` varchar(15) NOT NULL,
   `kode_guru` varchar(15) DEFAULT NULL,
   `kode_kelas` varchar(15) DEFAULT NULL,
+  `kode_pelajaran` varchar(15) DEFAULT NULL,
   `tahunajaran` varchar(5) DEFAULT NULL,
-  `keterangan` text,
+  `keterangan` text DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
   PRIMARY KEY (`kode_jadwal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_jadwal` */
+
+/*Table structure for table `tb_nilai` */
+
+DROP TABLE IF EXISTS `tb_nilai`;
+
+CREATE TABLE `tb_nilai` (
+  `kode_nilai` varchar(15) NOT NULL,
+  `kode_jenisnilai` varchar(15) DEFAULT NULL,
+  `kode_ruangan` varchar(15) DEFAULT NULL,
+  `kode_jadwal` varchar(15) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `nilai` varchar(15) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  PRIMARY KEY (`kode_nilai`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `tb_nilai` */
 
 /*Table structure for table `tb_ruangan` */
 
@@ -208,8 +245,9 @@ CREATE TABLE `tb_ruangan` (
   `kode_siswa` varchar(15) DEFAULT NULL,
   `kode_guru` varchar(15) DEFAULT NULL,
   `tahunajaran` varchar(20) DEFAULT NULL,
-  `keterangan` text,
+  `keterangan` text DEFAULT NULL,
   `tanggal` datetime DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
   PRIMARY KEY (`kode_ruangan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

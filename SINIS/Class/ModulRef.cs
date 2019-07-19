@@ -2870,6 +2870,81 @@ namespace ExtensionMethods
             }
             return id;
         }
+        public static List<string> LoadJenisNilai(this ComboBox cb)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `kode_jenisnilai`, `namajenisnilai` FROM `r_jenisnilai` " +
+                "WHERE `hapus`='N' ORDER BY `namajenisnilai` ASC;").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
+        public static void LoadTahunAjaran(ComboBox cb)
+        {
+            int nows = int.Parse(DateTime.Now.ToString("yyyy"));
+            int next = nows + 1;
+            cb.Items.Clear();
+            while (nows >= 1990)
+            {
+                cb.Items.Add(nows + "/" + next);
+                nows--;
+                next--;
+            }
+        }
+        public static List<string> LoadKelas(this ComboBox cb, string KodeGuru, string TahunAjaran)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `J`.`kode_kelas`, `namakelas` FROM `tb_jadwal` `J` " +
+                "LEFT JOIN `r_kelas` `K` ON `K`.`kode_kelas`=`J`.`kode_kelas` " +
+                "WHERE `tahunajaran`='"+TahunAjaran+"' AND `kode_guru`='"+KodeGuru+"' " +
+                "GROUP BY `J`.`kode_kelas` ORDER BY `namakelas` ASC").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
+        public static List<string> LoadKelas(this ComboBox cb)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `kode_kelas`, `namakelas` FROM `r_kelas` WHERE `hapus`='N' ORDER BY `namakelas` ASC").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
+        public static List<string> LoadPelajaran(this ComboBox cb, string TahunAjaran, string KodeGuru, string KodeKelas)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `kodepelajaran`, `namapelajaran` FROM `tb_jadwal` `J` " +
+                "LEFT JOIN `r_matapelajaran` `MP` ON `MP`.`kodepelajaran`=`J`.`kode_pelajaran` " +
+                "WHERE `tahunajaran`='" + TahunAjaran + "' AND `kode_guru`='" + KodeGuru + "' " +
+                "AND `kode_kelas`='" + KodeKelas + "' ORDER BY `namapelajaran` ASC").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
+        public static List<string> LoadPelajaran(this ComboBox cb)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `kodepelajaran`, `namapelajaran` FROM `r_matapelajaran` " +
+                "WHERE `hapus`='N' ORDER BY `namapelajaran` ASC").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
         #endregion
     }
     #region Setting
@@ -2879,14 +2954,22 @@ namespace ExtensionMethods
         private static Color colorpaneljudul = Color.White, statusstripmaincolor = Color.White, colorlabeljudul = Color.White, datagridviewaksencolor = Color.White,
             buttonmaincolor = Color.White, buttonaksencolor = Color.White, statusstripaksencolor = Color.White, forecolor = Color.White, backcolor = Color.White;
         private static string username = "", usernama = "", userid = "", useracces = "", endIpAddress = "000", statusstripmessage = "", notifsound = "",
-            koderef="";
-        public static string GetKoderef()
+            kodeguru="", kodesiswa="";
+        public static string GetKodesiswa()
         {
-            return koderef;
+            return kodesiswa;
         }
-        public static void SetKoderef(string value)
+        public static void SetKodesiswa(string value)
         {
-            koderef = value;
+            kodesiswa = value;
+        }
+        public static string GetKodeGuru()
+        {
+            return kodeguru;
+        }
+        public static void SetKodeGuru(string value)
+        {
+            kodeguru = value;
         }
         public static int GetDivs()
         {

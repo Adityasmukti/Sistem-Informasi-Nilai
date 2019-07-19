@@ -96,16 +96,17 @@ namespace SINIS.Auth
                     S.SetUsername(baris["username"].ToString().EncodeUtf8());
                     S.SetUseracces(baris["id_akses"].ToString());
                     S.SetUserid(baris["id_user"].ToString());
-                    S.SetKoderef(baris["kode_ref"].ToString());
+                    S.SetKodeGuru(baris["kode_ref"].ToString());
+                    S.SetKodesiswa(baris["kode_ref"].ToString());
                     ada = true;
                 }
 
                 if (ada)
                 {
                     if (S.GetUseracces() == "1" || S.GetUseracces() == "2")
-                        S.SetUsernama(A.SingelData("SELECT `namaguru` FROM `m_guru` WHERE `kode_guru`='" + S.GetKoderef() + "';"));
+                        S.SetUsernama(A.SingelData("SELECT `namaguru` FROM `m_guru` WHERE `kode_guru`='" + S.GetKodeGuru() + "';"));
                     else if (S.GetUseracces() == "3")
-                        S.SetUsernama(A.SingelData("SELECT `namasiswa` FROM `m_siswa` WHERE  `kode_siswa`='" + S.GetKoderef() + "';"));
+                        S.SetUsernama(A.SingelData("SELECT `namasiswa` FROM `m_siswa` WHERE  `kode_siswa`='" + S.GetKodesiswa() + "';"));
 
                     tbpassword.Clear();
                     tbusername.Clear();
