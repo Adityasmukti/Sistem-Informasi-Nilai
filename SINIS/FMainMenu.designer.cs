@@ -109,7 +109,7 @@
             // BSNilai
             // 
             this.BSNilai.Name = "BSNilai";
-            this.BSNilai.Size = new System.Drawing.Size(112, 26);
+            this.BSNilai.Size = new System.Drawing.Size(180, 26);
             this.BSNilai.Text = "Nilai";
             // 
             // BGuru
@@ -130,21 +130,21 @@
             // BGKelas
             // 
             this.BGKelas.Name = "BGKelas";
-            this.BGKelas.Size = new System.Drawing.Size(143, 26);
+            this.BGKelas.Size = new System.Drawing.Size(180, 26);
             this.BGKelas.Text = "Kelas";
             this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
             // 
             // BGNilai
             // 
             this.BGNilai.Name = "BGNilai";
-            this.BGNilai.Size = new System.Drawing.Size(143, 26);
+            this.BGNilai.Size = new System.Drawing.Size(180, 26);
             this.BGNilai.Text = "Nilai";
             this.BGNilai.Click += new System.EventHandler(this.BGNilai_Click);
             // 
             // BGPelajaran
             // 
             this.BGPelajaran.Name = "BGPelajaran";
-            this.BGPelajaran.Size = new System.Drawing.Size(143, 26);
+            this.BGPelajaran.Size = new System.Drawing.Size(180, 26);
             this.BGPelajaran.Text = "Pelajaran";
             this.BGPelajaran.Click += new System.EventHandler(this.BGPelajaran_Click);
             // 
@@ -165,14 +165,14 @@
             // BTURuangKelas
             // 
             this.BTURuangKelas.Name = "BTURuangKelas";
-            this.BTURuangKelas.Size = new System.Drawing.Size(165, 26);
+            this.BTURuangKelas.Size = new System.Drawing.Size(180, 26);
             this.BTURuangKelas.Text = "Ruang Kelas";
             this.BTURuangKelas.Click += new System.EventHandler(this.BTURuangKelas_Click);
             // 
             // BTUPengajaran
             // 
             this.BTUPengajaran.Name = "BTUPengajaran";
-            this.BTUPengajaran.Size = new System.Drawing.Size(165, 26);
+            this.BTUPengajaran.Size = new System.Drawing.Size(180, 26);
             this.BTUPengajaran.Text = "Pengajaran";
             this.BTUPengajaran.Click += new System.EventHandler(this.BTUPengajaran_Click);
             // 
@@ -192,7 +192,7 @@
             // BLRaport
             // 
             this.BLRaport.Name = "BLRaport";
-            this.BLRaport.Size = new System.Drawing.Size(127, 26);
+            this.BLRaport.Size = new System.Drawing.Size(180, 26);
             this.BLRaport.Text = "Raport";
             // 
             // BMaster
@@ -216,36 +216,37 @@
             // BMSiswa
             // 
             this.BMSiswa.Name = "BMSiswa";
-            this.BMSiswa.Size = new System.Drawing.Size(150, 26);
+            this.BMSiswa.Size = new System.Drawing.Size(180, 26);
             this.BMSiswa.Text = "Siswa";
             // 
             // BMGuru
             // 
             this.BMGuru.Name = "BMGuru";
-            this.BMGuru.Size = new System.Drawing.Size(150, 26);
+            this.BMGuru.Size = new System.Drawing.Size(180, 26);
             this.BMGuru.Text = "Guru";
+            this.BMGuru.Click += new System.EventHandler(this.BMGuru_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // BMPelajaran
             // 
             this.BMPelajaran.Name = "BMPelajaran";
-            this.BMPelajaran.Size = new System.Drawing.Size(150, 26);
+            this.BMPelajaran.Size = new System.Drawing.Size(180, 26);
             this.BMPelajaran.Text = "Pelajaran";
             // 
             // BMKelas
             // 
             this.BMKelas.Name = "BMKelas";
-            this.BMKelas.Size = new System.Drawing.Size(150, 26);
+            this.BMKelas.Size = new System.Drawing.Size(180, 26);
             this.BMKelas.Text = "Kelas";
             // 
             // BMJenisNilai
             // 
             this.BMJenisNilai.Name = "BMJenisNilai";
-            this.BMJenisNilai.Size = new System.Drawing.Size(150, 26);
+            this.BMJenisNilai.Size = new System.Drawing.Size(180, 26);
             this.BMJenisNilai.Text = "Jenis Nilai";
             // 
             // BSettings

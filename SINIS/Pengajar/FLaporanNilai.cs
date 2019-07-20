@@ -154,7 +154,6 @@ namespace SINIS.Pengajar
 
         private void FLaporanNilai_Load(object sender, EventArgs e)
         {
-            #region Isi data informasi pengajar
             //query = "SELECT * FROM tm_guru WHERE id=" + Properties.Settings.Default.useridacces;
             //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
             //{
@@ -163,11 +162,6 @@ namespace SINIS.Pengajar
             //    nip = br["guru_nip"].ToString();
             //    kelamin = br["guru_jk"].ToString();
             //}
-            if (kelamin == "L")
-                linformasi.Text = "BAPAK " + namaguru.ToUpper() + " NIP " + nip;
-            else
-                linformasi.Text = "IBU " + namaguru.ToUpper() + " NIP " + nip;
-            #endregion
 
             #region Isi Combobox Tahun Ajaran
             int nows = int.Parse(DateTime.Now.ToString("yyyy"));

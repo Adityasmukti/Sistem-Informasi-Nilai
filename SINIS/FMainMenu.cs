@@ -47,11 +47,6 @@ namespace SINIS
                 BSiswa.Visible = true;
             }
 
-            if (!LoadData.InitializeAll())
-            {
-                MessageBox.Show("Data tidak dapat di muat seluruhnya!!, Aplikasi akan menutup otomatis!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
             Cursor.Current = Cursors.Default;
         }
         // ============================== InitializeComponent ==============================
@@ -122,6 +117,12 @@ namespace SINIS
         private void BTUPengajaran_Click(object sender, EventArgs e)
         {
             TU.FPengajaran f = new TU.FPengajaran();
+            f.Show();
+        }
+
+        private void BMGuru_Click(object sender, EventArgs e)
+        {
+            TU.FMasterGuru f = new TU.FMasterGuru();
             f.Show();
         }
     }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BOk = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ldarihalaman = new System.Windows.Forms.Label();
             this.bnext = new System.Windows.Forms.Button();
@@ -40,26 +40,12 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dgsiswa = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbguru = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbkelas = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbthunmasuk = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbtahunajaran = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BOk = new System.Windows.Forms.Button();
+            this.LInfo = new System.Windows.Forms.Label();
+            this.TbCari = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BTambah = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -69,6 +55,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.BTambah);
             this.panel2.Controls.Add(this.BOk);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -76,6 +63,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(784, 50);
             this.panel2.TabIndex = 98;
+            // 
+            // BOk
+            // 
+            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BOk.BackColor = System.Drawing.Color.Crimson;
+            this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BOk.ForeColor = System.Drawing.Color.White;
+            this.BOk.Location = new System.Drawing.Point(663, 8);
+            this.BOk.Margin = new System.Windows.Forms.Padding(4);
+            this.BOk.Name = "BOk";
+            this.BOk.Size = new System.Drawing.Size(108, 35);
+            this.BOk.TabIndex = 48;
+            this.BOk.Text = "OK";
+            this.BOk.UseVisualStyleBackColor = false;
+            this.BOk.Click += new System.EventHandler(this.BOk_Click);
             // 
             // panel4
             // 
@@ -176,56 +180,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
             this.flowLayoutPanel1.TabIndex = 96;
             // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "ID RUANGAN";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "WALI KELAS";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "KELAS";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "JENIS KELAMIN";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "NIS";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "NAMA";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "ID SISWA";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "RUANGAN";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // dgsiswa
             // 
             this.dgsiswa.AllowUserToAddRows = false;
@@ -241,160 +195,89 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgsiswa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgsiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsiswa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column6,
-            this.Column2,
-            this.Column3,
-            this.Column5,
-            this.Column4,
-            this.Column8,
-            this.Column9,
-            this.Column7});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgsiswa.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgsiswa.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgsiswa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgsiswa.Location = new System.Drawing.Point(0, 204);
+            this.dgsiswa.Location = new System.Drawing.Point(0, 124);
             this.dgsiswa.Name = "dgsiswa";
             this.dgsiswa.ReadOnly = true;
             this.dgsiswa.RowHeadersVisible = false;
             this.dgsiswa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsiswa.Size = new System.Drawing.Size(784, 357);
+            this.dgsiswa.Size = new System.Drawing.Size(784, 365);
             this.dgsiswa.TabIndex = 95;
             // 
-            // Column4
+            // panel1
             // 
-            dataGridViewCellStyle8.Format = "d";
-            dataGridViewCellStyle8.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column4.HeaderText = "TANGGAL MASUK";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.panel1.Controls.Add(this.TbCari);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.LInfo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 67);
+            this.panel1.TabIndex = 94;
+            // 
+            // LInfo
+            // 
+            this.LInfo.Location = new System.Drawing.Point(12, 7);
+            this.LInfo.Name = "LInfo";
+            this.LInfo.Size = new System.Drawing.Size(760, 13);
+            this.LInfo.TabIndex = 18;
+            this.LInfo.Text = "-";
+            // 
+            // TbCari
+            // 
+            this.TbCari.Location = new System.Drawing.Point(50, 23);
+            this.TbCari.Name = "TbCari";
+            this.TbCari.Size = new System.Drawing.Size(722, 20);
+            this.TbCari.TabIndex = 22;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(275, 36);
+            this.label5.Location = new System.Drawing.Point(12, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "WALI KELAS";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "CARI";
             // 
-            // cbguru
+            // BTambah
             // 
-            this.cbguru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbguru.FormattingEnabled = true;
-            this.cbguru.Location = new System.Drawing.Point(386, 33);
-            this.cbguru.Name = "cbguru";
-            this.cbguru.Size = new System.Drawing.Size(180, 21);
-            this.cbguru.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "KELAS";
-            // 
-            // cbkelas
-            // 
-            this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbkelas.FormattingEnabled = true;
-            this.cbkelas.Location = new System.Drawing.Point(89, 33);
-            this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(180, 21);
-            this.cbkelas.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "TAHUN MASUK";
-            // 
-            // cbthunmasuk
-            // 
-            this.cbthunmasuk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbthunmasuk.FormattingEnabled = true;
-            this.cbthunmasuk.Location = new System.Drawing.Point(462, 6);
-            this.cbthunmasuk.Name = "cbthunmasuk";
-            this.cbthunmasuk.Size = new System.Drawing.Size(180, 21);
-            this.cbthunmasuk.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "TAHUN AJARAN";
-            // 
-            // cbtahunajaran
-            // 
-            this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 13;
-            this.cbtahunajaran.Location = new System.Drawing.Point(145, 6);
-            this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(180, 21);
-            this.cbtahunajaran.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.cbguru);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.cbkelas);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.cbthunmasuk);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbtahunajaran);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 57);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 147);
-            this.panel1.TabIndex = 94;
-            // 
-            // BOk
-            // 
-            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BOk.BackColor = System.Drawing.Color.Crimson;
-            this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BOk.ForeColor = System.Drawing.Color.White;
-            this.BOk.Location = new System.Drawing.Point(663, 8);
-            this.BOk.Margin = new System.Windows.Forms.Padding(4);
-            this.BOk.Name = "BOk";
-            this.BOk.Size = new System.Drawing.Size(108, 35);
-            this.BOk.TabIndex = 48;
-            this.BOk.Text = "OK";
-            this.BOk.UseVisualStyleBackColor = false;
+            this.BTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BTambah.BackColor = System.Drawing.Color.Crimson;
+            this.BTambah.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTambah.ForeColor = System.Drawing.Color.White;
+            this.BTambah.Location = new System.Drawing.Point(547, 8);
+            this.BTambah.Margin = new System.Windows.Forms.Padding(4);
+            this.BTambah.Name = "BTambah";
+            this.BTambah.Size = new System.Drawing.Size(108, 35);
+            this.BTambah.TabIndex = 49;
+            this.BTambah.Text = "TAMBAH";
+            this.BTambah.UseVisualStyleBackColor = false;
+            this.BTambah.Click += new System.EventHandler(this.BTambah_Click);
             // 
             // FMasterGuru
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.dgsiswa);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dgsiswa);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FMasterGuru";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GURU";
+            this.Load += new System.EventHandler(this.FMasterGuru_Load);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -412,24 +295,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridView dgsiswa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbguru;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbkelas;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbthunmasuk;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbtahunajaran;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label ldarihalaman;
@@ -437,5 +303,9 @@
         private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
         private System.Windows.Forms.Button BOk;
+        private System.Windows.Forms.Label LInfo;
+        private System.Windows.Forms.TextBox TbCari;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BTambah;
     }
 }

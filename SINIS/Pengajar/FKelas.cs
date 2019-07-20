@@ -81,10 +81,6 @@ namespace SINIS.Pengajar
             //    nip = br["guru_nip"].ToString();
             //    kelamin = br["guru_jk"].ToString();
             //}
-            if (kelamin == "L")
-                linformasi.Text = "BAPAK " + namaguru.ToUpper() + " NIP " + nip;
-            else
-                linformasi.Text = "IBU " + namaguru.ToUpper() + " NIP " + nip;
             #endregion
 
             #region Isi Combobox Tahun Ajaran
