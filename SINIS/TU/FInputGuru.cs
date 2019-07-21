@@ -18,6 +18,7 @@ namespace SINIS.TU
             InitializeComponent();
             this.SetControlFrom();
             IdHakAkses = CbHakAkses.LoadAkses();
+            BHapus.Visible = false;
             LInfo.Text = "  * Data yang telah disimpan dapat login dengan Username : NIP dan Password : 123456 sesuai hakakses yang diberikan\n" +
                 "  * Mohon untuk pengguna(guru) untuk segera menganti password";
             BSimpan.Click += (sender, e) =>
@@ -62,6 +63,8 @@ namespace SINIS.TU
         {
             InitializeComponent();
             this.SetControlFrom();
+            BHapus.Visible = false;
+            IdHakAkses = CbHakAkses.LoadAkses();
             LInfo.Text = "  * Data yang telah disimpan dapat login dengan Username : NIP dan Password : 123456 sesuai hakakses yang diberikan\n" +
                 "  * Mohon untuk pengguna(guru) untuk segera menganti password";
             A.SetSelect("SELECT `nidn`, `nik`, `nosk`, `namaguru`, `nohp`, `email`, `alamat`, `masuk`, `status`, `jeniskelamin`, `gelardepan`,  " +
@@ -99,7 +102,7 @@ namespace SINIS.TU
             {
                 id_user = b["id_user"].ToString();
                 username = b["username"].ToString();
-                CbHakAkses.SelectedItem = IdHakAkses.FindIndex(c => c.Equals(b["id_akses"].ToString());
+                CbHakAkses.SelectedItem = IdHakAkses.FindIndex(c => c.Equals(b["id_akses"].ToString()));
             }
 
             BSimpan.Click += (sender, e) =>
@@ -114,16 +117,20 @@ namespace SINIS.TU
                     MessageBox.Show("Hak Akses harus dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-                    if (MessageBox.Show("Simpa data guru?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Ubah data guru?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        A.SetUpdate("");
-                        A.SetSet("");
-                        A.SetWhere("");
+                        A.SetUpdate("UPDATE `m_guru` ");
+                        A.SetSet("SET `nidn` = '" + TbNidn.Text + "', `nik` = '" + TbNik.Text + "', `nosk` = '" + TbNoSk.Text + "', `namaguru` = '" + TbNama.StrEscape() + "', " +
+                            "`nohp` = '" + TbKontak.Text + "', `email` = '" + TbEmail.Text + "', `alamat` = '" + TbAlamat.StrEscape() + "', `masuk` = '" + DtpMasuk.ToStringDate() + "', " +
+                            "`status` = '" + CbStatus.Text + "', `jeniskelamin` = '" + CbJenisKelamin.Text + "', `gelardepan` = '" + TbGelarDepan.Text + "', " +
+                            "`gelarbelakang` = '" + TbGelarBelakang.Text + "', `tempatlahir` = '" + TbTempatLahir.StrEscape() + "', `tgllahir` = '" + DtpLahir.ToStringDate() + "', " +
+                            "`jabatanstruktural` = '" + TbJabatanStruktural.StrEscape() + "', `jabatanfungsional` = '" + TbJabatanFungsional.StrEscape() + "', `golongan` = '" + TbGolongan.StrEscape() + "' ");
+                        A.SetWhere("WHERE `kode_guru` = '" + kodeguru + "'");
                         A.SetQueri(A.GetUpdate()+A.GetSet()+A.GetWhere() + ";");
 
-                        A.SetUpdate("");
-                        A.SetSet("");
-                        A.SetWhere("");
+                        A.SetUpdate("UPDATE `m_user` ");
+                        A.SetSet("SET `id_akses` = '" + IdHakAkses[CbHakAkses.SelectedIndex] + "' ");
+                        A.SetWhere("WHERE `kode_ref` = '" + kodeguru + "'");
                         A.SetQueri(A.GetQueri() + A.GetUpdate() + A.GetSet() + A.GetWhere() + ";");
 
                         if (A.GetQueri().ManipulasiData())
@@ -131,6 +138,21 @@ namespace SINIS.TU
                             MessageBox.Show("Data telah tersimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }
+                    }
+                }
+            };
+
+            BHapus.Click += (sender, e) =>
+            {
+                MessageBox.Show("Menghapus data guru akan menghapus username login.","Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if(MessageBox.Show("Hapus data?","Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                {
+                    A.SetQueri("UPDATE `m_guru` SET `hapus` = 'Y' WHERE `kode_guru` = 'kode_guru'; " +
+                        "UPDATE `m_user` SET `hapus` = 'Y' WHERE `id_user` = 'id_user'; ");
+                    if (A.GetQueri().DBHapus())
+                    {
+                        MessageBox.Show("Data telah dihapus!", "Informasi",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
                     }
                 }
             };

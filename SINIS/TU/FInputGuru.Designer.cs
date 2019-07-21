@@ -71,12 +71,14 @@
             this.CbJenisKelamin = new System.Windows.Forms.ComboBox();
             this.TbGolongan = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.BHapus = new System.Windows.Forms.Button();
             this.panel17.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.BHapus);
             this.panel17.Controls.Add(this.BBatal);
             this.panel17.Controls.Add(this.BSimpan);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -470,6 +472,22 @@
             this.label19.TabIndex = 181;
             this.label19.Text = "GOLONGAN";
             // 
+            // BHapus
+            // 
+            this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BHapus.BackColor = System.Drawing.Color.Crimson;
+            this.BHapus.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BHapus.ForeColor = System.Drawing.Color.White;
+            this.BHapus.Location = new System.Drawing.Point(13, 8);
+            this.BHapus.Margin = new System.Windows.Forms.Padding(4);
+            this.BHapus.Name = "BHapus";
+            this.BHapus.Size = new System.Drawing.Size(108, 35);
+            this.BHapus.TabIndex = 48;
+            this.BHapus.Text = "HAPUS";
+            this.BHapus.UseVisualStyleBackColor = false;
+            // 
             // FInputGuru
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -571,5 +589,6 @@
         private System.Windows.Forms.ComboBox CbJenisKelamin;
         private System.Windows.Forms.TextBox TbGolongan;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button BHapus;
     }
 }

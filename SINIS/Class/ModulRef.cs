@@ -3170,8 +3170,11 @@ namespace ExtensionMethods
                     Timer timer = new Timer();
                     timer.Tick += (sender, e) =>
                     {
-                        if (ss.Items.Count >= 4)
-                            ss.Items[4].Text = DateTime.Now.ToString("ddd, dd-MMM-yyyy HH mm ss");
+                        try
+                        {
+                            ss.Items[ss.Items.Count - 1].Text = DateTime.Now.ToString("ddd, dd-MMM-yyyy HH mm ss");
+                        }
+                        catch { }
                     };
                     timer.Enabled = true;
                 }

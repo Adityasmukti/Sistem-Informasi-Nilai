@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExtensionMethods;
 
@@ -17,27 +11,40 @@ namespace SINIS.TU
         {
             InitializeComponent();
             this.SetControlFrom();
+            tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
         }
-
         private void BTambah_Click(object sender, EventArgs e)
         {
             FInputGuru f = new FInputGuru();
             f.ShowDialog();
             Loaddb();
         }
-
         private bool Loaddb()
         {
+            A.SetSelect("SELECT `kode_guru`, `nidn`, `nik`, `nosk`, CONCAT(IF(`gelardepan` IS NULL,'', CONCAT(`gelardepan`,' ')), `namaguru`, ' ', " +
+                "IF(`gelarbelakang` IS NULL, '', CONCAT(`gelarbelakang`,' '))) `namaguru`, `jeniskelamin`, CONCAT(`tempatlahir`, ', ', `tgllahir`) `ttl`, " +
+                "`nohp`, `email`, `alamat`, `golongan`, `jabatanstruktural`, `jabatanfungsional`, `masuk`, `status` ");
+            A.SetFrom("FROM `m_guru` ");
+            A.SetWhere("WHERE `hapus`='N' ");
+            TbCari.GenerateQueriCari(new List<string>() { "nidn", "nik", "nosk", "namaguru", "gelardepan", "gelarbelakang", "golongan", "nohp", "email", });
+            A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + tbhalaman.LimitQ(ldarihalaman, A.GetFrom(), A.GetWhere()) + ";");
+            Dg.QueriToDg();
+            return true;
         }
-
         private void BOk_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void FMasterGuru_Load(object sender, EventArgs e)
         {
+            Loaddb();
+        }
 
+        private void BUbah_Click(object sender, EventArgs e)
+        {
+            FInputGuru f = new FInputGuru(Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE GURU")].Value.ToString());
+            f.ShowDialog();
+            Dg.LoadIndex(Loaddb, 1);
         }
     }
 }
