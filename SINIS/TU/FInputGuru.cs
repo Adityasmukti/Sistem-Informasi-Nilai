@@ -31,6 +31,8 @@ namespace SINIS.TU
                     MessageBox.Show("Kontak kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (CbHakAkses.SelectedIndex<0)
                     MessageBox.Show("Hak Akses harus dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (IdHakAkses[CbHakAkses.SelectedIndex] == "4")
+                    MessageBox.Show("Hak Aksesini tidak dapat dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     if (MessageBox.Show("Simpa data guru?","Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -64,7 +66,6 @@ namespace SINIS.TU
             InitializeComponent();
             this.SetControlFrom();
             BHapus.Visible = false;
-            IdHakAkses = CbHakAkses.LoadAkses();
             LInfo.Text = "  * Data yang telah disimpan dapat login dengan Username : NIP dan Password : 123456 sesuai hakakses yang diberikan\n" +
                 "  * Mohon untuk pengguna(guru) untuk segera menganti password";
             A.SetSelect("SELECT `nidn`, `nik`, `nosk`, `namaguru`, `nohp`, `email`, `alamat`, `masuk`, `status`, `jeniskelamin`, `gelardepan`,  " +
@@ -93,6 +94,7 @@ namespace SINIS.TU
                 TbGolongan.Text = b["golongan"].ToString();
             }
 
+            IdHakAkses = CbHakAkses.LoadAkses();
             string id_user = "", username = "";
             A.SetSelect("SELECT `id_user`, `id_akses`, `username` ");
             A.SetFrom("FROM `m_user` ");
@@ -102,8 +104,12 @@ namespace SINIS.TU
             {
                 id_user = b["id_user"].ToString();
                 username = b["username"].ToString();
-                CbHakAkses.SelectedItem = IdHakAkses.FindIndex(c => c.Equals(b["id_akses"].ToString()));
+                CbHakAkses.SelectedIndex = IdHakAkses.FindIndex(x => x.Equals(b["id_akses"].ToString()));
             }
+
+            CbHakAkses.Enabled = true;
+            if (id_user == S.GetUserid())
+                CbHakAkses.Enabled = false;
 
             BSimpan.Click += (sender, e) =>
             {
@@ -115,8 +121,11 @@ namespace SINIS.TU
                     MessageBox.Show("Kontak kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (CbHakAkses.SelectedIndex < 0)
                     MessageBox.Show("Hak Akses harus dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if(IdHakAkses[CbHakAkses.SelectedIndex]=="4")
+                    MessageBox.Show("Hak Aksesini tidak dapat dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
+
                     if (MessageBox.Show("Ubah data guru?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         A.SetUpdate("UPDATE `m_guru` ");
@@ -144,17 +153,28 @@ namespace SINIS.TU
 
             BHapus.Click += (sender, e) =>
             {
-                MessageBox.Show("Menghapus data guru akan menghapus username login.","Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if(MessageBox.Show("Hapus data?","Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                bool lewat = true;
+                if (id_user == S.GetUserid())
                 {
-                    A.SetQueri("UPDATE `m_guru` SET `hapus` = 'Y' WHERE `kode_guru` = 'kode_guru'; " +
-                        "UPDATE `m_user` SET `hapus` = 'Y' WHERE `id_user` = 'id_user'; ");
-                    if (A.GetQueri().DBHapus())
+                    if (A.SingelData("SELECT COUNT(*) FROM `m_user` WHERE `hapus`='N' AND `id_akses`='1'").ToInteger() <= 1)
+                        lewat = false;
+                }
+
+                if (lewat)
+                {
+                    MessageBox.Show("Menghapus data guru akan menghapus username login.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (MessageBox.Show("Hapus data?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Data telah dihapus!", "Informasi",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Close();
+                        A.SetQueri("UPDATE `m_guru` SET `hapus` = 'Y' WHERE `kode_guru` = 'kode_guru'; " +
+                            "UPDATE `m_user` SET `hapus` = 'Y' WHERE `id_user` = 'id_user'; ");
+                        if (A.GetQueri().DBHapus())
+                        {
+                            MessageBox.Show("Data telah dihapus!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                        }
                     }
                 }
+                else MessageBox.Show("Tidak dapat menghapus hak akses dikarenakan hanya ada 1 user!!","Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             };
         }
         private void BBatal_Click(object sender, EventArgs e)

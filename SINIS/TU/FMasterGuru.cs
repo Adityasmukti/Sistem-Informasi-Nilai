@@ -22,8 +22,8 @@ namespace SINIS.TU
         private bool Loaddb()
         {
             A.SetSelect("SELECT `kode_guru`, `nidn`, `nik`, `nosk`, CONCAT(IF(`gelardepan` IS NULL,'', CONCAT(`gelardepan`,' ')), `namaguru`, ' ', " +
-                "IF(`gelarbelakang` IS NULL, '', CONCAT(`gelarbelakang`,' '))) `namaguru`, `jeniskelamin`, CONCAT(`tempatlahir`, ', ', `tgllahir`) `ttl`, " +
-                "`nohp`, `email`, `alamat`, `golongan`, `jabatanstruktural`, `jabatanfungsional`, `masuk`, `status` ");
+                "IF(`gelarbelakang` IS NULL, '', CONCAT(`gelarbelakang`,' '))) `namaguru`, `jeniskelamin`, CONCAT(IF(`tempatlahir`='','-', `tempatlahir`), ', ', DATE_FORMAT(`tgllahir`,'%d/%m/%Y')) `ttl`, " +
+                "`nohp`, `email`, `alamat`, `golongan`, `jabatanstruktural`, `jabatanfungsional`, DATE_FORMAT(`masuk`,'%d/%m/%Y') `masuk`, `status` ");
             A.SetFrom("FROM `m_guru` ");
             A.SetWhere("WHERE `hapus`='N' ");
             TbCari.GenerateQueriCari(new List<string>() { "nidn", "nik", "nosk", "namaguru", "gelardepan", "gelarbelakang", "golongan", "nohp", "email", });

@@ -105,11 +105,12 @@
             this.BSiswa.Size = new System.Drawing.Size(45, 42);
             this.BSiswa.Tag = "SISWA";
             this.BSiswa.Text = "SISWA";
+            this.BSiswa.Visible = false;
             // 
             // BSNilai
             // 
             this.BSNilai.Name = "BSNilai";
-            this.BSNilai.Size = new System.Drawing.Size(180, 26);
+            this.BSNilai.Size = new System.Drawing.Size(112, 26);
             this.BSNilai.Text = "Nilai";
             // 
             // BGuru
@@ -126,25 +127,26 @@
             this.BGuru.Size = new System.Drawing.Size(45, 42);
             this.BGuru.Tag = "GURU";
             this.BGuru.Text = "GURU";
+            this.BGuru.Visible = false;
             // 
             // BGKelas
             // 
             this.BGKelas.Name = "BGKelas";
-            this.BGKelas.Size = new System.Drawing.Size(180, 26);
+            this.BGKelas.Size = new System.Drawing.Size(143, 26);
             this.BGKelas.Text = "Kelas";
             this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
             // 
             // BGNilai
             // 
             this.BGNilai.Name = "BGNilai";
-            this.BGNilai.Size = new System.Drawing.Size(180, 26);
+            this.BGNilai.Size = new System.Drawing.Size(143, 26);
             this.BGNilai.Text = "Nilai";
             this.BGNilai.Click += new System.EventHandler(this.BGNilai_Click);
             // 
             // BGPelajaran
             // 
             this.BGPelajaran.Name = "BGPelajaran";
-            this.BGPelajaran.Size = new System.Drawing.Size(180, 26);
+            this.BGPelajaran.Size = new System.Drawing.Size(143, 26);
             this.BGPelajaran.Text = "Pelajaran";
             this.BGPelajaran.Click += new System.EventHandler(this.BGPelajaran_Click);
             // 
@@ -161,18 +163,19 @@
             this.BTataUsaha.Size = new System.Drawing.Size(45, 42);
             this.BTataUsaha.Tag = "TATA USAHA";
             this.BTataUsaha.Text = "TATA USAHA";
+            this.BTataUsaha.Visible = false;
             // 
             // BTURuangKelas
             // 
             this.BTURuangKelas.Name = "BTURuangKelas";
-            this.BTURuangKelas.Size = new System.Drawing.Size(180, 26);
+            this.BTURuangKelas.Size = new System.Drawing.Size(165, 26);
             this.BTURuangKelas.Text = "Ruang Kelas";
             this.BTURuangKelas.Click += new System.EventHandler(this.BTURuangKelas_Click);
             // 
             // BTUPengajaran
             // 
             this.BTUPengajaran.Name = "BTUPengajaran";
-            this.BTUPengajaran.Size = new System.Drawing.Size(180, 26);
+            this.BTUPengajaran.Size = new System.Drawing.Size(165, 26);
             this.BTUPengajaran.Text = "Pengajaran";
             this.BTUPengajaran.Click += new System.EventHandler(this.BTUPengajaran_Click);
             // 
@@ -188,11 +191,12 @@
             this.BLaporan.Size = new System.Drawing.Size(45, 42);
             this.BLaporan.Tag = "LAPORAN";
             this.BLaporan.Text = "LAPORAN";
+            this.BLaporan.Visible = false;
             // 
             // BLRaport
             // 
             this.BLRaport.Name = "BLRaport";
-            this.BLRaport.Size = new System.Drawing.Size(180, 26);
+            this.BLRaport.Size = new System.Drawing.Size(127, 26);
             this.BLRaport.Text = "Raport";
             // 
             // BMaster
@@ -212,12 +216,14 @@
             this.BMaster.Size = new System.Drawing.Size(45, 42);
             this.BMaster.Tag = "MASTER";
             this.BMaster.Text = "MASTER";
+            this.BMaster.Visible = false;
             // 
             // BMSiswa
             // 
             this.BMSiswa.Name = "BMSiswa";
             this.BMSiswa.Size = new System.Drawing.Size(180, 26);
             this.BMSiswa.Text = "Siswa";
+            this.BMSiswa.Click += new System.EventHandler(this.BMSiswa_Click);
             // 
             // BMGuru
             // 
@@ -268,26 +274,27 @@
             // BSTAplikasi
             // 
             this.BSTAplikasi.Name = "BSTAplikasi";
-            this.BSTAplikasi.Size = new System.Drawing.Size(144, 26);
+            this.BSTAplikasi.Size = new System.Drawing.Size(180, 26);
             this.BSTAplikasi.Text = "Aplikasi";
+            this.BSTAplikasi.Visible = false;
             this.BSTAplikasi.Click += new System.EventHandler(this.BSTAplikasi_Click);
             // 
             // BSTDatabase
             // 
             this.BSTDatabase.Name = "BSTDatabase";
-            this.BSTDatabase.Size = new System.Drawing.Size(144, 26);
+            this.BSTDatabase.Size = new System.Drawing.Size(180, 26);
             this.BSTDatabase.Text = "Database";
             this.BSTDatabase.Click += new System.EventHandler(this.BSTDatabase_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // BSTTentang
             // 
             this.BSTTentang.Name = "BSTTentang";
-            this.BSTTentang.Size = new System.Drawing.Size(144, 26);
+            this.BSTTentang.Size = new System.Drawing.Size(180, 26);
             this.BSTTentang.Text = "Tentang";
             this.BSTTentang.Click += new System.EventHandler(this.BSTTentang_Click);
             // 

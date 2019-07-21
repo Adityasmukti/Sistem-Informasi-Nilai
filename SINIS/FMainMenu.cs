@@ -33,16 +33,21 @@ namespace SINIS
                 BSiswa.Visible = true;
                 BGuru.Visible = true;
                 BTataUsaha.Visible = true;
-                BMaster.Visible = true;
-                BSettings.Visible = true;
                 BLaporan.Visible = true;
+                BMaster.Visible = true;
+                BSTAplikasi.Visible = true;
             }
-            else if (S.GetUseracces()=="2")//Guru
+            else if (S.GetUseracces()=="2")//Wali Kelas
             {
                 BGuru.Visible = true;
                 BLaporan.Visible = true;
+                BSiswa.Visible = true;
             }
-            else if (S.GetUseracces() == "3")//Siswa
+            else if (S.GetUseracces() == "3")//Guru
+            {
+                BGuru.Visible = true;
+            }
+            else if (S.GetUseracces() == "4")//Siswa
             {
                 BSiswa.Visible = true;
             }
@@ -123,6 +128,12 @@ namespace SINIS
         private void BMGuru_Click(object sender, EventArgs e)
         {
             TU.FMasterGuru f = new TU.FMasterGuru();
+            f.Show();
+        }
+
+        private void BMSiswa_Click(object sender, EventArgs e)
+        {
+            TU.FMasterSiswa f = new TU.FMasterSiswa();
             f.Show();
         }
     }
