@@ -28,6 +28,8 @@ namespace SINIS.TU
                     MessageBox.Show("Kontak kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (string.IsNullOrEmpty(CbAngkatan.Text))
                     MessageBox.Show("Angkatan kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (A.SearchData("SELECT * FROM `m_user` WHERE `hapus`= 'N' AND `username`='" + TbNis.Text + "';"))
+                    MessageBox.Show("NIS untuk Username telah ada yang menggunakan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     if (MessageBox.Show("Simpa data guru?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -120,15 +122,13 @@ namespace SINIS.TU
 
             BHapus.Click += (sender, e) =>
             {
-                MessageBox.Show("Menghapus data guru akan menghapus username login!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Menghapus data siswa akan menghapus username login!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (MessageBox.Show("Hapus data?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     A.SetQueri("UPDATE `m_siswa` SET `hapus`='Y' WHERE `kode_siswa` = '" + kodesiswa + "'; " +
                         "UPDATE `m_user` SET `hapus` = 'Y' WHERE `kode_ref` = '" + kodesiswa + "'; ");
                     if (A.GetQueri().DBHapus())
-                    {
                         Close();
-                    }
                 }
             };
         }

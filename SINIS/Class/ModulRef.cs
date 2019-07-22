@@ -2955,6 +2955,10 @@ namespace ExtensionMethods
                 nows--;
             }
         }
+        public static void LoadLabelInfo(this Label lb)
+        {
+            lb.Text = "-";
+        }
         #endregion
     }
     #region Setting

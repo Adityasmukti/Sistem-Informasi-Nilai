@@ -12,6 +12,12 @@ namespace SINIS.TU
             InitializeComponent();
             this.SetControlFrom();
             tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
+            TbCari.TextChanged += TbCari_TextChanged;
+        }
+        private void TbCari_TextChanged(object sender, EventArgs e)
+        {
+            tbhalaman.Text = "1";
+            Loaddb();
         }
         private void BTambah_Click(object sender, EventArgs e)
         {

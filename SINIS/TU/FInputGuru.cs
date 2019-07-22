@@ -35,6 +35,8 @@ namespace SINIS.TU
                     MessageBox.Show("Hak Akses harus dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (IdHakAkses[CbHakAkses.SelectedIndex] == "4")
                     MessageBox.Show("Hak Aksesini tidak dapat dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (A.SearchData("SELECT * FROM `m_user` WHERE `hapus`= 'N' AND `username`='" + TbNidn.Text + "';"))
+                    MessageBox.Show("NIDN untuk Username telah ada yang menggunakan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     if (MessageBox.Show("Simpa data guru?","Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

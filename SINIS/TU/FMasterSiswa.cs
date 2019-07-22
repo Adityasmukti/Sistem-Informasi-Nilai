@@ -18,9 +18,20 @@ namespace SINIS.TU
             InitializeComponent();
             this.SetControlFrom();
             tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
+            CbAngkatan.SelectedIndexChanged += LoadingData;
+            Dtp1.ValueChanged += LoadingData;
+            Dtp2.ValueChanged += LoadingData;
         }
+
+        private void LoadingData(object sender, EventArgs e)
+        {
+            tbhalaman.Text = "1";
+            Loaddb();
+        }
+
         private void FMasterSiswa_Load(object sender, EventArgs e)
         {
+            CbAngkatan.LoadAngkatan();
             Loaddb();
         }
         private void BTambah_Click(object sender, EventArgs e)

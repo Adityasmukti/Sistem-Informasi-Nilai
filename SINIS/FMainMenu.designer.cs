@@ -242,6 +242,7 @@
             this.BMPelajaran.Name = "BMPelajaran";
             this.BMPelajaran.Size = new System.Drawing.Size(180, 26);
             this.BMPelajaran.Text = "Pelajaran";
+            this.BMPelajaran.Click += new System.EventHandler(this.BMPelajaran_Click);
             // 
             // BMKelas
             // 
@@ -274,7 +275,7 @@
             // BSTAplikasi
             // 
             this.BSTAplikasi.Name = "BSTAplikasi";
-            this.BSTAplikasi.Size = new System.Drawing.Size(180, 26);
+            this.BSTAplikasi.Size = new System.Drawing.Size(144, 26);
             this.BSTAplikasi.Text = "Aplikasi";
             this.BSTAplikasi.Visible = false;
             this.BSTAplikasi.Click += new System.EventHandler(this.BSTAplikasi_Click);
@@ -282,19 +283,19 @@
             // BSTDatabase
             // 
             this.BSTDatabase.Name = "BSTDatabase";
-            this.BSTDatabase.Size = new System.Drawing.Size(180, 26);
+            this.BSTDatabase.Size = new System.Drawing.Size(144, 26);
             this.BSTDatabase.Text = "Database";
             this.BSTDatabase.Click += new System.EventHandler(this.BSTDatabase_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(141, 6);
             // 
             // BSTTentang
             // 
             this.BSTTentang.Name = "BSTTentang";
-            this.BSTTentang.Size = new System.Drawing.Size(180, 26);
+            this.BSTTentang.Size = new System.Drawing.Size(144, 26);
             this.BSTTentang.Text = "Tentang";
             this.BSTTentang.Click += new System.EventHandler(this.BSTTentang_Click);
             // 

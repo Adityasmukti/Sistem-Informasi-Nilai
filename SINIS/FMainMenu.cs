@@ -136,5 +136,11 @@ namespace SINIS
             TU.FMasterSiswa f = new TU.FMasterSiswa();
             f.Show();
         }
+
+        private void BMPelajaran_Click(object sender, EventArgs e)
+        {
+            TU.FMasterPelajaran f = new TU.FMasterPelajaran();
+            f.Show();
+        }
     }
 }
