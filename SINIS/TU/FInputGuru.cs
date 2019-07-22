@@ -24,7 +24,9 @@ namespace SINIS.TU
             BSimpan.Click += (sender, e) =>
             {
                 if (string.IsNullOrEmpty(TbNidn.Text))
-                    MessageBox.Show("NIDN kosog!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("NIDN kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (A.SearchData("SELECT `nidn` FROM `m_guru` WHERE `hapus`='N' AND `nidn`='" + TbNidn.Text + "';"))
+                    MessageBox.Show("NIDN Telah ada yang menggunakan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (string.IsNullOrEmpty(TbNama.Text))
                     MessageBox.Show("Nama kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (string.IsNullOrEmpty(TbKontak.Text))
@@ -73,9 +75,11 @@ namespace SINIS.TU
             A.SetFrom("FROM `m_guru` ");
             A.SetWhere("WHERE `kode_guru`='" + kodeguru + "'");
             A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + ";");
+            string oldnidn = "";
             foreach (DataRow b in A.GetQueri().GetData().Rows)
             {
                 TbNidn.Text = b["nidn"].ToString();
+                oldnidn= b["nidn"].ToString();
                 TbNik.Text = b["nik"].ToString();
                 TbNoSk.Text = b["nosk"].ToString();
                 TbNama.Text = b["namaguru"].ToString();
@@ -114,14 +118,16 @@ namespace SINIS.TU
             BSimpan.Click += (sender, e) =>
             {
                 if (string.IsNullOrEmpty(TbNidn.Text))
-                    MessageBox.Show("NIDN kosog!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("NIDN kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (A.SearchData("SELECT `nidn` FROM `m_guru` WHERE `hapus`='N' AND `nidn`='" + TbNidn.Text + "' AND `nidn`<>'" + oldnidn + "';"))
+                    MessageBox.Show("NIDN Telah ada yang menggunakan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (string.IsNullOrEmpty(TbNama.Text))
                     MessageBox.Show("Nama kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (string.IsNullOrEmpty(TbKontak.Text))
                     MessageBox.Show("Kontak kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (CbHakAkses.SelectedIndex < 0)
                     MessageBox.Show("Hak Akses harus dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if(IdHakAkses[CbHakAkses.SelectedIndex]=="4")
+                else if (IdHakAkses[CbHakAkses.SelectedIndex] == "4")
                     MessageBox.Show("Hak Aksesini tidak dapat dipilih!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
@@ -135,7 +141,7 @@ namespace SINIS.TU
                             "`gelarbelakang` = '" + TbGelarBelakang.Text + "', `tempatlahir` = '" + TbTempatLahir.StrEscape() + "', `tgllahir` = '" + DtpLahir.ToStringDate() + "', " +
                             "`jabatanstruktural` = '" + TbJabatanStruktural.StrEscape() + "', `jabatanfungsional` = '" + TbJabatanFungsional.StrEscape() + "', `golongan` = '" + TbGolongan.StrEscape() + "' ");
                         A.SetWhere("WHERE `kode_guru` = '" + kodeguru + "'");
-                        A.SetQueri(A.GetUpdate()+A.GetSet()+A.GetWhere() + ";");
+                        A.SetQueri(A.GetUpdate() + A.GetSet() + A.GetWhere() + ";");
 
                         A.SetUpdate("UPDATE `m_user` ");
                         A.SetSet("SET `id_akses` = '" + IdHakAkses[CbHakAkses.SelectedIndex] + "' ");
@@ -165,11 +171,10 @@ namespace SINIS.TU
                     MessageBox.Show("Menghapus data guru akan menghapus username login.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     if (MessageBox.Show("Hapus data?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        A.SetQueri("UPDATE `m_guru` SET `hapus` = 'Y' WHERE `kode_guru` = 'kode_guru'; " +
-                            "UPDATE `m_user` SET `hapus` = 'Y' WHERE `id_user` = 'id_user'; ");
+                        A.SetQueri("UPDATE `m_guru` SET `hapus` = 'Y' WHERE `kode_guru` = '" + kodeguru + "'; " +
+                            "UPDATE `m_user` SET `hapus` = 'Y' WHERE `id_user` = '" + id_user + "'; ");
                         if (A.GetQueri().DBHapus())
                         {
-                            MessageBox.Show("Data telah dihapus!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Close();
                         }
                     }

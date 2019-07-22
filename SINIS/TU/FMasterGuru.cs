@@ -39,12 +39,18 @@ namespace SINIS.TU
         {
             Loaddb();
         }
-
         private void BUbah_Click(object sender, EventArgs e)
         {
-            FInputGuru f = new FInputGuru(Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE GURU")].Value.ToString());
-            f.ShowDialog();
-            Dg.LoadIndex(Loaddb, 1);
+            if (Dg.Rows.Count >= 0)
+            {
+                if (Dg.SelectedRows.Count > 0)
+                {
+                    FInputGuru f = new FInputGuru(Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE GURU")].Value.ToString());
+                    f.ShowDialog();
+                    Dg.LoadIndex(Loaddb, 1);
+                }
+            }
+            else MessageBox.Show("Data Kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

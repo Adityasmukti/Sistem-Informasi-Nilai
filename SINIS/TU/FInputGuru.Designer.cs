@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel17 = new System.Windows.Forms.Panel();
+            this.BHapus = new System.Windows.Forms.Button();
             this.BBatal = new System.Windows.Forms.Button();
             this.BSimpan = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -71,7 +72,6 @@
             this.CbJenisKelamin = new System.Windows.Forms.ComboBox();
             this.TbGolongan = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.BHapus = new System.Windows.Forms.Button();
             this.panel17.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +86,22 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(741, 49);
             this.panel17.TabIndex = 107;
+            // 
+            // BHapus
+            // 
+            this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BHapus.BackColor = System.Drawing.Color.Crimson;
+            this.BHapus.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BHapus.ForeColor = System.Drawing.Color.White;
+            this.BHapus.Location = new System.Drawing.Point(13, 8);
+            this.BHapus.Margin = new System.Windows.Forms.Padding(4);
+            this.BHapus.Name = "BHapus";
+            this.BHapus.Size = new System.Drawing.Size(108, 35);
+            this.BHapus.TabIndex = 48;
+            this.BHapus.Text = "HAPUS";
+            this.BHapus.UseVisualStyleBackColor = false;
             // 
             // BBatal
             // 
@@ -471,22 +487,6 @@
             this.label19.Size = new System.Drawing.Size(68, 13);
             this.label19.TabIndex = 181;
             this.label19.Text = "GOLONGAN";
-            // 
-            // BHapus
-            // 
-            this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BHapus.BackColor = System.Drawing.Color.Crimson;
-            this.BHapus.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BHapus.ForeColor = System.Drawing.Color.White;
-            this.BHapus.Location = new System.Drawing.Point(13, 8);
-            this.BHapus.Margin = new System.Windows.Forms.Padding(4);
-            this.BHapus.Name = "BHapus";
-            this.BHapus.Size = new System.Drawing.Size(108, 35);
-            this.BHapus.TabIndex = 48;
-            this.BHapus.Text = "HAPUS";
-            this.BHapus.UseVisualStyleBackColor = false;
             // 
             // FInputGuru
             // 

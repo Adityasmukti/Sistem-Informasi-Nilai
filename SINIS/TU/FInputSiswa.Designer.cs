@@ -29,353 +29,334 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtptglmasuk = new System.Windows.Forms.DateTimePicker();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbalamat = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.dtptgllahir = new System.Windows.Forms.DateTimePicker();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbtempatlahir = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.CbJenisKelamin = new System.Windows.Forms.ComboBox();
+            this.DtpMasuk = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.DtpLahir = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbjk = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.TbAlamat = new System.Windows.Forms.RichTextBox();
+            this.TbTempatLahir = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbnis = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbanama = new System.Windows.Forms.TextBox();
-            this.bbatal = new System.Windows.Forms.Button();
-            this.bsimpan = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.TbEmail = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TbKontak = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TbNama = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CbStatus = new System.Windows.Forms.ComboBox();
+            this.TbNis = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LInfo = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.BOk = new System.Windows.Forms.Button();
+            this.BHapus = new System.Windows.Forms.Button();
+            this.BBatal = new System.Windows.Forms.Button();
+            this.BSimpan = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.TbAyah = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TbIbu = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TbKeterangan = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CbAngkatan = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel10);
-            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.CbAngkatan);
+            this.panel2.Controls.Add(this.TbKeterangan);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.TbIbu);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.TbAyah);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.CbJenisKelamin);
+            this.panel2.Controls.Add(this.DtpMasuk);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.DtpLahir);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.TbAlamat);
+            this.panel2.Controls.Add(this.TbTempatLahir);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.TbEmail);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.TbKontak);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.TbNama);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.CbStatus);
+            this.panel2.Controls.Add(this.TbNis);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.LInfo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 433);
+            this.panel2.Size = new System.Drawing.Size(739, 336);
             this.panel2.TabIndex = 1;
             // 
-            // panel10
+            // CbJenisKelamin
             // 
-            this.panel10.Controls.Add(this.panel11);
-            this.panel10.Controls.Add(this.panel15);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(389, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(395, 433);
-            this.panel10.TabIndex = 13;
+            this.CbJenisKelamin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbJenisKelamin.FormattingEnabled = true;
+            this.CbJenisKelamin.Items.AddRange(new object[] {
+            "L",
+            "P"});
+            this.CbJenisKelamin.Location = new System.Drawing.Point(113, 83);
+            this.CbJenisKelamin.Name = "CbJenisKelamin";
+            this.CbJenisKelamin.Size = new System.Drawing.Size(235, 21);
+            this.CbJenisKelamin.TabIndex = 217;
             // 
-            // panel11
+            // DtpMasuk
             // 
-            this.panel11.Controls.Add(this.label3);
-            this.panel11.Controls.Add(this.dtptglmasuk);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 180);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(395, 60);
-            this.panel11.TabIndex = 4;
+            this.DtpMasuk.Location = new System.Drawing.Point(491, 83);
+            this.DtpMasuk.Name = "DtpMasuk";
+            this.DtpMasuk.Size = new System.Drawing.Size(235, 20);
+            this.DtpMasuk.TabIndex = 214;
             // 
-            // label3
+            // label18
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label3.Location = new System.Drawing.Point(0, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(395, 31);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "TANGGAL MASUK";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(354, 139);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(50, 13);
+            this.label18.TabIndex = 213;
+            this.label18.Text = "STATUS";
             // 
-            // dtptglmasuk
+            // label15
             // 
-            this.dtptglmasuk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtptglmasuk.Location = new System.Drawing.Point(0, 40);
-            this.dtptglmasuk.Name = "dtptglmasuk";
-            this.dtptglmasuk.Size = new System.Drawing.Size(395, 20);
-            this.dtptglmasuk.TabIndex = 1;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(354, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(45, 13);
+            this.label15.TabIndex = 208;
+            this.label15.Text = "MASUK";
             // 
-            // panel15
+            // DtpLahir
             // 
-            this.panel15.Controls.Add(this.label7);
-            this.panel15.Controls.Add(this.tbalamat);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(395, 180);
-            this.panel15.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label7.Location = new System.Drawing.Point(0, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(395, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "ALAMAT";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tbalamat
-            // 
-            this.tbalamat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbalamat.Location = new System.Drawing.Point(0, 34);
-            this.tbalamat.Multiline = true;
-            this.tbalamat.Name = "tbalamat";
-            this.tbalamat.Size = new System.Drawing.Size(395, 146);
-            this.tbalamat.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel9);
-            this.panel4.Controls.Add(this.panel8);
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(395, 433);
-            this.panel4.TabIndex = 12;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label12);
-            this.panel9.Controls.Add(this.dtptgllahir);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 240);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(395, 60);
-            this.panel9.TabIndex = 4;
-            // 
-            // label12
-            // 
-            this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label12.Location = new System.Drawing.Point(0, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(395, 31);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "TANGGAL LAHIR";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // dtptgllahir
-            // 
-            this.dtptgllahir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtptgllahir.Location = new System.Drawing.Point(0, 40);
-            this.dtptgllahir.Name = "dtptgllahir";
-            this.dtptgllahir.Size = new System.Drawing.Size(395, 20);
-            this.dtptgllahir.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.tbtempatlahir);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 180);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(395, 60);
-            this.panel8.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label11.Location = new System.Drawing.Point(0, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(395, 31);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "TEMPAT LAHIR";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tbtempatlahir
-            // 
-            this.tbtempatlahir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbtempatlahir.Location = new System.Drawing.Point(0, 40);
-            this.tbtempatlahir.Name = "tbtempatlahir";
-            this.tbtempatlahir.Size = new System.Drawing.Size(395, 20);
-            this.tbtempatlahir.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.cbjk);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 120);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(395, 60);
-            this.panel7.TabIndex = 2;
+            this.DtpLahir.Location = new System.Drawing.Point(491, 57);
+            this.DtpLahir.Name = "DtpLahir";
+            this.DtpLahir.Size = new System.Drawing.Size(235, 20);
+            this.DtpLahir.TabIndex = 203;
             // 
             // label10
             // 
-            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label10.Location = new System.Drawing.Point(0, 8);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(354, 60);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(395, 31);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "JENIS KELAMIN";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label10.Size = new System.Drawing.Size(93, 13);
+            this.label10.TabIndex = 202;
+            this.label10.Text = "TANGGAL LAHIR";
             // 
-            // cbjk
+            // TbAlamat
             // 
-            this.cbjk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cbjk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbjk.FormattingEnabled = true;
-            this.cbjk.Items.AddRange(new object[] {
-            "L",
-            "P"});
-            this.cbjk.Location = new System.Drawing.Point(0, 39);
-            this.cbjk.Name = "cbjk";
-            this.cbjk.Size = new System.Drawing.Size(395, 21);
-            this.cbjk.TabIndex = 1;
+            this.TbAlamat.Location = new System.Drawing.Point(113, 162);
+            this.TbAlamat.Name = "TbAlamat";
+            this.TbAlamat.Size = new System.Drawing.Size(235, 72);
+            this.TbAlamat.TabIndex = 201;
+            this.TbAlamat.Text = "";
             // 
-            // panel6
+            // TbTempatLahir
             // 
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.tbnis);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 60);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(395, 60);
-            this.panel6.TabIndex = 1;
+            this.TbTempatLahir.Location = new System.Drawing.Point(491, 31);
+            this.TbTempatLahir.Name = "TbTempatLahir";
+            this.TbTempatLahir.Size = new System.Drawing.Size(235, 20);
+            this.TbTempatLahir.TabIndex = 200;
             // 
             // label9
             // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label9.Location = new System.Drawing.Point(0, 9);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(354, 34);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(395, 31);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "NIS";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label9.Size = new System.Drawing.Size(86, 13);
+            this.label9.TabIndex = 199;
+            this.label9.Text = "TEMPAT LAHIR";
             // 
-            // tbnis
+            // label8
             // 
-            this.tbnis.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbnis.Location = new System.Drawing.Point(0, 40);
-            this.tbnis.Name = "tbnis";
-            this.tbnis.Size = new System.Drawing.Size(395, 20);
-            this.tbnis.TabIndex = 1;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 165);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 198;
+            this.label8.Text = "ALAMAT";
             // 
-            // panel5
+            // TbEmail
             // 
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.tbanama);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(395, 60);
-            this.panel5.TabIndex = 0;
+            this.TbEmail.Location = new System.Drawing.Point(113, 136);
+            this.TbEmail.Name = "TbEmail";
+            this.TbEmail.Size = new System.Drawing.Size(235, 20);
+            this.TbEmail.TabIndex = 197;
             // 
-            // label2
+            // label7
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(0, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(395, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "NAMA";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 139);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 196;
+            this.label7.Text = "EMAIL";
             // 
-            // tbanama
+            // TbKontak
             // 
-            this.tbanama.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbanama.Location = new System.Drawing.Point(0, 40);
-            this.tbanama.Name = "tbanama";
-            this.tbanama.Size = new System.Drawing.Size(395, 20);
-            this.tbanama.TabIndex = 1;
+            this.TbKontak.Location = new System.Drawing.Point(113, 110);
+            this.TbKontak.Name = "TbKontak";
+            this.TbKontak.Size = new System.Drawing.Size(235, 20);
+            this.TbKontak.TabIndex = 195;
             // 
-            // bbatal
+            // label6
             // 
-            this.bbatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bbatal.BackColor = System.Drawing.Color.MidnightBlue;
-            this.bbatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bbatal.ForeColor = System.Drawing.Color.White;
-            this.bbatal.Location = new System.Drawing.Point(458, 8);
-            this.bbatal.Name = "bbatal";
-            this.bbatal.Size = new System.Drawing.Size(94, 35);
-            this.bbatal.TabIndex = 2;
-            this.bbatal.Text = "BATAL";
-            this.bbatal.UseVisualStyleBackColor = false;
-            this.bbatal.Click += new System.EventHandler(this.bbatal_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 113);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 194;
+            this.label6.Text = "KONTAK*";
             // 
-            // bsimpan
+            // label5
             // 
-            this.bsimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bsimpan.BackColor = System.Drawing.Color.MidnightBlue;
-            this.bsimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bsimpan.ForeColor = System.Drawing.Color.White;
-            this.bsimpan.Location = new System.Drawing.Point(558, 8);
-            this.bsimpan.Name = "bsimpan";
-            this.bsimpan.Size = new System.Drawing.Size(94, 35);
-            this.bsimpan.TabIndex = 1;
-            this.bsimpan.Text = "SIMPAN";
-            this.bsimpan.UseVisualStyleBackColor = false;
-            this.bsimpan.Click += new System.EventHandler(this.bsimpan_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 193;
+            this.label5.Text = "JENIS KELAMIN";
+            // 
+            // TbNama
+            // 
+            this.TbNama.Location = new System.Drawing.Point(113, 57);
+            this.TbNama.Name = "TbNama";
+            this.TbNama.Size = new System.Drawing.Size(235, 20);
+            this.TbNama.TabIndex = 192;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 191;
+            this.label4.Text = "NAMA*";
+            // 
+            // CbStatus
+            // 
+            this.CbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbStatus.FormattingEnabled = true;
+            this.CbStatus.Items.AddRange(new object[] {
+            "AKTIF",
+            "TIDAK AKTIF"});
+            this.CbStatus.Location = new System.Drawing.Point(491, 136);
+            this.CbStatus.Name = "CbStatus";
+            this.CbStatus.Size = new System.Drawing.Size(235, 21);
+            this.CbStatus.TabIndex = 186;
+            // 
+            // TbNis
+            // 
+            this.TbNis.Location = new System.Drawing.Point(113, 31);
+            this.TbNis.Name = "TbNis";
+            this.TbNis.Size = new System.Drawing.Size(235, 20);
+            this.TbNis.TabIndex = 185;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 184;
+            this.label1.Text = "NIS*";
+            // 
+            // LInfo
+            // 
+            this.LInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LInfo.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LInfo.Location = new System.Drawing.Point(0, 304);
+            this.LInfo.Name = "LInfo";
+            this.LInfo.Size = new System.Drawing.Size(739, 32);
+            this.LInfo.TabIndex = 183;
+            this.LInfo.Text = "  * Data yang telah disimpan dapat login dengan Username : NIP dan Password : 123" +
+    "456 sesuai hakakses yang diberikan\r\n  * Mohon untuk pengguna(guru) untuk segera " +
+    "menganti password\r\n";
+            this.LInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.bbatal);
-            this.panel12.Controls.Add(this.BOk);
-            this.panel12.Controls.Add(this.bsimpan);
+            this.panel12.Controls.Add(this.BHapus);
+            this.panel12.Controls.Add(this.BBatal);
+            this.panel12.Controls.Add(this.BSimpan);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 490);
+            this.panel12.Location = new System.Drawing.Point(0, 393);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(784, 49);
+            this.panel12.Size = new System.Drawing.Size(739, 49);
             this.panel12.TabIndex = 107;
             // 
-            // BOk
+            // BHapus
             // 
-            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BOk.BackColor = System.Drawing.Color.Crimson;
-            this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BOk.ForeColor = System.Drawing.Color.White;
-            this.BOk.Location = new System.Drawing.Point(672, 8);
-            this.BOk.Margin = new System.Windows.Forms.Padding(4);
-            this.BOk.Name = "BOk";
-            this.BOk.Size = new System.Drawing.Size(108, 35);
-            this.BOk.TabIndex = 44;
-            this.BOk.Text = "OK";
-            this.BOk.UseVisualStyleBackColor = false;
+            this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BHapus.BackColor = System.Drawing.Color.Crimson;
+            this.BHapus.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BHapus.ForeColor = System.Drawing.Color.White;
+            this.BHapus.Location = new System.Drawing.Point(13, 7);
+            this.BHapus.Margin = new System.Windows.Forms.Padding(4);
+            this.BHapus.Name = "BHapus";
+            this.BHapus.Size = new System.Drawing.Size(108, 35);
+            this.BHapus.TabIndex = 51;
+            this.BHapus.Text = "HAPUS";
+            this.BHapus.UseVisualStyleBackColor = false;
+            // 
+            // BBatal
+            // 
+            this.BBatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BBatal.BackColor = System.Drawing.Color.Crimson;
+            this.BBatal.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBatal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBatal.ForeColor = System.Drawing.Color.White;
+            this.BBatal.Location = new System.Drawing.Point(502, 7);
+            this.BBatal.Margin = new System.Windows.Forms.Padding(4);
+            this.BBatal.Name = "BBatal";
+            this.BBatal.Size = new System.Drawing.Size(108, 35);
+            this.BBatal.TabIndex = 50;
+            this.BBatal.Text = "BATAL";
+            this.BBatal.UseVisualStyleBackColor = false;
+            // 
+            // BSimpan
+            // 
+            this.BSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BSimpan.BackColor = System.Drawing.Color.Crimson;
+            this.BSimpan.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BSimpan.ForeColor = System.Drawing.Color.White;
+            this.BSimpan.Location = new System.Drawing.Point(618, 7);
+            this.BSimpan.Margin = new System.Windows.Forms.Padding(4);
+            this.BSimpan.Name = "BSimpan";
+            this.BSimpan.Size = new System.Drawing.Size(108, 35);
+            this.BSimpan.TabIndex = 49;
+            this.BSimpan.Text = "SIMPAN";
+            this.BSimpan.UseVisualStyleBackColor = false;
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 442);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(739, 22);
             this.statusStrip1.TabIndex = 108;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -386,7 +367,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(784, 57);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(739, 57);
             this.flowLayoutPanel1.TabIndex = 106;
             // 
             // linkLabel1
@@ -404,11 +385,81 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
+            // TbAyah
+            // 
+            this.TbAyah.Location = new System.Drawing.Point(113, 240);
+            this.TbAyah.Name = "TbAyah";
+            this.TbAyah.Size = new System.Drawing.Size(235, 20);
+            this.TbAyah.TabIndex = 221;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 243);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 220;
+            this.label2.Text = "AYAH";
+            // 
+            // TbIbu
+            // 
+            this.TbIbu.Location = new System.Drawing.Point(113, 266);
+            this.TbIbu.Name = "TbIbu";
+            this.TbIbu.Size = new System.Drawing.Size(235, 20);
+            this.TbIbu.TabIndex = 223;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 269);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 222;
+            this.label3.Text = "IBU";
+            // 
+            // TbKeterangan
+            // 
+            this.TbKeterangan.Location = new System.Drawing.Point(491, 162);
+            this.TbKeterangan.Name = "TbKeterangan";
+            this.TbKeterangan.Size = new System.Drawing.Size(235, 72);
+            this.TbKeterangan.TabIndex = 225;
+            this.TbKeterangan.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(354, 166);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 13);
+            this.label13.TabIndex = 224;
+            this.label13.Text = "KETERANGAN";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(354, 113);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.TabIndex = 227;
+            this.label14.Text = "ANGKATAN*";
+            // 
+            // CbAngkatan
+            // 
+            this.CbAngkatan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAngkatan.FormattingEnabled = true;
+            this.CbAngkatan.Items.AddRange(new object[] {
+            "AKTIF",
+            "TIDAK AKTIF"});
+            this.CbAngkatan.Location = new System.Drawing.Point(491, 109);
+            this.CbAngkatan.Name = "CbAngkatan";
+            this.CbAngkatan.Size = new System.Drawing.Size(235, 21);
+            this.CbAngkatan.TabIndex = 226;
+            // 
             // FInputSiswa
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(739, 464);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.statusStrip1);
@@ -417,22 +468,9 @@
             this.Name = "FInputSiswa";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TAMBAH";
-            this.Load += new System.EventHandler(this.FInputSiswa_Load);
+            this.Text = "KELOLA SISWA";
             this.panel2.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.panel2.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -442,35 +480,41 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button bsimpan;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtptglmasuk;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbalamat;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dtptgllahir;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tbtempatlahir;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbnis;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox tbanama;
-        private System.Windows.Forms.Button bbatal;
-        private System.Windows.Forms.ComboBox cbjk;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button BOk;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button BHapus;
+        private System.Windows.Forms.Button BBatal;
+        private System.Windows.Forms.Button BSimpan;
+        private System.Windows.Forms.ComboBox CbJenisKelamin;
+        private System.Windows.Forms.DateTimePicker DtpMasuk;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker DtpLahir;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox TbAlamat;
+        private System.Windows.Forms.TextBox TbTempatLahir;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TbEmail;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox TbKontak;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TbNama;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CbStatus;
+        private System.Windows.Forms.TextBox TbNis;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LInfo;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox CbAngkatan;
+        private System.Windows.Forms.RichTextBox TbKeterangan;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox TbIbu;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TbAyah;
+        private System.Windows.Forms.Label label2;
     }
 }

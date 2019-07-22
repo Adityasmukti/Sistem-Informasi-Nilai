@@ -2945,6 +2945,16 @@ namespace ExtensionMethods
             }
             return id;
         }
+        public static void LoadAngkatan(this ComboBox cb)
+        {
+            int nows = int.Parse(DateTime.Now.ToString("yyyy"));
+            cb.Items.Clear();
+            while (nows >= 1990)
+            {
+                cb.Items.Add(nows);
+                nows--;
+            }
+        }
         #endregion
     }
     #region Setting

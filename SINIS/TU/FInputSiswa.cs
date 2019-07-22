@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExtensionMethods;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -9,77 +10,127 @@ namespace SINIS.TU
         public FInputSiswa()
         {
             InitializeComponent();
-            this.Text = "TAMBAH";
-            IdSiswa = "0";
-        }
+            this.SetControlFrom();
+            BHapus.Visible = false;
+            LInfo.Text = "  * Data yang telah disimpan dapat login dengan Username : NIP dan Password : 123456 sesuai hakakses yang diberikan\n" +
+                "  * Mohon untuk pengguna(siswa) untuk segera menganti password";
+            CbAngkatan.LoadAngkatan();
 
-        private string query = "";
-        private string IdSiswa = "";
-        public FInputSiswa(string idsiswa)
-        {
-            InitializeComponent();
-            IdSiswa = idsiswa;
-            this.Text = "UBAH";
-        }
-
-        private void bsimpan_Click(object sender, EventArgs e)
-        {
-            if (this.Text == "TAMBAH")
+            BSimpan.Click += (sender, e) =>
             {
-                if (tbanama.Text == "" || tbnis.Text=="" || tbalamat.Text=="")
-                    MessageBox.Show("Tidak Boleh ada yang kosong!!");
-                else if (cbjk.SelectedIndex<0)
-                    MessageBox.Show("Tidak Boleh ada yang kosong!!");
+                if (string.IsNullOrEmpty(TbNis.Text))
+                    MessageBox.Show("NIS kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (A.SearchData("SELECT `nis` FROM `m_siswa` WHERE `hapus`='N' AND `nis`='" + TbNis.Text + "';"))
+                    MessageBox.Show("NIS telah ada yang menggunakan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (string.IsNullOrEmpty(TbNama.Text))
+                    MessageBox.Show("Nama kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (string.IsNullOrEmpty(TbKontak.Text))
+                    MessageBox.Show("Kontak kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (string.IsNullOrEmpty(CbAngkatan.Text))
+                    MessageBox.Show("Angkatan kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
-                    query = "INSERT INTO tm_siswa (siswa_nama, siswa_nis, siswa_jk, siswa_alamat, siswa_tempatlahir, " +
-                        "siswa_tanggallahir, siswa_tanggalmasuk) VALUES ('" +
-                        tbanama.Text + "', '" +
-                        tbnis.Text + "', '" +
-                        cbjk.Text + "', '" +
-                        tbalamat.Text + "', '" +
-                        tbtempatlahir.Text + "', '" +
-                        dtptgllahir.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', '" +
-                        dtptglmasuk.Value.ToString("yyyy-MM-dd HH:mm:ss") + "');";
-                    //DM.ManipulasiData(query);
-                    MessageBox.Show("Data Tersimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (MessageBox.Show("Simpa data guru?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string kode = A.GenerateKode("SW", "m_siswa", "kode_siswa");
+                        A.SetInsert("INSERT INTO `m_siswa` (`kode_siswa`, `nis`, `namasiswa`, `alamat`, `ayah`, `ibu`, " +
+                            "`kontak`, `status`, `keterangan`, `angkatan`, `masuk`, `jeniskelamin`, `tempatlahir`, `tgllahir`, `email`)");
+                        A.SetValues("VALUES ('" + kode + "', '" + TbNis.Text + "', '" + TbNama.StrEscape() + "', '" + TbAlamat.StrEscape() + "', '" + TbAyah.StrEscape() + "', '" + TbIbu.StrEscape() + "', " +
+                            "'" + TbKontak.Text + "', '" + CbStatus.Text + "', '" + TbKeterangan.StrEscape() + "', '" + CbAngkatan.Text + "', '" + DtpMasuk.ToStringDate() + "', '" + CbJenisKelamin.Text + "', " +
+                            "'" + TbTempatLahir.StrEscape() + "', '" + DtpLahir.ToStringDate() + "', '" + TbEmail.Text + "')");
+                        A.SetQueri(A.GetInsert() + A.GetValues() + ";");
+
+                        A.SetInsert("INSERT INTO `m_user` (`id_akses`, `kode_ref`, `username`, `password`, `device`, `ppic`) ");
+                        A.SetValues("VALUES ('4', '" + kode + "', '" + TbNis.Text + "', MD5('123456'), '" + A.GetMACAddress() + "', '" + S.GetUserid() + "')");
+                        A.SetQueri(A.GetQueri() + A.GetInsert() + A.GetValues() + ";");
+
+                        if (A.GetQueri().ManipulasiData())
+                        {
+                            MessageBox.Show("Data telah tersimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                        }
+                    }
                 }
-            }
-            else
+            };
+        }
+        public FInputSiswa(string kodesiswa)
+        {
+            InitializeComponent();
+            this.SetControlFrom();
+            BHapus.Visible = true;
+            LInfo.Text = "  * Data yang telah disimpan dapat login dengan Username : NIP dan Password : 123456 sesuai hakakses yang diberikan\n" +
+                "  * Mohon untuk pengguna(siswa) untuk segera menganti password";
+            CbAngkatan.LoadAngkatan();
+
+            A.SetSelect("SELECT `nis`, `namasiswa`, `alamat`, `ayah`, `ibu`, `kontak`, `status`, `keterangan`, `angkatan`, `masuk`, `jeniskelamin`, `tempatlahir`, `tgllahir`, `email` ");
+            A.SetFrom("FROM `m_siswa` ");
+            A.SetWhere("WHERE `kode_siswa`='" + kodesiswa + "'");
+            A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + ";");
+            string oldnis = "";
+            foreach (DataRow b in A.GetQueri().GetData().Rows)
             {
-                if( MessageBox.Show("Simpan perubahan yang telah dibuat?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                TbNis.Text = b["nis"].ToString();
+                oldnis = b["nis"].ToString();
+                TbNama.Text = b["namasiswa"].ToString();
+                TbAlamat.Text = b["alamat"].ToString();
+                TbAyah.Text = b["ayah"].ToString();
+                TbIbu.Text = b["ibu"].ToString();
+                TbKontak.Text = b["kontak"].ToString();
+                CbStatus.Text = b["status"].ToString();
+                TbKeterangan.Text = b["keterangan"].ToString();
+                CbAngkatan.Text = b["angkatan"].ToString();
+                DtpMasuk.Value = b["masuk"].ToString().ToDateTime();
+                CbJenisKelamin.Text = b["jeniskelamin"].ToString();
+                TbTempatLahir.Text = b["tempatlahir"].ToString();
+                DtpLahir.Value = b["tgllahir"].ToString().ToDateTime();
+                TbEmail.Text = b["email"].ToString();
+            }
+
+            BSimpan.Click += (sender, e) =>
+            {
+                if (string.IsNullOrEmpty(TbNis.Text))
+                    MessageBox.Show("NIS kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (A.SearchData("SELECT `nis` FROM `m_siswa` WHERE `hapus`='N' AND `nis`='" + TbNis.Text + "' AND `nis`<>'" + oldnis + "';"))
+                    MessageBox.Show("NIS telah ada yang menggunakan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (string.IsNullOrEmpty(TbNama.Text))
+                    MessageBox.Show("Nama kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (string.IsNullOrEmpty(TbKontak.Text))
+                    MessageBox.Show("Kontak kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (string.IsNullOrEmpty(CbAngkatan.Text))
+                    MessageBox.Show("Angkatan kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    query = "UPDATE tm_siswa SET siswa_nama='"+tbanama.Text+"', siswa_nis='"+tbnis.Text+
-                        "', siswa_jk='"+cbjk.Text+"', siswa_alamat='"+tbalamat.Text+"', siswa_tempatlahir='"+tbtempatlahir+"', " +
-                        "siswa_tanggallahir='"+dtptgllahir.Value.ToString("yyyy-MM-dd HH:mm:ss")+
-                        "', siswa_tanggalmasuk='"+dtptglmasuk.Value.ToString("yyyy-MM-dd HH:mm:ss") +"' WHERE id=" + IdSiswa;
-                    //DM.ManipulasiData(query);
-                    Close();
+                    if (MessageBox.Show("Ubah data siswa?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        A.SetUpdate("UPDATE `m_siswa` ");
+                        A.SetSet("SET `nis` = '" + TbNis.Text + "', `namasiswa` = '" + TbNama.StrEscape() + "', `alamat` = '" + TbAlamat.StrEscape() + "', `ayah` = '" + TbAyah.StrEscape() + "', `ibu` = '" + TbIbu.StrEscape() + "', " +
+                            "`kontak` = '" + TbKontak.Text + "', `status` = '" + CbStatus.Text + "', `keterangan` = '" + TbKeterangan.StrEscape() + "', `angkatan` = '" + CbAngkatan.Text + "', `masuk` = '" + DtpMasuk.ToStringDate() + "', " +
+                            "`jeniskelamin` = '" + CbJenisKelamin.Text + "', `tempatlahir` = '" + TbTempatLahir.StrEscape() + "', `tgllahir` = '" + DtpLahir.ToStringDate() + "', `email` = '" + TbEmail.Text + "'");
+                        A.SetWhere("WHERE `kode_siswa` = '" + kodesiswa + "'");
+                        A.SetQueri(A.GetUpdate() + A.GetSet() + A.GetWhere() + ";");
+
+                        if (A.GetQueri().ManipulasiData())
+                        {
+                            MessageBox.Show("Data telah tersimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                        }
+                    }
                 }
-            }
-        }
+            };
 
-        private void bbatal_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void FInputSiswa_Load(object sender, EventArgs e)
-        {
-            if(IdSiswa!="0")
+            BHapus.Click += (sender, e) =>
             {
-                query = "SELECT * FROM tm_siswa WHERE id="+IdSiswa;
-                //foreach(DataRow br in DM.GetData(query).Tables[0].Rows)
-                //{
-                //    tbanama.Text = br["siswa_nama"].ToString();
-                //    tbnis.Text = br["siswa_nis"].ToString();
-                //    tbalamat.Text = br["siswa_alamat"].ToString();
-                //    cbjk.SelectedIndex = cbjk.FindStringExact(br["siswa_jk"].ToString());
-                //    tbtempatlahir.Text = br["siswa_tempatlahir"].ToString();
-                //    dtptgllahir.Value = DateTime.Parse(br["siswa_tanggallahir"].ToString());
-                //    dtptglmasuk.Value = DateTime.Parse(br["siswa_tanggalmasuk"].ToString());
-                //}
-            }
+                MessageBox.Show("Menghapus data guru akan menghapus username login!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (MessageBox.Show("Hapus data?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    A.SetQueri("UPDATE `m_siswa` SET `hapus`='Y' WHERE `kode_siswa` = '" + kodesiswa + "'; " +
+                        "UPDATE `m_user` SET `hapus` = 'Y' WHERE `kode_ref` = '" + kodesiswa + "'; ");
+                    if (A.GetQueri().DBHapus())
+                    {
+                        Close();
+                    }
+                }
+            };
         }
     }
 }

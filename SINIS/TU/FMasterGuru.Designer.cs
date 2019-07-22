@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BUbah = new System.Windows.Forms.Button();
             this.BTambah = new System.Windows.Forms.Button();
             this.BOk = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -61,7 +62,6 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BUbah = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -80,6 +80,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(784, 50);
             this.panel2.TabIndex = 98;
+            // 
+            // BUbah
+            // 
+            this.BUbah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BUbah.BackColor = System.Drawing.Color.Crimson;
+            this.BUbah.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BUbah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BUbah.ForeColor = System.Drawing.Color.White;
+            this.BUbah.Location = new System.Drawing.Point(102, 8);
+            this.BUbah.Margin = new System.Windows.Forms.Padding(4);
+            this.BUbah.Name = "BUbah";
+            this.BUbah.Size = new System.Drawing.Size(83, 35);
+            this.BUbah.TabIndex = 50;
+            this.BUbah.Text = "UBAH";
+            this.BUbah.UseVisualStyleBackColor = false;
+            this.BUbah.Click += new System.EventHandler(this.BUbah_Click);
             // 
             // BTambah
             // 
@@ -106,7 +123,7 @@
             this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BOk.ForeColor = System.Drawing.Color.White;
-            this.BOk.Location = new System.Drawing.Point(663, 8);
+            this.BOk.Location = new System.Drawing.Point(688, 8);
             this.BOk.Margin = new System.Windows.Forms.Padding(4);
             this.BOk.Name = "BOk";
             this.BOk.Size = new System.Drawing.Size(83, 35);
@@ -300,7 +317,8 @@
             // 
             this.Column1.HeaderText = "KODE GURU";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 97;
+            this.Column1.Visible = false;
+            this.Column1.Width = 78;
             // 
             // Column2
             // 
@@ -387,23 +405,6 @@
             this.Column9.Name = "Column9";
             this.Column9.Width = 75;
             // 
-            // BUbah
-            // 
-            this.BUbah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BUbah.BackColor = System.Drawing.Color.Crimson;
-            this.BUbah.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BUbah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BUbah.ForeColor = System.Drawing.Color.White;
-            this.BUbah.Location = new System.Drawing.Point(102, 8);
-            this.BUbah.Margin = new System.Windows.Forms.Padding(4);
-            this.BUbah.Name = "BUbah";
-            this.BUbah.Size = new System.Drawing.Size(83, 35);
-            this.BUbah.TabIndex = 50;
-            this.BUbah.Text = "UBAH";
-            this.BUbah.UseVisualStyleBackColor = false;
-            this.BUbah.Click += new System.EventHandler(this.BUbah_Click);
-            // 
             // FMasterGuru
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -447,6 +448,7 @@
         private System.Windows.Forms.TextBox TbCari;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BTambah;
+        private System.Windows.Forms.Button BUbah;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -462,6 +464,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Button BUbah;
     }
 }

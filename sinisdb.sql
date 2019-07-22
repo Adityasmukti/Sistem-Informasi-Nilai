@@ -16,6 +16,30 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`sindb` /*!40100 DEFAULT CHARACTER SET u
 
 USE `sindb`;
 
+/*Table structure for table `d_login` */
+
+DROP TABLE IF EXISTS `d_login`;
+
+CREATE TABLE `d_login` (
+  `id_login` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `ipaddres` varchar(50) NOT NULL,
+  `macaddres` varchar(50) NOT NULL,
+  `pcname` varchar(100) NOT NULL,
+  `time` datetime NOT NULL,
+  `state` enum('LOGIN','LOGOUT') NOT NULL DEFAULT 'LOGIN',
+  PRIMARY KEY (`id_login`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `d_login` */
+
+insert  into `d_login`(`id_login`,`id_user`,`ipaddres`,`macaddres`,`pcname`,`time`,`state`) values 
+(1,1,'192.168.2.2','40B076488671','SERVER','2019-07-22 09:47:11','LOGIN'),
+(2,1,'192.168.2.2','40B076488671','SERVER','2019-07-22 11:08:54','LOGIN'),
+(3,1,'192.168.2.2','40B076488671','SERVER','2019-07-22 11:09:10','LOGOUT'),
+(4,1,'192.168.2.2','40B076488671','SERVER','2019-07-22 11:22:13','LOGIN'),
+(5,1,'192.168.2.2','40B076488671','SERVER','2019-07-22 11:54:57','LOGOUT');
+
 /*Table structure for table `m_akses` */
 
 DROP TABLE IF EXISTS `m_akses`;
@@ -79,8 +103,10 @@ CREATE TABLE `m_siswa` (
   `status` varchar(20) DEFAULT NULL,
   `keterangan` text DEFAULT NULL,
   `angkatan` varchar(5) DEFAULT NULL,
+  `masuk` date DEFAULT NULL,
   `jeniskelamin` enum('L','P') DEFAULT NULL,
   `tempatlahir` varchar(100) DEFAULT NULL,
+  `tgllahir` date DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `hapus` enum('Y','N') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`kode_siswa`)
@@ -165,7 +191,7 @@ CREATE TABLE `r_settings` (
   `nilai` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `type` enum('string','int','DateTime','Color','long') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'string',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `r_settings` */
 
@@ -180,24 +206,7 @@ insert  into `r_settings`(`id`,`nama_pangaturan`,`pengaturan`,`nilai`,`type`) va
 (10,'Warna Aksen Tombol','buttonaksencolor','FFFFFF','Color'),
 (13,'Warna Foreground','forecolor','000000','Color'),
 (14,'Warna Background','backcolor','FFFFFF','Color'),
-(15,'Batas Waktu Order','expiretime','100','int'),
-(16,'Warna Cetak','printcolor','000000','Color'),
-(17,'Jawaban Admin Total','replaymessage','QWZ3YW4sIG9yZGVyIG1iYSBhdGFzIG5hbWEgW05BTUFdIHRlbGFoIGthbWkgcHJvc2VzOgpkZW5nYW4ga29kZSBwZXNhbiBbQkFSQ09ERV0gcGFkYSBbVEdMXSBvbGVoIGFkbWluIFtBRE1JTl0sCltSSU5DSUFOXQoKZGVuZ2FuIHJpbmNpYW4gcHJvZHVrIDoKW0lURU1TXQoKZGFuIGJlcmF0IFtCRVJBVF0sIG9uZ2tpciBbT05HS0lSXS4KVG90YWwgW0lOVk9JQ0VdIChtb2hvbiBkaWxlYmloa2FuIGFuZ2thIFtOT10gYWdhciBtdWRhaCBjZWsgdHJhbnNmZXJhbm55YSB5YSkg8J+YigpTaWxhaGthbiB0YXJuc2ZlciBrZSByZWsgQkNBIDM0ODk4OTgxMTEgYW4gQW5nZWxpbmEsIChub21vciByZWtlbmluZyBpbmkga2h1c3VzIHVudHVrIHRyYW5zYWtzaSB2aWEgTElORSB5YSwgYmVyYmVkYSBkYXJpIG5vbW9yIHJla2VuaW5nIG9yZGVyIHZpYSBXRUJTSVRFKSAKTWFrc2ltYWwgdHJhbnNmZXIgMXgxMiBqYW0sIGppa2EgbGViaWggZGljYW5jZWwgb3RvbWF0aXMg8J+Zj/CfmY8KSmlrYSBzdWRhaCB0cmYgdGFucGEgcGVybHUga29uZmlybWFzaSBrYW1pIHN1ZGFoIGJpc2EgY2VrIG1lbGFsdWkgbm9tb3Igb3JkZXJhbiBkaSBibGtnIHRvdGFsYW4sIHNlY2FyYSBvdG9tYXRpcyBiYXJhbmcgc2VnZXJhIGthbWkgcHJvc2VzJmtpcmltLCBzeXVrcmFuIPCfmY/wn5mPCg==','string'),
-(18,'Jawaban Admin Detail','detailmessage','bWJhIGRhcGF0IApbSVRFTVNdIApkZW5nYW4gYmVyYXQgW0JFUkFUXSBvbmdraXIgW09OR0tJUl0=','string'),
-(19,'Keterangan Kode Keep','kodekeep','S2VlcCBUZWxhaCBkaWd1bmFrYW4gZGVuZ2FuIGtvZGUgW2tvZGVrZWVwXQ==','string'),
-(20,'Default Kurir','defaultkurir','JNE','string'),
-(21,'Default Service','defaultservice','REG','string'),
-(22,'Api Key Raja Ongkir','apikeyrajaongkir','cbb0fa7a1340837829607b5fabbd8924','string'),
-(23,'ID Kecamatan Asal','originsubdistrict','1423','int'),
-(24,'ID Kota Asal','origincity','104','int'),
-(25,'Type Asal','origintype','subdistrict','string'),
-(33,'Persentase Harga Penjualan','persentaseharga','','int'),
-(34,'Jumlah Baris per halaman','divs','25','int'),
-(35,'Link Ceking Order','cekorder','aHR0cDovL2F0ZWxpZXJhbmdlbGluYS5lc3kuZXMvc28/aWQ9','string'),
-(36,'Batas Waktu Pembatalan Order','canceltime','14','string'),
-(37,'Pengaturan Switch Ukurang','switchproduk','1','int'),
-(38,'Batas Waktu Selesai','selesaitime','100','int'),
-(39,'Get Stock','getstock','0','int');
+(40,'Limit','divs','25','int');
 
 /*Table structure for table `tb_jadwal` */
 
