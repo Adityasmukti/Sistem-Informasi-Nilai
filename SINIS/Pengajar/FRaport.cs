@@ -9,6 +9,9 @@ namespace SINIS.Pengajar
 {
     public partial class FRaport : Form
     {
+        /// بسم الله الرحمن الرحيم
+        /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+        /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
         public FRaport()
         {
             InitializeComponent();

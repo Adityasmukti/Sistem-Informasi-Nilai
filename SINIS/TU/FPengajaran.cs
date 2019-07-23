@@ -10,6 +10,9 @@ using ExtensionMethods;
 
 namespace SINIS.TU
 {
+    /// بسم الله الرحمن الرحيم
+    /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+    /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FPengajaran : Form
     {
         private string query = "";

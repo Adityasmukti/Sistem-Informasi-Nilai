@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace SINIS.TU
 {
+    /// بسم الله الرحمن الرحيم
+    /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+    /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FInputSiswa : Form
     {
         public FInputSiswa()

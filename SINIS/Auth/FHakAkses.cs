@@ -5,6 +5,9 @@ using ExtensionMethods;
 
 namespace SINIS.Auth
 {
+    /// بسم الله الرحمن الرحيم
+    /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+    /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FHakAkses : Form
     {        
         public FHakAkses()

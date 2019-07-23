@@ -21,6 +21,9 @@ using MySql.Data.MySqlClient;
 
 namespace ExtensionMethods
 {
+    /// بسم الله الرحمن الرحيم
+    /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+    /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public static class A
     {
         #region Variabel

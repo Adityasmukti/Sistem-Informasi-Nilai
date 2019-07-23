@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace SINIS.Settings
 {
+    /// بسم الله الرحمن الرحيم
+    /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+    /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FSettingApps : Form
     {
         List<string> idsubdistrict, idcity;

@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace SINIS
 {
+    /// بسم الله الرحمن الرحيم
+    /// Bismi-llāhi ar-raḥmāni ar-raḥīmi
+    /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     partial class FTentang : Form
     {
         public FTentang()
