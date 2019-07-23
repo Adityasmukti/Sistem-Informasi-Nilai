@@ -2885,7 +2885,7 @@ namespace ExtensionMethods
             }
             return id;
         }
-        public static void LoadTahunAjaran(ComboBox cb)
+        public static void LoadTahunAjaran(this ComboBox cb)
         {
             int nows = int.Parse(DateTime.Now.ToString("yyyy"));
             int next = nows + 1;
@@ -2961,6 +2961,17 @@ namespace ExtensionMethods
         public static void LoadLabelInfo(this Label lb)
         {
             lb.Text = "-";
+        }
+        public static List<string> LoadGuru(this ComboBox cb)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `kode_guru`, CONCAT(`nidn`,' (',`namaguru`,')') `namaguru` FROM `m_guru` WHERE `hapus`='N';").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
         }
         #endregion
     }

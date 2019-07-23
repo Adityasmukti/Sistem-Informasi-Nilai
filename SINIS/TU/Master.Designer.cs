@@ -170,10 +170,10 @@
             // 
             this.tabJenisNilai.Controls.Add(this.dgjenisnilai);
             this.tabJenisNilai.Controls.Add(this.pnjenisnilai);
-            this.tabJenisNilai.Location = new System.Drawing.Point(4, 22);
+            this.tabJenisNilai.Location = new System.Drawing.Point(4, 29);
             this.tabJenisNilai.Name = "tabJenisNilai";
             this.tabJenisNilai.Padding = new System.Windows.Forms.Padding(3);
-            this.tabJenisNilai.Size = new System.Drawing.Size(1160, 477);
+            this.tabJenisNilai.Size = new System.Drawing.Size(1160, 470);
             this.tabJenisNilai.TabIndex = 4;
             this.tabJenisNilai.Text = "JENIS NILAI";
             this.tabJenisNilai.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             this.dgjenisnilai.ReadOnly = true;
             this.dgjenisnilai.RowHeadersVisible = false;
             this.dgjenisnilai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgjenisnilai.Size = new System.Drawing.Size(1154, 380);
+            this.dgjenisnilai.Size = new System.Drawing.Size(1154, 373);
             this.dgjenisnilai.TabIndex = 3;
             this.dgjenisnilai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgjenisnilai_CellClick);
             // 
@@ -308,9 +308,9 @@
             this.tabSiswa.BackColor = System.Drawing.Color.White;
             this.tabSiswa.Controls.Add(this.dgsiswa);
             this.tabSiswa.Controls.Add(this.pnsiswa);
-            this.tabSiswa.Location = new System.Drawing.Point(4, 29);
+            this.tabSiswa.Location = new System.Drawing.Point(4, 22);
             this.tabSiswa.Name = "tabSiswa";
-            this.tabSiswa.Size = new System.Drawing.Size(1160, 470);
+            this.tabSiswa.Size = new System.Drawing.Size(1160, 477);
             this.tabSiswa.TabIndex = 3;
             this.tabSiswa.Text = "SISWA";
             // 
@@ -346,7 +346,7 @@
             this.dgsiswa.ReadOnly = true;
             this.dgsiswa.RowHeadersVisible = false;
             this.dgsiswa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsiswa.Size = new System.Drawing.Size(1160, 400);
+            this.dgsiswa.Size = new System.Drawing.Size(1160, 407);
             this.dgsiswa.TabIndex = 4;
             this.dgsiswa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsiswa_CellClick);
             // 

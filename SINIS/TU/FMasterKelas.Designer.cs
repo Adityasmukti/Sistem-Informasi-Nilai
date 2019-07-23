@@ -42,14 +42,20 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.Dg = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LInfo = new System.Windows.Forms.Label();
+            this.BBatal = new System.Windows.Forms.Button();
+            this.BSimpan = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TbKeterangan = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TbKelas = new System.Windows.Forms.TextBox();
             this.TbCari = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.LInfo = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BTambah = new System.Windows.Forms.Button();
+            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -59,7 +65,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.BTambah);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.BOk);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -148,6 +153,7 @@
             this.BOk.TabIndex = 44;
             this.BOk.Text = "OK";
             this.BOk.UseVisualStyleBackColor = false;
+            this.BOk.Click += new System.EventHandler(this.BOk_Click);
             // 
             // statusStrip1
             // 
@@ -202,7 +208,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,39 +219,30 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Dg.DefaultCellStyle = dataGridViewCellStyle4;
             this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dg.Location = new System.Drawing.Point(0, 112);
+            this.Dg.Location = new System.Drawing.Point(0, 148);
             this.Dg.Name = "Dg";
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dg.Size = new System.Drawing.Size(784, 378);
+            this.Dg.Size = new System.Drawing.Size(784, 342);
             this.Dg.TabIndex = 110;
+            this.Dg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dg_CellClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BBatal);
+            this.panel1.Controls.Add(this.BSimpan);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.TbKeterangan);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.TbKelas);
             this.panel1.Controls.Add(this.TbCari);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.LInfo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 55);
+            this.panel1.Size = new System.Drawing.Size(784, 91);
             this.panel1.TabIndex = 109;
-            // 
-            // TbCari
-            // 
-            this.TbCari.Location = new System.Drawing.Point(50, 23);
-            this.TbCari.Name = "TbCari";
-            this.TbCari.Size = new System.Drawing.Size(722, 20);
-            this.TbCari.TabIndex = 22;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "CARI";
             // 
             // LInfo
             // 
@@ -254,15 +252,100 @@
             this.LInfo.TabIndex = 18;
             this.LInfo.Text = "-";
             // 
+            // BBatal
+            // 
+            this.BBatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BBatal.BackColor = System.Drawing.Color.Crimson;
+            this.BBatal.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBatal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BBatal.ForeColor = System.Drawing.Color.White;
+            this.BBatal.Location = new System.Drawing.Point(566, 51);
+            this.BBatal.Margin = new System.Windows.Forms.Padding(4);
+            this.BBatal.Name = "BBatal";
+            this.BBatal.Size = new System.Drawing.Size(99, 30);
+            this.BBatal.TabIndex = 190;
+            this.BBatal.Text = "BATAL";
+            this.BBatal.UseVisualStyleBackColor = false;
+            this.BBatal.Click += new System.EventHandler(this.BBatal_Click);
+            // 
+            // BSimpan
+            // 
+            this.BSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BSimpan.BackColor = System.Drawing.Color.Crimson;
+            this.BSimpan.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BSimpan.ForeColor = System.Drawing.Color.White;
+            this.BSimpan.Location = new System.Drawing.Point(673, 51);
+            this.BSimpan.Margin = new System.Windows.Forms.Padding(4);
+            this.BSimpan.Name = "BSimpan";
+            this.BSimpan.Size = new System.Drawing.Size(99, 30);
+            this.BSimpan.TabIndex = 189;
+            this.BSimpan.Text = "SIMPAN";
+            this.BSimpan.UseVisualStyleBackColor = false;
+            this.BSimpan.Click += new System.EventHandler(this.BSimpan_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(256, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 186;
+            this.label2.Text = "KETERANGAN";
+            // 
+            // TbKeterangan
+            // 
+            this.TbKeterangan.Location = new System.Drawing.Point(339, 23);
+            this.TbKeterangan.Name = "TbKeterangan";
+            this.TbKeterangan.Size = new System.Drawing.Size(433, 20);
+            this.TbKeterangan.TabIndex = 185;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 184;
+            this.label1.Text = "KELAS";
+            // 
+            // TbKelas
+            // 
+            this.TbKelas.Location = new System.Drawing.Point(59, 23);
+            this.TbKelas.Name = "TbKelas";
+            this.TbKelas.Size = new System.Drawing.Size(191, 20);
+            this.TbKelas.TabIndex = 183;
+            // 
+            // TbCari
+            // 
+            this.TbCari.Location = new System.Drawing.Point(59, 58);
+            this.TbCari.Name = "TbCari";
+            this.TbCari.Size = new System.Drawing.Size(500, 20);
+            this.TbCari.TabIndex = 182;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 61);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 181;
+            this.label5.Text = "CARI";
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "KODE KELAS";
             this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "NAMA";
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "KELAS";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 66;
             // 
             // Column3
             // 
@@ -271,28 +354,19 @@
             // 
             // Column4
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Column4.HeaderText = "UBAH";
             this.Column4.Name = "Column4";
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column4.Width = 62;
             // 
-            // BTambah
+            // Column5
             // 
-            this.BTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTambah.BackColor = System.Drawing.Color.Crimson;
-            this.BTambah.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTambah.ForeColor = System.Drawing.Color.White;
-            this.BTambah.Location = new System.Drawing.Point(11, 8);
-            this.BTambah.Margin = new System.Windows.Forms.Padding(4);
-            this.BTambah.Name = "BTambah";
-            this.BTambah.Size = new System.Drawing.Size(83, 35);
-            this.BTambah.TabIndex = 50;
-            this.BTambah.Text = "TAMBAH";
-            this.BTambah.UseVisualStyleBackColor = false;
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.HeaderText = "HAPUS";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 50;
             // 
             // FMasterKelas
             // 
@@ -307,6 +381,7 @@
             this.Name = "FMasterKelas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FMasterKelas";
+            this.Load += new System.EventHandler(this.FMasterKelas_Load);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -332,14 +407,20 @@
         private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
         private System.Windows.Forms.DataGridView Dg;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label LInfo;
+        private System.Windows.Forms.Button BBatal;
+        private System.Windows.Forms.Button BSimpan;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TbKeterangan;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TbKelas;
+        private System.Windows.Forms.TextBox TbCari;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox TbCari;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label LInfo;
-        private System.Windows.Forms.Button BTambah;
+        private System.Windows.Forms.DataGridViewButtonColumn Column5;
     }
 }

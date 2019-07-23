@@ -249,12 +249,14 @@
             this.BMKelas.Name = "BMKelas";
             this.BMKelas.Size = new System.Drawing.Size(180, 26);
             this.BMKelas.Text = "Kelas";
+            this.BMKelas.Click += new System.EventHandler(this.BMKelas_Click);
             // 
             // BMJenisNilai
             // 
             this.BMJenisNilai.Name = "BMJenisNilai";
             this.BMJenisNilai.Size = new System.Drawing.Size(180, 26);
             this.BMJenisNilai.Text = "Jenis Nilai";
+            this.BMJenisNilai.Click += new System.EventHandler(this.BMJenisNilai_Click);
             // 
             // BSettings
             // 

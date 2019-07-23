@@ -145,5 +145,17 @@ namespace SINIS
             TU.FMasterPelajaran f = new TU.FMasterPelajaran();
             f.Show();
         }
+
+        private void BMKelas_Click(object sender, EventArgs e)
+        {
+            TU.FMasterKelas f = new TU.FMasterKelas();
+            f.Show();
+        }
+
+        private void BMJenisNilai_Click(object sender, EventArgs e)
+        {
+            TU.FMasterJenisNilai f = new TU.FMasterJenisNilai();
+            f.Show();
+        }
     }
 }

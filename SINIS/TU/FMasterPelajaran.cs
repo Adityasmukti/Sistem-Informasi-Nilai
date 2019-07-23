@@ -87,17 +87,14 @@ namespace SINIS.TU
             Dg.QueriToDg();
             return true;
         }
-
         private void BOk_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void FMasterPelajaran_Load(object sender, EventArgs e)
         {
             Loaddb();
         }
-
         private void Dg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex>=0)
@@ -115,6 +112,19 @@ namespace SINIS.TU
                         if (A.DBHapus("UPDATE `r_matapelajaran` SET `hapus` = 'Y' WHERE `kodepelajaran` = '" + Dg.Rows[e.RowIndex].Cells[0].Value.ToString() + "';"))
                             Loaddb();
                 }                
+            }
+        }
+
+        private void BBatal_Click(object sender, EventArgs e)
+        {
+            if(Dg.Enabled)
+                Close();
+            else
+            {
+                Dg.Enabled = !Dg.Enabled;
+                TbKodeMapel.Clear();
+                TbMataPelajaran.Clear();
+                CbStatus.SelectedIndex = -1;
             }
         }
     }

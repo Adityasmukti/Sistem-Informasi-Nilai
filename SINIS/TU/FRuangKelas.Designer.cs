@@ -32,28 +32,28 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TbCari = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LInfo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbguru = new System.Windows.Forms.ComboBox();
+            this.CbWaliKelas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbkelas = new System.Windows.Forms.ComboBox();
+            this.CbKelas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbthunmasuk = new System.Windows.Forms.ComboBox();
+            this.CbMasuk = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbtahunajaran = new System.Windows.Forms.ComboBox();
-            this.dgsiswa = new System.Windows.Forms.DataGridView();
+            this.CbTahunAjaran = new System.Windows.Forms.ComboBox();
+            this.Dg = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bkeluar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ldarihalaman = new System.Windows.Forms.Label();
             this.bnext = new System.Windows.Forms.Button();
             this.tbhalaman = new System.Windows.Forms.TextBox();
             this.bprev = new System.Windows.Forms.Button();
-            this.LInfo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.bkeluar = new System.Windows.Forms.Button();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -63,7 +63,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsiswa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -71,22 +71,46 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.TbCari);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.LInfo);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.cbguru);
+            this.panel1.Controls.Add(this.CbWaliKelas);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.cbkelas);
+            this.panel1.Controls.Add(this.CbKelas);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.cbthunmasuk);
+            this.panel1.Controls.Add(this.CbMasuk);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbtahunajaran);
+            this.panel1.Controls.Add(this.CbTahunAjaran);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 86);
             this.panel1.TabIndex = 0;
+            // 
+            // TbCari
+            // 
+            this.TbCari.Location = new System.Drawing.Point(309, 53);
+            this.TbCari.Name = "TbCari";
+            this.TbCari.Size = new System.Drawing.Size(459, 20);
+            this.TbCari.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(271, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "CARI";
+            // 
+            // LInfo
+            // 
+            this.LInfo.Location = new System.Drawing.Point(8, 10);
+            this.LInfo.Name = "LInfo";
+            this.LInfo.Size = new System.Drawing.Size(760, 13);
+            this.LInfo.TabIndex = 18;
+            this.LInfo.Text = "-";
             // 
             // label5
             // 
@@ -97,15 +121,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "WALI KELAS";
             // 
-            // cbguru
+            // CbWaliKelas
             // 
-            this.cbguru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbguru.FormattingEnabled = true;
-            this.cbguru.Location = new System.Drawing.Point(85, 53);
-            this.cbguru.Name = "cbguru";
-            this.cbguru.Size = new System.Drawing.Size(180, 21);
-            this.cbguru.TabIndex = 7;
-            this.cbguru.SelectedIndexChanged += new System.EventHandler(this.cbguru_SelectedIndexChanged);
+            this.CbWaliKelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbWaliKelas.FormattingEnabled = true;
+            this.CbWaliKelas.Location = new System.Drawing.Point(85, 53);
+            this.CbWaliKelas.Name = "CbWaliKelas";
+            this.CbWaliKelas.Size = new System.Drawing.Size(180, 21);
+            this.CbWaliKelas.TabIndex = 7;
+            this.CbWaliKelas.SelectedIndexChanged += new System.EventHandler(this.cbguru_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -116,34 +140,34 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "KELAS";
             // 
-            // cbkelas
+            // CbKelas
             // 
-            this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbkelas.FormattingEnabled = true;
-            this.cbkelas.Location = new System.Drawing.Point(597, 26);
-            this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(171, 21);
-            this.cbkelas.TabIndex = 4;
-            this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbkelas_SelectedIndexChanged);
+            this.CbKelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbKelas.FormattingEnabled = true;
+            this.CbKelas.Location = new System.Drawing.Point(597, 26);
+            this.CbKelas.Name = "CbKelas";
+            this.CbKelas.Size = new System.Drawing.Size(171, 21);
+            this.CbKelas.TabIndex = 4;
+            this.CbKelas.SelectedIndexChanged += new System.EventHandler(this.cbkelas_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(281, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "TAHUN MASUK";
+            this.label2.Text = "MASUK";
             // 
-            // cbthunmasuk
+            // CbMasuk
             // 
-            this.cbthunmasuk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbthunmasuk.FormattingEnabled = true;
-            this.cbthunmasuk.Location = new System.Drawing.Point(373, 26);
-            this.cbthunmasuk.Name = "cbthunmasuk";
-            this.cbthunmasuk.Size = new System.Drawing.Size(171, 21);
-            this.cbthunmasuk.TabIndex = 2;
-            this.cbthunmasuk.SelectedIndexChanged += new System.EventHandler(this.cbthunmasuk_SelectedIndexChanged);
+            this.CbMasuk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbMasuk.FormattingEnabled = true;
+            this.CbMasuk.Location = new System.Drawing.Point(339, 26);
+            this.CbMasuk.Name = "CbMasuk";
+            this.CbMasuk.Size = new System.Drawing.Size(205, 21);
+            this.CbMasuk.TabIndex = 2;
+            this.CbMasuk.SelectedIndexChanged += new System.EventHandler(this.cbthunmasuk_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -154,23 +178,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "TAHUN AJARAN";
             // 
-            // cbtahunajaran
+            // CbTahunAjaran
             // 
-            this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 13;
-            this.cbtahunajaran.Location = new System.Drawing.Point(104, 26);
-            this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(171, 21);
-            this.cbtahunajaran.TabIndex = 0;
-            this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
+            this.CbTahunAjaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbTahunAjaran.FormattingEnabled = true;
+            this.CbTahunAjaran.ItemHeight = 13;
+            this.CbTahunAjaran.Location = new System.Drawing.Point(104, 26);
+            this.CbTahunAjaran.Name = "CbTahunAjaran";
+            this.CbTahunAjaran.Size = new System.Drawing.Size(171, 21);
+            this.CbTahunAjaran.TabIndex = 0;
+            this.CbTahunAjaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
             // 
-            // dgsiswa
+            // Dg
             // 
-            this.dgsiswa.AllowUserToAddRows = false;
-            this.dgsiswa.AllowUserToDeleteRows = false;
-            this.dgsiswa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsiswa.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Dg.AllowUserToAddRows = false;
+            this.Dg.AllowUserToDeleteRows = false;
+            this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,9 +202,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgsiswa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgsiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsiswa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
             this.Column7,
             this.Column1,
@@ -196,16 +220,16 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgsiswa.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgsiswa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgsiswa.Location = new System.Drawing.Point(0, 143);
-            this.dgsiswa.Name = "dgsiswa";
-            this.dgsiswa.ReadOnly = true;
-            this.dgsiswa.RowHeadersVisible = false;
-            this.dgsiswa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsiswa.Size = new System.Drawing.Size(784, 346);
-            this.dgsiswa.TabIndex = 2;
-            this.dgsiswa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsiswa_CellClick);
+            this.Dg.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dg.Location = new System.Drawing.Point(0, 143);
+            this.Dg.Name = "Dg";
+            this.Dg.ReadOnly = true;
+            this.Dg.RowHeadersVisible = false;
+            this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dg.Size = new System.Drawing.Size(784, 346);
+            this.Dg.TabIndex = 2;
+            this.Dg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsiswa_CellClick);
             // 
             // flowLayoutPanel1
             // 
@@ -250,21 +274,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(784, 50);
             this.panel2.TabIndex = 93;
-            // 
-            // bkeluar
-            // 
-            this.bkeluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bkeluar.BackColor = System.Drawing.Color.Crimson;
-            this.bkeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bkeluar.ForeColor = System.Drawing.Color.White;
-            this.bkeluar.Location = new System.Drawing.Point(623, 7);
-            this.bkeluar.Margin = new System.Windows.Forms.Padding(4);
-            this.bkeluar.Name = "bkeluar";
-            this.bkeluar.Size = new System.Drawing.Size(157, 38);
-            this.bkeluar.TabIndex = 10;
-            this.bkeluar.Text = "Keluar";
-            this.bkeluar.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -331,29 +340,20 @@
             this.bprev.Text = "<";
             this.bprev.UseVisualStyleBackColor = false;
             // 
-            // LInfo
+            // bkeluar
             // 
-            this.LInfo.Location = new System.Drawing.Point(8, 10);
-            this.LInfo.Name = "LInfo";
-            this.LInfo.Size = new System.Drawing.Size(760, 13);
-            this.LInfo.TabIndex = 18;
-            this.LInfo.Text = "-";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(309, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(459, 20);
-            this.textBox1.TabIndex = 22;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(271, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "CARI";
+            this.bkeluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bkeluar.BackColor = System.Drawing.Color.Crimson;
+            this.bkeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bkeluar.ForeColor = System.Drawing.Color.White;
+            this.bkeluar.Location = new System.Drawing.Point(623, 7);
+            this.bkeluar.Margin = new System.Windows.Forms.Padding(4);
+            this.bkeluar.Name = "bkeluar";
+            this.bkeluar.Size = new System.Drawing.Size(157, 38);
+            this.bkeluar.TabIndex = 10;
+            this.bkeluar.Text = "Keluar";
+            this.bkeluar.UseVisualStyleBackColor = false;
             // 
             // Column6
             // 
@@ -366,14 +366,15 @@
             this.Column7.HeaderText = "KODE RUANGAN";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "RUANGAN";
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column1.HeaderText = "PILIH";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.Width = 40;
             // 
             // Column8
             // 
@@ -395,25 +396,29 @@
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "JENIS KELAMIN";
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "JK";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 44;
             // 
             // Column4
             // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle2.Format = "d";
             dataGridViewCellStyle2.NullValue = null;
             this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column4.HeaderText = "TANGGAL MASUK";
+            this.Column4.HeaderText = "MASUK";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 70;
             // 
             // FRuangKelas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dgsiswa);
+            this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
@@ -426,7 +431,7 @@
             this.Load += new System.EventHandler(this.FRuangKelas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsiswa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -440,14 +445,14 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbkelas;
+        private System.Windows.Forms.ComboBox CbKelas;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbthunmasuk;
+        private System.Windows.Forms.ComboBox CbMasuk;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbtahunajaran;
-        private System.Windows.Forms.DataGridView dgsiswa;
+        private System.Windows.Forms.ComboBox CbTahunAjaran;
+        private System.Windows.Forms.DataGridView Dg;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbguru;
+        private System.Windows.Forms.ComboBox CbWaliKelas;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -459,7 +464,7 @@
         private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
         private System.Windows.Forms.Label LInfo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TbCari;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
