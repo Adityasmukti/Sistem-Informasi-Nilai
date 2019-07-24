@@ -2973,6 +2973,18 @@ namespace ExtensionMethods
             }
             return id;
         }
+        public static List<string> LoadWaliKelas(this ComboBox cb)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `kode_guru`, CONCAT(`nidn`,' (',`namaguru`,')') `namaguru` FROM `m_guru` " +
+                "LEFT JOIN `m_user` ON `kode_ref`=`kode_guru` WHERE `m_guru`.`hapus`='N' AND `id_akses`='3';").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
         #endregion
     }
     #region Setting
