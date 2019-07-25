@@ -25,12 +25,10 @@ namespace SINIS.TU
             CbKelas.SelectedIndexChanged += LoadingData;
             TbCari.TextChanged += LoadingData;
         }
-
         private void LoadingData(object sender, EventArgs e)
         {
             loaddb();
         }
-
         private bool loaddb()
         {
             if (CbKelas.SelectedIndex >= 0 && CbTahunAjaran.SelectedIndex >= 0 && CbMasuk.SelectedIndex >= 0)
@@ -56,9 +54,12 @@ namespace SINIS.TU
                     int index = Dg.CurrentRow.Index;
                     if (Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("PILIH")].Value.ToString().Equals("SUDAH"))
                     {
-                        if (A.ManipulasiData("DELETE FROM `tb_ruangan` " +
-                            "WHERE `kode_ruangan` = '" + Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE RUANGAN")].Value.ToString() + "'"))
-                            Dg.LoadIndex(loaddb, 2);
+                        if (MessageBox.Show("Hapus Kelas?","Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (A.ManipulasiData("DELETE FROM `tb_ruangan` " +
+                                "WHERE `kode_ruangan` = '" + Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE RUANGAN")].Value.ToString() + "'"))
+                                Dg.LoadIndex(loaddb, 2);
+                        }
                     }
                     else
                     {
@@ -73,7 +74,6 @@ namespace SINIS.TU
                     }
                 }
             }
-
         }
     }
 }
