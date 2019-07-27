@@ -166,6 +166,12 @@
     <Compile Include="Pengajar\FPelajaran.Designer.cs">
       <DependentUpon>FPelajaran.cs</DependentUpon>
     </Compile>
+    <Compile Include="TU\FKelolaPengajaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TU\FKelolaPengajaran.Designer.cs">
+      <DependentUpon>FKelolaPengajaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="TU\FMasterJenisNilai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pengajar\FPelajaran.resx">
       <DependentUpon>FPelajaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TU\FKelolaPengajaran.resx">
+      <DependentUpon>FKelolaPengajaran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TU\FMasterGuru.resx">
       <DependentUpon>FMasterGuru.cs</DependentUpon>

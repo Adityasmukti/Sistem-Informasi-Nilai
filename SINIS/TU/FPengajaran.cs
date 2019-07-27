@@ -16,134 +16,77 @@ namespace SINIS.TU
     public partial class FPengajaran : Form
     {
         private string query = "";
-        private List<string> listidkelas;
-        private List<string> listidguru;
+        private List<string> kodekelas, kodeguru;
         public FPengajaran()
         {
             InitializeComponent();
-            listidkelas = new List<string>();
-            listidguru = new List<string>();
+            this.SetControlFrom();
+            tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
+
+            CbTahunAjaran.LoadTahunAjaran();
+            kodekelas = CbKelas.LoadKelas();
+            kodeguru = CbGuru.LoadGuru();
+
+            CbTahunAjaran.SelectedIndexChanged += LoadingData;
+            CbKelas.SelectedIndexChanged += LoadingData;
+            CbGuru.SelectedIndexChanged += LoadingData;
+            TbCari.TextChanged += LoadingData;
+        }
+
+        private void LoadingData(object sender, EventArgs e)
+        {
+            tbhalaman.Text = "1";
+            Loaddb();
         }
 
         private void FPengajaran_Load(object sender, EventArgs e)
         {
-            loadingawal();
-            loaddb();
+            Loaddb();
         }
 
-        private void loaddb()
+        private bool Loaddb()
         {
-            if (cbkelas.SelectedIndex >= 0)
+            if (CbKelas.SelectedIndex >= 0)
             {
-                query = "SELECT tm_pelajaran.*,IF(IFNULL(id_jadwal, 0) > 0, 1, 0) jadwal, " +
-                    "IFNULL(id_jadwal,0) id_jadwal, IFNULL(id_kelas,0) id_kelas, id_guru," +
-                    "IFNULL((SELECT guru_nama FROM tm_guru WHERE tm_guru.id=tbl_jadwal.id_guru),'-') guru_nama " +
-                    "FROM tm_pelajaran LEFT JOIN (SELECT * FROM tbl_jadwal WHERE id_kelas=" +
-                    listidkelas[cbkelas.SelectedIndex] + " AND tahunajaran='" + cbtahunajaran.Text +
-                    "') tbl_jadwal ON id_pelajaran=id ORDER BY pelajaran_nama ASC";
-
-                //dgpengajaran.Rows.Clear();
-                //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-                //{
-                //   string ruangan = "BELUM";
-                //    if (Convert.ToUInt32(br["jadwal"].ToString()) == 1)
-                //        ruangan = "SUDAH";
-                //    dgpengajaran.Rows.Add(ruangan, br["id"].ToString(), br["pelajaran_nama"].ToString()
-                //        , br["guru_nama"].ToString(), br["id_jadwal"].ToString(), 
-                //        br["id_kelas"].ToString(), br["id_guru"].ToString());
-                //}
+                A.SetSelect("SELECT IFNULL(`J`.`kode_jadwal`,'0') `kodejadwal`, `kodepelajaran`, " +
+                    "IF(`J`.`kode_jadwal` IS NULL, 'BELUM', 'SUDAH') `pilih`, `kodemapel`, `namapelajaran`, `namaguru`, `keterangan`, `jadwal` ");
+                A.SetFrom("FROM `r_matapelajaran` `MP` LEFT JOIN (SELECT `J`.`kode_jadwal`, `J`.`kode_pelajaran`, " +
+                    "CONCAT(`nidn`,' (',IF(`gelardepan`='','',CONCAT(`gelardepan`,' ')), `namaguru`, " +
+                    "IF(`gelarbelakang`='','',CONCAT(`gelarbelakang`,' ')),')') `namaguru`, `J`.`keterangan` FROM `tb_jadwal` `J` " +
+                    "LEFT JOIN `m_guru` `G` ON `G`.`kode_guru`=`J`.`kode_guru`WHERE `kode_kelas`='" + kodekelas[CbKelas.SelectedIndex] + "' " +
+                    "AND tahunajaran='" + CbTahunAjaran.Text + "') `J` ON `J`.`kode_pelajaran`=`MP`.`kodepelajaran` " +
+                    "LEFT JOIN (SELECT`kode_jadwal`,  GROUP_CONCAT(`hari`,',',`waktu`,',',`totaljam`,';' SEPARATOR '\n') `jadwal` " +
+                    "FROM  `tb_waktupelajaran`GROUP BY `kode_jadwal`) `W` ON `W`.`kode_jadwal`=`J`.`kode_jadwal`");
+                A.SetWhere("WHERE `status`='Y' AND `hapus`='N' ");
+                TbCari.GenerateQueriCari(new List<string>() { "kodemapel", "namapelajaran", "namaguru" });
+                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + tbhalaman.LimitQ(ldarihalaman, A.GetFrom(), A.GetWhere()) + ";");
+                Dg.QueriToDg();
+                return true;
             }
+            return false;
         }
-
-        private void loadingawal()
+        private void Dg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //#region Isi Combobox Kelas
-            //query = "SELECT * FROM tm_kelas ORDER BY kelas_nama ASC";
-            //cbkelas.Items.Clear();
-            //listidkelas.Clear();
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    listidkelas.Add(br["id"].ToString());
-            //    cbkelas.Items.Add(br["kelas_nama"].ToString());
-            //}
-            //cbkelas.SelectedIndex = 0;
-            //#endregion
-
-            //#region Isi Combobox Guru
-            //query = "SELECT * FROM tm_guru WHERE deleted=0 ORDER BY guru_nama ASC";
-            //cbguru.Items.Clear();
-            //listidguru.Clear();
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    listidguru.Add(br["id"].ToString());
-            //    cbguru.Items.Add(br["guru_nama"].ToString()+"["+br["guru_nip"].ToString()+"]");
-            //}
-            //cbguru.SelectedIndex = 0;
-            //#endregion
-
-            //#region Isi Combobox Tahun Ajaran
-            //int nows = int.Parse(DateTime.Now.ToString("yyyy"));
-            //int next = nows + 1;
-            //cbtahunajaran.Items.Clear();
-            //while (nows >= 1980)
-            //{
-            //    cbtahunajaran.Items.Add(nows + "/" + next);
-            //    nows--;
-            //    next--;
-            //}
-            //cbtahunajaran.SelectedIndex = 0;
-            //#endregion
-        }
-
-        private void cbtahunajaran_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loaddb();
-        }
-
-        private void dgpengajaran_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.ColumnIndex == 0)
-            //{
-            //    int index = dgpengajaran.CurrentRow.Index;
-            //    if (dgpengajaran.CurrentRow.Cells[0].Value.ToString() == "SUDAH")
-            //    {
-            //        query = "DELETE FROM tbl_jadwal WHERE id_jadwal=" +
-            //            dgpengajaran.CurrentRow.Cells[A.GetColumnIndexByHeader(dgpengajaran, "ID JADWAL")].Value.ToString();
-            //        DM.ManipulasiData(query);
-            //        loaddb();
-            //        dgpengajaran.ClearSelection();
-            //        dgpengajaran.Rows[index].Cells[0].Selected = true;
-            //    }
-            //    else
-            //    {
-            //        bool belumdapat = true;
-            //        string idguru = "0";
-            //        query = "SELECT * FROM tbl_jadwal WHERE tahunajaran='" + cbtahunajaran.Text + "' AND id_kelas=" +
-            //            dgpengajaran.CurrentRow.Cells[A.GetColumnIndexByHeader(dgpengajaran, "ID KELAS")].Value.ToString()+
-            //            " AND id_pelajaran="+ dgpengajaran.CurrentRow.Cells[A.GetColumnIndexByHeader(dgpengajaran, "ID PELAJARAN")].Value.ToString();
-            //        foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //        {
-            //            idguru = br["id_guru"].ToString();
-            //            belumdapat = false;
-            //        }
-
-            //        if (belumdapat)
-            //        {
-            //            query = "INSERT INTO tbl_jadwal (id_pelajaran, id_kelas,id_guru, tahunajaran) VALUES (" +
-            //                dgpengajaran.CurrentRow.Cells[A.GetColumnIndexByHeader(dgpengajaran, "ID PELAJARAN")].Value.ToString() + ", " +
-            //                listidkelas[cbkelas.SelectedIndex] + ", "+listidguru[cbguru.SelectedIndex]+", '" + cbtahunajaran.Text + "')";
-            //            DM.ManipulasiData(query);
-            //            loaddb();
-            //            dgpengajaran.ClearSelection();
-            //            dgpengajaran.Rows[index].Cells[0].Selected = true;
-            //        }
-            //        else
-            //        {
-            //            string guru = cbguru.Items[listidguru.IndexOf(idguru)].ToString();
-            //            MessageBox.Show("Guru "+guru+" Telah mengajar di Kelas ini!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //    }
-            //}
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == Dg.GetColumnIndexByHeader("PILIH"))
+                {
+                    if(Dg.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Equals("BELUM"))
+                    {
+                        FKelolaPengajaran f = new FKelolaPengajaran(CbTahunAjaran.Text, 
+                            Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE PELAJARAN")].Value.ToString(), 
+                            kodeguru[CbGuru.SelectedIndex]);
+                        f.ShowDialog();
+                        Loaddb();
+                    }
+                    else
+                    {
+                        FKelolaPengajaran f = new FKelolaPengajaran(Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE JADWAL")].Value);
+                        f.ShowDialog();
+                        Dg.LoadIndex(Loaddb, e.ColumnIndex);
+                    }
+                }
+            }
         }
     }
 }

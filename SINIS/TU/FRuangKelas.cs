@@ -16,6 +16,7 @@ namespace SINIS.TU
         {
             InitializeComponent();
             this.SetControlFrom();
+            tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, loaddb);
             CbTahunAjaran.LoadTahunAjaran();
             CbMasuk.LoadAngkatan();
             KodeKelas = CbKelas.LoadKelas();
@@ -40,7 +41,7 @@ namespace SINIS.TU
                 A.SetWhere("WHERE `SW`.`hapus` = 'N' AND `masuk` LIKE '" + CbMasuk.Text + "%' ");
                 TbCari.GenerateQueriCari(new List<string>() { "namakelas", "nis", "namasiswa" });
                 A.SetOrderby("ORDER BY `SW`.`namasiswa` ASC ");
-                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + ";");
+                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + tbhalaman.LimitQ(ldarihalaman, A.GetFrom(), A.GetWhere()) + ";");
                 Dg.QueriToDg();
             }
             return true;

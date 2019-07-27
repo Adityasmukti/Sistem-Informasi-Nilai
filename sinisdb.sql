@@ -29,7 +29,7 @@ CREATE TABLE `d_login` (
   `time` datetime NOT NULL,
   `state` enum('LOGIN','LOGOUT') NOT NULL DEFAULT 'LOGIN',
   PRIMARY KEY (`id_login`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 /*Data for the table `d_login` */
 
@@ -70,7 +70,25 @@ insert  into `d_login`(`id_login`,`id_user`,`ipaddres`,`macaddres`,`pcname`,`tim
 (34,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-23 19:11:14','LOGIN'),
 (35,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-23 19:12:02','LOGOUT'),
 (36,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-23 19:43:34','LOGIN'),
-(37,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-23 19:44:27','LOGOUT');
+(37,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-23 19:44:27','LOGOUT'),
+(38,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:47:59','LOGIN'),
+(39,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:49:39','LOGOUT'),
+(40,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:51:19','LOGIN'),
+(41,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:51:44','LOGOUT'),
+(42,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:53:53','LOGIN'),
+(43,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:56:41','LOGIN'),
+(44,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:58:02','LOGOUT'),
+(45,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:58:34','LOGIN'),
+(46,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 19:58:58','LOGOUT'),
+(47,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:01:27','LOGIN'),
+(48,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:01:50','LOGOUT'),
+(49,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:03:31','LOGIN'),
+(50,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:04:11','LOGOUT'),
+(51,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:05:30','LOGIN'),
+(52,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:06:02','LOGOUT'),
+(53,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:06:32','LOGIN'),
+(54,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:07:16','LOGIN'),
+(55,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-25 05:35:41','LOGOUT');
 
 /*Table structure for table `m_akses` */
 
@@ -81,7 +99,7 @@ CREATE TABLE `m_akses` (
   `nama_akses` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `ket_akses` mediumtext CHARACTER SET utf8,
   PRIMARY KEY (`id_akses`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `m_akses` */
 
@@ -205,7 +223,12 @@ CREATE TABLE `r_kelas` (
 /*Data for the table `r_kelas` */
 
 insert  into `r_kelas`(`kode_kelas`,`namakelas`,`keterangan`,`hapus`) values 
-('KL1011907230001','1','kelas pertama','N');
+('KL1011907230001','1','kelas pertama','N'),
+('KL1011907240001','2','','N'),
+('KL1011907240002','3','','N'),
+('KL1011907240003','4','','N'),
+('KL1011907240004','5','','N'),
+('KL1011907240005','6','','N');
 
 /*Table structure for table `r_matapelajaran` */
 
@@ -223,7 +246,7 @@ CREATE TABLE `r_matapelajaran` (
 /*Data for the table `r_matapelajaran` */
 
 insert  into `r_matapelajaran`(`kodepelajaran`,`kodemapel`,`namapelajaran`,`status`,`hapus`) values 
-('MP1011907220001','MPL101','B. Indonesia','N','N');
+('MP1011907220001','MPL101','B. Indonesia','Y','N');
 
 /*Table structure for table `r_settings` */
 
@@ -264,22 +287,6 @@ CREATE TABLE `r_tahunajaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `r_tahunajaran` */
-
-/*Table structure for table `r_walikelas` */
-
-DROP TABLE IF EXISTS `r_walikelas`;
-
-CREATE TABLE `r_walikelas` (
-  `id_walikelas` int(11) NOT NULL AUTO_INCREMENT,
-  `tahunajaran` varchar(50) DEFAULT NULL,
-  `kode_guru` varchar(15) DEFAULT NULL,
-  `kode_kelas` varchar(15) DEFAULT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `tanggal` date DEFAULT NULL,
-  PRIMARY KEY (`id_walikelas`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `r_walikelas` */
 
 /*Table structure for table `tb_jadwal` */
 
@@ -334,6 +341,42 @@ CREATE TABLE `tb_ruangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_ruangan` */
+
+insert  into `tb_ruangan`(`kode_ruangan`,`kode_kelas`,`kode_siswa`,`kode_guru`,`tahunajaran`,`keterangan`,`tanggal`,`id_user`) values 
+('RG1011907240001','KL1011907240003','SW1011907220001',NULL,'2019/2020','','2019-07-24 20:07:35',1);
+
+/*Table structure for table `tb_waktupelajaran` */
+
+DROP TABLE IF EXISTS `tb_waktupelajaran`;
+
+CREATE TABLE `tb_waktupelajaran` (
+  `idwaktupelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_jadwal` varchar(15) DEFAULT NULL,
+  `totaljam` int(11) DEFAULT NULL,
+  `hari` varchar(15) DEFAULT NULL,
+  `waktu` time DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `tanggal` datetime DEFAULT NULL,
+  PRIMARY KEY (`idwaktupelajaran`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tb_waktupelajaran` */
+
+/*Table structure for table `tb_walikelas` */
+
+DROP TABLE IF EXISTS `tb_walikelas`;
+
+CREATE TABLE `tb_walikelas` (
+  `id_walikelas` int(11) NOT NULL AUTO_INCREMENT,
+  `tahunajaran` varchar(50) DEFAULT NULL,
+  `kode_guru` varchar(15) DEFAULT NULL,
+  `kode_kelas` varchar(15) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  PRIMARY KEY (`id_walikelas`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tb_walikelas` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
