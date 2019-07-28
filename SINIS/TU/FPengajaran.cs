@@ -71,11 +71,20 @@ namespace SINIS.TU
             {
                 if (e.ColumnIndex == Dg.GetColumnIndexByHeader("PILIH"))
                 {
-                    if(Dg.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Equals("BELUM"))
+                    if (Dg.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Equals("BELUM"))
                     {
-                        FKelolaPengajaran f = new FKelolaPengajaran(CbTahunAjaran.Text, 
-                            Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE PELAJARAN")].Value.ToString(), 
-                            kodeguru[CbGuru.SelectedIndex]);
+                        Dictionary<string, string> data = new Dictionary<string, string>
+                        {
+                            {"tahunajaran",CbTahunAjaran.Text },
+                            {"kodekelas", kodekelas[CbKelas.SelectedIndex]},
+                            {"kelas", CbKelas.Text},
+                            //{"kodeguru", kodeguru[CbGuru.SelectedIndex]},
+                            {"guru", CbGuru.Text},
+                            {"kodepelajaran", Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE PELAJARAN")].Value.ToString() },
+                            {"kodemapel",Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE MAPEL")].Value.ToString()  },
+                            {"pelajaran",Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("PELAJARAN")].Value.ToString() },
+                        };
+                        FKelolaPengajaran f = new FKelolaPengajaran(data);
                         f.ShowDialog();
                         Loaddb();
                     }
