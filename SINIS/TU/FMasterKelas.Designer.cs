@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ldarihalaman = new System.Windows.Forms.Label();
@@ -42,7 +42,6 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.Dg = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LInfo = new System.Windows.Forms.Label();
             this.BBatal = new System.Windows.Forms.Button();
             this.BSimpan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,8 +50,12 @@
             this.TbKelas = new System.Windows.Forms.TextBox();
             this.TbCari = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.LInfo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TbUrutan = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -195,40 +198,43 @@
             this.Dg.AllowUserToDeleteRows = false;
             this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column6,
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dg.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dg.DefaultCellStyle = dataGridViewCellStyle2;
             this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dg.Location = new System.Drawing.Point(0, 148);
+            this.Dg.Location = new System.Drawing.Point(0, 164);
             this.Dg.Name = "Dg";
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dg.Size = new System.Drawing.Size(784, 342);
+            this.Dg.Size = new System.Drawing.Size(784, 326);
             this.Dg.TabIndex = 110;
             this.Dg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dg_CellClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.TbUrutan);
             this.panel1.Controls.Add(this.BBatal);
             this.panel1.Controls.Add(this.BSimpan);
             this.panel1.Controls.Add(this.label2);
@@ -241,16 +247,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 91);
+            this.panel1.Size = new System.Drawing.Size(784, 107);
             this.panel1.TabIndex = 109;
-            // 
-            // LInfo
-            // 
-            this.LInfo.Location = new System.Drawing.Point(12, 7);
-            this.LInfo.Name = "LInfo";
-            this.LInfo.Size = new System.Drawing.Size(760, 13);
-            this.LInfo.TabIndex = 18;
-            this.LInfo.Text = "-";
             // 
             // BBatal
             // 
@@ -260,10 +258,10 @@
             this.BBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BBatal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BBatal.ForeColor = System.Drawing.Color.White;
-            this.BBatal.Location = new System.Drawing.Point(566, 51);
+            this.BBatal.Location = new System.Drawing.Point(579, 24);
             this.BBatal.Margin = new System.Windows.Forms.Padding(4);
             this.BBatal.Name = "BBatal";
-            this.BBatal.Size = new System.Drawing.Size(99, 30);
+            this.BBatal.Size = new System.Drawing.Size(92, 45);
             this.BBatal.TabIndex = 190;
             this.BBatal.Text = "BATAL";
             this.BBatal.UseVisualStyleBackColor = false;
@@ -277,10 +275,10 @@
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSimpan.ForeColor = System.Drawing.Color.White;
-            this.BSimpan.Location = new System.Drawing.Point(673, 51);
+            this.BSimpan.Location = new System.Drawing.Point(679, 24);
             this.BSimpan.Margin = new System.Windows.Forms.Padding(4);
             this.BSimpan.Name = "BSimpan";
-            this.BSimpan.Size = new System.Drawing.Size(99, 30);
+            this.BSimpan.Size = new System.Drawing.Size(92, 45);
             this.BSimpan.TabIndex = 189;
             this.BSimpan.Text = "SIMPAN";
             this.BSimpan.UseVisualStyleBackColor = false;
@@ -289,7 +287,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 26);
+            this.label2.Location = new System.Drawing.Point(13, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 186;
@@ -297,9 +295,9 @@
             // 
             // TbKeterangan
             // 
-            this.TbKeterangan.Location = new System.Drawing.Point(339, 23);
+            this.TbKeterangan.Location = new System.Drawing.Point(100, 49);
             this.TbKeterangan.Name = "TbKeterangan";
-            this.TbKeterangan.Size = new System.Drawing.Size(433, 20);
+            this.TbKeterangan.Size = new System.Drawing.Size(472, 20);
             this.TbKeterangan.TabIndex = 185;
             // 
             // label1
@@ -313,26 +311,50 @@
             // 
             // TbKelas
             // 
-            this.TbKelas.Location = new System.Drawing.Point(59, 23);
+            this.TbKelas.Location = new System.Drawing.Point(100, 23);
             this.TbKelas.Name = "TbKelas";
-            this.TbKelas.Size = new System.Drawing.Size(191, 20);
+            this.TbKelas.Size = new System.Drawing.Size(216, 20);
             this.TbKelas.TabIndex = 183;
             // 
             // TbCari
             // 
-            this.TbCari.Location = new System.Drawing.Point(59, 58);
+            this.TbCari.Location = new System.Drawing.Point(100, 75);
             this.TbCari.Name = "TbCari";
-            this.TbCari.Size = new System.Drawing.Size(500, 20);
+            this.TbCari.Size = new System.Drawing.Size(671, 20);
             this.TbCari.TabIndex = 182;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 61);
+            this.label5.Location = new System.Drawing.Point(13, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 181;
             this.label5.Text = "CARI";
+            // 
+            // LInfo
+            // 
+            this.LInfo.Location = new System.Drawing.Point(12, 7);
+            this.LInfo.Name = "LInfo";
+            this.LInfo.Size = new System.Drawing.Size(760, 13);
+            this.LInfo.TabIndex = 18;
+            this.LInfo.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(322, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 192;
+            this.label3.Text = "URUTAN";
+            // 
+            // TbUrutan
+            // 
+            this.TbUrutan.Location = new System.Drawing.Point(381, 23);
+            this.TbUrutan.Name = "TbUrutan";
+            this.TbUrutan.Size = new System.Drawing.Size(191, 20);
+            this.TbUrutan.TabIndex = 191;
             // 
             // Column1
             // 
@@ -346,6 +368,13 @@
             this.Column2.HeaderText = "KELAS";
             this.Column2.Name = "Column2";
             this.Column2.Width = 66;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.HeaderText = "URUTAN";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 78;
             // 
             // Column3
             // 
@@ -417,8 +446,11 @@
         private System.Windows.Forms.TextBox TbKelas;
         private System.Windows.Forms.TextBox TbCari;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TbUrutan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;

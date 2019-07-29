@@ -101,9 +101,14 @@ namespace SINIS.TU
                 }
                 else if (e.ColumnIndex == Dg.GetColumnIndexByHeader("HAPUS"))
                 {
-                    if (MessageBox.Show("Hapus mata pelajaran?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        if (A.DBHapus("UPDATE `r_jenisnilai` SET `hapus` = 'Y' WHERE `kode_jenisnilai` = '" + Dg.Rows[e.RowIndex].Cells[0].Value.ToString() + "';"))
-                            Loaddb();
+                    if (Dg.Rows[e.RowIndex].Cells[0].Value.ToString().Equals("JN0000000000001"))
+                        MessageBox.Show("Tidak dapat menghapus Jenis nilai ini!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                    {
+                        if (MessageBox.Show("Hapus mata pelajaran?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (A.DBHapus("UPDATE `r_jenisnilai` SET `hapus` = 'Y' WHERE `kode_jenisnilai` = '" + Dg.Rows[e.RowIndex].Cells[0].Value.ToString() + "';"))
+                                Loaddb();
+                    }
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace SINIS.TU
             InitializeComponent();
             this.SetControlFrom();
             tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
+            TbUrutan.KeyPress += A.NumberOnly_KeyPress;
             TbCari.TextChanged += TbCari_TextChanged;
         }
         private void TbCari_TextChanged(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace SINIS.TU
         }
         private bool Loaddb()
         {
-            A.SetSelect("SELECT `kode_kelas`, `namakelas`, `keterangan` ");
+            A.SetSelect("SELECT `kode_kelas`, `urutan`, `namakelas`, `keterangan` ");
             A.SetFrom("FROM `r_kelas` ");
             A.SetWhere("WHERE `hapus`='N' ");
             TbCari.GenerateQueriCari(new List<string>() { "namakelas", "keterangan"});
@@ -54,6 +55,7 @@ namespace SINIS.TU
                 {
                     Dg.Enabled = false;
                     TbKelas.Text = Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KELAS")].Value.ToString();
+                    TbUrutan.Text = Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("URUTAN")].Value.ToString();
                     TbKeterangan.Text = Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KETERANGAN")].Value.ToString();
                 }
                 else if (e.ColumnIndex == Dg.GetColumnIndexByHeader("HAPUS"))
@@ -72,6 +74,7 @@ namespace SINIS.TU
             {
                 Dg.Enabled = !Dg.Enabled;
                 TbKelas.Clear();
+                TbUrutan.Clear();
                 TbKeterangan.Clear();
             }
         }
@@ -79,20 +82,23 @@ namespace SINIS.TU
         {
             if (string.IsNullOrEmpty(TbKelas.Text))
                 MessageBox.Show("Nama kelas kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if(string.IsNullOrEmpty(TbUrutan.Text))
+                MessageBox.Show("Urutan kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if (Dg.Enabled)
                 {
                     if (MessageBox.Show("Simpan kelas baru?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        A.SetInsert("INSERT INTO `r_kelas` (`kode_kelas`, `namakelas`, `keterangan`)");
-                        A.SetValues("VALUES('" + A.GenerateKode("KL", "r_kelas", "kode_kelas") + "', '" + TbKelas.Text + "', " +
+                        A.SetInsert("INSERT INTO `r_kelas` (`kode_kelas`, `namakelas`, `urutan`, `keterangan`)");
+                        A.SetValues("VALUES('" + A.GenerateKode("KL", "r_kelas", "kode_kelas") + "', '" + TbKelas.Text + "', '"+TbUrutan.Text+"', " +
                             "'" + TbKeterangan.StrEscape() + "')");
                         A.SetQueri(A.GetInsert() + A.GetValues() + ";");
                         if (A.GetQueri().ManipulasiData())
                         {
                             MessageBox.Show("Data telah ditambahkan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             TbKelas.Clear();
+                            TbUrutan.Clear();
                             TbKeterangan.Clear();
                             Loaddb();
                         }
@@ -103,13 +109,14 @@ namespace SINIS.TU
                     if (MessageBox.Show("Simpan perubahan kelas?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         A.SetUpdate("UPDATE `r_kelas` ");
-                        A.SetSet("SET `namakelas` = '" + TbKelas.Text + "', `keterangan` = '" + TbKeterangan.StrEscape() + "' ");
+                        A.SetSet("SET `namakelas` = '" + TbKelas.Text + "', `keterangan` = '" + TbKeterangan.StrEscape() + "', '"+TbUrutan.Text+"' ");
                         A.SetWhere("WHERE `kode_kelas` = '" + Dg.CurrentRow.Cells[0].Value.ToString() + "' ");
                         A.SetQueri(A.GetUpdate() + A.GetSet() + A.GetWhere() + ";");
                         if (A.GetQueri().ManipulasiData())
                         {
                             MessageBox.Show("Data telah diubah!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             TbKelas.Clear();
+                            TbUrutan.Clear();
                             TbKeterangan.Clear();
                             Dg.LoadIndex(Loaddb, 1);
                         }

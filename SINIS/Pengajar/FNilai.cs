@@ -42,27 +42,26 @@ namespace SINIS.Pengajar
             if (CbTahunAjaran.SelectedIndex >= 0 && CbKelas.SelectedIndex >= 0)
                 KodePelajaran = CbMataPelajaran.LoadPelajaran(S.GetKodeGuru(), CbTahunAjaran.Text, KodeKelas[CbKelas.SelectedIndex]);
         }
-
         private void BOk_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private bool Loaddb()
         {
-            if (CbKelas.SelectedIndex >= 0 && CbJenisNilai.SelectedIndex >= 0 && CbTahunAjaran.SelectedIndex >= 0 && CbMataPelajaran.SelectedIndex>=0)
+            if (CbKelas.SelectedIndex >= 0 && CbJenisNilai.SelectedIndex >= 0 && CbTahunAjaran.SelectedIndex >= 0 && CbMataPelajaran.SelectedIndex >= 0)
             {
                 A.SetSelect("SELECT IFNULL(`kode_nilai`, '0') `kode_nilai` , `R`.`kode_ruangan`, " +
                     "IF(`kode_nilai` IS NULL, 'INPUT', 'HAPUS') `input`, `nis`, `S`.`namasiswa`, `jeniskelamin`, `namakelas`, " +
                     "`N`.`tanggal`, IFNULL(`nilai`,'-') `nilai`, IFNULL(`N`.`keterangan`,'') `keterangan` ");
                 A.SetFrom("FROM `tb_ruangan` `R` LEFT JOIN `m_siswa` `S` ON `R`.`kode_siswa` = `S`.`kode_siswa` " +
                     "LEFT JOIN `r_kelas` `K` ON `K`.`kode_kelas`=`R`.`kode_kelas`LEFT JOIN (SELECT * FROM `tb_nilai` `N` " +
-                    "WHERE `N`.`kode_jenisnilai`='"+KodeJenisNilai[CbJenisNilai.SelectedIndex]+"' " +
-                    "AND `N`.`kode_jadwal`=(SELECT `kode_jadwal` FROM `tb_jadwal` WHERE `kode_guru`='"+S.GetKodeGuru()+"' " +
-                    "AND `kode_kelas`='"+KodeKelas[CbKelas.SelectedIndex]+"' AND `kode_pelajaran`= '"+KodePelajaran[CbMataPelajaran.SelectedIndex]+"' " +
-                    "AND `tahunajaran`= '"+CbTahunAjaran.Text+"')) `N` ON `N`.`kode_ruangan` = `R`.`kode_ruangan` ");
-                A.SetWhere("WHERE `R`.`kode_kelas` =  '"+KodeKelas[CbKelas.SelectedIndex]+"' AND `R`.`tahunajaran` = '"+CbTahunAjaran.Text+"'");
-                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() +tbhalaman.LimitQ(ldarihalaman, A.GetFrom(), A.GetWhere())+ ";");
+                    "WHERE `N`.`kode_jenisnilai`='" + KodeJenisNilai[CbJenisNilai.SelectedIndex] + "' " +
+                    "AND `N`.`kode_jadwal`=(SELECT `kode_jadwal` FROM `tb_jadwal` WHERE `kode_guru`='" + S.GetKodeGuru() + "' " +
+                    "AND `kode_kelas`='" + KodeKelas[CbKelas.SelectedIndex] + "' AND `kode_pelajaran`= '" + KodePelajaran[CbMataPelajaran.SelectedIndex] + "' " +
+                    "AND `tahunajaran`= '" + CbTahunAjaran.Text + "')) `N` ON `N`.`kode_ruangan` = `R`.`kode_ruangan` ");
+                A.SetWhere("WHERE `R`.`kode_kelas` =  '" + KodeKelas[CbKelas.SelectedIndex] + "' AND `R`.`tahunajaran` = '" + CbTahunAjaran.Text + "'");
+                TbCari.GenerateQueriCari(new List<string>() { "nis", "namasiswa", "namakelas", "`N`.`keterangan`" });
+                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + tbhalaman.LimitQ(ldarihalaman, A.GetFrom(), A.GetWhere()) + ";");
                 Dg.QueriToDg();
             }
             return true;
@@ -91,21 +90,42 @@ namespace SINIS.Pengajar
                 }
                 else
                 {
-
+                    if (MessageBox.Show("Hapus data nilai?", "Pertanyaan", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (A.DBHapus("DELETE FROM `tb_nilai` WHERE `kode_nilai` = '" + Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE NILAI")].Value.ToString() + "';"))
+                            Loaddb();
+                    }
+                }
+            }
+            else if (e.ColumnIndex == Dg.GetColumnIndexByHeader("NILAI"))
+            {
+                if (Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("INPUT")].Value.ToString().Equals("INPUT"))
+                    MessageBox.Show("Klik input!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    string nilai = Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("NILAI")].Value.ToString();
+                    if (A.InputTextBox("Input", "Nilai", ref nilai) == DialogResult.OK)
+                    {
+                        if (A.ManipulasiData("UPDATE `tb_nilai` SET `nilai` = '" + nilai + "' " +
+                            "WHERE `kode_nilai` = '" + Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE NILAI")].Value.ToString() + "';"))
+                            Dg.LoadIndex(Loaddb, e.ColumnIndex);
+                    }
                 }
             }
             else if (e.ColumnIndex == Dg.GetColumnIndexByHeader("KETERANGAN"))
             {
-                //if (Dg.CurrentRow.Cells[DB.GetColumnIndexByHeader(Dg, "INPUT")].Value.ToString() == "HAPUS")
-                //{
-                //    if (A.InputRichTextBox("Input", "Keterangan", ref values) == DialogResult.OK)
-                //    {
-                //        A.ManipulasiData("UPDATE tbl_nilai SET ketsiswa='" + values + "' WHERE id_nilai=" + Dg.CurrentRow.Cells[DB.GetColumnIndexByHeader(Dg, "ID NILAI")].Value.ToString());
-                //        Dg.LoadIndex(Loaddb, e.ColumnIndex);
-                //    }
-                //}
-                //else
-                //    MessageBox.Show("Tidak dapet memberi keterangan ketika nilai belum di berikan!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("INPUT")].Value.ToString().Equals("INPUT"))
+                    MessageBox.Show("Klik input!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    string nilai = Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KETERANGAN")].Value.ToString();
+                    if (A.InputRichTextBox("Input", "Keterangan", ref nilai) == DialogResult.OK)
+                    {
+                        if (A.ManipulasiData("UPDATE `tb_nilai` SET `keterangan` = '" + nilai + "' " +
+                           "WHERE `kode_nilai` = '" + Dg.CurrentRow.Cells[Dg.GetColumnIndexByHeader("KODE NILAI")].Value.ToString() + "';"))
+                            Dg.LoadIndex(Loaddb, e.ColumnIndex);
+                    }
+                }
             }
         }
     }
