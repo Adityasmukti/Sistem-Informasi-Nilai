@@ -2897,6 +2897,15 @@ namespace ExtensionMethods
                 next--;
             }
         }
+        public static void LoadTahunAjaran(this ComboBox cb, string kodeguru)
+        {
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `tahunajaran` FROM `tb_jadwal` WHERE `kode_guru`='" + kodeguru + "'" +
+                " GROUP BY `tahunajaran` ORDER BY `tahunajaran` DESC;").Rows)
+            {
+                cb.Items.Add(br[0].ToString());
+            }
+        }
         public static List<string> LoadKelas(this ComboBox cb, string KodeGuru, string TahunAjaran)
         {
             id = new List<string>();
@@ -2922,14 +2931,14 @@ namespace ExtensionMethods
             }
             return id;
         }
-        public static List<string> LoadPelajaran(this ComboBox cb, string TahunAjaran, string KodeGuru, string KodeKelas)
+        public static List<string> LoadPelajaran(this ComboBox cb, string KodeGuru, string TahunAjaran, string KodeKelas)
         {
             id = new List<string>();
             cb.Items.Clear();
-            foreach (DataRow br in GetData("SELECT `kodepelajaran`, `namapelajaran` FROM `tb_jadwal` `J` " +
+            foreach (DataRow br in GetData("SELECT `kodepelajaran`, CONCAT('(',`kodemapel`,') ',`namapelajaran`) `namapelajaran` FROM `tb_jadwal` `J` " +
                 "LEFT JOIN `r_matapelajaran` `MP` ON `MP`.`kodepelajaran`=`J`.`kode_pelajaran` " +
                 "WHERE `tahunajaran`='" + TahunAjaran + "' AND `kode_guru`='" + KodeGuru + "' " +
-                "AND `kode_kelas`='" + KodeKelas + "' ORDER BY `namapelajaran` ASC").Rows)
+                "AND `kode_kelas`='" + KodeKelas + "' GROUP BY `kodepelajaran` ORDER BY `namapelajaran` ASC").Rows)
             {
                 id.Add(br[0].ToString());
                 cb.Items.Add(br[1].ToString());
@@ -2940,8 +2949,8 @@ namespace ExtensionMethods
         {
             id = new List<string>();
             cb.Items.Clear();
-            foreach (DataRow br in GetData("SELECT `kodepelajaran`, `namapelajaran` FROM `r_matapelajaran` " +
-                "WHERE `hapus`='N' ORDER BY `namapelajaran` ASC").Rows)
+            foreach (DataRow br in GetData("SELECT `kodepelajaran`, CONCAT('(',`kodemapel`,') ',`namapelajaran`) `namapelajaran` FROM `r_matapelajaran` " +
+                "WHERE `hapus`='N' AND `status`='Y' ORDER BY `namapelajaran` ASC").Rows)
             {
                 id.Add(br[0].ToString());
                 cb.Items.Add(br[1].ToString());
@@ -2966,7 +2975,7 @@ namespace ExtensionMethods
         {
             id = new List<string>();
             cb.Items.Clear();
-            foreach (DataRow br in GetData("SELECT `kode_guru`, CONCAT(`nidn`,' (',`namaguru`,')') `namaguru` FROM `m_guru` WHERE `hapus`='N';").Rows)
+            foreach (DataRow br in GetData("SELECT `kode_guru`, CONCAT(`namaguru`,' (',`nidn`,')') `namaguru` FROM `m_guru` WHERE `hapus`='N';").Rows)
             {
                 id.Add(br[0].ToString());
                 cb.Items.Add(br[1].ToString());

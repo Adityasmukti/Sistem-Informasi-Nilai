@@ -16,7 +16,7 @@ namespace SINIS.TU
     public partial class FPengajaran : Form
     {
         private string query = "";
-        private List<string> kodekelas, kodeguru;
+        private List<string> kodekelas;
         public FPengajaran()
         {
             InitializeComponent();
@@ -25,11 +25,9 @@ namespace SINIS.TU
 
             CbTahunAjaran.LoadTahunAjaran();
             kodekelas = CbKelas.LoadKelas();
-            kodeguru = CbGuru.LoadGuru();
 
             CbTahunAjaran.SelectedIndexChanged += LoadingData;
             CbKelas.SelectedIndexChanged += LoadingData;
-            CbGuru.SelectedIndexChanged += LoadingData;
             TbCari.TextChanged += LoadingData;
         }
 
@@ -46,13 +44,13 @@ namespace SINIS.TU
 
         private bool Loaddb()
         {
-            if (CbKelas.SelectedIndex >= 0)
+            if (CbKelas.SelectedIndex >= 0 && CbTahunAjaran.SelectedIndex>=0)
             {
                 A.SetSelect("SELECT IFNULL(`J`.`kode_jadwal`,'0') `kodejadwal`, `kodepelajaran`, " +
                     "IF(`J`.`kode_jadwal` IS NULL, 'BELUM', 'SUDAH') `pilih`, `kodemapel`, `namapelajaran`, `namaguru`, `keterangan`, `jadwal` ");
                 A.SetFrom("FROM `r_matapelajaran` `MP` LEFT JOIN (SELECT `J`.`kode_jadwal`, `J`.`kode_pelajaran`, " +
                     "CONCAT(`nidn`,' (',IF(`gelardepan`='','',CONCAT(`gelardepan`,' ')), `namaguru`, " +
-                    "IF(`gelarbelakang`='','',CONCAT(`gelarbelakang`,' ')),')') `namaguru`, `J`.`keterangan` FROM `tb_jadwal` `J` " +
+                    "IF(`gelarbelakang`='','',CONCAT(' ', `gelarbelakang`)),')') `namaguru`, `J`.`keterangan` FROM `tb_jadwal` `J` " +
                     "LEFT JOIN `m_guru` `G` ON `G`.`kode_guru`=`J`.`kode_guru`WHERE `kode_kelas`='" + kodekelas[CbKelas.SelectedIndex] + "' " +
                     "AND tahunajaran='" + CbTahunAjaran.Text + "') `J` ON `J`.`kode_pelajaran`=`MP`.`kodepelajaran` " +
                     "LEFT JOIN (SELECT`kode_jadwal`,  GROUP_CONCAT(`hari`,',',`waktu`,',',`totaljam`,';' SEPARATOR '\n') `jadwal` " +
@@ -78,8 +76,6 @@ namespace SINIS.TU
                             {"tahunajaran",CbTahunAjaran.Text },
                             {"kodekelas", kodekelas[CbKelas.SelectedIndex]},
                             {"kelas", CbKelas.Text},
-                            //{"kodeguru", kodeguru[CbGuru.SelectedIndex]},
-                            {"guru", CbGuru.Text},
                             {"kodepelajaran", Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE PELAJARAN")].Value.ToString() },
                             {"kodemapel",Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("KODE MAPEL")].Value.ToString()  },
                             {"pelajaran",Dg.Rows[e.RowIndex].Cells[Dg.GetColumnIndexByHeader("PELAJARAN")].Value.ToString() },

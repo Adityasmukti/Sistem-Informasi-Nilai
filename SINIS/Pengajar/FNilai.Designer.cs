@@ -28,40 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CbMataPelajaran = new System.Windows.Forms.ComboBox();
+            this.LInfo = new System.Windows.Forms.Label();
+            this.TbCari = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.CbJenisNilai = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CbKelas = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CbMataPelajaran = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CbTahunAjaran = new System.Windows.Forms.ComboBox();
             this.Dg = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BOk = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.LInfo = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ldarihalaman = new System.Windows.Forms.Label();
             this.bnext = new System.Windows.Forms.Button();
             this.tbhalaman = new System.Windows.Forms.TextBox();
             this.bprev = new System.Windows.Forms.Button();
+            this.BOk = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -71,34 +72,61 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.CbMataPelajaran);
             this.panel2.Controls.Add(this.LInfo);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.TbCari);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.CbJenisNilai);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.CbKelas);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.CbMataPelajaran);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.CbTahunAjaran);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 84);
+            this.panel2.Size = new System.Drawing.Size(784, 116);
             this.panel2.TabIndex = 2;
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(50, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(722, 20);
-            this.textBox1.TabIndex = 18;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(332, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "PELAJARAN";
+            // 
+            // CbMataPelajaran
+            // 
+            this.CbMataPelajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbMataPelajaran.FormattingEnabled = true;
+            this.CbMataPelajaran.Location = new System.Drawing.Point(407, 56);
+            this.CbMataPelajaran.Name = "CbMataPelajaran";
+            this.CbMataPelajaran.Size = new System.Drawing.Size(218, 21);
+            this.CbMataPelajaran.TabIndex = 20;
+            this.CbMataPelajaran.DropDown += new System.EventHandler(this.CbMataPelajaran_DropDown);
+            // 
+            // LInfo
+            // 
+            this.LInfo.Location = new System.Drawing.Point(12, 13);
+            this.LInfo.Name = "LInfo";
+            this.LInfo.Size = new System.Drawing.Size(760, 13);
+            this.LInfo.TabIndex = 19;
+            this.LInfo.Text = "-";
+            // 
+            // TbCari
+            // 
+            this.TbCari.Location = new System.Drawing.Point(108, 83);
+            this.TbCari.Name = "TbCari";
+            this.TbCari.Size = new System.Drawing.Size(664, 20);
+            this.TbCari.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 59);
+            this.label5.Location = new System.Drawing.Point(12, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 17;
@@ -108,15 +136,15 @@
             // 
             this.CbJenisNilai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbJenisNilai.FormattingEnabled = true;
-            this.CbJenisNilai.Location = new System.Drawing.Point(658, 29);
+            this.CbJenisNilai.Location = new System.Drawing.Point(407, 29);
             this.CbJenisNilai.Name = "CbJenisNilai";
-            this.CbJenisNilai.Size = new System.Drawing.Size(114, 21);
+            this.CbJenisNilai.Size = new System.Drawing.Size(218, 21);
             this.CbJenisNilai.TabIndex = 14;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(585, 32);
+            this.label6.Location = new System.Drawing.Point(332, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 15;
@@ -125,7 +153,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(235, 32);
+            this.label3.Location = new System.Drawing.Point(12, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 11;
@@ -135,28 +163,11 @@
             // 
             this.CbKelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbKelas.FormattingEnabled = true;
-            this.CbKelas.Location = new System.Drawing.Point(282, 29);
+            this.CbKelas.Location = new System.Drawing.Point(108, 56);
             this.CbKelas.Name = "CbKelas";
-            this.CbKelas.Size = new System.Drawing.Size(121, 21);
+            this.CbKelas.Size = new System.Drawing.Size(218, 21);
             this.CbKelas.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(409, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "MAPEL";
-            // 
-            // CbMataPelajaran
-            // 
-            this.CbMataPelajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbMataPelajaran.FormattingEnabled = true;
-            this.CbMataPelajaran.Location = new System.Drawing.Point(458, 29);
-            this.CbMataPelajaran.Name = "CbMataPelajaran";
-            this.CbMataPelajaran.Size = new System.Drawing.Size(121, 21);
-            this.CbMataPelajaran.TabIndex = 8;
+            this.CbKelas.DropDown += new System.EventHandler(this.CbKelas_DropDown);
             // 
             // label4
             // 
@@ -174,7 +185,7 @@
             this.CbTahunAjaran.ItemHeight = 13;
             this.CbTahunAjaran.Location = new System.Drawing.Point(108, 29);
             this.CbTahunAjaran.Name = "CbTahunAjaran";
-            this.CbTahunAjaran.Size = new System.Drawing.Size(121, 21);
+            this.CbTahunAjaran.Size = new System.Drawing.Size(218, 21);
             this.CbTahunAjaran.TabIndex = 6;
             // 
             // Dg
@@ -183,40 +194,41 @@
             this.Dg.AllowUserToDeleteRows = false;
             this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.Dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column6,
             this.Column5,
-            this.Column13,
             this.Column3,
             this.Column2,
+            this.Column8,
             this.Column4,
+            this.Column13,
             this.Column7,
             this.Column14});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dg.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dg.DefaultCellStyle = dataGridViewCellStyle10;
             this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dg.Location = new System.Drawing.Point(0, 141);
+            this.Dg.Location = new System.Drawing.Point(0, 173);
             this.Dg.Name = "Dg";
             this.Dg.ReadOnly = true;
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dg.Size = new System.Drawing.Size(784, 349);
+            this.Dg.Size = new System.Drawing.Size(784, 317);
             this.Dg.TabIndex = 5;
             this.Dg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dg_CellDoubleClick);
             // 
@@ -236,16 +248,10 @@
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "KODE JADWAL";
+            this.Column5.HeaderText = "INPUT";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "TANGGAL";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 83;
+            this.Column5.Width = 46;
             // 
             // Column3
             // 
@@ -261,12 +267,26 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 63;
             // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "JK";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 44;
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "KELAS";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 66;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "TANGGAL";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 83;
             // 
             // Column7
             // 
@@ -316,39 +336,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(784, 49);
             this.panel3.TabIndex = 104;
-            // 
-            // BOk
-            // 
-            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BOk.BackColor = System.Drawing.Color.Crimson;
-            this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BOk.ForeColor = System.Drawing.Color.White;
-            this.BOk.Location = new System.Drawing.Point(672, 8);
-            this.BOk.Margin = new System.Windows.Forms.Padding(4);
-            this.BOk.Name = "BOk";
-            this.BOk.Size = new System.Drawing.Size(108, 35);
-            this.BOk.TabIndex = 44;
-            this.BOk.Text = "OK";
-            this.BOk.UseVisualStyleBackColor = false;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
-            this.statusStrip1.TabIndex = 105;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // LInfo
-            // 
-            this.LInfo.Location = new System.Drawing.Point(12, 13);
-            this.LInfo.Name = "LInfo";
-            this.LInfo.Size = new System.Drawing.Size(760, 13);
-            this.LInfo.TabIndex = 19;
-            this.LInfo.Text = "-";
             // 
             // panel4
             // 
@@ -415,6 +402,31 @@
             this.bprev.Text = "<";
             this.bprev.UseVisualStyleBackColor = false;
             // 
+            // BOk
+            // 
+            this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BOk.BackColor = System.Drawing.Color.Crimson;
+            this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BOk.ForeColor = System.Drawing.Color.White;
+            this.BOk.Location = new System.Drawing.Point(672, 8);
+            this.BOk.Margin = new System.Windows.Forms.Padding(4);
+            this.BOk.Name = "BOk";
+            this.BOk.Size = new System.Drawing.Size(108, 35);
+            this.BOk.TabIndex = 44;
+            this.BOk.Text = "OK";
+            this.BOk.UseVisualStyleBackColor = false;
+            this.BOk.Click += new System.EventHandler(this.BOk_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 105;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // FNilai
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -427,10 +439,8 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FNilai";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NILAI";
-            this.Load += new System.EventHandler(this.FInputNilai_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dg)).EndInit();
@@ -449,8 +459,6 @@
         private System.Windows.Forms.DataGridView Dg;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CbKelas;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox CbMataPelajaran;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CbTahunAjaran;
         private System.Windows.Forms.Label label6;
@@ -460,22 +468,25 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BOk;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TbCari;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Label LInfo;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label ldarihalaman;
         private System.Windows.Forms.Button bnext;
         private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CbMataPelajaran;
     }
 }

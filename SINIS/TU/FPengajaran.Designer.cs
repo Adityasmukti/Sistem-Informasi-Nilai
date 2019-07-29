@@ -31,14 +31,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Dg = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TbCari = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.LInfo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CbKelas = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CbGuru = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CbTahunAjaran = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -51,14 +57,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,7 +68,7 @@
             // 
             this.Dg.AllowUserToAddRows = false;
             this.Dg.AllowUserToDeleteRows = false;
-            this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -84,11 +82,11 @@
             this.Dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column6,
-            this.Column3,
             this.Column1,
             this.Column8,
             this.Column2,
             this.Column5,
+            this.Column3,
             this.Column4});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -103,9 +101,60 @@
             this.Dg.Name = "Dg";
             this.Dg.RowHeadersVisible = false;
             this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dg.Size = new System.Drawing.Size(784, 426);
+            this.Dg.Size = new System.Drawing.Size(784, 355);
             this.Dg.TabIndex = 4;
             this.Dg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dg_CellClick);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "KODE JADWAL";
+            this.Column7.Name = "Column7";
+            this.Column7.Visible = false;
+            this.Column7.Width = 90;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "KODE PELAJARAN";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            this.Column6.Width = 108;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "PILIH";
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.Width = 40;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "KODE MAPEL";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 101;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "PELAJARAN";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 94;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "PENGAJAR";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 89;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "KETERANGAN";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 106;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "WAKTU";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 72;
             // 
             // panel1
             // 
@@ -114,8 +163,6 @@
             this.panel1.Controls.Add(this.LInfo);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.CbKelas);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.CbGuru);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CbTahunAjaran);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -165,24 +212,6 @@
             this.CbKelas.Name = "CbKelas";
             this.CbKelas.Size = new System.Drawing.Size(180, 21);
             this.CbKelas.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(527, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "GURU";
-            // 
-            // CbGuru
-            // 
-            this.CbGuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbGuru.FormattingEnabled = true;
-            this.CbGuru.Location = new System.Drawing.Point(572, 19);
-            this.CbGuru.Name = "CbGuru";
-            this.CbGuru.Size = new System.Drawing.Size(200, 21);
-            this.CbGuru.TabIndex = 2;
             // 
             // label1
             // 
@@ -328,61 +357,18 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "KODE JADWAL";
-            this.Column7.Name = "Column7";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "KODE PELAJARAN";
-            this.Column6.Name = "Column6";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "KODE KELAS";
-            this.Column3.Name = "Column3";
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "PILIH";
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "KODE MAPEL";
-            this.Column8.Name = "Column8";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "PELAJARAN";
-            this.Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "PENGAJAR";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "WAKTU";
-            this.Column4.Name = "Column4";
-            // 
             // FPengajaran
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FPengajaran";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JADWAL MENGAJAR";
             this.Load += new System.EventHandler(this.FPengajaran_Load);
@@ -404,8 +390,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CbKelas;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox CbGuru;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CbTahunAjaran;
         private System.Windows.Forms.Panel panel3;
@@ -423,11 +407,11 @@
         private System.Windows.Forms.Label LInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

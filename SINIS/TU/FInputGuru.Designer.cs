@@ -91,7 +91,6 @@
             // 
             this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BHapus.BackColor = System.Drawing.Color.Crimson;
-            this.BHapus.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BHapus.ForeColor = System.Drawing.Color.White;
@@ -107,7 +106,6 @@
             // 
             this.BBatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BBatal.BackColor = System.Drawing.Color.Crimson;
-            this.BBatal.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BBatal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BBatal.ForeColor = System.Drawing.Color.White;
@@ -124,7 +122,6 @@
             // 
             this.BSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BSimpan.BackColor = System.Drawing.Color.Crimson;
-            this.BSimpan.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSimpan.ForeColor = System.Drawing.Color.White;
@@ -534,8 +531,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.Name = "FInputGuru";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KELOLA GURU";
             this.panel17.ResumeLayout(false);

@@ -29,7 +29,7 @@ CREATE TABLE `d_login` (
   `time` datetime NOT NULL,
   `state` enum('LOGIN','LOGOUT') NOT NULL DEFAULT 'LOGIN',
   PRIMARY KEY (`id_login`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 /*Data for the table `d_login` */
 
@@ -88,7 +88,51 @@ insert  into `d_login`(`id_login`,`id_user`,`ipaddres`,`macaddres`,`pcname`,`tim
 (52,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:06:02','LOGOUT'),
 (53,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:06:32','LOGIN'),
 (54,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-24 20:07:16','LOGIN'),
-(55,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-25 05:35:41','LOGOUT');
+(55,1,'192.168.100.101','00155D203C65','AQUAMARINE','2019-07-25 05:35:41','LOGOUT'),
+(56,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:44:39','LOGIN'),
+(57,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:45:16','LOGOUT'),
+(58,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:46:30','LOGIN'),
+(59,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:47:48','LOGOUT'),
+(60,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:49:27','LOGIN'),
+(61,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:49:39','LOGOUT'),
+(62,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:52:01','LOGIN'),
+(63,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:57:17','LOGIN'),
+(64,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 09:59:50','LOGIN'),
+(65,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:00:11','LOGOUT'),
+(66,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:01:31','LOGIN'),
+(67,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:01:42','LOGOUT'),
+(68,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:02:03','LOGIN'),
+(69,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:04:50','LOGOUT'),
+(70,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:05:52','LOGIN'),
+(71,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:06:12','LOGOUT'),
+(72,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:07:45','LOGIN'),
+(73,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:08:06','LOGOUT'),
+(74,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:08:48','LOGIN'),
+(75,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:09:03','LOGOUT'),
+(76,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:10:40','LOGIN'),
+(77,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:10:52','LOGOUT'),
+(78,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:11:14','LOGIN'),
+(79,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:11:24','LOGOUT'),
+(80,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:12:53','LOGIN'),
+(81,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:13:46','LOGOUT'),
+(82,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:16:22','LOGIN'),
+(83,1,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:19:16','LOGOUT'),
+(84,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:19:37','LOGIN'),
+(85,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:24:21','LOGOUT'),
+(86,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:27:45','LOGIN'),
+(87,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:28:14','LOGOUT'),
+(88,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:29:24','LOGIN'),
+(89,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:29:45','LOGOUT'),
+(90,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:35:17','LOGIN'),
+(91,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:51:21','LOGOUT'),
+(92,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 10:53:39','LOGIN'),
+(93,3,'192.168.1.15','9822EF582D19','AQUAMARINE','2019-07-29 11:11:46','LOGOUT'),
+(94,3,'192.168.2.239','9822EF582D19','AQUAMARINE','2019-07-29 14:04:39','LOGIN'),
+(95,3,'192.168.2.239','9822EF582D19','AQUAMARINE','2019-07-29 14:05:10','LOGOUT'),
+(96,3,'192.168.2.239','9822EF582D19','AQUAMARINE','2019-07-29 14:06:48','LOGIN'),
+(97,3,'192.168.2.239','9822EF582D19','AQUAMARINE','2019-07-29 14:08:48','LOGOUT'),
+(98,3,'192.168.2.239','9822EF582D19','AQUAMARINE','2019-07-29 14:12:20','LOGIN'),
+(99,3,'192.168.2.239','9822EF582D19','AQUAMARINE','2019-07-29 14:13:13','LOGOUT');
 
 /*Table structure for table `m_akses` */
 
@@ -138,6 +182,9 @@ CREATE TABLE `m_guru` (
 
 /*Data for the table `m_guru` */
 
+insert  into `m_guru`(`kode_guru`,`nidn`,`nik`,`nosk`,`namaguru`,`nohp`,`email`,`alamat`,`masuk`,`status`,`jeniskelamin`,`gelardepan`,`gelarbelakang`,`tempatlahir`,`tgllahir`,`jabatanstruktural`,`jabatanfungsional`,`golongan`,`hapus`) values 
+('GR1501907290001','12345','12345','12345','Adityasmukti','087873507353','tyas.102@gmail.com','kp baros cianjur','2019-07-29','AKTIF','L','','ST.','Sukoharjo','1993-09-15','','','','N');
+
 /*Table structure for table `m_siswa` */
 
 DROP TABLE IF EXISTS `m_siswa`;
@@ -165,7 +212,7 @@ CREATE TABLE `m_siswa` (
 /*Data for the table `m_siswa` */
 
 insert  into `m_siswa`(`kode_siswa`,`nis`,`namasiswa`,`alamat`,`ayah`,`ibu`,`kontak`,`status`,`keterangan`,`angkatan`,`masuk`,`jeniskelamin`,`tempatlahir`,`tgllahir`,`email`,`hapus`) values 
-('SW1011907220001','123456','Adit','te','','','0818181818','AKTIF','','2019','2019-07-22','L','','2019-07-22','','N');
+('SW1011907220001','123456','Adit','te','s','s','0818181818','AKTIF','sdasw','2019','2019-07-22','L','Sukoharjo','2019-07-22','','N');
 
 /*Table structure for table `m_user` */
 
@@ -183,13 +230,14 @@ CREATE TABLE `m_user` (
   PRIMARY KEY (`id_user`),
   KEY `id_akses` (`id_akses`),
   CONSTRAINT `m_user_ibfk_1` FOREIGN KEY (`id_akses`) REFERENCES `m_akses` (`id_akses`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `m_user` */
 
 insert  into `m_user`(`id_user`,`id_akses`,`kode_ref`,`username`,`password`,`device`,`ppic`,`hapus`) values 
 (1,1,'1','admin','c5a4e7e6882845ea7bb4d9462868219b',NULL,1,'N'),
-(2,4,'SW1011907220001','123456','e10adc3949ba59abbe56e057f20f883e','00155D203C65',1,'N');
+(2,4,'SW1011907220001','123456','e10adc3949ba59abbe56e057f20f883e','00155D203C65',1,'N'),
+(3,1,'GR1501907290001','12345','e10adc3949ba59abbe56e057f20f883e','9822EF582D19',1,'N');
 
 /*Table structure for table `r_jenisnilai` */
 
@@ -206,7 +254,8 @@ CREATE TABLE `r_jenisnilai` (
 /*Data for the table `r_jenisnilai` */
 
 insert  into `r_jenisnilai`(`kode_jenisnilai`,`namajenisnilai`,`keterangan`,`hapus`) values 
-('JN1011907230001','Ujian Tengah Semester','nilai ujian tengah semester','N');
+('JN1011907230001','Ujian Tengah Semester','nilai ujian tengah semester','N'),
+('JN1501907290001','Ujian Akhir Semester','','N');
 
 /*Table structure for table `r_kelas` */
 
@@ -246,7 +295,9 @@ CREATE TABLE `r_matapelajaran` (
 /*Data for the table `r_matapelajaran` */
 
 insert  into `r_matapelajaran`(`kodepelajaran`,`kodemapel`,`namapelajaran`,`status`,`hapus`) values 
-('MP1011907220001','MPL101','B. Indonesia','Y','N');
+('MP1011907220001','MPL101','B. Indonesia','Y','N'),
+('MP1501907290001','MPL102','B. Inggris','Y','N'),
+('MP1501907290002','MPL103','Fisika','Y','N');
 
 /*Table structure for table `r_settings` */
 
@@ -297,7 +348,7 @@ CREATE TABLE `tb_jadwal` (
   `kode_guru` varchar(15) DEFAULT NULL,
   `kode_kelas` varchar(15) DEFAULT NULL,
   `kode_pelajaran` varchar(15) DEFAULT NULL,
-  `tahunajaran` varchar(5) DEFAULT NULL,
+  `tahunajaran` varchar(20) DEFAULT NULL,
   `keterangan` text,
   `tanggal` date DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL,
@@ -305,6 +356,11 @@ CREATE TABLE `tb_jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_jadwal` */
+
+insert  into `tb_jadwal`(`kode_jadwal`,`kode_guru`,`kode_kelas`,`kode_pelajaran`,`tahunajaran`,`keterangan`,`tanggal`,`id_user`) values 
+('JD1501907290001','GR1501907290001','KL1011907230001','MP1011907220001','2019/2020','','2019-07-29',3),
+('JD2391907290001','GR1501907290001','KL1011907230001','MP1501907290001','2019/2020','','2019-07-29',3),
+('JD2391907290002','GR1501907290001','KL1011907240001','MP1011907220001','2019/2020','','2019-07-29',3);
 
 /*Table structure for table `tb_nilai` */
 
@@ -343,7 +399,7 @@ CREATE TABLE `tb_ruangan` (
 /*Data for the table `tb_ruangan` */
 
 insert  into `tb_ruangan`(`kode_ruangan`,`kode_kelas`,`kode_siswa`,`kode_guru`,`tahunajaran`,`keterangan`,`tanggal`,`id_user`) values 
-('RG1011907240001','KL1011907240003','SW1011907220001',NULL,'2019/2020','','2019-07-24 20:07:35',1);
+('RG2391907290001','KL1011907230001','SW1011907220001',NULL,'2019/2020','yu','2019-07-29 14:07:17',3);
 
 /*Table structure for table `tb_waktupelajaran` */
 
@@ -358,9 +414,15 @@ CREATE TABLE `tb_waktupelajaran` (
   `id_user` int(11) DEFAULT NULL,
   `tanggal` datetime DEFAULT NULL,
   PRIMARY KEY (`idwaktupelajaran`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_waktupelajaran` */
+
+insert  into `tb_waktupelajaran`(`idwaktupelajaran`,`kode_jadwal`,`totaljam`,`hari`,`waktu`,`id_user`,`tanggal`) values 
+(1,NULL,2,'senin','18:18:00',1,'2019-07-27 21:16:37'),
+(2,'JD1501907290001',2,'SENIN','07:00:00',3,'2019-07-29 10:51:03'),
+(3,'JD2391907290001',2,'SELASA','09:45:00',3,'2019-07-29 14:08:03'),
+(4,'JD2391907290002',2,'RABU','10:00:00',3,'2019-07-29 14:13:07');
 
 /*Table structure for table `tb_walikelas` */
 

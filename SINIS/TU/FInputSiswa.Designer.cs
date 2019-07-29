@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CbAngkatan = new System.Windows.Forms.ComboBox();
+            this.TbKeterangan = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TbIbu = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TbAyah = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.CbJenisKelamin = new System.Windows.Forms.ComboBox();
             this.DtpMasuk = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
@@ -57,14 +65,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.TbAyah = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TbIbu = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TbKeterangan = new System.Windows.Forms.RichTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.CbAngkatan = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -106,6 +106,76 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(739, 336);
             this.panel2.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(354, 113);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.TabIndex = 227;
+            this.label14.Text = "ANGKATAN*";
+            // 
+            // CbAngkatan
+            // 
+            this.CbAngkatan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAngkatan.FormattingEnabled = true;
+            this.CbAngkatan.Items.AddRange(new object[] {
+            "AKTIF",
+            "TIDAK AKTIF"});
+            this.CbAngkatan.Location = new System.Drawing.Point(491, 109);
+            this.CbAngkatan.Name = "CbAngkatan";
+            this.CbAngkatan.Size = new System.Drawing.Size(235, 21);
+            this.CbAngkatan.TabIndex = 226;
+            // 
+            // TbKeterangan
+            // 
+            this.TbKeterangan.Location = new System.Drawing.Point(491, 162);
+            this.TbKeterangan.Name = "TbKeterangan";
+            this.TbKeterangan.Size = new System.Drawing.Size(235, 72);
+            this.TbKeterangan.TabIndex = 225;
+            this.TbKeterangan.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(354, 166);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 13);
+            this.label13.TabIndex = 224;
+            this.label13.Text = "KETERANGAN";
+            // 
+            // TbIbu
+            // 
+            this.TbIbu.Location = new System.Drawing.Point(113, 266);
+            this.TbIbu.Name = "TbIbu";
+            this.TbIbu.Size = new System.Drawing.Size(235, 20);
+            this.TbIbu.TabIndex = 223;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 269);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 222;
+            this.label3.Text = "IBU";
+            // 
+            // TbAyah
+            // 
+            this.TbAyah.Location = new System.Drawing.Point(113, 240);
+            this.TbAyah.Name = "TbAyah";
+            this.TbAyah.Size = new System.Drawing.Size(235, 20);
+            this.TbAyah.TabIndex = 221;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 243);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 220;
+            this.label2.Text = "AYAH";
             // 
             // CbJenisKelamin
             // 
@@ -385,76 +455,6 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
-            // TbAyah
-            // 
-            this.TbAyah.Location = new System.Drawing.Point(113, 240);
-            this.TbAyah.Name = "TbAyah";
-            this.TbAyah.Size = new System.Drawing.Size(235, 20);
-            this.TbAyah.TabIndex = 221;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 243);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 220;
-            this.label2.Text = "AYAH";
-            // 
-            // TbIbu
-            // 
-            this.TbIbu.Location = new System.Drawing.Point(113, 266);
-            this.TbIbu.Name = "TbIbu";
-            this.TbIbu.Size = new System.Drawing.Size(235, 20);
-            this.TbIbu.TabIndex = 223;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 269);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 222;
-            this.label3.Text = "IBU";
-            // 
-            // TbKeterangan
-            // 
-            this.TbKeterangan.Location = new System.Drawing.Point(491, 162);
-            this.TbKeterangan.Name = "TbKeterangan";
-            this.TbKeterangan.Size = new System.Drawing.Size(235, 72);
-            this.TbKeterangan.TabIndex = 225;
-            this.TbKeterangan.Text = "";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(354, 166);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 13);
-            this.label13.TabIndex = 224;
-            this.label13.Text = "KETERANGAN";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(354, 113);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 13);
-            this.label14.TabIndex = 227;
-            this.label14.Text = "ANGKATAN*";
-            // 
-            // CbAngkatan
-            // 
-            this.CbAngkatan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbAngkatan.FormattingEnabled = true;
-            this.CbAngkatan.Items.AddRange(new object[] {
-            "AKTIF",
-            "TIDAK AKTIF"});
-            this.CbAngkatan.Location = new System.Drawing.Point(491, 109);
-            this.CbAngkatan.Name = "CbAngkatan";
-            this.CbAngkatan.Size = new System.Drawing.Size(235, 21);
-            this.CbAngkatan.TabIndex = 226;
-            // 
             // FInputSiswa
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -466,7 +466,6 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FInputSiswa";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KELOLA SISWA";
             this.panel2.ResumeLayout(false);

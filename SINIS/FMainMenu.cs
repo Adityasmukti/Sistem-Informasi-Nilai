@@ -157,5 +157,10 @@ namespace SINIS
             TU.FMasterJenisNilai f = new TU.FMasterJenisNilai();
             f.Show();
         }
+
+        private void BGuru_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

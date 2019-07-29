@@ -32,12 +32,12 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BLogin = new System.Windows.Forms.Button();
-            this.TbPassword = new System.Windows.Forms.TextBox();
-            this.TbUsername = new System.Windows.Forms.TextBox();
-            this.BKeluar = new System.Windows.Forms.Button();
-            this.CbSaveUsername = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CbSaveUsername = new System.Windows.Forms.CheckBox();
+            this.BKeluar = new System.Windows.Forms.Button();
+            this.TbUsername = new System.Windows.Forms.TextBox();
+            this.TbPassword = new System.Windows.Forms.TextBox();
+            this.BLogin = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,22 +82,61 @@
             this.panel3.Size = new System.Drawing.Size(751, 455);
             this.panel3.TabIndex = 15;
             // 
-            // BLogin
+            // pictureBox1
             // 
-            this.BLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BLogin.BackColor = System.Drawing.Color.Crimson;
-            this.BLogin.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BLogin.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BLogin.ForeColor = System.Drawing.Color.White;
-            this.BLogin.Location = new System.Drawing.Point(383, 353);
-            this.BLogin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.BLogin.Name = "BLogin";
-            this.BLogin.Size = new System.Drawing.Size(176, 51);
-            this.BLogin.TabIndex = 4;
-            this.BLogin.Text = "LOGIN";
-            this.BLogin.UseVisualStyleBackColor = false;
-            this.BLogin.Click += new System.EventHandler(this.Blogin_Click);
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(277, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // CbSaveUsername
+            // 
+            this.CbSaveUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbSaveUsername.AutoSize = true;
+            this.CbSaveUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbSaveUsername.ForeColor = System.Drawing.Color.SteelBlue;
+            this.CbSaveUsername.Location = new System.Drawing.Point(434, 314);
+            this.CbSaveUsername.Name = "CbSaveUsername";
+            this.CbSaveUsername.Size = new System.Drawing.Size(127, 21);
+            this.CbSaveUsername.TabIndex = 3;
+            this.CbSaveUsername.Text = "Ingat Username";
+            this.CbSaveUsername.UseVisualStyleBackColor = true;
+            // 
+            // BKeluar
+            // 
+            this.BKeluar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BKeluar.BackColor = System.Drawing.Color.Crimson;
+            this.BKeluar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BKeluar.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BKeluar.ForeColor = System.Drawing.Color.White;
+            this.BKeluar.Location = new System.Drawing.Point(191, 353);
+            this.BKeluar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.BKeluar.Name = "BKeluar";
+            this.BKeluar.Size = new System.Drawing.Size(176, 51);
+            this.BKeluar.TabIndex = 5;
+            this.BKeluar.Text = "KELUAR";
+            this.BKeluar.UseVisualStyleBackColor = false;
+            // 
+            // TbUsername
+            // 
+            this.TbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TbUsername.BackColor = System.Drawing.Color.White;
+            this.TbUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbUsername.ForeColor = System.Drawing.Color.DimGray;
+            this.TbUsername.Location = new System.Drawing.Point(191, 212);
+            this.TbUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.TbUsername.Name = "TbUsername";
+            this.TbUsername.Size = new System.Drawing.Size(368, 38);
+            this.TbUsername.TabIndex = 0;
+            this.TbUsername.Text = "Username";
+            this.TbUsername.Enter += new System.EventHandler(this.Tbusername_Enter);
+            this.TbUsername.Leave += new System.EventHandler(this.Tbusername_Leave);
             // 
             // TbPassword
             // 
@@ -116,61 +155,22 @@
             this.TbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tbpassword_KeyPress);
             this.TbPassword.Leave += new System.EventHandler(this.Tbpassword_Leave);
             // 
-            // TbUsername
+            // BLogin
             // 
-            this.TbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TbUsername.BackColor = System.Drawing.Color.White;
-            this.TbUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbUsername.ForeColor = System.Drawing.Color.DimGray;
-            this.TbUsername.Location = new System.Drawing.Point(191, 212);
-            this.TbUsername.Margin = new System.Windows.Forms.Padding(4);
-            this.TbUsername.Name = "TbUsername";
-            this.TbUsername.Size = new System.Drawing.Size(368, 38);
-            this.TbUsername.TabIndex = 0;
-            this.TbUsername.Text = "Username";
-            this.TbUsername.Enter += new System.EventHandler(this.Tbusername_Enter);
-            this.TbUsername.Leave += new System.EventHandler(this.Tbusername_Leave);
-            // 
-            // BKeluar
-            // 
-            this.BKeluar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BKeluar.BackColor = System.Drawing.Color.Crimson;
-            this.BKeluar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BKeluar.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BKeluar.ForeColor = System.Drawing.Color.White;
-            this.BKeluar.Location = new System.Drawing.Point(191, 353);
-            this.BKeluar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.BKeluar.Name = "BKeluar";
-            this.BKeluar.Size = new System.Drawing.Size(176, 51);
-            this.BKeluar.TabIndex = 5;
-            this.BKeluar.Text = "KELUAR";
-            this.BKeluar.UseVisualStyleBackColor = false;
-            // 
-            // CbSaveUsername
-            // 
-            this.CbSaveUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CbSaveUsername.AutoSize = true;
-            this.CbSaveUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbSaveUsername.ForeColor = System.Drawing.Color.SteelBlue;
-            this.CbSaveUsername.Location = new System.Drawing.Point(434, 314);
-            this.CbSaveUsername.Name = "CbSaveUsername";
-            this.CbSaveUsername.Size = new System.Drawing.Size(127, 21);
-            this.CbSaveUsername.TabIndex = 3;
-            this.CbSaveUsername.Text = "Ingat Username";
-            this.CbSaveUsername.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(277, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.BLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BLogin.BackColor = System.Drawing.Color.Crimson;
+            this.BLogin.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BLogin.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BLogin.ForeColor = System.Drawing.Color.White;
+            this.BLogin.Location = new System.Drawing.Point(383, 353);
+            this.BLogin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.BLogin.Name = "BLogin";
+            this.BLogin.Size = new System.Drawing.Size(176, 51);
+            this.BLogin.TabIndex = 4;
+            this.BLogin.Text = "LOGIN";
+            this.BLogin.UseVisualStyleBackColor = false;
+            this.BLogin.Click += new System.EventHandler(this.Blogin_Click);
             // 
             // FLogin
             // 
@@ -181,7 +181,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);

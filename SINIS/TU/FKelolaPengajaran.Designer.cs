@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.BSimpan = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,7 +44,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BTambah = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.CbJumlahJam = new System.Windows.Forms.ComboBox();
             this.CbMenit = new System.Windows.Forms.ComboBox();
@@ -88,7 +88,6 @@
             // 
             this.BSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BSimpan.BackColor = System.Drawing.Color.Crimson;
-            this.BSimpan.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSimpan.ForeColor = System.Drawing.Color.White;
@@ -115,7 +114,6 @@
             // 
             this.BBatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BBatal.BackColor = System.Drawing.Color.Crimson;
-            this.BBatal.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BBatal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BBatal.ForeColor = System.Drawing.Color.White;
@@ -132,7 +130,6 @@
             // 
             this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BHapus.BackColor = System.Drawing.Color.Crimson;
-            this.BHapus.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BHapus.ForeColor = System.Drawing.Color.White;
@@ -160,14 +157,14 @@
             this.Dg.AllowUserToDeleteRows = false;
             this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.Dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -175,14 +172,14 @@
             this.Column3,
             this.Column4,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dg.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dg.DefaultCellStyle = dataGridViewCellStyle6;
             this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Dg.Location = new System.Drawing.Point(0, 179);
             this.Dg.Name = "Dg";
@@ -226,7 +223,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.TbKodeMapel);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.BTambah);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.CbJumlahJam);
             this.panel1.Controls.Add(this.CbMenit);
@@ -255,21 +252,21 @@
             this.label7.TabIndex = 140;
             this.label7.Text = "KETERANGAN";
             // 
-            // button1
+            // BTambah
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Crimson;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(699, 90);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 25);
-            this.button1.TabIndex = 139;
-            this.button1.Text = "Tambah";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BTambah.BackColor = System.Drawing.Color.Crimson;
+            this.BTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTambah.ForeColor = System.Drawing.Color.White;
+            this.BTambah.Location = new System.Drawing.Point(699, 90);
+            this.BTambah.Margin = new System.Windows.Forms.Padding(4);
+            this.BTambah.Name = "BTambah";
+            this.BTambah.Size = new System.Drawing.Size(64, 25);
+            this.BTambah.TabIndex = 139;
+            this.BTambah.Text = "Tambah";
+            this.BTambah.UseVisualStyleBackColor = false;
+            this.BTambah.Click += new System.EventHandler(this.BTambah_Click);
             // 
             // label6
             // 
@@ -360,6 +357,7 @@
             // 
             this.TbKelas.Location = new System.Drawing.Point(287, 6);
             this.TbKelas.Name = "TbKelas";
+            this.TbKelas.ReadOnly = true;
             this.TbKelas.Size = new System.Drawing.Size(215, 20);
             this.TbKelas.TabIndex = 131;
             // 
@@ -394,6 +392,7 @@
             // 
             this.TbTahunAjaran.Location = new System.Drawing.Point(104, 6);
             this.TbTahunAjaran.Name = "TbTahunAjaran";
+            this.TbTahunAjaran.ReadOnly = true;
             this.TbTahunAjaran.Size = new System.Drawing.Size(130, 20);
             this.TbTahunAjaran.TabIndex = 130;
             // 
@@ -419,6 +418,7 @@
             // 
             this.TbKodeMapel.Location = new System.Drawing.Point(104, 32);
             this.TbKodeMapel.Name = "TbKodeMapel";
+            this.TbKodeMapel.ReadOnly = true;
             this.TbKodeMapel.Size = new System.Drawing.Size(259, 20);
             this.TbKodeMapel.TabIndex = 143;
             // 
@@ -442,6 +442,7 @@
             // 
             this.TbPelajaran.Location = new System.Drawing.Point(444, 32);
             this.TbPelajaran.Name = "TbPelajaran";
+            this.TbPelajaran.ReadOnly = true;
             this.TbPelajaran.Size = new System.Drawing.Size(319, 20);
             this.TbPelajaran.TabIndex = 146;
             // 
@@ -453,7 +454,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FKelolaPengajaran";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KELOLA JADWAL";
@@ -482,7 +482,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BTambah;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox CbJumlahJam;
         private System.Windows.Forms.ComboBox CbMenit;
