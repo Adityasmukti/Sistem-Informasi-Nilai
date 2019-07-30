@@ -10,56 +10,49 @@ namespace SINIS.Pengajar
     /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FPelajaran : Form
     {
-        private string query = "";
-        private string namaguru, nip, kelamin, idguru;
         public FPelajaran()
         {
             InitializeComponent();
+            this.SetControlFrom();
+            tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
+            CbTahunAjaran.LoadTahunAjaran(S.GetKodeGuru());
+            TbCari.TextChanged += LoadingData;
+            CbTahunAjaran.SelectedIndexChanged += LoadingData;
         }
-
-        private void FPelajaran_Load(object sender, EventArgs e)
+        private void LoadingData(object sender, EventArgs e)
         {
-            #region Isi data informasi pengajar
-            query = "SELECT * FROM tm_guru WHERE id=" + S.GetUserid();
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    idguru = br["id"].ToString();
-            //    namaguru = br["guru_nama"].ToString();
-            //    nip = br["guru_nip"].ToString();
-            //    kelamin = br["guru_jk"].ToString();
-            //}
-          
-            #endregion
-
-            #region Isi Combobox Tahun Ajaran
-            int nows = int.Parse(DateTime.Now.ToString("yyyy"));
-            int next = nows + 1;
-            cbtahunajaran.Items.Clear();
-            while (nows >= 1990)
+            tbhalaman.Text = "1";
+            Loaddb();
+        }
+        private bool Loaddb()
+        {
+            if (CbTahunAjaran.SelectedIndex >= 0)
             {
-                cbtahunajaran.Items.Add(nows + "/" + next);
-                nows--;
-                next--;
+                A.SetSelect("SELECT `namakelas`, `kodemapel`, `namapelajaran`, `hari`, DATE_FORMAT(`waktu`, '%h:%i') `waktu`, `totaljam` ");
+                A.SetFrom("FROM `tb_jadwal` `J` LEFT JOIN `tb_waktupelajaran` `W` ON `W`.`kode_jadwal`=`J`.`kode_jadwal` " +
+                    "LEFT JOIN `r_matapelajaran` `MP` ON `MP`.`kodepelajaran`=`J`.`kode_pelajaran` " +
+                    "LEFT JOIN `r_kelas` `K` ON `K`.`kode_kelas`=`J`.`kode_kelas` ");
+                A.SetWhere("WHERE `J`.`kode_guru`='"+S.GetKodeGuru()+"' AND tahunajaran = '"+CbTahunAjaran.Text+"' ");
+                A.SetOrderby("ORDER BY `namakelas`, `namapelajaran` ASC ");
+                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + A.GetOrderby() + tbhalaman.LimitQ(ldarihalaman, LJData, A.GetFrom(), A.GetWhere()) + ";");
+                A.SetLQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + A.GetGroupby() + A.GetOrderby());
+                Dg.QueriToDg();
             }
-            cbtahunajaran.SelectedIndex = 0;
-            #endregion
+            return true;
         }
-
-        private void cbtahunajaran_SelectedIndexChanged(object sender, EventArgs e)
+        private void BOk_Click(object sender, EventArgs e)
         {
-            loaddb();
+            Close();
         }
-
-        private void loaddb()
+        private void BExport_Click(object sender, EventArgs e)
         {
-            query = "SELECT id_pelajaran, pelajaran_nama, (SELECT kelas_nama FROM tm_kelas WHERE id_kelas=id) kelas_nama " +
-                "FROM tbl_jadwal LEFT JOIN tm_pelajaran ON id_pelajaran=id WHERE id_guru="+idguru+
-                " AND tahunajaran='"+cbtahunajaran.Text+"' ORDER BY pelajaran_nama ASC";
-            dgpelajaran.Rows.Clear();
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    dgpelajaran.Rows.Add( br["id_pelajaran"], br["pelajaran_nama"], br["kelas_nama"]);
-            //}
+            if (Dg.Rows.Count > 0)
+            {
+                string judul = "Data Pelajaran Tahun Ajaran " + CbTahunAjaran.Text + " " + DateTime.Now.ToString("dd/MM/yyyy");
+                Dg.ExportExcel(A.GetLQueri(), judul);
+            }
+            else
+                MessageBox.Show("Data kosong!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

@@ -69,7 +69,6 @@
             this.TbPanelJuduBg = new System.Windows.Forms.TextBox();
             this.PnPanelJudulBg = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -121,7 +120,7 @@
             this.BBatal.Name = "BBatal";
             this.BBatal.Size = new System.Drawing.Size(188, 45);
             this.BBatal.TabIndex = 111;
-            this.BBatal.Text = "Simpan";
+            this.BBatal.Text = "Batal";
             this.BBatal.UseVisualStyleBackColor = true;
             this.BBatal.Click += new System.EventHandler(this.BBatal_Click);
             // 
@@ -139,7 +138,7 @@
             // 
             // TbJumlahBaris
             // 
-            this.TbJumlahBaris.Location = new System.Drawing.Point(217, 328);
+            this.TbJumlahBaris.Location = new System.Drawing.Point(217, 62);
             this.TbJumlahBaris.Name = "TbJumlahBaris";
             this.TbJumlahBaris.Size = new System.Drawing.Size(234, 26);
             this.TbJumlahBaris.TabIndex = 14;
@@ -147,7 +146,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 331);
+            this.label7.Location = new System.Drawing.Point(39, 65);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 20);
             this.label7.TabIndex = 13;
@@ -173,7 +172,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 57);
             this.tabControl1.Name = "tabControl1";
@@ -198,9 +196,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(776, 386);
+            this.tabPage3.Size = new System.Drawing.Size(776, 379);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "WARNA";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -237,7 +235,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(776, 386);
+            this.groupBox4.Size = new System.Drawing.Size(776, 379);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "WARNA";
@@ -476,16 +474,6 @@
             this.label20.Text = "PANEL JUDUL BG";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(776, 386);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "PESAN";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.BSimpan);
@@ -538,7 +526,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox TbFg;
         private System.Windows.Forms.Panel PnFg;

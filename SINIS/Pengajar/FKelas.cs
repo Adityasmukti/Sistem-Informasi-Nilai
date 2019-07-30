@@ -15,88 +15,55 @@ namespace SINIS.Pengajar
     /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FKelas : Form
     {
-        private string query = "";
-        private List<string> listidkelas;
-        private List<string> listidpelajaran;
-        private string namaguru, nip, kelamin, idguru;
-
+        private List<string> kodekelas;
         public FKelas()
         {
             InitializeComponent();
-            listidkelas = new List<string>();
-            listidpelajaran = new List<string>();
+            this.SetControlFrom();
+            tbhalaman.SetHalaman(bprev, ldarihalaman, bnext, Loaddb);
+            CbTahunAjaran.LoadTahunAjaran(S.GetKodeGuru());
+            TbCari.TextChanged += LoadingData;
+            CbTahunAjaran.SelectedIndexChanged += LoadingData;
+            CbKelas.SelectedIndexChanged += LoadingData;
         }
-
-        private void cbkelas_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadingData(object sender, EventArgs e)
         {
-            query = "SELECT guru_nama,guru_nip  FROM tbl_ruangan" +
-                " LEFT JOIN tm_guru ON id=id_guru WHERE tahunajaran='" + cbtahunajaran.Text +
-                "' AND id_kelas=" + listidkelas[cbkelas.SelectedIndex] + " LIMIT 1";
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    lwali.Text = br["guru_nama"].ToString().ToUpper() + "[" + br["guru_nip"].ToString() + "]";
-            //}
-            loaddb();
+            tbhalaman.Text = "1";
+            Loaddb();
         }
-
-        private void loaddb()
+        private bool Loaddb()
         {
-            if (cbkelas.SelectedIndex >= 0 && cbtahunajaran.SelectedIndex >= 0)
+            if (CbKelas.SelectedIndex >= 0 && CbTahunAjaran.SelectedIndex >= 0)
             {
-                query = "SELECT tm_siswa.* FROM tbl_ruangan LEFT JOIN tm_siswa " +
-                    "ON id_siswa=id WHERE  tahunajaran='" + cbtahunajaran.Text +
-                    "' AND id_kelas=" + listidkelas[cbkelas.SelectedIndex]+" ORDER BY siswa_nama ASC";
-                dgsiswa.Rows.Clear();
-                //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-                //{
-                //    dgsiswa.Rows.Add(br["id"].ToString(), br["siswa_nama"].ToString(),
-                //        br["siswa_nis"].ToString(), br["siswa_jk"].ToString(), br["siswa_tanggalmasuk"]);
-                //}
+                A.SetSelect("SELECT `nis`, `namasiswa`, `jeniskelamin`, `angkatan` ");
+                A.SetFrom("FROM `tb_ruangan` `R` LEFT JOIN `m_siswa` `S` ON `S`.`kode_siswa`=`R`.`kode_siswa` ");
+                A.SetWhere("WHERE  `tahunajaran`= '"+CbTahunAjaran.Text+"' AND `R`.`kode_kelas`= '"+kodekelas[CbKelas.SelectedIndex]+"' ");
+                A.SetOrderby("ORDER BY `namasiswa` ASC ");
+                A.SetQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + A.GetOrderby() + tbhalaman.LimitQ(ldarihalaman, LJData, A.GetFrom(), A.GetWhere()) + ";");
+                A.SetLQueri(A.GetSelect() + A.GetFrom() + A.GetWhere() + A.GetGroupby() + A.GetOrderby());
+                Dg.QueriToDg();
             }
+            return true;
+        }
+        private void CbKelas_DropDown(object sender, EventArgs e)
+        {
+            if (CbTahunAjaran.SelectedIndex >= 0)
+                kodekelas = CbKelas.LoadKelas(S.GetKodeGuru(), CbTahunAjaran.Text);
+        }
+        private void BOk_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
-        private void cbtahunajaran_SelectedIndexChanged(object sender, EventArgs e)
+        private void BExport_Click(object sender, EventArgs e)
         {
-            dgsiswa.Rows.Clear();
-            #region Isi Combobox Kelas
-            query = "SELECT DISTINCT(id_kelas) id, kelas_nama FROM tbl_jadwal " +
-                "LEFT JOIN tm_kelas ON tm_kelas.id=id_kelas WHERE id_guru=" + idguru +
-                " AND tahunajaran='" + cbtahunajaran.Text + "' ORDER BY kelas_nama ASC";
-            cbkelas.Items.Clear();
-            listidkelas.Clear();
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    listidkelas.Add(br["id"].ToString());
-            //    cbkelas.Items.Add(br["kelas_nama"].ToString());
-            //}
-            #endregion
-            
-        }
-
-        private void FKelas_Load(object sender, EventArgs e)
-        {
-            #region Isi data informasi pengajar
-            query = "SELECT * FROM tm_guru WHERE id=" + S.GetUserid();
-            //foreach (DataRow br in DM.GetData(query).Tables[0].Rows)
-            //{
-            //    idguru = br["id"].ToString();
-            //    namaguru = br["guru_nama"].ToString();
-            //    nip = br["guru_nip"].ToString();
-            //    kelamin = br["guru_jk"].ToString();
-            //}
-            #endregion
-
-            #region Isi Combobox Tahun Ajaran
-            int nows = int.Parse(DateTime.Now.ToString("yyyy"));
-            int next = nows + 1;
-            cbtahunajaran.Items.Clear();
-            while (nows >= 1990)
+            if (Dg.Rows.Count > 0)
             {
-                cbtahunajaran.Items.Add(nows + "/" + next);
-                nows--;
-                next--;
+                string judul = "Data Kelas " + CbKelas.Text + " Tahun Ajaran " + CbTahunAjaran.Text + " " + DateTime.Now.ToString("dd/MM/yyyy");
+                Dg.ExportExcel(A.GetLQueri(), judul);
             }
-            #endregion
+            else
+                MessageBox.Show("Data kosong!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

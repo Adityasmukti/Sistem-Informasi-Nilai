@@ -37,16 +37,17 @@
             this.LInfo = new System.Windows.Forms.Label();
             this.lwali = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbkelas = new System.Windows.Forms.ComboBox();
+            this.CbKelas = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbtahunajaran = new System.Windows.Forms.ComboBox();
-            this.dgsiswa = new System.Windows.Forms.DataGridView();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CbTahunAjaran = new System.Windows.Forms.ComboBox();
+            this.Dg = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.LJData = new System.Windows.Forms.Label();
+            this.BExport = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ldarihalaman = new System.Windows.Forms.Label();
             this.bnext = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsiswa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -70,9 +71,9 @@
             this.panel2.Controls.Add(this.LInfo);
             this.panel2.Controls.Add(this.lwali);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.cbkelas);
+            this.panel2.Controls.Add(this.CbKelas);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.cbtahunajaran);
+            this.panel2.Controls.Add(this.CbTahunAjaran);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
@@ -81,9 +82,9 @@
             // 
             // TbCari
             // 
-            this.TbCari.Location = new System.Drawing.Point(50, 52);
+            this.TbCari.Location = new System.Drawing.Point(108, 52);
             this.TbCari.Name = "TbCari";
-            this.TbCari.Size = new System.Drawing.Size(722, 20);
+            this.TbCari.Size = new System.Drawing.Size(664, 20);
             this.TbCari.TabIndex = 20;
             // 
             // label5
@@ -120,15 +121,15 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "KELAS";
             // 
-            // cbkelas
+            // CbKelas
             // 
-            this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbkelas.FormattingEnabled = true;
-            this.cbkelas.Location = new System.Drawing.Point(341, 25);
-            this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(180, 21);
-            this.cbkelas.TabIndex = 10;
-            this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbkelas_SelectedIndexChanged);
+            this.CbKelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbKelas.FormattingEnabled = true;
+            this.CbKelas.Location = new System.Drawing.Point(341, 25);
+            this.CbKelas.Name = "CbKelas";
+            this.CbKelas.Size = new System.Drawing.Size(180, 21);
+            this.CbKelas.TabIndex = 10;
+            this.CbKelas.DropDown += new System.EventHandler(this.CbKelas_DropDown);
             // 
             // label4
             // 
@@ -139,23 +140,22 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "TAHUN AJARAN";
             // 
-            // cbtahunajaran
+            // CbTahunAjaran
             // 
-            this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 13;
-            this.cbtahunajaran.Location = new System.Drawing.Point(108, 25);
-            this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(180, 21);
-            this.cbtahunajaran.TabIndex = 6;
-            this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
+            this.CbTahunAjaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbTahunAjaran.FormattingEnabled = true;
+            this.CbTahunAjaran.ItemHeight = 13;
+            this.CbTahunAjaran.Location = new System.Drawing.Point(108, 25);
+            this.CbTahunAjaran.Name = "CbTahunAjaran";
+            this.CbTahunAjaran.Size = new System.Drawing.Size(180, 21);
+            this.CbTahunAjaran.TabIndex = 6;
             // 
-            // dgsiswa
+            // Dg
             // 
-            this.dgsiswa.AllowUserToAddRows = false;
-            this.dgsiswa.AllowUserToDeleteRows = false;
-            this.dgsiswa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsiswa.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Dg.AllowUserToAddRows = false;
+            this.Dg.AllowUserToDeleteRows = false;
+            this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,10 +163,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgsiswa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgsiswa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsiswa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column6,
+            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column2,
             this.Column5,
@@ -178,22 +177,15 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgsiswa.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgsiswa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgsiswa.Location = new System.Drawing.Point(0, 139);
-            this.dgsiswa.Name = "dgsiswa";
-            this.dgsiswa.ReadOnly = true;
-            this.dgsiswa.RowHeadersVisible = false;
-            this.dgsiswa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsiswa.Size = new System.Drawing.Size(784, 422);
-            this.dgsiswa.TabIndex = 7;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "KODE SISWA";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
+            this.Dg.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dg.Location = new System.Drawing.Point(0, 139);
+            this.Dg.Name = "Dg";
+            this.Dg.ReadOnly = true;
+            this.Dg.RowHeadersVisible = false;
+            this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dg.Size = new System.Drawing.Size(784, 351);
+            this.Dg.TabIndex = 7;
             // 
             // Column3
             // 
@@ -223,13 +215,15 @@
             dataGridViewCellStyle2.Format = "d";
             dataGridViewCellStyle2.NullValue = null;
             this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column4.HeaderText = "TANGGAL MASUK";
+            this.Column4.HeaderText = "ANGKATAN";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 114;
+            this.Column4.Width = 91;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.LJData);
+            this.panel3.Controls.Add(this.BExport);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.BOk);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -237,6 +231,31 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(784, 49);
             this.panel3.TabIndex = 107;
+            // 
+            // LJData
+            // 
+            this.LJData.AutoSize = true;
+            this.LJData.Location = new System.Drawing.Point(151, 18);
+            this.LJData.Name = "LJData";
+            this.LJData.Size = new System.Drawing.Size(65, 13);
+            this.LJData.TabIndex = 48;
+            this.LJData.Text = "JUMLAH : 0";
+            // 
+            // BExport
+            // 
+            this.BExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BExport.BackColor = System.Drawing.Color.Crimson;
+            this.BExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BExport.ForeColor = System.Drawing.Color.White;
+            this.BExport.Location = new System.Drawing.Point(15, 7);
+            this.BExport.Margin = new System.Windows.Forms.Padding(4);
+            this.BExport.Name = "BExport";
+            this.BExport.Size = new System.Drawing.Size(108, 35);
+            this.BExport.TabIndex = 47;
+            this.BExport.Text = "Export";
+            this.BExport.UseVisualStyleBackColor = false;
+            this.BExport.Click += new System.EventHandler(this.BExport_Click);
             // 
             // panel4
             // 
@@ -318,6 +337,7 @@
             this.BOk.TabIndex = 44;
             this.BOk.Text = "OK";
             this.BOk.UseVisualStyleBackColor = false;
+            this.BOk.Click += new System.EventHandler(this.BOk_Click);
             // 
             // statusStrip1
             // 
@@ -358,20 +378,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dgsiswa);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FKelas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KELAS";
-            this.Load += new System.EventHandler(this.FKelas_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsiswa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -383,10 +403,10 @@
         #endregion
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbkelas;
+        private System.Windows.Forms.ComboBox CbKelas;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbtahunajaran;
-        private System.Windows.Forms.DataGridView dgsiswa;
+        private System.Windows.Forms.ComboBox CbTahunAjaran;
+        private System.Windows.Forms.DataGridView Dg;
         private System.Windows.Forms.Label lwali;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BOk;
@@ -396,15 +416,16 @@
         private System.Windows.Forms.Label LInfo;
         private System.Windows.Forms.TextBox TbCari;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label ldarihalaman;
         private System.Windows.Forms.Button bnext;
         private System.Windows.Forms.TextBox tbhalaman;
         private System.Windows.Forms.Button bprev;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button BExport;
+        private System.Windows.Forms.Label LJData;
     }
 }
