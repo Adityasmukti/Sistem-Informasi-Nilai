@@ -96,7 +96,7 @@ namespace SINIS.Settings
                 switch (pengaturan)
                 {
                     case "statusstripmessage":
-                        TbPesanStatus.Text = nilai.DecodeUtf8();
+                        TbPesanStatus.Text = nilai.DecodeFromBase64String();
                         break;
                     case "divs":
                         TbJumlahBaris.Text = nilai;

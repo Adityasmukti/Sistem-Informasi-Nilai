@@ -38,95 +38,189 @@ namespace ExtensionMethods
         private static List<string> id;
         private static PrintDocument PDD, PDB;
         private static readonly string semua = "SEMUA";
-
+        /// <summary>
+        /// Ambil string yang betuliskan SEMUA
+        /// </summary>
+        /// <returns>string konten SEMUA</returns>
         public static string GetSemua()
         {
             return semua;
         }
+        /// <summary>
+        /// Ambil queri string
+        /// </summary>
+        /// <returns>string konten Queri</returns>
         public static string GetQueri()
         {
             return queri;
+        /// <summary>
+        /// Ambil string yang betuliskan SEMUA
+        /// </summary>
         }
+        /// <summary>
+        /// Simpan Queri 
+        /// </summary>
+        /// <param name="value">queri</param>
         public static void SetQueri(string value)
         {
             queri = value;
         }
+        /// <summary>
+        /// Ambil queri select
+        /// </summary>
+        /// <returns>string konten Select QUeri</returns>
         public static string GetSelect()
         {
             return select;
         }
+        /// <summary>
+        /// Simpan Select Queri 
+        /// </summary>
+        /// <param name="value">select queri</param>
         public static void SetSelect(string value)
         {
             select = value;
         }
+        /// <summary>
+        /// Ambil string From Queri
+        /// </summary>
+        /// <returns>string konten From Queri</returns>
         public static string GetFrom()
         {
             return from;
         }
+        /// <summary>
+        /// Simpan From Queri
+        /// </summary>
+        /// <param name="value">from queri</param>
         public static void SetFrom(string value)
         {
             from = value;
         }
+        /// <summary>
+        /// Ambil string Values Queri
+        /// </summary>
+        /// <returns>string konten Values Queri</returns>
         public static string GetValues()
         {
             return values;
         }
+        /// <summary>
+        /// Simpan Values Queri 
+        /// </summary>
+        /// <param name="value">values queri</param>
         public static void SetValues(string value)
         {
             values = value;
         }
+        /// <summary>
+        /// Ambil string Where Queri
+        /// </summary>
+        /// <returns>string konten Where Queri</returns>
         public static string GetWhere()
         {
             return where;
         }
+        /// <summary>
+        /// Simpan Where Queri 
+        /// </summary>
+        /// <param name="value">where queri</param>
         public static void SetWhere(string value)
         {
             where = value;
         }
+        /// <summary>
+        /// Ambil string Group By Queri
+        /// </summary>
+        /// <returns>string konten Group By Queri</returns>
         public static string GetGroupby()
         {
             return groupby;
         }
+        /// <summary>
+        /// Simpan Group By Queri 
+        /// </summary>
+        /// <param name="value">group by queri</param>
         public static void SetGroupby(string value)
         {
             groupby = value;
         }
+        /// <summary>
+        /// Ambil string Order By Queri
+        /// </summary>
+        /// <returns>string konten Order By Queri</returns>
         public static string GetOrderby()
         {
             return orderby;
         }
+        /// <summary>
+        /// Simpan Order By Queri 
+        /// </summary>
+        /// <param name="value">order by</param>
         public static void SetOrderby(string value)
         {
             orderby = value;
         }
+        /// <summary>
+        /// Ambil string Set Queri
+        /// </summary>
+        /// <returns>string konten Set Queri</returns>
         public static string GetSet()
         {
             return set;
         }
+        /// <summary>
+        /// Simpan Set Queri 
+        /// </summary>
+        /// <param name="value">set queri</param>
         public static void SetSet(string value)
         {
             set = value;
         }
+        /// <summary>
+        /// Ambil string Insert QUeri
+        /// </summary>
+        /// <returns>string konten Insert Queri</returns>
         public static string GetInsert()
         {
             return insert;
         }
+        /// <summary>
+        /// Simpan Insert Queri 
+        /// </summary>
+        /// <param name="value">insert queri</param>
         public static void SetInsert(string value)
         {
             insert = value;
         }
+        /// <summary>
+        /// Ambil string yang Update Queri
+        /// </summary>
+        /// <returns>string konten Update Queri</returns>
         public static string GetUpdate()
         {
             return update;
         }
+        /// <summary>
+        /// Simpan Update Queri 
+        /// </summary>
+        /// <param name="value">update queri</param>
         public static void SetUpdate(string value)
         {
             update = value;
         }
+        /// <summary>
+        /// Ambil string Queri untuk laporan
+        /// </summary>
+        /// <returns>string konten Queri</returns>
         public static string GetLQueri()
         {
             return lQueri;
         }
+        /// <summary>
+        /// Simpan Queri Laporan
+        /// </summary>
+        /// <param name="value">queri laporan</param>
         public static void SetLQueri(string value)
         {
             lQueri = value;
@@ -134,6 +228,14 @@ namespace ExtensionMethods
         #endregion
 
         #region Koneksi Database
+        /// <summary>
+        /// Simpan Koneksi String untuk menghubungakn Aplikasi dengan Database MYSQL
+        /// </summary>
+        /// <param name="host">host mysql</param>
+        /// <param name="uid">user id Database mysql</param>
+        /// <param name="pwd">password Database msqyl</param>
+        /// <param name="db">nama database mysql yang digunakan</param>
+        /// <param name="port">port queri yang digunakan</param>
         public static void SetKoneksiString(string host, string uid, string pwd, string db, string port)
         {
             strcon = "server=" + host + ";database=" + db + ";uid=" + uid + ";pwd=" + pwd + ";port=" + port + ";SslMode=none;Pooling=true;Min Pool Size=0;" +
@@ -141,6 +243,10 @@ namespace ExtensionMethods
             koneksi = new MySqlConnection(strcon);
             koneksi2 = new MySqlConnection(strcon);
         }
+        /// <summary>
+        /// Simpan Koneksi String untuk menghubungakn Aplikasi dengan Database MYSQL
+        /// </summary>
+        /// <param name="KeySetting">nama pengaturan</param>
         public static string GetDataSettings(this string KeySetting)
         {
             string value = "";
@@ -165,6 +271,11 @@ namespace ExtensionMethods
             }
             return value;
         }
+        /// <summary>
+        /// Menampilkan data berbentuk tabel dari database mysql
+        /// </summary>
+        /// <param name="q">select queri yang menampilkan data dari database mysql</param>
+        /// <returns>DataTable dari select queri</returns>
         public static DataTable GetData(this string q)
         {
             DataSet ds1 = new DataSet();
@@ -189,6 +300,11 @@ namespace ExtensionMethods
             }
             return ds1.Tables[0];
         }
+        /// <summary>
+        /// Menampilkan data berbentuk string dari database mysql dari 1 field
+        /// </summary>
+        /// <param name="q">select queri singel field / 1 field</param>
+        /// <returns>data string dari select queri</returns>
         public static string SingelData(this string q)
         {
             string output = "";
@@ -206,6 +322,10 @@ namespace ExtensionMethods
             }
             return output;
         }
+        /// <summary>
+        /// Mengecek status koneksi dari database mysql
+        /// </summary>
+        /// <returns>Boolean, kembalikan nilai benar atau salah / true or false</returns>
         public static bool CekstatusMysql()
         {
             try
@@ -222,6 +342,11 @@ namespace ExtensionMethods
             else
                 return false;
         }
+        /// <summary>
+        /// Eksekusi queri CUD data mysql
+        /// </summary>
+        /// <param name="q">queri CUD / insert, update, delete queri</param>
+        /// <returns>Boolen, kembalikan nilai benar atau salah / true or false</returns>
         public static bool ManipulasiData(this string q)
         {
             //sint res = 0;
@@ -241,6 +366,12 @@ namespace ExtensionMethods
                 koneksi.Close();
             return false;
         }
+        /// <summary>
+        /// Eksekusi queri CUD data mysql, dengan mengebalikan jumlah rows 
+        /// </summary>
+        /// <param name="q">queri CUD / insert, update, delete queri</param>
+        /// <param name="rows">out variabel, nilai keluaran bernilai integer</param>
+        /// <returns>Boolen, kembalikan nilai benar atau salah / true or false</returns>
         public static bool ManipulasiData(this string q, out int rows)
         {
             int res = 0;
@@ -261,6 +392,11 @@ namespace ExtensionMethods
             rows = res;
             return false;
         }
+        /// <summary>
+        /// Eksekusi queri select untuk menghitung jumlah rows/baris
+        /// </summary>
+        /// <param name="q">queri select</param>
+        /// <returns>Int, kembalikan jumlah baris</returns>
         public static int JumlahData(this string q)
         {
             int count = 0;
@@ -268,6 +404,11 @@ namespace ExtensionMethods
                 count++;
             return count;
         }
+        /// <summary>
+        /// Eksekusi queri select untuk mencari data didatabase
+        /// </summary>
+        /// <param name="q">queri select</param>
+        /// <returns>Boolen, kembalikan nilai benar atau salah / true or false</returns>
         public static bool SearchData(this string q)
         {
             bool ada = false;
@@ -280,7 +421,12 @@ namespace ExtensionMethods
                 koneksi.Close();
             return ada;
         }
-        public static async Task<string> GetValue(this string q)
+        /// <summary>
+        /// Eksekusi queri select untuk menampilkan data secara asynchronous
+        /// </summary>
+        /// <param name="q">queri select</param>
+        /// <returns>string, kembalikan nilai data select</returns>
+        public static async Task<string> SingerDataAsync(this string q)
         {
             string result = "";
             koneksi2.Open();
@@ -297,17 +443,23 @@ namespace ExtensionMethods
         #endregion
 
         #region Encode Decode
-        public static string EncodeUtf8(this string input)
+        /// <summary>
+        /// Mengencode string normal ke base 64 string
+        /// </summary>
+        /// <param name="input">string normal</param>
+        /// <returns>string, hasil encode dari normal string</returns>
+        public static string EncodeToBase64String(this string input)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(input));
         }
-        public static string DecodeUtf8(this string input)
+        /// <summary>
+        /// Mendecode base 64 string ke string normal
+        /// </summary>
+        /// <param name="input">string base 64 string</param>
+        /// <returns>string, hasil decode dari base 64 string</returns>
+        public static string DecodeFromBase64String(this string input)
         {
             return Encoding.UTF8.GetString(Convert.FromBase64String(input));
-        }
-        public static string QuoteFix(this string input)
-        {
-            return Regex.Replace(input, "'", "''");
         }
         #endregion End Encode Decode
 
@@ -2855,10 +3007,6 @@ namespace ExtensionMethods
                 }
             }
         }
-        public static async Task<string> GetStringValues(this string queri)
-        {
-            return await GetValue(queri);
-        }
         #endregion
 
         #region LoadData
@@ -3213,7 +3361,7 @@ namespace ExtensionMethods
                     ss.ForeColor = GetStatusstripaksencolor();
                     ss.Items.Clear();
                     ss.Items.Add("Halo, " + GetUsernama());
-                    ToolStripStatusLabel status = new ToolStripStatusLabel(GetStatusstripmessage().DecodeUtf8()) { Spring = true };
+                    ToolStripStatusLabel status = new ToolStripStatusLabel(GetStatusstripmessage().DecodeFromBase64String()) { Spring = true };
                     ss.Items.Add(status);
                     ss.Items.Add("JAM");
                     Timer timer = new Timer();

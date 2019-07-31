@@ -138,7 +138,7 @@ namespace SINIS.Auth
                         this.ShowInTaskbar = true;
                         if (Properties.Settings.Default.loginsaveusername)
                         {
-                            TbUsername.Text = S.GetUsername().DecodeUtf8();
+                            TbUsername.Text = S.GetUsername().DecodeFromBase64String();
                             TbUsername.ForeColor = Color.Black;
                         }
                     }
@@ -162,7 +162,7 @@ namespace SINIS.Auth
             if (Properties.Settings.Default.loginsaveusername)
             {
                 CbSaveUsername.Checked = true;
-                TbUsername.Text = Properties.Settings.Default.username.DecodeUtf8();
+                TbUsername.Text = Properties.Settings.Default.username.DecodeFromBase64String();
                 TbUsername.ForeColor = Color.Black;
             }
         }
