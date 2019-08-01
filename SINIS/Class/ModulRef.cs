@@ -892,10 +892,10 @@ namespace ExtensionMethods
 
         #region Loading static data
         /// <summary>
-        /// 
+        /// input data Yes & No kedalam combobox
         /// </summary>
-        /// <param name="cb"></param>
-        /// <param name="semua"></param>
+        /// <param name="cb">combobox</param>
+        /// <param name="semua">boolean, untuk memasukan pilihan "semua" atau tidak</param>
         public static void LoadYN(this ComboBox cb, bool semua = true)
         {
             cb.Items.Clear();
@@ -904,6 +904,12 @@ namespace ExtensionMethods
             cb.Items.Add("YA");
             cb.Items.Add("TIDAK");
         }
+        /// <summary>
+        /// input data user tabel ke combobox
+        /// </summary>
+        /// <param name="cb">combobox</param>
+        /// <param name="semua">boolean, pilihan untuk memasukan "semua" atau tidak</param>
+        /// <returns>list string id user tabel</returns>
         public static List<string> LoadUser(this ComboBox cb, bool semua = true)
         {
             id = new List<string>();
@@ -920,6 +926,11 @@ namespace ExtensionMethods
             //}
             return id;
         }
+        /// <summary>
+        /// input data openorder ke combobox
+        /// </summary>
+        /// <param name="cb">combobox</param>
+        /// <param name="semua">boolean, pilihan untuk memasukan "semua" atau tidak</param>
         public static void LoadOpenOrder(this ComboBox cb, bool semua = false)
         {
             //cb.Items.Clear();
@@ -931,6 +942,11 @@ namespace ExtensionMethods
         #endregion End Loading static data
 
         #region Queri Execution
+        /// <summary>
+        /// eksekusi queri khusu untuk input data ke database
+        /// </summary>
+        /// <param name="queri">queri string</param>
+        /// <returns>boolen</returns>
         public static bool DBCreate(this string queri)
         {
             if (ManipulasiData(queri))
@@ -941,6 +957,11 @@ namespace ExtensionMethods
             else
                 return false;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="queri"></param>
+        /// <returns></returns>
         public static bool DBUpdate(this string queri)
         {
             if (ManipulasiData(queri))
