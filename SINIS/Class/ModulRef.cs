@@ -464,18 +464,35 @@ namespace ExtensionMethods
         #endregion End Encode Decode
 
         #region Generated
-        public static string Barcode(this string tabel, string key)
+        /// <summary>
+        /// Mengenerate kode barcode dengan 13 angka
+        /// </summary>
+        /// <param name="tabel">string nama tabel di database</param>
+        /// <param name="key">string nama field di database</param>
+        /// <returns>string, kembalikan kode barcode 13 angka</returns>
+        public static string GenerateBarcode(this string tabel, string key)
         {
             string barcode = GenerateBarcode();
             if (barcode.CekBarcode(tabel, key))
-                tabel.Barcode(key);
+                tabel.GenerateBarcode(key);
             return barcode;
         }
-        public static bool CekBarcode(this string bar, string tabel, string key)
+        /// <summary>
+        /// Mengecek kode barcode apakah telah digunakan atau belum
+        /// </summary>
+        /// <param name="bar">string kode barcode yang akan dicek</param>
+        /// <param name="tabel">string nama tabel di database</param>
+        /// <param name="key">string nama field di database</param>
+        /// <returns>boolean, kembalikan hasil benar atau salah / true or false</returns>
+        private static bool CekBarcode(this string bar, string tabel, string key)
         {
             return SearchData("SELECT `" + key + "` FROM `" + tabel + "` WHERE `" + key + "`='" + bar + "';");
         }
-        public static string GenerateBarcode()
+        /// <summary>
+        /// mengenerate kode barcode dengan 13 angka acak
+        /// </summary>
+        /// <returns>string, kembalikan kode barcode 13 angka</returns>
+        private static string GenerateBarcode()
         {
             return random.Next(6, 10).ToString() + random.Next(5, 10).ToString() + 
                 random.Next(4, 10).ToString() + random.Next(0, 6).ToString() + 
@@ -483,6 +500,13 @@ namespace ExtensionMethods
                 random.Next(3, 10).ToString() + random.Next(0, 10).ToString() + 
                 random.Next(5, 10).ToString() + random.Next(0, 9).ToString();
         }
+        /// <summary>
+        /// mengenerate kode kunci untuk tabel database
+        /// </summary>
+        /// <param name="prefix">string tanda awal kode terdiri 2 karakter</param>
+        /// <param name="tabel">string nama tabel di database</param>
+        /// <param name="field">string nama field tabel di database</param>
+        /// <returns>string, kembalikan kode kunci tabel database</returns>
         public static string GenerateKode(string prefix, string tabel, string field)
         {
             string temprefix = prefix + S.GetEndIpAddress() + DateTime.Now.ToString("yyMMdd");
@@ -491,6 +515,11 @@ namespace ExtensionMethods
                 postfix = (Convert.ToInt32(baris[0]) + 1).ToString();
             return temprefix + postfix.GeneratePostFix();
         }
+        /// <summary>
+        /// mengenerate 4 karakter untuk kode kunci paling belakang
+        /// </summary>
+        /// <param name="postfix">string, karakter antara 1-4 karakter</param>
+        /// <returns>string, kembalikan 4 karakter</returns>
         private static string GeneratePostFix(this string postfix)
         {
             if (postfix.Length == 0)
@@ -505,6 +534,10 @@ namespace ExtensionMethods
             }
             return postfix;
         }
+        /// <summary>
+        /// mendapatkan download path
+        /// </summary>
+        /// <returns>string, download path</returns>
         public static string GetDownloadsPath()
         {
             string path;
@@ -522,9 +555,24 @@ namespace ExtensionMethods
             path = Path.Combine(path, "Downloads");
             return path;
         }
+        /// <summary>
+        /// variable guid folder download 374DE290-123F-4565-9164-39C4925E467B
+        /// </summary>
         private static Guid FolderDownloads = new Guid("374DE290-123F-4565-9164-39C4925E467B");
+        /// <summary>
+        /// variabel extern dapatkan folder path
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="flags"></param>
+        /// <param name="token"></param>
+        /// <param name="path"></param>
+        /// <returns>integer, know folder path</returns>
         [DllImport("shell32.dll", CharSet = CharSet.Auto)]
         private static extern int SHGetKnownFolderPath(ref Guid id, int flags, IntPtr token, out IntPtr path);
+        /// <summary>
+        /// simpan queri berbentuk string ke file txt pada folder Log
+        /// </summary>
+        /// <param name="text">string</param>
         public static void SaveTextSQL(this string text)
         {
             try
@@ -537,6 +585,13 @@ namespace ExtensionMethods
             }
             catch (Exception) { }
         }
+        /// <summary>
+        /// loging error dan menyimpan keterangan error dalam file pada folder log
+        /// </summary>
+        /// <param name="error">exception error</param>
+        /// <param name="procedure">string nama procedure</param>
+        /// <param name="form">string nama form yang error</param>
+        /// <param name="sql">string queri jika ada</param>
         public static void LogError(this Exception error, string procedure, string form = "", string sql = "")
         {
             if (string.IsNullOrEmpty(sql))
@@ -552,6 +607,12 @@ namespace ExtensionMethods
                 Environment.NewLine + Environment.NewLine);
             MessageBox.Show("Kesalahan : " + error.Message + " Di line : " + line, "Error " + procedure, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        /// <summary>
+        /// dapatkan index kolom dengan menggunakan nama kolom
+        /// </summary>
+        /// <param name="grid">Datagridview yang akan dicari index kolom nya</param>
+        /// <param name="name">string nama dari kolom</param>
+        /// <returns>integer, kolom index</returns>
         public static int GetColumnIndexByHeader(this DataGridView grid, string name)
         {
             //var grid = dgbawah;
@@ -560,6 +621,10 @@ namespace ExtensionMethods
                     return grid.Columns.IndexOf(col);
             return -1;
         }
+        /// <summary>
+        /// dapatkan macaddres dari klien
+        /// </summary>
+        /// <returns>string, mac address pc</returns>
         public static string GetMACAddress()
         {
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
@@ -574,6 +639,10 @@ namespace ExtensionMethods
             }
             return sMacAddress;
         }
+        /// <summary>
+        /// dapatkan local ip address klien
+        /// </summary>
+        /// <returns>string, local ip address</returns>
         public static string GetLocalIPAddress()
         {
             var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
@@ -586,6 +655,10 @@ namespace ExtensionMethods
             }
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
+        /// <summary>
+        /// dapatkan ujung dari local ip address klien
+        /// </summary>
+        /// <returns>string, local ip address</returns>
         public static string GetEndLocalIpAddress()
         {
             string[] tmpip = GetLocalIPAddress().Split('.');
@@ -599,7 +672,14 @@ namespace ExtensionMethods
             }
             return "000";
         }
+        /// <summary>
+        /// dapatkan nama dari PC
+        /// </summary>
         public static string GetPcName => Environment.MachineName;
+        /// <summary>
+        /// dapatkan fungsi yang sedang di jalankan
+        /// </summary>
+        /// <returns>string, dapatkan fungsi</returns>
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetCurrentMethod()
         {
@@ -607,6 +687,11 @@ namespace ExtensionMethods
             var sf = st.GetFrame(1);
             return sf.GetMethod().Name;
         }
+        /// <summary>
+        /// dapatkan datatable dari datagridview
+        /// </summary>
+        /// <param name="dgv">datagridview yang akan dirubah</param>
+        /// <returns>datatable</returns>
         public static DataTable ToDataTable(this DataGridView dgv)
         {
             DataTable dt = new DataTable();
@@ -622,7 +707,11 @@ namespace ExtensionMethods
             }
             return dt;
         }
-        private static string SelectRandomKarakter()
+        /// <summary>
+        /// dapatkan select random karakter A sampai Z dan 1 sampai 9
+        /// </summary>
+        /// <returns>string karakter huruf/angka</returns>
+        private static string GetSelectRandomKarakter()
         {
             string value = "A";
             int a = random.Next(1, 36);
@@ -736,6 +825,14 @@ namespace ExtensionMethods
             }
             return value;
         }
+        /// <summary>
+        /// mengatur control untuk form yang memiliki datagridview yang berhalaman halaman
+        /// </summary>
+        /// <param name="tbhalaman">textbox, control halaman </param>
+        /// <param name="bprev">button, tombol untuk ke halaman sebelumnya</param>
+        /// <param name="ldarihalaman">label, informasi total halaman</param>
+        /// <param name="bnext">button, tombol untuk ke halaman selanjutnya</param>
+        /// <param name="Loaddb">function, fungsi dari load queri untuk datagridview</param>
         public static void SetHalaman(this TextBox tbhalaman, Button bprev, Label ldarihalaman, Button bnext, Func<bool> Loaddb)
         {
             string awal = "1";
@@ -781,43 +878,24 @@ namespace ExtensionMethods
         #endregion End Generated
 
         #region Logging
-        public static void CreateLog(this string kodefaktur, string table, string form, string procedure, string keterangan = "")
-        {
-            ManipulasiData("INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
-                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'INSERT', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');");
-        }
-        public static void UpdateLog(this string kodefaktur, string table, string form, string procedure, string keterangan = "")
-        {
-            ManipulasiData("INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
-                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'UPDATE', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');");
-        }
-        public static void DeleteLog(this string kodefaktur, string table, string form, string procedure, string keterangan = "")
-        {
-            ManipulasiData("INSERT INTO `t_log` (`kode`, `table`, `id_user`, `eksekusi`, `time`, `form`, `procedure`, `keterangan` ) " +
-                "VALUES ('" + kodefaktur + "', '" + table + "', '" + S.GetUserid() + "', 'DELETE', NOW(), '" + form + "', '" + procedure + "', '" + keterangan + "');");
-            //Logging
-        }
-        public static void SetLogin()
-        {
-            try
-            {
-                ManipulasiData("INSERT INTO `d_login` ( `id_user`, `ipaddres`, `macaddres`, `pcname`, `time` ) VALUES " +
-                    "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW());");
-            }
-            catch (Exception) { }
-        }
-        public static void SetLogout()
-        {
-            try
-            {
-                ManipulasiData("INSERT INTO `d_login` ( `id_user`, `ipaddres`, `macaddres`, `pcname`, `time`, `state` ) VALUES " +
-                "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW(), 'LOGOUT' );");
-            }
-            catch (Exception) { }
-        }
+        /// <summary>
+        /// simpan log login
+        /// </summary>
+        public static void SetLogin() => _ = ManipulasiData("INSERT INTO `d_login` (`id_user`, `ipaddres`, `macaddres`, `pcname`, `time`, `state`) VALUES " +
+                "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW(), 'LOGIN');");
+        /// <summary>
+        /// simpan log logout
+        /// </summary>
+        public static void SetLogout() => _ = ManipulasiData("INSERT INTO `d_login` (`id_user`, `ipaddres`, `macaddres`, `pcname`, `time`, `state`) VALUES " +
+            "('" + S.GetUserid() + "', '" + GetLocalIPAddress() + "', '" + GetMACAddress() + "', '" + GetPcName + "', NOW(), 'LOGOUT' );");
         #endregion End Logging
 
         #region Loading static data
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cb"></param>
+        /// <param name="semua"></param>
         public static void LoadYN(this ComboBox cb, bool semua = true)
         {
             cb.Items.Clear();
