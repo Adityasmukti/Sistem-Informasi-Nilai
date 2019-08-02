@@ -64,7 +64,7 @@ namespace SINIS.Settings
                 MessageBox.Show("Ada field yang kosong!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbPesanStatus.Text.EncodeUtf8() + "' WHERE `pengaturan` = 'statusstripmessage';");
+                A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbPesanStatus.Text.EncodeToBase64String() + "' WHERE `pengaturan` = 'statusstripmessage';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbJumlahBaris.Text + "' WHERE `pengaturan` = 'divs';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbPanelJuduBg.Text + "' WHERE `pengaturan` = 'colorpaneljudul';");
                 A.SetQueri(A.GetQueri() + "UPDATE `r_settings` SET `nilai` = '" + TbStatusbarBg.Text + "' WHERE `pengaturan` = 'statusstripmaincolor';");

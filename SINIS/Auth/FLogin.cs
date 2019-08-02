@@ -96,7 +96,7 @@ namespace SINIS.Auth
 
                 foreach (DataRow baris in A.GetQueri().GetData().Rows)
                 {
-                    S.SetUsername(baris["username"].ToString().EncodeUtf8());
+                    S.SetUsername(baris["username"].ToString().EncodeToBase64String());
                     S.SetUseracces(baris["id_akses"].ToString());
                     S.SetUserid(baris["id_user"].ToString());
                     S.SetKodeGuru(baris["kode_ref"].ToString());
