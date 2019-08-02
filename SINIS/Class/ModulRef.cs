@@ -33,7 +33,7 @@ namespace ExtensionMethods
         private static MySqlDataAdapter adapter;
         private static MySqlDataReader reader;
         private static readonly Random random = new Random();
-        private static string Queri = "", queri = "", select = "", from = "", values = "", where = "", 
+        private static string Queri = "", queri = "", select = "", from = "", values = "", where = "",
             groupby = "", orderby = "", set = "", insert = "", update = "", lQueri = "";
         private static List<string> id;
         private static PrintDocument PDD, PDB;
@@ -53,9 +53,9 @@ namespace ExtensionMethods
         public static string GetQueri()
         {
             return queri;
-        /// <summary>
-        /// Ambil string yang betuliskan SEMUA
-        /// </summary>
+            /// <summary>
+            /// Ambil string yang betuliskan SEMUA
+            /// </summary>
         }
         /// <summary>
         /// Simpan Queri 
@@ -494,10 +494,10 @@ namespace ExtensionMethods
         /// <returns>string, kembalikan kode barcode 13 angka</returns>
         private static string GenerateBarcode()
         {
-            return random.Next(6, 10).ToString() + random.Next(5, 10).ToString() + 
-                random.Next(4, 10).ToString() + random.Next(0, 6).ToString() + 
-                random.Next(2, 10).ToString() + random.Next(0, 6).ToString() + 
-                random.Next(3, 10).ToString() + random.Next(0, 10).ToString() + 
+            return random.Next(6, 10).ToString() + random.Next(5, 10).ToString() +
+                random.Next(4, 10).ToString() + random.Next(0, 6).ToString() +
+                random.Next(2, 10).ToString() + random.Next(0, 6).ToString() +
+                random.Next(3, 10).ToString() + random.Next(0, 10).ToString() +
                 random.Next(5, 10).ToString() + random.Next(0, 9).ToString();
         }
         /// <summary>
@@ -943,7 +943,7 @@ namespace ExtensionMethods
 
         #region Queri Execution
         /// <summary>
-        /// eksekusi queri khusu untuk input data ke database
+        /// eksekusi queri khusus untuk input data ke database
         /// </summary>
         /// <param name="queri">queri string</param>
         /// <returns>boolen</returns>
@@ -958,10 +958,10 @@ namespace ExtensionMethods
                 return false;
         }
         /// <summary>
-        /// 
+        /// eksekusi queri khusus untuk ubah data ke database
         /// </summary>
-        /// <param name="queri"></param>
-        /// <returns></returns>
+        /// <param name="queri">string queri</param>
+        /// <returns>boolean</returns>
         public static bool DBUpdate(this string queri)
         {
             if (ManipulasiData(queri))
@@ -972,6 +972,11 @@ namespace ExtensionMethods
             else
                 return false;
         }
+        /// <summary>
+        /// eksekusi queri khusus untuk hapus data ke database
+        /// </summary>
+        /// <param name="queri">string queri</param>
+        /// <returns>boolean</returns>
         public static bool DBHapus(this string queri)
         {
             if (ManipulasiData(queri))
@@ -982,6 +987,10 @@ namespace ExtensionMethods
             else
                 return false;
         }
+        /// <summary>
+        /// input data ke datagridview berdasarkan queri yang telah di masukan sebelumnya
+        /// </summary>
+        /// <param name="Dg">Datagridview</param>
         public static void QueriToDg(this DataGridView Dg)
         {
             Dg.Rows.Clear();
@@ -1002,6 +1011,13 @@ namespace ExtensionMethods
                 Dg.Rows.Add(dr);
             }
         }
+        /// <summary>
+        /// mengenerate queri AND dari inputan combobox berupa YA/TIDAK
+        /// </summary>
+        /// <param name="cb">Combobox</param>
+        /// <param name="field">string field</param>
+        /// <param name="semua">boolean jika combobox memiliki nilai semua</param>
+        /// <param name="nilai">boolean, berupa nilai atau bukan</param>
         public static void GenerateQueriYN(this ComboBox cb, string field, bool semua = true, bool nilai = false)
         {
             if (nilai)
@@ -1063,6 +1079,12 @@ namespace ExtensionMethods
                 }
             }
         }
+        /// <summary>
+        /// mengenerate queri AND dari inputan combobox berupa nilai text
+        /// </summary>
+        /// <param name="cb">Combobox</param>
+        /// <param name="field">string field</param>
+        /// <param name="semua">boolean jika combobox memiliki nilai semua</param>
         public static void GenerateQueriValue(this ComboBox cb, string field, bool semua = true)
         {
             if (semua)
@@ -1079,6 +1101,13 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "`='" + cb.Text + "' ");
             }
         }
+        /// <summary>
+        /// mengenerate queri AND dari inputan combobox berupa nilai dari list string
+        /// </summary>
+        /// <param name="cb">combobox</param>
+        /// <param name="id">list string nilai</param>
+        /// <param name="field">string field</param>
+        /// <param name="semua">boolean jika combobox memiliki nilai semua</param>
         public static void GenerateQueriValue(this ComboBox cb, List<string> id, string field, bool semua = true)
         {
             if (semua)
@@ -1095,6 +1124,11 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "`='" + id[cb.SelectedIndex] + "' ");
             }
         }
+        /// <summary>
+        /// mengenerate queri AND LIKE dari inputan textbox
+        /// </summary>
+        /// <param name="tb">textbox cari</param>
+        /// <param name="fields">list string field yang akan dicari</param>
         public static void GenerateQueriCari(this TextBox tb, List<string> fields)
         {
             if (!string.IsNullOrEmpty(tb.Text))
@@ -1109,9 +1143,15 @@ namespace ExtensionMethods
                 SetWhere(GetWhere() + Queri);
             }
         }
-        public static void GenerateQueriDate(this DateTimePicker dtp1, DateTimePicker dtp2, string field, bool cb = true)
+        /// <summary>
+        /// mengenerate queri AND berdasarkan datetimepicker awal dan akhir dari tanggal
+        /// </summary>
+        /// <param name="dtp1">datetimepicker 1</param>
+        /// <param name="dtp2">datetimepicker 2</param>
+        /// <param name="field">field tabel</param>
+        public static void GenerateQueriDate(this DateTimePicker dtp1, DateTimePicker dtp2, string field)
         {
-            if (cb)
+            if (dtp1.ShowCheckBox)
             {
                 if (dtp1.Checked)
                 {
@@ -1125,9 +1165,15 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "` >= '" + dtp1.ToStringDate() + " 00:00:00' AND `" + field + "` <= '" + dtp2.ToStringDate() + " 23:59:59' ");
             }
         }
-        public static void GenerateQueriDateTime(this DateTimePicker dtp1, DateTimePicker dtp2, string field, bool cb = true)
+        /// <summary>
+        /// mengenerate queri AND berdasarkan datetimepicker awal dan akhir dari tanggal
+        /// </summary>
+        /// <param name="dtp1">datetimepicker 1</param>
+        /// <param name="dtp2">datetimepicker 2</param>
+        /// <param name="field">field tabel</param>
+        public static void GenerateQueriDateTime(this DateTimePicker dtp1, DateTimePicker dtp2, string field)
         {
-            if (cb)
+            if (dtp1.ShowCheckBox)
             {
                 if (dtp1.Checked)
                 {
@@ -1141,9 +1187,15 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "` >= '" + dtp1.ToStringDateTime() + ":00' AND `" + field + "` <= '" + dtp2.ToStringDateTime() + ":59' ");
             }
         }
-        public static void GenerateQueriDateTimes(this DateTimePicker dtp1, DateTimePicker dtp2, string field, bool cb = true)
+        /// <summary>
+        /// mengenerate queri AND berdasarkan datetimepicker awal dan akhir dari tanggal
+        /// </summary>
+        /// <param name="dtp1">datetimepicker 1</param>
+        /// <param name="dtp2">datetimepicker 2</param>
+        /// <param name="field">field tabel</param>
+        public static void GenerateQueriDateTimes(this DateTimePicker dtp1, DateTimePicker dtp2, string field)
         {
-            if (cb)
+            if (dtp1.ShowCheckBox)
             {
                 if (dtp1.Checked)
                 {
@@ -1157,7 +1209,12 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "` >= '" + dtp1.ToStringDateTimes() + "' AND `" + field + "` <= '" + dtp2.ToStringDateTimes() + "' ");
             }
         }
-        public static void GenerateQueriDate(this DateTimePicker dtp, string field, bool lebihbesar = true, bool cb = true)
+        /// <summary>
+        /// mengenerate queri AND berdasarkan datetimepicker dari tanggal
+        /// </summary>
+        /// <param name="dtp">datetimepicker </param>
+        /// <param name="field">field tabel</param>
+        public static void GenerateQueriDate(this DateTimePicker dtp, string field, bool lebihbesar = true)
         {
             string operators = "<=";
             string waktu = " 23:59:59";
@@ -1167,7 +1224,7 @@ namespace ExtensionMethods
                 operators = ">=";
             }
 
-            if (cb)
+            if (dtp.ShowCheckBox)
             {
                 if (dtp.Checked)
                 {
@@ -1181,7 +1238,12 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "` " + operators + " '" + dtp.ToStringDate() + waktu + "' ");
             }
         }
-        public static void GenerateQueriDateTime(this DateTimePicker dtp, string field, bool lebihbesar = true, bool cb = true)
+        /// <summary>
+        /// mengenerate queri AND berdasarkan datetimepicker dari tanggal
+        /// </summary>
+        /// <param name="dtp">datetimepicker </param>
+        /// <param name="field">field tabel</param>
+        public static void GenerateQueriDateTime(this DateTimePicker dtp, string field, bool lebihbesar = true)
         {
             string operators = "<=";
             string waktu = ":59";
@@ -1191,7 +1253,7 @@ namespace ExtensionMethods
                 operators = ">=";
             }
 
-            if (cb)
+            if (dtp.ShowCheckBox)
             {
                 if (dtp.Checked)
                 {
@@ -1205,7 +1267,12 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "` " + operators + " '" + dtp.ToStringDateTime() + waktu + "' ");
             }
         }
-        public static void GenerateQueriDateTimes(this DateTimePicker dtp, string field, bool lebihbesar = true, bool cb = true)
+        /// <summary>
+        /// mengenerate queri AND berdasarkan datetimepicker dari tanggal
+        /// </summary>
+        /// <param name="dtp">datetimepicker </param>
+        /// <param name="field">field tabel</param>
+        public static void GenerateQueriDateTimes(this DateTimePicker dtp, string field, bool lebihbesar = true)
         {
             string operators = "<=";
             if (lebihbesar)
@@ -1213,7 +1280,7 @@ namespace ExtensionMethods
                 operators = ">=";
             }
 
-            if (cb)
+            if (dtp.ShowCheckBox)
             {
                 if (dtp.Checked)
                 {
@@ -1227,72 +1294,71 @@ namespace ExtensionMethods
                 else SetWhere(GetWhere() + " AND `" + field + "` " + operators + " '" + dtp.ToStringDateTimes() + "' ");
             }
         }
-        public static string GenerateQueriUpdate(this Dictionary<string, string> data)
+        /// <summary>
+        /// generate update queri
+        /// </summary>
+        /// <param name="data">dictionary nama field dan nilainya</param>
+        /// <param name="tabel">nama tabel</param>
+        /// <param name="field">nama field</param>
+        /// <param name="key">nilai kunci</param>
+        /// <returns></returns>
+        public static string GenerateQueriUpdate(this Dictionary<string, string> data, string tabel, string field, string key)
         {
-            string tabel = "", key = "", valuekey = "";
             string set2 = "SET ";
             foreach (KeyValuePair<string, string> entry in data)
             {
-                if (entry.Key == "TABEL")
-                    tabel = entry.Value;
-                else if (entry.Key == "KEY")
-                    key = entry.Value;
-                else if (entry.Key == "VALUEKEY")
-                    valuekey = entry.Value;
+                if (entry.Value == "NOW()")
+                    set2 += "`" + entry.Key + "`=NOW(),";
+                else if (entry.Value == "NULL")
+                    set2 += "`" + entry.Key + "`=NULL,";
                 else
-                {
-                    if (entry.Value == "NOW()")
-                        set2 += "`" + entry.Key + "`=NOW(),";
-                    else if (entry.Value == "NULL")
-                        set2 += "`" + entry.Key + "`=NULL,";
-                    else
-                        set2 += "`" + entry.Key + "`='" + entry.Value + "',";
-                }
+                    set2 += "`" + entry.Key + "`='" + entry.Value + "',";
             }
-            return "UPDATE `" + tabel + "` " + set2.Substring(0, set2.Length - 1) + " WHERE `" + key + "` = '" + valuekey + "';";
+            return "UPDATE `" + tabel + "` " + set2.Substring(0, set2.Length - 1) + " WHERE `" + field + "` = '" + key + "';";
         }
-        public static string GenerateQueriInsert(this Dictionary<string, string> data)
+        /// <summary>
+        /// generate queri insert
+        /// </summary>
+        /// <param name="data">dictionary </param>
+        /// <param name="tabel">nama tabel</param>
+        /// <returns></returns>
+        public static string GenerateQueriInsert(this Dictionary<string, string> data, string tabel)
         {
             string tmpinsert = "", tmpvalues = "";
             string values2 = "VALUES (";
-            string insert2="";
+            string insert2 = "INSERT INTO `" + tabel + "` (";
             foreach (KeyValuePair<string, string> entry in data)
             {
-                if (entry.Key == "TABEL")
-                    insert2 = "INSERT INTO `" + entry.Value + "` (";
+                if (entry.Value == "NOW()")
+                {
+                    tmpinsert += "`" + entry.Key + "`,";
+                    tmpvalues += "NOW(),";
+                }
+                else if (entry.Value == "NULL")
+                {
+                    tmpinsert += "`" + entry.Key + "`,";
+                    tmpvalues += "NULL,";
+                }
                 else
                 {
-                    if (entry.Value == "NOW()")
-                    {
-                        tmpinsert += "`" + entry.Key + "`,";
-                        tmpvalues += "NOW(),";
-                    }
-                    else if (entry.Value == "NULL")
-                    {
-                        tmpinsert += "`" + entry.Key + "`,";
-                        tmpvalues += "NULL,";
-                    }
-                    else
-                    {
-                        tmpinsert += "`" + entry.Key + "`,";
-                        tmpvalues += "'" + entry.Value + "',";
-                    }
+                    tmpinsert += "`" + entry.Key + "`,";
+                    tmpvalues += "'" + entry.Value + "',";
                 }
             }
             insert2 += tmpinsert.Substring(0, tmpinsert.Length - 1) + ") ";
             values2 += tmpvalues.Substring(0, tmpvalues.Length - 1) + ") ";
             return insert2 + values2 + ";";
         }
-        public static string GenerateQueriSelect(this string tabel, string where, string value, List<string> data)
-        {
-            string select2 = "SELECT ";
-            foreach (string str in data)
-                select2 += "`" + str + "`,";
-            return select2.Substring(0, select2.Length - 1) + "FROM `" + tabel + "` WHERE `" + where + "`='" + value + "'" + ";";
-        }
         #endregion End Queri Execution
 
         #region Index Note
+        /// <summary>
+        /// load index row datagridview
+        /// </summary>
+        /// <param name="Dg">datagridview</param>
+        /// <param name="Loaddb">fungsi load database</param>
+        /// <param name="cell">integer cell datagridview</param>
+        /// <returns>boolean</returns>
         public static bool LoadIndex(this DataGridView Dg, Func<bool> Loaddb, int cell = 0)
         {
             try
@@ -1309,6 +1375,13 @@ namespace ExtensionMethods
             }
             catch (Exception) { return false; }
         }
+        /// <summary>
+        /// load index row datagridview
+        /// </summary>
+        /// <param name="Dg">datagridview</param>
+        /// <param name="row">int row index</param>
+        /// <param name="cell">int cell index</param>
+        /// <returns></returns>
         public static bool LoadIndex(this DataGridView Dg, int row, int cell = 0)
         {
             try
@@ -1323,13 +1396,38 @@ namespace ExtensionMethods
         #endregion End Note
 
         #region Converter
+        /// <summary>
+        /// konversi warna ke dalam string
+        /// </summary>
+        /// <param name="c">color</param>
+        /// <returns>string</returns>
         public static string ColorToString(this Color c) => c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
+        /// <summary>
+        /// konversi string ke dalam warna
+        /// </summary>
+        /// <param name="s">string</param>
+        /// <returns>warna</returns>
         public static Color StringToColor(this string s) => ColorTranslator.FromHtml("#" + s);
+        /// <summary>
+        /// konversi warna rgb ke string
+        /// </summary>
+        /// <param name="c">color</param>
+        /// <returns>string</returns>
         public static string RGBConverter(this Color c) => "RGB(" + c.R.ToString() + "," + c.G.ToString() + "," + c.B.ToString() + ")";
+        /// <summary>
+        /// konversi format angka ke format rupiah
+        /// </summary>
+        /// <param name="angka">long</param>
+        /// <returns>string</returns>
         public static string ToRupiah(this long angka)
         {
             return string.Format(CultureInfo.CreateSpecificCulture("id-id"), "Rp {0:N0}", angka);
         }
+        /// <summary>
+        /// konversi format angka ke format rupiah
+        /// </summary>
+        /// <param name="angka">string</param>
+        /// <returns>string</returns>
         public static string ToRupiah(this string angka)
         {
             try
@@ -1338,6 +1436,11 @@ namespace ExtensionMethods
             }
             catch (Exception) { return angka; }
         }
+        /// <summary>
+        /// konversi format angka ke format rupiah
+        /// </summary>
+        /// <param name="angka">object</param>
+        /// <returns>string</returns>
         public static string ToRupiah(this object angka)
         {
             try
@@ -1515,307 +1618,299 @@ namespace ExtensionMethods
         #endregion End Converter
 
         #region Pencetakan
-        public static PaperSize CalculatePaperSize(double WIcm, double HIcm)
-        {
-            int Width = Math.Round((WIcm * 0.393701) * 100, 0, MidpointRounding.AwayFromZero).ToString().ToInteger();
-            int Height = Math.Round((HIcm * 0.393701) * 100, 0, MidpointRounding.AwayFromZero).ToString().ToInteger();
+        //public static PaperSize CalculatePaperSize(double WIcm, double HIcm)
+        //{
+        //    int Width = Math.Round((WIcm * 0.393701) * 100, 0, MidpointRounding.AwayFromZero).ToString().ToInteger();
+        //    int Height = Math.Round((HIcm * 0.393701) * 100, 0, MidpointRounding.AwayFromZero).ToString().ToInteger();
 
-            PaperSize NewSize = new PaperSize
-            {
-                RawKind = (int)PaperKind.Custom,
-                Width = Width,
-                Height = Height,
-                PaperName = "Stiker"
-            };
+        //    PaperSize NewSize = new PaperSize
+        //    {
+        //        RawKind = (int)PaperKind.Custom,
+        //        Width = Width,
+        //        Height = Height,
+        //        PaperName = "Stiker"
+        //    };
 
-            return NewSize;
-        }
-        public static int Getpx(this double cm)
-        {
-            return Math.Round(cm * 0.393700787 * 100, 0, MidpointRounding.AwayFromZero).ToString().ToInteger();
-        }
-        public static bool CekStatusPrinter()
-        {
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Printer");
-            foreach (ManagementObject printer in searcher.Get())
-            {
-                if (((bool?)printer["Default"]) ?? false)
-                {
-                    if (printer["WorkOffline"].ToString().ToLower().Equals("true"))
-                    {
-                        MessageBox.Show("Your Plug-N-Play printer " + printer["Name"].ToString() + " is not connected.");
-                        break;
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        public static bool CetakLabel(this string kodeproduk, bool preview = false)
-        {
+        //    return NewSize;
+        //}
+        //public static int Getpx(this double cm)
+        //{
+        //    return Math.Round(cm * 0.393700787 * 100, 0, MidpointRounding.AwayFromZero).ToString().ToInteger();
+        //}
+        //public static bool CekStatusPrinter()
+        //{
+        //    ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Printer");
+        //    foreach (ManagementObject printer in searcher.Get())
+        //    {
+        //        if (((bool?)printer["Default"]) ?? false)
+        //        {
+        //            if (printer["WorkOffline"].ToString().ToLower().Equals("true"))
+        //            {
+        //                MessageBox.Show("Your Plug-N-Play printer " + printer["Name"].ToString() + " is not connected.");
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //    return false;
+        //}
+        //public static bool CetakLabel(this string kodeproduk, bool preview = false)
+        //{
 
-            PDD = new PrintDocument();
-            string barcode = "";
-            string brand = "";
-            string sku = "";
-         
-            foreach (DataRow b in GetData(Queri).Rows)
-            {
-                string[] tmp = { b["nama_produk"].ToString(), b["nama_size"].ToString(), b["nama_warna"].ToString() };
-                brand = b["nama_brand"].ToString();
-                barcode = b["barcode"].ToString();
-                sku = string.Join(",", tmp).NoteCuttingLength();
-            }
+        //    PDD = new PrintDocument();
+        //    string barcode = "";
+        //    string brand = "";
+        //    string sku = "";
 
-            Margins margins = new Margins(Getpx(SettingLabel["marginleft"].ToFloat()), Getpx(SettingLabel["marginright"].ToFloat()),
-                Getpx(SettingLabel["margintop"].ToFloat()), Getpx(SettingLabel["marginbottom"].ToFloat()));
-            PDD.DefaultPageSettings.Margins = margins;
-            PDD.DefaultPageSettings.PaperSize = A.CalculatePaperSize(SettingLabel["panjangkertas"].ToFloat(), SettingLabel["tinggikertas"].ToFloat());
-            PDD.PrintPage += (sender, e) =>
-            {
-                Color color = SettingLabel["warnabarcode"].StringToColor();
-                int kolom = SettingLabel["jlhkolom"].ToInteger();//5
-                int baris = SettingLabel["jlhbaris"].ToInteger();//8
-                int panjang = Getpx(SettingLabel["panjangkolom"].ToFloat());//4
-                int tinggi = Getpx(SettingLabel["tinggibaris"].ToFloat());//1.99
-                int x = 0;
-                int y = 0;
-                Font f6 = new Font(SettingLabel["namafont"], SettingLabel["sizefontbrand"].ToFloat());//arial//6
-                Font f5 = new Font(SettingLabel["namafont"], SettingLabel["sizefontsku"].ToFloat());//arial//5
-                Font f8 = new Font(SettingLabel["namafont"], SettingLabel["sizefontbarcode"].ToFloat());//arial//8
-                e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                for (int kl = 0; kl < kolom; kl++)
-                {
-                    y = 0;
-                    for (int br = 0; br < baris; br++)
-                    {
-                        e.Graphics.DrawString(brand, f6, new SolidBrush(color), new PointF(x + Getpx(SettingLabel["leftbrand"].ToFloat()),
-                            y + Getpx(SettingLabel["topbrand"].ToFloat())));//0.3//0.1
-                        e.Graphics.DrawString(sku, f5, new SolidBrush(color), new PointF(x + Getpx(SettingLabel["leftsku"].ToFloat()),
-                            y + f6.Height + Getpx(SettingLabel["topsku"].ToFloat())));//0.3//0.1
-                        y += tinggi;
-                    }
-                    x += panjang;
-                }
-                e.HasMorePages = false;
-            };
+        //    foreach (DataRow b in GetData(Queri).Rows)
+        //    {
+        //        string[] tmp = { b["nama_produk"].ToString(), b["nama_size"].ToString(), b["nama_warna"].ToString() };
+        //        brand = b["nama_brand"].ToString();
+        //        barcode = b["barcode"].ToString();
+        //        sku = string.Join(",", tmp).NoteCuttingLength();
+        //    }
 
-            if (preview)
-            {
-                PrintPreviewDialog printPreview = new PrintPreviewDialog
-                {
-                    Document = PDD,
-                };
-                printPreview.PrintPreviewControl.Zoom = 1;
-                ((Form)printPreview).WindowState = FormWindowState.Maximized;
-                printPreview.ShowDialog();
-                return true;
-            }
-            else
-            {
-                //PDD.Print();
-                if (CekStatusPrinter())
-                {
-                    PrintDialog pd = new PrintDialog
-                    {
-                        Document = PDD,
-                        AllowSelection = true,
-                        AllowSomePages = true
-                    };
-                    if (pd.ShowDialog() == DialogResult.OK)
-                    {
-                        //PDD.PrinterSettings = pd.PrinterSettings;
-                        PDD.PrinterSettings.PrinterName = pd.PrinterSettings.PrinterName;
-                        PDD.PrinterSettings.Copies = pd.PrinterSettings.Copies;
-                        PDD.PrinterSettings.PrintRange = pd.PrinterSettings.PrintRange;
+        //    Margins margins = new Margins(Getpx(SettingLabel["marginleft"].ToFloat()), Getpx(SettingLabel["marginright"].ToFloat()),
+        //        Getpx(SettingLabel["margintop"].ToFloat()), Getpx(SettingLabel["marginbottom"].ToFloat()));
+        //    PDD.DefaultPageSettings.Margins = margins;
+        //    PDD.DefaultPageSettings.PaperSize = A.CalculatePaperSize(SettingLabel["panjangkertas"].ToFloat(), SettingLabel["tinggikertas"].ToFloat());
+        //    PDD.PrintPage += (sender, e) =>
+        //    {
+        //        Color color = SettingLabel["warnabarcode"].StringToColor();
+        //        int kolom = SettingLabel["jlhkolom"].ToInteger();//5
+        //        int baris = SettingLabel["jlhbaris"].ToInteger();//8
+        //        int panjang = Getpx(SettingLabel["panjangkolom"].ToFloat());//4
+        //        int tinggi = Getpx(SettingLabel["tinggibaris"].ToFloat());//1.99
+        //        int x = 0;
+        //        int y = 0;
+        //        Font f6 = new Font(SettingLabel["namafont"], SettingLabel["sizefontbrand"].ToFloat());//arial//6
+        //        Font f5 = new Font(SettingLabel["namafont"], SettingLabel["sizefontsku"].ToFloat());//arial//5
+        //        Font f8 = new Font(SettingLabel["namafont"], SettingLabel["sizefontbarcode"].ToFloat());//arial//8
+        //        e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+        //        for (int kl = 0; kl < kolom; kl++)
+        //        {
+        //            y = 0;
+        //            for (int br = 0; br < baris; br++)
+        //            {
+        //                e.Graphics.DrawString(brand, f6, new SolidBrush(color), new PointF(x + Getpx(SettingLabel["leftbrand"].ToFloat()),
+        //                    y + Getpx(SettingLabel["topbrand"].ToFloat())));//0.3//0.1
+        //                e.Graphics.DrawString(sku, f5, new SolidBrush(color), new PointF(x + Getpx(SettingLabel["leftsku"].ToFloat()),
+        //                    y + f6.Height + Getpx(SettingLabel["topsku"].ToFloat())));//0.3//0.1
+        //                y += tinggi;
+        //            }
+        //            x += panjang;
+        //        }
+        //        e.HasMorePages = false;
+        //    };
 
-                        PDD.Print();
+        //    if (preview)
+        //    {
+        //        PrintPreviewDialog printPreview = new PrintPreviewDialog
+        //        {
+        //            Document = PDD,
+        //        };
+        //        printPreview.PrintPreviewControl.Zoom = 1;
+        //        ((Form)printPreview).WindowState = FormWindowState.Maximized;
+        //        printPreview.ShowDialog();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        //PDD.Print();
+        //        if (CekStatusPrinter())
+        //        {
+        //            PrintDialog pd = new PrintDialog
+        //            {
+        //                Document = PDD,
+        //                AllowSelection = true,
+        //                AllowSomePages = true
+        //            };
+        //            if (pd.ShowDialog() == DialogResult.OK)
+        //            {
+        //                //PDD.PrinterSettings = pd.PrinterSettings;
+        //                PDD.PrinterSettings.PrinterName = pd.PrinterSettings.PrinterName;
+        //                PDD.PrinterSettings.Copies = pd.PrinterSettings.Copies;
+        //                PDD.PrinterSettings.PrintRange = pd.PrinterSettings.PrintRange;
 
-                    }
-                    return true;
-                }
-                else
-                {
-                    PrintDialog pd = new PrintDialog
-                    {
-                        Document = PDD,
-                        AllowSelection = true,
-                        AllowSomePages = true
-                    };
-                    MessageBox.Show("Pilih Printer untuk mencetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (pd.ShowDialog() == DialogResult.OK)
-                    {
-                        MyPrinters.SetDefaultPrinter(pd.PrinterSettings.PrinterName);
-                        return CetakLabel(kodeproduk, preview);
-                    }
-                    else
-                        return false;
-                }
-            }
-        }
-        public static bool CetakStikerDepan(this object kodefaktur)
-        {
-            return kodefaktur.ToString().CetakStikerDepan();
-        }
-        public static bool CetakStikerDepan(this string kodefaktur)
-        {
-            if (CekStatusPrinter())
-            {
-                PDD = new PrintDocument();
-                string barcode = "";
-                string nomororder = "";
-                string pengiriman = "";
-                string nama = "";
-                string alamat = "";
-                string kontak = "";
-                string produklist = "";
-                foreach (DataRow item in GetData(Queri).Rows)
-                {
-                    string slip = "";
-                    if (item["slip"].ToInteger() > 0)
-                        slip = "Slip : " + item["slip"].ToRupiah() + "\n";
-                    nomororder = item["nomororder"].ToString();
-                    barcode = item["kode_barcode"].ToString();
-                    pengiriman = item["pengiriman"].ToString() + "\n" + item["tglorder"].ToDateFormatString("dd-MM-yyyy HH:mm");
-                    nama = item["namapembeli"].ToString();
-                    alamat = item["alamat"].ToString();
-                    kontak = item["kontak"].ToString();
-                    produklist = slip + "Invoice : " + item["total"].ToString() + "\nProduk : \n" + produklist;
-                }
+        //                PDD.Print();
 
-                Margins margins = new Margins(Getpx(SettingStiker["marginleft"].ToFloat()), Getpx(SettingStiker["marginright"].ToFloat()),
-                    Getpx(SettingStiker["margintop"].ToFloat()), Getpx(SettingStiker["marginbottom"].ToFloat()));
-                PDD.DefaultPageSettings.Margins = margins;
-                PDD.DefaultPageSettings.PaperSize = A.CalculatePaperSize(SettingStiker["panjangkertas"].ToFloat(), SettingStiker["tinggikertas"].ToFloat());
-                PDD.PrintPage += (sender, e) =>
-                {
-                    Font printFont = new Font(SettingStiker["namafont"], SettingStiker["sizefontdepan"].ToFloat());
-                    Color color = SettingStiker["foregroundtext"].StringToColor();
-                    //image barcode
+        //            }
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            PrintDialog pd = new PrintDialog
+        //            {
+        //                Document = PDD,
+        //                AllowSelection = true,
+        //                AllowSomePages = true
+        //            };
+        //            MessageBox.Show("Pilih Printer untuk mencetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            if (pd.ShowDialog() == DialogResult.OK)
+        //            {
+        //                MyPrinters.SetDefaultPrinter(pd.PrinterSettings.PrinterName);
+        //                return CetakLabel(kodeproduk, preview);
+        //            }
+        //            else
+        //                return false;
+        //        }
+        //    }
+        //}
+        //public static bool CetakStikerDepan(this string kodefaktur)
+        //{
+        //    if (CekStatusPrinter())
+        //    {
+        //        PDD = new PrintDocument();
+        //        string barcode = "";
+        //        string nomororder = "";
+        //        string pengiriman = "";
+        //        string nama = "";
+        //        string alamat = "";
+        //        string kontak = "";
+        //        string produklist = "";
+        //        foreach (DataRow item in GetData(Queri).Rows)
+        //        {
+        //            string slip = "";
+        //            if (item["slip"].ToInteger() > 0)
+        //                slip = "Slip : " + item["slip"].ToRupiah() + "\n";
+        //            nomororder = item["nomororder"].ToString();
+        //            barcode = item["kode_barcode"].ToString();
+        //            pengiriman = item["pengiriman"].ToString() + "\n" + item["tglorder"].ToDateFormatString("dd-MM-yyyy HH:mm");
+        //            nama = item["namapembeli"].ToString();
+        //            alamat = item["alamat"].ToString();
+        //            kontak = item["kontak"].ToString();
+        //            produklist = slip + "Invoice : " + item["total"].ToString() + "\nProduk : \n" + produklist;
+        //        }
 
-                    e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                    e.Graphics.DrawString(barcode, printFont, new SolidBrush(color),
-                        new PointF(Getpx(SettingStiker["lefttextbarcode"].ToFloat()), Getpx(SettingStiker["toptextbarcode"].ToFloat())));
-                    //nomororder
-                    e.Graphics.DrawString(nomororder, printFont, new SolidBrush(color),
-                        new PointF(Getpx(SettingStiker["leftno"].ToFloat()), Getpx(SettingStiker["topno"].ToFloat())));
-                    //pengiriman
-                    e.Graphics.DrawString(pengiriman, printFont, new SolidBrush(color),
-                        new PointF(Getpx(SettingStiker["leftpengiriman"].ToFloat()), Getpx(SettingStiker["toppengiriman"].ToFloat())));
-                    //nama
-                    e.Graphics.DrawString(nama, printFont, new SolidBrush(color),
-                        new PointF(Getpx(SettingStiker["leftnama"].ToFloat()), Getpx(SettingStiker["topnama"].ToFloat())));
-                    //alamat
-                    var rect = new RectangleF(Getpx(SettingStiker["leftalamat"].ToFloat()),
-                        Getpx(SettingStiker["topalamat"].ToFloat()),
-                        Getpx(SettingStiker["panjangkertas"].ToFloat() - SettingStiker["leftalamat"].ToFloat()),
-                        Getpx(SettingStiker["tinggikertas"].ToFloat() - SettingStiker["topalamat"].ToFloat()));
-                    e.Graphics.DrawString(alamat, printFont, new SolidBrush(color), rect);
-                    //"kontak"
-                    e.Graphics.DrawString(kontak, printFont, new SolidBrush(color),
-                        new PointF(Getpx(SettingStiker["leftphone"].ToFloat()), Getpx(SettingStiker["topphone"].ToFloat())));
-                    //produk
-                    rect = new RectangleF(Getpx(SettingStiker["leftinvoice"].ToFloat()),
-                       Getpx(SettingStiker["topinvoice"].ToFloat()),
-                       Getpx(SettingStiker["panjangkertas"].ToFloat() - SettingStiker["leftalamat"].ToFloat()),
-                       Getpx(SettingStiker["tinggikertas"].ToFloat() - SettingStiker["topinvoice"].ToFloat()));
-                    e.Graphics.DrawString(produklist, printFont, new SolidBrush(color), rect);
+        //        Margins margins = new Margins(Getpx(SettingStiker["marginleft"].ToFloat()), Getpx(SettingStiker["marginright"].ToFloat()),
+        //            Getpx(SettingStiker["margintop"].ToFloat()), Getpx(SettingStiker["marginbottom"].ToFloat()));
+        //        PDD.DefaultPageSettings.Margins = margins;
+        //        PDD.DefaultPageSettings.PaperSize = A.CalculatePaperSize(SettingStiker["panjangkertas"].ToFloat(), SettingStiker["tinggikertas"].ToFloat());
+        //        PDD.PrintPage += (sender, e) =>
+        //        {
+        //            Font printFont = new Font(SettingStiker["namafont"], SettingStiker["sizefontdepan"].ToFloat());
+        //            Color color = SettingStiker["foregroundtext"].StringToColor();
+        //            //image barcode
 
-                    e.HasMorePages = false;
-                };
-                PDD.Print();
-                return true;
-            }
-            else
-            {
-                PrintDialog pd = new PrintDialog
-                {
-                    Document = PDD,
-                    AllowSelection = true,
-                    AllowSomePages = true
-                };
-                MessageBox.Show("pastikan printer siap, Pilih Printer untuk mencetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if (pd.ShowDialog() == DialogResult.OK)
-                {
-                    MyPrinters.SetDefaultPrinter(pd.PrinterSettings.PrinterName);
-                    return CetakStikerDepan(kodefaktur);
-                }
-                else
-                    return false;
-            }
-        }
-        public static bool CetakStikerBelakang(this object kodefaktur)
-        {
-            return kodefaktur.ToString().CetakStikerBelakang();
-        }
-        public static bool CetakStikerBelakang(this string kodefaktur)
-        {
-            if (CekStatusPrinter())
-            {
-                PDB = new PrintDocument();
-                string produklist = "";
-                string isibelakang = "";
+        //            e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+        //            e.Graphics.DrawString(barcode, printFont, new SolidBrush(color),
+        //                new PointF(Getpx(SettingStiker["lefttextbarcode"].ToFloat()), Getpx(SettingStiker["toptextbarcode"].ToFloat())));
+        //            //nomororder
+        //            e.Graphics.DrawString(nomororder, printFont, new SolidBrush(color),
+        //                new PointF(Getpx(SettingStiker["leftno"].ToFloat()), Getpx(SettingStiker["topno"].ToFloat())));
+        //            //pengiriman
+        //            e.Graphics.DrawString(pengiriman, printFont, new SolidBrush(color),
+        //                new PointF(Getpx(SettingStiker["leftpengiriman"].ToFloat()), Getpx(SettingStiker["toppengiriman"].ToFloat())));
+        //            //nama
+        //            e.Graphics.DrawString(nama, printFont, new SolidBrush(color),
+        //                new PointF(Getpx(SettingStiker["leftnama"].ToFloat()), Getpx(SettingStiker["topnama"].ToFloat())));
+        //            //alamat
+        //            var rect = new RectangleF(Getpx(SettingStiker["leftalamat"].ToFloat()),
+        //                Getpx(SettingStiker["topalamat"].ToFloat()),
+        //                Getpx(SettingStiker["panjangkertas"].ToFloat() - SettingStiker["leftalamat"].ToFloat()),
+        //                Getpx(SettingStiker["tinggikertas"].ToFloat() - SettingStiker["topalamat"].ToFloat()));
+        //            e.Graphics.DrawString(alamat, printFont, new SolidBrush(color), rect);
+        //            //"kontak"
+        //            e.Graphics.DrawString(kontak, printFont, new SolidBrush(color),
+        //                new PointF(Getpx(SettingStiker["leftphone"].ToFloat()), Getpx(SettingStiker["topphone"].ToFloat())));
+        //            //produk
+        //            rect = new RectangleF(Getpx(SettingStiker["leftinvoice"].ToFloat()),
+        //               Getpx(SettingStiker["topinvoice"].ToFloat()),
+        //               Getpx(SettingStiker["panjangkertas"].ToFloat() - SettingStiker["leftalamat"].ToFloat()),
+        //               Getpx(SettingStiker["tinggikertas"].ToFloat() - SettingStiker["topinvoice"].ToFloat()));
+        //            e.Graphics.DrawString(produklist, printFont, new SolidBrush(color), rect);
 
-                foreach (DataRow item in GetData(Queri).Rows)
-                {
-                    string voucher = "";
-                    string keep = "";
-                    string slip = "";
-                    string keterangan = "";
-                    string ketdiskon = "";
-                    if (item["jlhkeep"].ToInteger() > 0)
-                        keep = "Keep : " + item["jlhkeep"].ToRupiah() + "\n";
-                    if (item["jlhvoucher"].ToInteger() > 0)
-                        voucher = "Voucher : " + item["jlhvoucher"].ToRupiah() + "\n";
-                    if (item["slip"].ToInteger() > 0)
-                        slip = "Slip : " + item["slip"].ToRupiah() + "\n";
-                    if (!string.IsNullOrEmpty(item["keterangan"].ToString()))
-                        keterangan = "Keterangan : " + item["keterangan"].ToString() + "\n";
-                    if (!string.IsNullOrEmpty(item["ketdiskon"].ToString()))
-                        ketdiskon = "Ket Diskon : " + item["ketdiskon"].ToString() + "\n";
+        //            e.HasMorePages = false;
+        //        };
+        //        PDD.Print();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        PrintDialog pd = new PrintDialog
+        //        {
+        //            Document = PDD,
+        //            AllowSelection = true,
+        //            AllowSomePages = true
+        //        };
+        //        MessageBox.Show("pastikan printer siap, Pilih Printer untuk mencetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        if (pd.ShowDialog() == DialogResult.OK)
+        //        {
+        //            MyPrinters.SetDefaultPrinter(pd.PrinterSettings.PrinterName);
+        //            return CetakStikerDepan(kodefaktur);
+        //        }
+        //        else
+        //            return false;
+        //    }
+        //}
+        //public static bool CetakStikerBelakang(this string kodefaktur)
+        //{
+        //    if (CekStatusPrinter())
+        //    {
+        //        PDB = new PrintDocument();
+        //        string produklist = "";
+        //        string isibelakang = "";
 
-                    isibelakang = "Order by : " + item["user"].ToString() + "\nTgl OD : " + item["tglorder"].ToDateFormatString("dd-MM-yyyy HH:mm") + "\n" +
-                        slip + voucher + keep + ketdiskon + keterangan + "Produk : \n" + produklist;
-                }
+        //        foreach (DataRow item in GetData(Queri).Rows)
+        //        {
+        //            string voucher = "";
+        //            string keep = "";
+        //            string slip = "";
+        //            string keterangan = "";
+        //            string ketdiskon = "";
+        //            if (item["jlhkeep"].ToInteger() > 0)
+        //                keep = "Keep : " + item["jlhkeep"].ToRupiah() + "\n";
+        //            if (item["jlhvoucher"].ToInteger() > 0)
+        //                voucher = "Voucher : " + item["jlhvoucher"].ToRupiah() + "\n";
+        //            if (item["slip"].ToInteger() > 0)
+        //                slip = "Slip : " + item["slip"].ToRupiah() + "\n";
+        //            if (!string.IsNullOrEmpty(item["keterangan"].ToString()))
+        //                keterangan = "Keterangan : " + item["keterangan"].ToString() + "\n";
+        //            if (!string.IsNullOrEmpty(item["ketdiskon"].ToString()))
+        //                ketdiskon = "Ket Diskon : " + item["ketdiskon"].ToString() + "\n";
 
-                Margins margins = new Margins(Getpx(SettingStiker["marginleft"].ToFloat()), Getpx(SettingStiker["marginright"].ToFloat()),
-                 Getpx(SettingStiker["margintop"].ToFloat()), Getpx(SettingStiker["marginbottom"].ToFloat()));
-                PDB.DefaultPageSettings.Margins = margins;
-                PDB.DefaultPageSettings.PaperSize = A.CalculatePaperSize(SettingStiker["panjangkertas"].ToFloat(), SettingStiker["tinggikertas"].ToFloat());
-                PDB.PrintPage += (sender, e) =>
-                {
-                    Font printFont = new Font(SettingStiker["namafont"], SettingStiker["sizefontbelakang"].ToFloat());
-                    Color color = SettingStiker["foregroundtext"].StringToColor();
-                    //print barcode
-                    e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                    e.HasMorePages = false;
-                };
-                PDB.Print();
-                return true;
-            }
-            else
-            {
-                PrintDialog pd = new PrintDialog
-                {
-                    Document = PDB,
-                    AllowSelection = true,
-                    AllowSomePages = true
-                };
-                MessageBox.Show("pastikan printer siap, Pilih Printer untuk mencetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if (pd.ShowDialog() == DialogResult.OK)
-                {
-                    MyPrinters.SetDefaultPrinter(pd.PrinterSettings.PrinterName);
-                    return CetakStikerBelakang(kodefaktur);
-                }
-                else
-                    return false;
-            }
-        }
-        public static Dictionary<string, string> SettingStiker;
-        public static Dictionary<string, string> SettingLabel;
+        //            isibelakang = "Order by : " + item["user"].ToString() + "\nTgl OD : " + item["tglorder"].ToDateFormatString("dd-MM-yyyy HH:mm") + "\n" +
+        //                slip + voucher + keep + ketdiskon + keterangan + "Produk : \n" + produklist;
+        //        }
+
+        //        Margins margins = new Margins(Getpx(SettingStiker["marginleft"].ToFloat()), Getpx(SettingStiker["marginright"].ToFloat()),
+        //         Getpx(SettingStiker["margintop"].ToFloat()), Getpx(SettingStiker["marginbottom"].ToFloat()));
+        //        PDB.DefaultPageSettings.Margins = margins;
+        //        PDB.DefaultPageSettings.PaperSize = A.CalculatePaperSize(SettingStiker["panjangkertas"].ToFloat(), SettingStiker["tinggikertas"].ToFloat());
+        //        PDB.PrintPage += (sender, e) =>
+        //        {
+        //            Font printFont = new Font(SettingStiker["namafont"], SettingStiker["sizefontbelakang"].ToFloat());
+        //            Color color = SettingStiker["foregroundtext"].StringToColor();
+        //            //print barcode
+        //            e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+        //            e.HasMorePages = false;
+        //        };
+        //        PDB.Print();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        PrintDialog pd = new PrintDialog
+        //        {
+        //            Document = PDB,
+        //            AllowSelection = true,
+        //            AllowSomePages = true
+        //        };
+        //        MessageBox.Show("pastikan printer siap, Pilih Printer untuk mencetak!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        if (pd.ShowDialog() == DialogResult.OK)
+        //        {
+        //            MyPrinters.SetDefaultPrinter(pd.PrinterSettings.PrinterName);
+        //            return CetakStikerBelakang(kodefaktur);
+        //        }
+        //        else
+        //            return false;
+        //    }
+        //}
+        //public static Dictionary<string, string> SettingStiker;
+        //public static Dictionary<string, string> SettingLabel;
         #endregion End Pencetakan 
 
         #region  Input box
@@ -3159,7 +3254,7 @@ namespace ExtensionMethods
             cb.Items.Clear();
             foreach (DataRow br in GetData("SELECT `J`.`kode_kelas`, `namakelas` FROM `tb_jadwal` `J` " +
                 "LEFT JOIN `r_kelas` `K` ON `K`.`kode_kelas`=`J`.`kode_kelas` " +
-                "WHERE `tahunajaran`='"+TahunAjaran+"' AND `kode_guru`='"+KodeGuru+"' " +
+                "WHERE `tahunajaran`='" + TahunAjaran + "' AND `kode_guru`='" + KodeGuru + "' " +
                 "GROUP BY `J`.`kode_kelas` ORDER BY `namakelas` ASC").Rows)
             {
                 id.Add(br[0].ToString());
