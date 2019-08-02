@@ -103,64 +103,55 @@ namespace SINIS
             Pengajar.FKelas f = new Pengajar.FKelas();
             f.Show();
         }
-
         private void BGNilai_Click(object sender, EventArgs e)
         {
             Pengajar.FNilai f = new Pengajar.FNilai();
             f.Show();
         }
-
         private void BGPelajaran_Click(object sender, EventArgs e)
         {
             Pengajar.FPelajaran f = new Pengajar.FPelajaran();
             f.Show();
         }
-
         private void BTURuangKelas_Click(object sender, EventArgs e)
         {
             TU.FRuangKelas f = new TU.FRuangKelas();
             f.Show();
         }
-
         private void BTUPengajaran_Click(object sender, EventArgs e)
         {
             TU.FPengajaran f = new TU.FPengajaran();
             f.Show();
         }
-
         private void BMGuru_Click(object sender, EventArgs e)
         {
             TU.FMasterGuru f = new TU.FMasterGuru();
             f.Show();
         }
-
         private void BMSiswa_Click(object sender, EventArgs e)
         {
             TU.FMasterSiswa f = new TU.FMasterSiswa();
             f.Show();
         }
-
         private void BMPelajaran_Click(object sender, EventArgs e)
         {
             TU.FMasterPelajaran f = new TU.FMasterPelajaran();
             f.Show();
         }
-
         private void BMKelas_Click(object sender, EventArgs e)
         {
             TU.FMasterKelas f = new TU.FMasterKelas();
             f.Show();
         }
-
         private void BMJenisNilai_Click(object sender, EventArgs e)
         {
             TU.FMasterJenisNilai f = new TU.FMasterJenisNilai();
             f.Show();
         }
-
-        private void BGuru_Click(object sender, EventArgs e)
+        private void BLNilai_Click(object sender, EventArgs e)
         {
-
+            Pengajar.FLaporanNilai f = new Pengajar.FLaporanNilai();
+            f.Show();
         }
     }
 }

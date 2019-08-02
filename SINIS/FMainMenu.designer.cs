@@ -33,8 +33,9 @@
             this.BSiswa = new System.Windows.Forms.ToolStripDropDownButton();
             this.BSNilai = new System.Windows.Forms.ToolStripMenuItem();
             this.BGuru = new System.Windows.Forms.ToolStripDropDownButton();
-            this.BGKelas = new System.Windows.Forms.ToolStripMenuItem();
             this.BGNilai = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BGKelas = new System.Windows.Forms.ToolStripMenuItem();
             this.BGPelajaran = new System.Windows.Forms.ToolStripMenuItem();
             this.BTataUsaha = new System.Windows.Forms.ToolStripDropDownButton();
             this.BTURuangKelas = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +67,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TbAktivitas = new System.Windows.Forms.RichTextBox();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BLNilai = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -130,14 +131,6 @@
             this.BGuru.Tag = "GURU";
             this.BGuru.Text = "GURU";
             this.BGuru.Visible = false;
-            this.BGuru.Click += new System.EventHandler(this.BGuru_Click);
-            // 
-            // BGKelas
-            // 
-            this.BGKelas.Name = "BGKelas";
-            this.BGKelas.Size = new System.Drawing.Size(180, 26);
-            this.BGKelas.Text = "Kelas";
-            this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
             // 
             // BGNilai
             // 
@@ -145,6 +138,18 @@
             this.BGNilai.Size = new System.Drawing.Size(180, 26);
             this.BGNilai.Text = "Nilai";
             this.BGNilai.Click += new System.EventHandler(this.BGNilai_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // BGKelas
+            // 
+            this.BGKelas.Name = "BGKelas";
+            this.BGKelas.Size = new System.Drawing.Size(180, 26);
+            this.BGKelas.Text = "Kelas";
+            this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
             // 
             // BGPelajaran
             // 
@@ -186,6 +191,7 @@
             // 
             this.BLaporan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.BLaporan.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BLNilai,
             this.BLRaport});
             this.BLaporan.Image = ((System.Drawing.Image)(resources.GetObject("BLaporan.Image")));
             this.BLaporan.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -449,10 +455,12 @@
             this.TbAktivitas.Text = "";
             this.TbAktivitas.WordWrap = false;
             // 
-            // toolStripSeparator3
+            // BLNilai
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.BLNilai.Name = "BLNilai";
+            this.BLNilai.Size = new System.Drawing.Size(180, 26);
+            this.BLNilai.Text = "Nilai";
+            this.BLNilai.Click += new System.EventHandler(this.BLNilai_Click);
             // 
             // FMainMenu
             // 
@@ -522,5 +530,6 @@
         private System.Windows.Forms.ToolStripMenuItem BMKelas;
         private System.Windows.Forms.ToolStripMenuItem BMJenisNilai;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem BLNilai;
     }
 }

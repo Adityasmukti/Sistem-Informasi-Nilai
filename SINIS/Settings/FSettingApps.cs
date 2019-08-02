@@ -16,7 +16,6 @@ namespace SINIS.Settings
     /// "Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang"
     public partial class FSettingApps : Form
     {
-        List<string> idsubdistrict, idcity;
         private ColorDialog colorDialog1 = new ColorDialog
         {
             AllowFullOpen = true,
