@@ -1,6 +1,6 @@
 ﻿namespace SINIS.Pengajar
 {
-    partial class FLaporanNilai
+    partial class FLKelas
     {
         /// <summary>
         /// Required designer variable.
@@ -30,36 +30,29 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TbCari = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.LInfo = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbsiswa = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbjenisnilai = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cblaporan = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbkelas = new System.Windows.Forms.ComboBox();
+            this.CbKelas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbpelajaran = new System.Windows.Forms.ComboBox();
+            this.CbMapel = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbtahunajaran = new System.Windows.Forms.ComboBox();
-            this.dglaporan = new System.Windows.Forms.DataGridView();
+            this.CbTahunAjaran = new System.Windows.Forms.ComboBox();
+            this.Dg = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ldarihalaman = new System.Windows.Forms.Label();
             this.bnext = new System.Windows.Forms.Button();
             this.tbhalaman = new System.Windows.Forms.TextBox();
             this.bprev = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BExport = new System.Windows.Forms.Button();
             this.BOk = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dglaporan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -67,38 +60,32 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.TbCari);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.LInfo);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.cbsiswa);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.cbjenisnilai);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cblaporan);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.cbkelas);
+            this.panel2.Controls.Add(this.CbKelas);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.cbpelajaran);
+            this.panel2.Controls.Add(this.CbMapel);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.cbtahunajaran);
+            this.panel2.Controls.Add(this.CbTahunAjaran);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 110);
+            this.panel2.Size = new System.Drawing.Size(784, 83);
             this.panel2.TabIndex = 14;
             // 
-            // textBox1
+            // TbCari
             // 
-            this.textBox1.Location = new System.Drawing.Point(46, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(722, 20);
-            this.textBox1.TabIndex = 24;
+            this.TbCari.Location = new System.Drawing.Point(46, 52);
+            this.TbCari.Name = "TbCari";
+            this.TbCari.Size = new System.Drawing.Size(722, 20);
+            this.TbCari.TabIndex = 24;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 82);
+            this.label8.Location = new System.Drawing.Point(8, 55);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 23;
@@ -112,70 +99,6 @@
             this.LInfo.TabIndex = 22;
             this.LInfo.Text = "-";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(523, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "SISWA";
-            // 
-            // cbsiswa
-            // 
-            this.cbsiswa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbsiswa.Enabled = false;
-            this.cbsiswa.FormattingEnabled = true;
-            this.cbsiswa.Location = new System.Drawing.Point(571, 25);
-            this.cbsiswa.Name = "cbsiswa";
-            this.cbsiswa.Size = new System.Drawing.Size(180, 21);
-            this.cbsiswa.TabIndex = 18;
-            this.cbsiswa.SelectedIndexChanged += new System.EventHandler(this.cbsiswa_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(493, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "NILAI";
-            this.label6.Click += new System.EventHandler(this.Label6_Click);
-            // 
-            // cbjenisnilai
-            // 
-            this.cbjenisnilai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbjenisnilai.Enabled = false;
-            this.cbjenisnilai.FormattingEnabled = true;
-            this.cbjenisnilai.Location = new System.Drawing.Point(533, 52);
-            this.cbjenisnilai.Name = "cbjenisnilai";
-            this.cbjenisnilai.Size = new System.Drawing.Size(180, 21);
-            this.cbjenisnilai.TabIndex = 16;
-            this.cbjenisnilai.SelectedIndexChanged += new System.EventHandler(this.cbjenisnilai_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "LAPORAN";
-            // 
-            // cblaporan
-            // 
-            this.cblaporan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cblaporan.FormattingEnabled = true;
-            this.cblaporan.Items.AddRange(new object[] {
-            "PERSISWA",
-            "PERNILAI",
-            "SEMUA"});
-            this.cblaporan.Location = new System.Drawing.Point(72, 52);
-            this.cblaporan.Name = "cblaporan";
-            this.cblaporan.Size = new System.Drawing.Size(180, 21);
-            this.cblaporan.TabIndex = 14;
-            this.cblaporan.SelectedIndexChanged += new System.EventHandler(this.cblaporan_SelectedIndexChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -185,34 +108,34 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "KELAS";
             // 
-            // cbkelas
+            // CbKelas
             // 
-            this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbkelas.FormattingEnabled = true;
-            this.cbkelas.Location = new System.Drawing.Point(337, 25);
-            this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(180, 21);
-            this.cbkelas.TabIndex = 10;
-            this.cbkelas.SelectedIndexChanged += new System.EventHandler(this.cbkelas_SelectedIndexChanged);
+            this.CbKelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbKelas.FormattingEnabled = true;
+            this.CbKelas.Location = new System.Drawing.Point(337, 25);
+            this.CbKelas.Name = "CbKelas";
+            this.CbKelas.Size = new System.Drawing.Size(180, 21);
+            this.CbKelas.TabIndex = 10;
+            this.CbKelas.DropDown += new System.EventHandler(this.CbKelas_DropDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(258, 55);
+            this.label2.Location = new System.Drawing.Point(523, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "MAPEL";
             // 
-            // cbpelajaran
+            // CbMapel
             // 
-            this.cbpelajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbpelajaran.FormattingEnabled = true;
-            this.cbpelajaran.Location = new System.Drawing.Point(307, 52);
-            this.cbpelajaran.Name = "cbpelajaran";
-            this.cbpelajaran.Size = new System.Drawing.Size(180, 21);
-            this.cbpelajaran.TabIndex = 8;
-            this.cbpelajaran.SelectedIndexChanged += new System.EventHandler(this.cbpelajaran_SelectedIndexChanged);
+            this.CbMapel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbMapel.FormattingEnabled = true;
+            this.CbMapel.Location = new System.Drawing.Point(572, 25);
+            this.CbMapel.Name = "CbMapel";
+            this.CbMapel.Size = new System.Drawing.Size(196, 21);
+            this.CbMapel.TabIndex = 8;
+            this.CbMapel.DropDown += new System.EventHandler(this.CbMapel_DropDown);
             // 
             // label4
             // 
@@ -223,23 +146,22 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "TAHUN AJARAN";
             // 
-            // cbtahunajaran
+            // CbTahunAjaran
             // 
-            this.cbtahunajaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtahunajaran.FormattingEnabled = true;
-            this.cbtahunajaran.ItemHeight = 13;
-            this.cbtahunajaran.Location = new System.Drawing.Point(104, 25);
-            this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(180, 21);
-            this.cbtahunajaran.TabIndex = 6;
-            this.cbtahunajaran.SelectedIndexChanged += new System.EventHandler(this.cbtahunajaran_SelectedIndexChanged);
+            this.CbTahunAjaran.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbTahunAjaran.FormattingEnabled = true;
+            this.CbTahunAjaran.ItemHeight = 13;
+            this.CbTahunAjaran.Location = new System.Drawing.Point(104, 25);
+            this.CbTahunAjaran.Name = "CbTahunAjaran";
+            this.CbTahunAjaran.Size = new System.Drawing.Size(180, 21);
+            this.CbTahunAjaran.TabIndex = 6;
             // 
-            // dglaporan
+            // Dg
             // 
-            this.dglaporan.AllowUserToAddRows = false;
-            this.dglaporan.AllowUserToDeleteRows = false;
-            this.dglaporan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dglaporan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Dg.AllowUserToAddRows = false;
+            this.Dg.AllowUserToDeleteRows = false;
+            this.Dg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dg.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,22 +169,21 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dglaporan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dglaporan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dglaporan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dglaporan.Location = new System.Drawing.Point(0, 167);
-            this.dglaporan.Name = "dglaporan";
-            this.dglaporan.ReadOnly = true;
-            this.dglaporan.RowHeadersVisible = false;
-            this.dglaporan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dglaporan.Size = new System.Drawing.Size(784, 323);
-            this.dglaporan.TabIndex = 15;
+            this.Dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dg.Location = new System.Drawing.Point(0, 140);
+            this.Dg.Name = "Dg";
+            this.Dg.ReadOnly = true;
+            this.Dg.RowHeadersVisible = false;
+            this.Dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dg.Size = new System.Drawing.Size(784, 350);
+            this.Dg.TabIndex = 15;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.BExport);
             this.panel1.Controls.Add(this.BOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 490);
@@ -335,37 +256,22 @@
             this.bprev.Text = "<";
             this.bprev.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // BExport
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.Crimson;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(127, 8);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 35);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Print";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Crimson;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(11, 8);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 35);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Export";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BExport.BackColor = System.Drawing.Color.Crimson;
+            this.BExport.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BExport.ForeColor = System.Drawing.Color.White;
+            this.BExport.Location = new System.Drawing.Point(11, 8);
+            this.BExport.Margin = new System.Windows.Forms.Padding(4);
+            this.BExport.Name = "BExport";
+            this.BExport.Size = new System.Drawing.Size(108, 35);
+            this.BExport.TabIndex = 46;
+            this.BExport.Text = "Export";
+            this.BExport.UseVisualStyleBackColor = false;
+            this.BExport.Click += new System.EventHandler(this.BExport_Click);
             // 
             // BOk
             // 
@@ -382,6 +288,7 @@
             this.BOk.TabIndex = 44;
             this.BOk.Text = "OK";
             this.BOk.UseVisualStyleBackColor = false;
+            this.BOk.Click += new System.EventHandler(this.BOk_Click);
             // 
             // statusStrip1
             // 
@@ -417,24 +324,23 @@
             this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Red;
             // 
-            // FLaporanNilai
+            // FLKelas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dglaporan);
+            this.Controls.Add(this.Dg);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FLaporanNilai";
+            this.Name = "FLKelas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LAPORAN NILAI";
-            this.Load += new System.EventHandler(this.FLaporanNilai_Load);
+            this.Text = "LAPORAN NILAI KELAS";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dglaporan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -447,29 +353,22 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbsiswa;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbjenisnilai;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cblaporan;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbkelas;
+        private System.Windows.Forms.ComboBox CbKelas;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbpelajaran;
+        private System.Windows.Forms.ComboBox CbMapel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbtahunajaran;
-        private System.Windows.Forms.DataGridView dglaporan;
+        private System.Windows.Forms.ComboBox CbTahunAjaran;
+        private System.Windows.Forms.DataGridView Dg;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BOk;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label LInfo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TbCari;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BExport;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label ldarihalaman;
         private System.Windows.Forms.Button bnext;

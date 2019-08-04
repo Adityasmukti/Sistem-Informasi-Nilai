@@ -124,23 +124,35 @@
     <Compile Include="FTentang.Designer.cs">
       <DependentUpon>FTentang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pengajar\FLPelajaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pengajar\FLPelajaran.Designer.cs">
+      <DependentUpon>FLPelajaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pengajar\FLSiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pengajar\FLSiswa.Designer.cs">
+      <DependentUpon>FLSiswa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pengajar\FNilai.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pengajar\FNilai.Designer.cs">
       <DependentUpon>FNilai.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pengajar\FLaporanNilai.cs">
+    <Compile Include="Pengajar\FLKelas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pengajar\FLaporanNilai.Designer.cs">
-      <DependentUpon>FLaporanNilai.cs</DependentUpon>
+    <Compile Include="Pengajar\FLKelas.Designer.cs">
+      <DependentUpon>FLKelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pengajar\FRaport.cs">
+    <Compile Include="Pengajar\FLRaport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pengajar\FRaport.Designer.cs">
-      <DependentUpon>FRaport.cs</DependentUpon>
+    <Compile Include="Pengajar\FLRaport.Designer.cs">
+      <DependentUpon>FLRaport.cs</DependentUpon>
     </Compile>
     <Compile Include="TU\FInputGuru.cs">
       <SubType>Form</SubType>
@@ -271,14 +283,20 @@
     <EmbeddedResource Include="FTentang.resx">
       <DependentUpon>FTentang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pengajar\FLPelajaran.resx">
+      <DependentUpon>FLPelajaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pengajar\FLSiswa.resx">
+      <DependentUpon>FLSiswa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pengajar\FNilai.resx">
       <DependentUpon>FNilai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pengajar\FLaporanNilai.resx">
-      <DependentUpon>FLaporanNilai.cs</DependentUpon>
+    <EmbeddedResource Include="Pengajar\FLKelas.resx">
+      <DependentUpon>FLKelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pengajar\FRaport.resx">
-      <DependentUpon>FRaport.cs</DependentUpon>
+    <EmbeddedResource Include="Pengajar\FLRaport.resx">
+      <DependentUpon>FLRaport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TU\FInputGuru.resx">
       <DependentUpon>FInputGuru.cs</DependentUpon>

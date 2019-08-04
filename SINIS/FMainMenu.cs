@@ -150,7 +150,7 @@ namespace SINIS
         }
         private void BLNilai_Click(object sender, EventArgs e)
         {
-            Pengajar.FLaporanNilai f = new Pengajar.FLaporanNilai();
+            Pengajar.FLKelas f = new Pengajar.FLKelas();
             f.Show();
         }
     }
