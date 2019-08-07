@@ -47,12 +47,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbkelas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cblaporan = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbsiswa = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbjenisnilai = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -113,7 +107,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dglaporan.DefaultCellStyle = dataGridViewCellStyle2;
             this.dglaporan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dglaporan.Location = new System.Drawing.Point(0, 166);
+            this.dglaporan.Location = new System.Drawing.Point(0, 115);
             this.dglaporan.Name = "dglaporan";
             this.dglaporan.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -126,7 +120,7 @@
             this.dglaporan.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dglaporan.RowHeadersVisible = false;
             this.dglaporan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dglaporan.Size = new System.Drawing.Size(784, 395);
+            this.dglaporan.Size = new System.Drawing.Size(784, 375);
             this.dglaporan.TabIndex = 17;
             // 
             // statusStrip1
@@ -255,7 +249,7 @@
             this.cbtahunajaran.ItemHeight = 13;
             this.cbtahunajaran.Location = new System.Drawing.Point(108, 26);
             this.cbtahunajaran.Name = "cbtahunajaran";
-            this.cbtahunajaran.Size = new System.Drawing.Size(178, 21);
+            this.cbtahunajaran.Size = new System.Drawing.Size(147, 21);
             this.cbtahunajaran.TabIndex = 6;
             // 
             // label4
@@ -271,89 +265,25 @@
             // 
             this.cbkelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbkelas.FormattingEnabled = true;
-            this.cbkelas.Location = new System.Drawing.Point(340, 26);
+            this.cbkelas.Location = new System.Drawing.Point(309, 26);
             this.cbkelas.Name = "cbkelas";
-            this.cbkelas.Size = new System.Drawing.Size(178, 21);
+            this.cbkelas.Size = new System.Drawing.Size(147, 21);
             this.cbkelas.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(292, 29);
+            this.label3.Location = new System.Drawing.Point(261, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "KELAS";
-            // 
-            // cblaporan
-            // 
-            this.cblaporan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cblaporan.FormattingEnabled = true;
-            this.cblaporan.Items.AddRange(new object[] {
-            "PERNILAI",
-            "PERSISWA"});
-            this.cblaporan.Location = new System.Drawing.Point(588, 26);
-            this.cblaporan.Name = "cblaporan";
-            this.cblaporan.Size = new System.Drawing.Size(184, 21);
-            this.cblaporan.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(524, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "LAPORAN";
-            // 
-            // cbsiswa
-            // 
-            this.cbsiswa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbsiswa.Enabled = false;
-            this.cbsiswa.FormattingEnabled = true;
-            this.cbsiswa.Location = new System.Drawing.Point(340, 53);
-            this.cbsiswa.Name = "cbsiswa";
-            this.cbsiswa.Size = new System.Drawing.Size(242, 21);
-            this.cbsiswa.TabIndex = 18;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(292, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "SISWA";
-            // 
-            // cbjenisnilai
-            // 
-            this.cbjenisnilai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbjenisnilai.FormattingEnabled = true;
-            this.cbjenisnilai.Location = new System.Drawing.Point(85, 53);
-            this.cbjenisnilai.Name = "cbjenisnilai";
-            this.cbjenisnilai.Size = new System.Drawing.Size(201, 21);
-            this.cbjenisnilai.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "JENIS NILAI";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.LInfo);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.cbjenisnilai);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.cbsiswa);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cblaporan);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cbkelas);
             this.panel2.Controls.Add(this.label4);
@@ -361,20 +291,20 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 109);
+            this.panel2.Size = new System.Drawing.Size(784, 58);
             this.panel2.TabIndex = 16;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(50, 80);
+            this.textBox1.Location = new System.Drawing.Point(500, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(722, 20);
+            this.textBox1.Size = new System.Drawing.Size(272, 20);
             this.textBox1.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 83);
+            this.label5.Location = new System.Drawing.Point(462, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 25;
@@ -393,9 +323,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.dglaporan);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.dglaporan);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -426,12 +356,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbkelas;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cblaporan;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbsiswa;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbjenisnilai;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label ldarihalaman;
