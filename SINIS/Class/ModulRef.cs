@@ -3022,6 +3022,15 @@ namespace ExtensionMethods
                 next--;
             }
         }
+        public static void LoadTahunAjaranWaliKelas(this ComboBox cb)
+        {
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `tahunajaran` FROM `tb_walikelas` WHERE `kode_guru`='" + S.GetUserid() + "'" +
+                " GROUP BY `tahunajaran` ORDER BY `tahunajaran` DESC;").Rows)
+            {
+                cb.Items.Add(br[0].ToString());
+            }
+        }
         public static void LoadTahunAjaran(this ComboBox cb, string kodeguru)
         {
             cb.Items.Clear();
@@ -3039,6 +3048,19 @@ namespace ExtensionMethods
                 "LEFT JOIN `r_kelas` `K` ON `K`.`kode_kelas`=`J`.`kode_kelas` " +
                 "WHERE `tahunajaran`='" + TahunAjaran + "' AND `kode_guru`='" + KodeGuru + "' " +
                 "GROUP BY `J`.`kode_kelas` ORDER BY `namakelas` ASC").Rows)
+            {
+                id.Add(br[0].ToString());
+                cb.Items.Add(br[1].ToString());
+            }
+            return id;
+        }
+        public static List<string> LoadKelasWaliKelas(this ComboBox cb, string TahunAjaran)
+        {
+            id = new List<string>();
+            cb.Items.Clear();
+            foreach (DataRow br in GetData("SELECT `W`.`kode_kelas`, `namakelas` FROM `tb_walikelas` `W` LEFT JOIN `r_kelas` `K` ON `K`.`kode_kelas`=`W`.`kode_kelas` " +
+                "WHERE `tahunajaran`='" + TahunAjaran + "' AND `kode_guru`='" + S.GetUserid() + "' " +
+                "GROUP BY `W`.`kode_kelas` ORDER BY `namakelas` ASC").Rows)
             {
                 id.Add(br[0].ToString());
                 cb.Items.Add(br[1].ToString());

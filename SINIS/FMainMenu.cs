@@ -153,5 +153,11 @@ namespace SINIS
             Pengajar.FLKelas f = new Pengajar.FLKelas();
             f.Show();
         }
+
+        private void BLRaport_Click(object sender, EventArgs e)
+        {
+            Pengajar.FLRaport f = new Pengajar.FLRaport();
+            f.Show();
+        }
     }
 }

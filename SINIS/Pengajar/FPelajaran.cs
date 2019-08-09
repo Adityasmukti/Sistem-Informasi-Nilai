@@ -49,7 +49,7 @@ namespace SINIS.Pengajar
             if (Dg.Rows.Count > 0)
             {
                 string judul = "Data Pelajaran Tahun Ajaran " + CbTahunAjaran.Text + " " + DateTime.Now.ToString("dd/MM/yyyy");
-                Dg.ExportExcel(A.GetLQueri(), judul);
+                Dg.ExportExcel(judul);
             }
             else
                 MessageBox.Show("Data kosong!!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);

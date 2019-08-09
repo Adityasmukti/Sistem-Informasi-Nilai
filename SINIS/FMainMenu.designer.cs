@@ -42,6 +42,9 @@
             this.BTUPengajaran = new System.Windows.Forms.ToolStripMenuItem();
             this.BLaporan = new System.Windows.Forms.ToolStripDropDownButton();
             this.BLNilai = new System.Windows.Forms.ToolStripMenuItem();
+            this.pelajaranToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.siswaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BLRaport = new System.Windows.Forms.ToolStripMenuItem();
             this.BMaster = new System.Windows.Forms.ToolStripDropDownButton();
             this.BMSiswa = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +71,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TbAktivitas = new System.Windows.Forms.RichTextBox();
-            this.pelajaranToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.siswaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -138,26 +138,26 @@
             // BGNilai
             // 
             this.BGNilai.Name = "BGNilai";
-            this.BGNilai.Size = new System.Drawing.Size(143, 26);
+            this.BGNilai.Size = new System.Drawing.Size(180, 26);
             this.BGNilai.Text = "Nilai";
             this.BGNilai.Click += new System.EventHandler(this.BGNilai_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // BGKelas
             // 
             this.BGKelas.Name = "BGKelas";
-            this.BGKelas.Size = new System.Drawing.Size(143, 26);
+            this.BGKelas.Size = new System.Drawing.Size(180, 26);
             this.BGKelas.Text = "Kelas";
             this.BGKelas.Click += new System.EventHandler(this.BGKelas_Click);
             // 
             // BGPelajaran
             // 
             this.BGPelajaran.Name = "BGPelajaran";
-            this.BGPelajaran.Size = new System.Drawing.Size(143, 26);
+            this.BGPelajaran.Size = new System.Drawing.Size(180, 26);
             this.BGPelajaran.Text = "Pelajaran";
             this.BGPelajaran.Click += new System.EventHandler(this.BGPelajaran_Click);
             // 
@@ -215,11 +215,29 @@
             this.BLNilai.Text = "Kelas";
             this.BLNilai.Click += new System.EventHandler(this.BLNilai_Click);
             // 
+            // pelajaranToolStripMenuItem
+            // 
+            this.pelajaranToolStripMenuItem.Name = "pelajaranToolStripMenuItem";
+            this.pelajaranToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.pelajaranToolStripMenuItem.Text = "Pelajaran";
+            // 
+            // siswaToolStripMenuItem
+            // 
+            this.siswaToolStripMenuItem.Name = "siswaToolStripMenuItem";
+            this.siswaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.siswaToolStripMenuItem.Text = "Siswa";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            // 
             // BLRaport
             // 
             this.BLRaport.Name = "BLRaport";
             this.BLRaport.Size = new System.Drawing.Size(180, 26);
             this.BLRaport.Text = "Raport";
+            this.BLRaport.Click += new System.EventHandler(this.BLRaport_Click);
             // 
             // BMaster
             // 
@@ -243,40 +261,40 @@
             // BMSiswa
             // 
             this.BMSiswa.Name = "BMSiswa";
-            this.BMSiswa.Size = new System.Drawing.Size(180, 26);
+            this.BMSiswa.Size = new System.Drawing.Size(150, 26);
             this.BMSiswa.Text = "Siswa";
             this.BMSiswa.Click += new System.EventHandler(this.BMSiswa_Click);
             // 
             // BMGuru
             // 
             this.BMGuru.Name = "BMGuru";
-            this.BMGuru.Size = new System.Drawing.Size(180, 26);
+            this.BMGuru.Size = new System.Drawing.Size(150, 26);
             this.BMGuru.Text = "Guru";
             this.BMGuru.Click += new System.EventHandler(this.BMGuru_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
             // 
             // BMPelajaran
             // 
             this.BMPelajaran.Name = "BMPelajaran";
-            this.BMPelajaran.Size = new System.Drawing.Size(180, 26);
+            this.BMPelajaran.Size = new System.Drawing.Size(150, 26);
             this.BMPelajaran.Text = "Pelajaran";
             this.BMPelajaran.Click += new System.EventHandler(this.BMPelajaran_Click);
             // 
             // BMKelas
             // 
             this.BMKelas.Name = "BMKelas";
-            this.BMKelas.Size = new System.Drawing.Size(180, 26);
+            this.BMKelas.Size = new System.Drawing.Size(150, 26);
             this.BMKelas.Text = "Kelas";
             this.BMKelas.Click += new System.EventHandler(this.BMKelas_Click);
             // 
             // BMJenisNilai
             // 
             this.BMJenisNilai.Name = "BMJenisNilai";
-            this.BMJenisNilai.Size = new System.Drawing.Size(180, 26);
+            this.BMJenisNilai.Size = new System.Drawing.Size(150, 26);
             this.BMJenisNilai.Text = "Jenis Nilai";
             this.BMJenisNilai.Click += new System.EventHandler(this.BMJenisNilai_Click);
             // 
@@ -467,23 +485,6 @@
             this.TbAktivitas.TabIndex = 0;
             this.TbAktivitas.Text = "";
             this.TbAktivitas.WordWrap = false;
-            // 
-            // pelajaranToolStripMenuItem
-            // 
-            this.pelajaranToolStripMenuItem.Name = "pelajaranToolStripMenuItem";
-            this.pelajaranToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.pelajaranToolStripMenuItem.Text = "Pelajaran";
-            // 
-            // siswaToolStripMenuItem
-            // 
-            this.siswaToolStripMenuItem.Name = "siswaToolStripMenuItem";
-            this.siswaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.siswaToolStripMenuItem.Text = "Siswa";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // FMainMenu
             // 
