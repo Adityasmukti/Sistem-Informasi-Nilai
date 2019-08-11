@@ -59,7 +59,7 @@
             // 
             // bhakakses
             // 
-            this.bhakakses.BackColor = System.Drawing.Color.Crimson;
+            this.bhakakses.BackColor = System.Drawing.Color.Gray;
             this.bhakakses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bhakakses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bhakakses.ForeColor = System.Drawing.Color.White;
@@ -74,7 +74,7 @@
             // bsimpan
             // 
             this.bsimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bsimpan.BackColor = System.Drawing.Color.Crimson;
+            this.bsimpan.BackColor = System.Drawing.Color.Gray;
             this.bsimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bsimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bsimpan.ForeColor = System.Drawing.Color.White;
@@ -104,7 +104,7 @@
             // bkeluar
             // 
             this.bkeluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bkeluar.BackColor = System.Drawing.Color.Crimson;
+            this.bkeluar.BackColor = System.Drawing.Color.Gray;
             this.bkeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bkeluar.ForeColor = System.Drawing.Color.White;
@@ -213,7 +213,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -240,7 +240,7 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
+            this.statusStrip1.BackColor = System.Drawing.Color.Gray;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.luserid,
             this.lusername,

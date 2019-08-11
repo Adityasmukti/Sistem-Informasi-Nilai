@@ -87,7 +87,7 @@
             // BSimpan
             // 
             this.BSimpan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BSimpan.BackColor = System.Drawing.Color.Crimson;
+            this.BSimpan.BackColor = System.Drawing.Color.Gray;
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSimpan.ForeColor = System.Drawing.Color.White;
@@ -113,7 +113,7 @@
             // BBatal
             // 
             this.BBatal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BBatal.BackColor = System.Drawing.Color.Crimson;
+            this.BBatal.BackColor = System.Drawing.Color.Gray;
             this.BBatal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BBatal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BBatal.ForeColor = System.Drawing.Color.White;
@@ -129,7 +129,7 @@
             // BHapus
             // 
             this.BHapus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BHapus.BackColor = System.Drawing.Color.Crimson;
+            this.BHapus.BackColor = System.Drawing.Color.Gray;
             this.BHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BHapus.ForeColor = System.Drawing.Color.White;
@@ -143,7 +143,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -255,7 +255,7 @@
             // BTambah
             // 
             this.BTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BTambah.BackColor = System.Drawing.Color.Crimson;
+            this.BTambah.BackColor = System.Drawing.Color.Gray;
             this.BTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTambah.ForeColor = System.Drawing.Color.White;

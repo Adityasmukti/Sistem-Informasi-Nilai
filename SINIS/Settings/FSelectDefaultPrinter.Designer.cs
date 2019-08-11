@@ -55,7 +55,7 @@
             // 
             // BSimpan
             // 
-            this.BSimpan.BackColor = System.Drawing.Color.Crimson;
+            this.BSimpan.BackColor = System.Drawing.Color.Gray;
             this.BSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BSimpan.ForeColor = System.Drawing.Color.White;
@@ -95,7 +95,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);

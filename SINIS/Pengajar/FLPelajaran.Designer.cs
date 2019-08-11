@@ -149,7 +149,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.Crimson;
+            this.button2.BackColor = System.Drawing.Color.Gray;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,7 +165,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Crimson;
+            this.button1.BackColor = System.Drawing.Color.Gray;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,7 +181,7 @@
             // BOk
             // 
             this.BOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BOk.BackColor = System.Drawing.Color.Crimson;
+            this.BOk.BackColor = System.Drawing.Color.Gray;
             this.BOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,7 +196,7 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(41)))), ((int)(((byte)(76)))));
+            this.statusStrip1.BackColor = System.Drawing.Color.Gray;
             this.statusStrip1.Location = new System.Drawing.Point(0, 490);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
@@ -245,7 +245,7 @@
             // 
             // bprev
             // 
-            this.bprev.BackColor = System.Drawing.Color.Crimson;
+            this.bprev.BackColor = System.Drawing.Color.Gray;
             this.bprev.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bprev.Dock = System.Windows.Forms.DockStyle.Left;
             this.bprev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -317,7 +317,7 @@
             // 
             // bnext
             // 
-            this.bnext.BackColor = System.Drawing.Color.Crimson;
+            this.bnext.BackColor = System.Drawing.Color.Gray;
             this.bnext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bnext.Dock = System.Windows.Forms.DockStyle.Right;
             this.bnext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -379,7 +379,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 110);

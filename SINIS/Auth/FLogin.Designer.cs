@@ -60,7 +60,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Crimson;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -109,7 +109,7 @@
             // BKeluar
             // 
             this.BKeluar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BKeluar.BackColor = System.Drawing.Color.Crimson;
+            this.BKeluar.BackColor = System.Drawing.Color.Gray;
             this.BKeluar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BKeluar.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,7 +158,7 @@
             // BLogin
             // 
             this.BLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BLogin.BackColor = System.Drawing.Color.Crimson;
+            this.BLogin.BackColor = System.Drawing.Color.Gray;
             this.BLogin.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BLogin.Font = new System.Drawing.Font("Microsoft PhagsPa", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
